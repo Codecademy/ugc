@@ -1,20 +1,33 @@
 # Categories
 
-Here are the categories:
+Here are the categories, slugs for Languages and Subjects:
 
 ```
-Bash/Shell
+bash
+c-sharp
+c-plus-plus
+go
+html-css
+java
+javascript
+kotlin
+php
+python
+r
+ruby
+sql
+swift
+
 code-foundations
-Computer Science
-Cybersecurity
-Data Science
-Data Visualization
-Developer Tools
-Game Development
-Interview Prep
-iOS
-Machine Learning
-Mobile Development
-Web Design
-Web Development
+computer-science
+cybersecurity
+data-science
+data-visualization
+developer-tools
+game-development
+machine-learning
+math
+mobile-development
+web-design
+web-development
 ```
