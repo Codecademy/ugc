@@ -1,17 +1,15 @@
 <div align="center">
   <h1>📝 UGC Articles</h1>
-  <strong>To be completed</strong><br>
-  <strong>To be completed</strong>
+  <strong>Technical articles on anything code.</strong><br>
+  <strong>Written by the Codecademy community.</strong>
 </div>
 <br>
 
 ## What is UGC Articles?
 
-User generated content (UGC) articles are articles written by the Codecademy community!
+User generated content (UGC) articles are free articles written by the Codecademy community, available to developers all over the world! Here are some examples:
 
-Here are some examples:
-
-- asdf
+- [Web Scrape with Selenium and Beautiful Soup](https://github.com/Codecademy/ugc/blob/main/content/caupolicandiaz/web-scrape-with-selenium-and-beautiful-soup.md)
 - asdf
 - asdf
 - asdf
