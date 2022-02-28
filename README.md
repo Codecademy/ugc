@@ -7,10 +7,14 @@
 
 ## What is UGC Articles?
 
-User generated content (UGC) articles are articles
+User generated content (UGC) articles are articles written by the Codecademy community!
 
 ## Why write articles?
 
+- Learn in public: Share your learning journey with the world.
+- Establish your online 
+- The best way to understand a concept is to explain it to someone else.
+- Pay it forward.
 
 ## What stage of development are we in right now?
 
