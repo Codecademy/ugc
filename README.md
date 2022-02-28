@@ -5,9 +5,12 @@
 </div>
 <br>
 
-## What is UGC?
+## What is UGC Articles?
 
-User generate content
+User generated content (UGC) articles are articles
+
+## Why write articles?
+
 
 ## What stage of development are we in right now?
 
