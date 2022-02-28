@@ -1,6 +1,3 @@
-# ugc
-User Generated Content Articles
-
 <div align="center">
   <h1>📝 UGC</h1>
   <strong>To be completed</strong><br>
