@@ -9,6 +9,14 @@
 
 User generated content (UGC) articles are articles written by the Codecademy community!
 
+Here are some examples:
+
+- asdf
+- asdf
+- asdf
+- asdf
+- asdf
+
 ## Why write articles?
 
 - Learn in public: Share your learning journey with the world.
