@@ -16,27 +16,26 @@ User generated content (UGC) articles are free articles written by the Codecadem
 
 ## Why write articles?
 
-- Establish yourself online.
+- Establish yourself online presence as a developer.
 - The best way to understand a concept is to explain it to someone else.
-- Pay it forward. Share your learnings with the community so other don't make the same pitfalls.
+- Pay it forward: Share your learnings with the community as you level up.
 
 ## What stage of development are we in right now?
 
-This is currently the Beta version of UGC articles.
+This is currently the Beta version of UGC articles. Let us know what you think!
 
 ## How do I contribute? [To Be Updated]
 
 There are many ways to contribute to UGC:
 
-- Submit a Pull Request to edit an existing entry.
-- Submit a Pull Request to create a new entry.
-- Submit a typo/bug in [GitHub Issues](https://github.com/Codecademy/docs/issues).
-- Give product feedback in the [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSeqwAiV8C2EjXciqTvPFI-ABxkh9iyy7HL-hnr69GrRW99MiA/viewform).
+- Submit a Pull Request to edit an existing article.
+- Submit a Pull Request to create a new article of your choice.
+- Take a look in [GitHub Issues](https://github.com/Codecademy/docs/issues) to get inspirations for your article.
 - Join the [#CodecademyUGC](https://twitter.com/search?q=%23CodecademyUGC&src=typed_query&f=live) discussion on Twitter.
 
 Whether you are a code newbie or a seasoned hacker, there's something for you!
 
-Please read through the [Contribution Guide](https://github.com/Codecademy/docs/blob/main/.github/CONTRIBUTING.md) ✨. There you'll find a write-up of our content standards and style guide, as well as templates for creating your entries.
+Please read through the [Contribution Guide](https://github.com/ugc/docs/blob/main/.github/CONTRIBUTING.md) ✨. There you'll find a write-up of our content standards and style guide, as well as templates for creating your entries.
 
 ## Additional Notes
 
