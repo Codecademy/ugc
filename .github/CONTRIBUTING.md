@@ -39,18 +39,33 @@ If you are uncomfortable using Git, you can also check out [this YouTube video](
 
 Before creating new entries, poke around the [/content](https://github.com/Codecademy/ugc/tree/main/content) folder. This is where all the content is stored.
 
-Please read through the following in the [/documentation](https://github.com/Codecademy/docs/tree/main/documentation) folder. In these links, you'll find a write-up of our standards for content and style:
-
-- [Content Standards](https://github.com/Codecademy/docs/blob/main/documentation/content-standards.md)
-- [Tags List](https://github.com/Codecademy/docs/blob/main/documentation/tags.md)
-- [Subjects List](https://github.com/Codecademy/docs/blob/main/documentation/subjects.md)
+```
+.
+├── ...
+├── content                  # Content files
+│   ├── author
+|   |   ├── author_meta.json 
+|   |   ├── article1.md      
+|   |   ├── article2.md
+│   └── ...
+├── documentation            # Documentation files
+└── ...
+```
 
 And here, templates for creating your new entries.
 
 | Template                                                                                                 | GitHub Example                                                                                                                                                                                                                      | Article Example                                                            |
 | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | [Article Template](https://github.com/Codecademy/ugc/blob/main/content/authorA/mock-article-1.md)           | [how-to-convert-css-to-scss.md](https://github.com/Codecademy/ugc/blob/main/content/kyrathompson/how-to-convert-css-to-scss.md) ([Raw](https://raw.githubusercontent.com/Codecademy/ugc/main/content/kyrathompson/how-to-convert-css-to-scss.md))                              | Coming soon         |
-| [Author Template](https://github.com/Codecademy/ugc/blob/main/content/authorA/author_meta.json) | [author_meta.json](https://github.com/Codecademy/ugc/blob/main/content/kyrathompson/author_meta.json) ([Raw](https://raw.githubusercontent.com/Codecademy/docs/main/content/python/concepts/lists/terms/append/append.md)) | Coming soon |
+| [Author Template](https://github.com/Codecademy/ugc/blob/main/content/authorA/author_meta.json) | [author_meta.json](https://github.com/Codecademy/ugc/blob/main/content/kyrathompson/author_meta.json) ([Raw](https://raw.githubusercontent.com/Codecademy/ugc/main/content/kyrathompson/author_meta.json)) | Coming soon |
+
+Please read through the following in the [/documentation](https://github.com/Codecademy/docs/tree/main/documentation) folder. In these links, you'll find a write-up of our standards for content and style:
+
+- [Content Standards](https://github.com/Codecademy/docs/blob/main/documentation/content-standards.md)
+- DatePublished
+- [Categories List](https://github.com/Codecademy/ugc/blob/main/documentation/categories.md)
+- [Tags List](https://github.com/Codecademy/ugc/blob/main/documentation/tags.md)
+
 
 ### Codecademy Username and Profile Pic
 
