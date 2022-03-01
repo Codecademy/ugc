@@ -1,16 +1,19 @@
 ---
 Title: "How to Build a 3D Environment with Three.js"
 Description: "Step-by-step tutorial about how to build a 3D environment with Three.js and render/move 3D objects."
-DatePublished: "2021-09-06"
+DatePublished: "2021-02-28"
 Categories:
-  - "javascript"
   - "web-development"
+  - "game-development"
+  - "javascript"
+  - "html-css"
 Tags:
+  - "Three.js"
   - "Animation"
   - "Node"
 CatalogContent:
   - "learn-node-js"
-  - "paths/front-end-engineer-career-path"
+  - "learn-a-frame"
 ---
 
 [three.js]: https://threejs.org
@@ -34,8 +37,6 @@ CatalogContent:
 [completed 3d environment with rotating cube]: https://media.giphy.com/media/STFCkLhIXzEEEqMXko/giphy.gif?cid=790b761181498784867ee636f3df2887406daf1b2227a08a&rid=giphy.gif&ct=g
 [rendered page with full-sized body]: https://raw.githubusercontent.com/Codecademy/articles/main/build-3d-environment-with-three-js/rendered_page_full_body.png?token=ABGEO3RHPAZJER45E463TLDBCK6KA
 [rendered page with cube]: https://raw.githubusercontent.com/Codecademy/articles/main/build-3d-environment-with-three-js/rendered_page_cube.png?token=ABGEO3TNG23SPGEGLFBXJKTBCK6LK
-
-<kbd># HTML</kbd> <kbd># CSS</kbd> <kbd># JavaScript</kbd> <kbd># Three.js</kbd> <kbd># Terminal</kbd>
 
 ### Introduction
 

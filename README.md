@@ -11,6 +11,7 @@ User generated content (UGC) articles are free articles written by the Codecadem
 
 - [Web Scrape with Selenium and Beautiful Soup](https://github.com/Codecademy/ugc/blob/main/content/caupolicandiaz/web-scrape-with-selenium-and-beautiful-soup.md)
 - [Build a Discord Bot with Node.js](https://github.com/Codecademy/ugc/blob/main/content/christine_yang/build-a-discord-bot-with-node-js.md)
+- [Build a 3D Environment with Three.js](https://github.com/Codecademy/ugc/blob/main/content/brandondusch/build-a-3d-environment-with-three-js.md)
 - [How to Convert CSS to SCSS](https://github.com/Codecademy/ugc/blob/main/content/kyrathompson/how-to-convert-css-to-scss.md)
 
 ## Why write articles?
