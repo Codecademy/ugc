@@ -22,7 +22,7 @@ User generated content (UGC) articles are free articles written by the Codecadem
 
 ## What stage of development are we in right now?
 
-This is currently the Beta version of UGC articles. Let us know what you think!
+This is currently the beta phase of UGC articles. We are aiming to release 20 articles written by beta authors/Codecademy superusers. Let us know what you think!
 
 ## How do I contribute?
 
