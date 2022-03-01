@@ -1,18 +1,18 @@
 ---
 Title: 'How to Convert CSS to SCSS'
 Description: 'Guide on converting CSS to SCSS syntax.'
-Subjects:
-  - 'Web Development'
-  - 'Web Design'
+DatePublished: "2022-02-28"
+Categories:
+  - 'web-development'
+  - 'web-design'
+  - 'html-css'
 Tags:
+  - 'Sass'
   - 'Style'
-  - 'Syntax'
 CatalogContent:
   - 'learn-css'
   - 'paths/front-end-engineer-career-path'
 ---
-
-### What is SCSS?
 
 [SCSS](https://sass-lang.com) is the syntax used for the scripting language SASS, or Syntactically Awesome Style Sheet. This syntax can be used to significantly improve the readability of CSS code. It offers many advanced features that will make it easier for you to shorten your code. Since it is more advanced than CSS, it is sometimes coined as Sassy CSS. In this article, we’re going to learn more about what makes this style sheet so sassy.
 
