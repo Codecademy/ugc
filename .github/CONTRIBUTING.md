@@ -22,7 +22,7 @@ If you're new to UGC articles and contributing for the first time, it is recomme
 Before creating your first article, poke around the [/content](https://github.com/Codecademy/ugc/tree/main/content) folder. This is where all the content is stored.
 
 ```
-.
+ugc
 ├── ...
 ├── content                  # Content files
 │   ├── author
