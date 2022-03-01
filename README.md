@@ -10,10 +10,8 @@
 User generated content (UGC) articles are free articles written by the Codecademy community, available to developers all over the world! Here are some examples:
 
 - [Web Scrape with Selenium and Beautiful Soup](https://github.com/Codecademy/ugc/blob/main/content/caupolicandiaz/web-scrape-with-selenium-and-beautiful-soup.md)
-- asdf
-- asdf
-- asdf
-- asdf
+- [Build a Discord Bot with Node.js](https://github.com/Codecademy/ugc/blob/main/content/christine_yang/build-a-discord-bot-with-node-js.md)
+- [How to Convert CSS to SCSS](https://github.com/Codecademy/ugc/blob/main/content/kyrathompson/how-to-convert-css-to-scss.md)
 
 ## Why write articles?
 
