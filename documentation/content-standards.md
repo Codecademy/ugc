@@ -55,36 +55,6 @@ All code blocks should be delineated by triple backticks (```)
 - SQL: ```sql
 - Swift: ```swift
 
-#### Codebytes: Runnable Code Blocks
-
-Codecademy has a new feature called [Codebytes](https://www.codecademy.com/codebyte-editor) that will allow learners to click a button to run code blocks themselves! The output to the console will appear next to the code block.
-
-Codebytes is a great tool to incorporate into some entries (for instance, if you want learners to to think about what a code block will output before they see it in action, or if you want to show a learner how a function that incorporates randomization produces different output each time).
-
-The syntax is simple: You just add `codebyte/` between the ` ``` ` and the language name in the first line of a normal code block.
-
-Here's an example for JavaScript:
-
-````
-## Codebyte Example
-
-```codebyte/javascript
-console.log('Hello, World!');
-```
-````
-
-Currently, Codebytes supports the following languages:
-
-- C++: `cpp`
-- C#: `csharp`
-- Go: `golang`
-- JavaScript: `javascript`
-- PHP: `php`
-- Python: `python`
-- Ruby: `ruby`
-
-**Note:** Codebytes sometimes requires the code block to include some boilerplate code. To check what boilerplate is required for your language, select the language from the dropdown [in this demo page](https://www.codecademy.com/codebyte-editor). There you'll find a "Hello World!" program set up as an example!
-
 ### Metadata
 
 | Variable Name    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                         | Example                                                                                             |
@@ -103,9 +73,9 @@ Currently, Codebytes supports the following languages:
 - If the concept is hard, make it easy. If it's dry, make it fun. If it's simple, keep it simple.
 - 90% of writing is rewriting.
 
-#### File Hosting
+#### Images and Source Code
 
-If you'd like to include an image, video, GIF, or other file in your entry, please upload it to the [/media folder](https://github.com/Codecademy/docs/tree/main/media). That way we'll never have any broken links!
+If you'd like to include an image, video, GIF, or other file in your entry, please upload it to the same article folder. That way we'll never have any broken links!
 
 ### I've read all the content standards. Now what?
 
