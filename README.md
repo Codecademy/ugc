@@ -1,6 +1,6 @@
 <div align="center">
   <h1>📝 UGC Articles</h1>
-  <strong>Technical articles on anything code.</strong><br>
+  <strong>A library of technical articles on anything code.</strong><br>
   <strong>Written by the Codecademy community.</strong>
 </div>
 <br>
