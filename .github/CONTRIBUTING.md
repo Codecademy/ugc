@@ -15,7 +15,7 @@ There are many ways to contribute to UGC articles:
 - Take a look in [GitHub Issues](https://github.com/Codecademy/docs/issues) to get inspirations for your article.
 - Join the [#CodecademyUGC](https://twitter.com/search?q=%23CodecademyUGC&src=typed_query&f=live) discussion on Twitter.
 
-If you're new to UGC articles and contributing for the first time, it is recommended that you visit the [Issues](https://github.com/Codecademy/docs/issues) section and ask to be assigned to an open issue that interests you. Otherwise, feel free to submit a [PR](https://www.codecademy.com/resources/docs/git/pull-requests) by creating a new [branch](https://www.codecademy.com/resources/docs/general/git/branch) in your fork to create a new entry or edit an existing one.
+If you're new to UGC articles and contributing for the first time, it is recommended that you visit the [Issues](https://github.com/Codecademy/docs/issues) section and ask to be assigned to an open issue that interests you. Otherwise, feel free to submit a [PR](https://www.codecademy.com/resources/docs/git/pull-requests) by creating a new [branch](https://www.codecademy.com/resources/docs/general/git/branch) in your fork to create a new article or edit an existing one.
 
 ## How do I submit a Pull Request (PR)?
 
@@ -24,20 +24,20 @@ Contributing follows this workflow:
 1. Fork [this project repository](https://github.com/codecademy/docs).
 2. Clone the forked repository to your computer.
 3. Create and switch into a new branch.
-4. Edit or create an entry and commit the changes.
+4. Edit or create an article and commit the changes.
 5. Make a PR to merge your fork with this repo.
 
 If you haven't gone through this workflow before, you can check out [this GitHub tutorial](https://github.com/firstcontributions/first-contributions#readme) (highly recommend) or [this YouTube video](https://www.youtube.com/watch?v=rgbCcBNZcdQ) to learn about how to make a PR from a fork using Git.
 
-Alternatively, if you'd prefer to keep things to the GitHub UI, you can follow the instructions in that video up to 1:18 to fork this repo. After that, you can create your entry in your fork using the UI and then make a PR by pressing this handy button:<br>
+Alternatively, if you'd prefer to keep things to the GitHub UI, you can follow the instructions in that video up to 1:18 to fork this repo. After that, you can create your article in your fork using the UI and then make a PR by pressing this handy button:<br>
 
 <img src="https://github.com/Codecademy/docs/blob/main/media/pull-request-ui.png" alt="Code block with Codebyte tags" width="800"/>
 
 If you are uncomfortable using Git, you can also check out [this YouTube video](https://youtu.be/RPagOAUx2SQ) to do this all using the GitHub Desktop app.
 
-## What do I need to do before creating new entries?
+## What do I need to do before creating a new article?
 
-Before creating new entries, poke around the [/content](https://github.com/Codecademy/ugc/tree/main/content) folder. This is where all the content is stored.
+Before creating your first article, poke around the [/content](https://github.com/Codecademy/ugc/tree/main/content) folder. This is where all the content is stored.
 
 ```
 .
@@ -52,7 +52,7 @@ Before creating new entries, poke around the [/content](https://github.com/Codec
 └── ...
 ```
 
-And here, templates for creating your new entries.
+And here, templates for creating your new articles:
 
 | Template                                                                                                 | GitHub Example                                                                                                                                                                                                                      | Article Example                                                            |
 | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -75,12 +75,12 @@ As a UGC article content creator, you have the opportunity to have your Codecade
 
 - Before making a PR, make sure you pushed your changes from a branch other than `main`.
 - Name the new branch after the changes being pushed to the PR.
-- Keep your PRs byte-sized. No more than 3 new entries per PR!
+- Keep your PRs byte-sized. 1 article per PR!
 - All contributors must sign the Contributor License Agreement (CLA).
 - All required [status checks](https://docs.github.com/en/github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks) are expected to pass in each PR.
 - For Beta, we currently require at least one round of reviews from the [content team members](https://github.com/codecademy/docs#-content-team). Make sure to make the changes within 5 days.
 - Requested changes must be resolved before merging.
-- Your entry will be deployed within the hour after it's merged!
+- Your article will be deployed within the hour after it's merged!
 
 ## What do we check for?
 
