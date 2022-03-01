@@ -3,6 +3,22 @@
 Here are the categories, slugs for both Languages and Subjects, which can be found on the left side of the [Articles hub page](https://www.codecademy.com/articles).
 
 ```
+--- Subjects
+code-foundations
+computer-science
+cybersecurity
+data-science
+data-visualization
+developer-tools
+game-development
+machine-learning
+math
+mobile-development
+web-design
+web-development
+```
+
+```
 --- Languages
 bash
 c-sharp
@@ -18,18 +34,4 @@ r
 ruby
 sql
 swift
-
---- Subjects
-code-foundations
-computer-science
-cybersecurity
-data-science
-data-visualization
-developer-tools
-game-development
-machine-learning
-math
-mobile-development
-web-design
-web-development
 ```
