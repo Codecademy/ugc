@@ -22,7 +22,7 @@ User generated content (UGC) articles are free articles written by the Codecadem
 
 ## What stage of development are we in right now?
 
-To be completed.
+This is currently the Beta version of UGC articles.
 
 ## How do I contribute? [To Be Updated]
 
@@ -32,7 +32,7 @@ There are many ways to contribute to UGC:
 - Submit a Pull Request to create a new entry.
 - Submit a typo/bug in [GitHub Issues](https://github.com/Codecademy/docs/issues).
 - Give product feedback in the [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSeqwAiV8C2EjXciqTvPFI-ABxkh9iyy7HL-hnr69GrRW99MiA/viewform).
-- Join the [#CodecademyDocs](https://twitter.com/search?q=%23CodecademyDocs&src=typed_query&f=live) discussion on Twitter.
+- Join the [#CodecademyUGC](https://twitter.com/search?q=%23CodecademyUGC&src=typed_query&f=live) discussion on Twitter.
 
 Whether you are a code newbie or a seasoned hacker, there's something for you!
 
