@@ -17,24 +17,6 @@ There are many ways to contribute to UGC articles:
 
 If you're new to UGC articles and contributing for the first time, it is recommended that you visit the [Issues](https://github.com/Codecademy/docs/issues) section and ask to be assigned to an open issue that interests you. Otherwise, feel free to submit a [PR](https://www.codecademy.com/resources/docs/git/pull-requests) by creating a new [branch](https://www.codecademy.com/resources/docs/general/git/branch) in your fork to create a new article or edit an existing one.
 
-## How do I submit a Pull Request (PR)?
-
-Contributing follows this workflow:
-
-1. Fork [this project repository](https://github.com/codecademy/docs).
-2. Clone the forked repository to your computer.
-3. Create and switch into a new branch.
-4. Edit or create an article and commit the changes.
-5. Make a PR to merge your fork with this repo.
-
-If you haven't gone through this workflow before, you can check out [this GitHub tutorial](https://github.com/firstcontributions/first-contributions#readme) (highly recommend) or [this YouTube video](https://www.youtube.com/watch?v=rgbCcBNZcdQ) to learn about how to make a PR from a fork using Git.
-
-Alternatively, if you'd prefer to keep things to the GitHub UI, you can follow the instructions in that video up to 1:18 to fork this repo. After that, you can create your article in your fork using the UI and then make a PR by pressing this handy button:<br>
-
-<img src="https://github.com/Codecademy/docs/blob/main/media/pull-request-ui.png" alt="Code block with Codebyte tags" width="800"/>
-
-If you are uncomfortable using Git, you can also check out [this YouTube video](https://youtu.be/RPagOAUx2SQ) to do this all using the GitHub Desktop app.
-
 ## What do I need to do before creating a new article?
 
 Before creating your first article, poke around the [/content](https://github.com/Codecademy/ugc/tree/main/content) folder. This is where all the content is stored.
@@ -69,6 +51,24 @@ Please read through the following in the [/documentation](https://github.com/Cod
 ### Codecademy Username and Profile Pic
 
 As a UGC article content creator, you have the opportunity to have your Codecademy username and avatar displayed on the article!
+
+## How do I submit a Pull Request (PR)?
+
+Contributing follows this workflow:
+
+1. Fork [this project repository](https://github.com/codecademy/docs).
+2. Clone the forked repository to your computer.
+3. Create and switch into a new branch.
+4. Edit or create an article and commit the changes.
+5. Make a PR to merge your fork with this repo.
+
+If you haven't gone through this workflow before, you can check out [this GitHub tutorial](https://github.com/firstcontributions/first-contributions#readme) (highly recommend) or [this YouTube video](https://www.youtube.com/watch?v=rgbCcBNZcdQ) to learn about how to make a PR from a fork using Git.
+
+Alternatively, if you'd prefer to keep things to the GitHub UI, you can follow the instructions in that video up to 1:18 to fork this repo. After that, you can create your article in your fork using the UI and then make a PR by pressing this handy button:<br>
+
+<img src="https://github.com/Codecademy/docs/blob/main/media/pull-request-ui.png" alt="Code block with Codebyte tags" width="800"/>
+
+If you are uncomfortable using Git, you can also check out [this YouTube video](https://youtu.be/RPagOAUx2SQ) to do this all using the GitHub Desktop app.
 
 ## Any tips for a Pull Request?
 

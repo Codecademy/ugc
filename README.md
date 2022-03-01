@@ -16,7 +16,7 @@ User generated content (UGC) articles are free articles written by the Codecadem
 
 ## Why write articles?
 
-- Establish yourself online presence as a developer.
+- Establish your online presence as a developer and content creator.
 - The best way to understand a concept is to explain it to someone else.
 - Pay it forward: Share your learnings with the community as you level up.
 
