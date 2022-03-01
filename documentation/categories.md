@@ -4,6 +4,7 @@ Here are the categories, slugs for both Languages and Subjects, which can be fou
 
 ```
 --- Subjects
+
 code-foundations
 computer-science
 cybersecurity
@@ -20,6 +21,7 @@ web-development
 
 ```
 --- Languages
+
 bash
 c-sharp
 c-plus-plus
