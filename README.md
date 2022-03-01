@@ -24,9 +24,9 @@ User generated content (UGC) articles are free articles written by the Codecadem
 
 This is currently the Beta version of UGC articles. Let us know what you think!
 
-## How do I contribute? [To Be Updated]
+## How do I contribute?
 
-There are many ways to contribute to UGC:
+There are many ways to contribute to UGC articles:
 
 - Submit a Pull Request to edit an existing article.
 - Submit a Pull Request to create a new article of your choice.
