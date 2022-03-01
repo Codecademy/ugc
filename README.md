@@ -35,7 +35,7 @@ There are many ways to contribute to UGC articles:
 
 Whether you are a code newbie or a seasoned hacker, there's something for you!
 
-Please read through the [Contribution Guide](https://github.com/ugc/docs/blob/main/.github/CONTRIBUTING.md) ✨. There you'll find a write-up of our content standards and style guide, as well as templates for creating your entries.
+Please read through the [Contribution Guide](https://github.com/Codecademy/ugc/blob/main/.github/CONTRIBUTING.md) ✨. There you'll find a write-up of our content standards and style guide, as well as templates for creating your entries.
 
 ## Additional Notes
 
