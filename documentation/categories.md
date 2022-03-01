@@ -2,9 +2,9 @@
 
 Here are the categories, slugs for both Languages and Subjects, which can be found on the left side of the [Articles hub page](https://www.codecademy.com/articles).
 
-```
---- Subjects
+Subjects' slugs:
 
+```
 code-foundations
 computer-science
 cybersecurity
@@ -19,9 +19,9 @@ web-design
 web-development
 ```
 
-```
---- Languages
+Languages' slugs:
 
+```
 bash
 c-sharp
 c-plus-plus
