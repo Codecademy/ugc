@@ -61,8 +61,7 @@ And here, templates for creating your new articles:
 
 Please read through the following in the [/documentation](https://github.com/Codecademy/docs/tree/main/documentation) folder. In these links, you'll find a write-up of our standards for content and style:
 
-- [Content Standards](https://github.com/Codecademy/docs/blob/main/documentation/content-standards.md)
-- DatePublished
+- [Content Standards](https://github.com/Codecademy/ugc/blob/main/documentation/content-standards.md)
 - [Categories List](https://github.com/Codecademy/ugc/blob/main/documentation/categories.md)
 - [Tags List](https://github.com/Codecademy/ugc/blob/main/documentation/tags.md)
 
