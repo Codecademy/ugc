@@ -47,25 +47,14 @@ Please read through the following in the [/documentation](https://github.com/Cod
 
 And here, templates for creating your new entries.
 
-| Template                                                                                                 | GitHub Example                                                                                                                                                                                                                      | Docs Example                                                            |
+| Template                                                                                                 | GitHub Example                                                                                                                                                                                                                      | Article Example                                                            |
 | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| [Entry Template](https://github.com/Codecademy/docs/blob/main/documentation/entry-template.md)           | [lists.md](https://github.com/Codecademy/docs/blob/main/content/python/concepts/lists/lists.md) ([Raw](https://raw.githubusercontent.com/Codecademy/docs/main/content/python/concepts/lists/lists.md))                              | [Lists](https://www.codecademy.com/resources/docs/python/lists)         |
-| [Term Entry Template](https://github.com/Codecademy/docs/blob/main/documentation/term-entry-template.md) | [append.md](https://github.com/Codecademy/docs/blob/main/content/python/concepts/lists/terms/append/append.md) ([Raw](https://raw.githubusercontent.com/Codecademy/docs/main/content/python/concepts/lists/terms/append/append.md)) | [Append](https://www.codecademy.com/resources/docs/python/lists/append) |
-| [Topic Info Template](https://github.com/Codecademy/docs/blob/main/documentation/topic-info-template.md) | [sql.md](https://github.com/Codecademy/docs/blob/main/content/sql/sql.md) ([Raw](https://raw.githubusercontent.com/Codecademy/docs/main/content/sql/sql.md))                                                                        | [SQL](https://www.codecademy.com/resources/docs/sql)                    |
+| [Article Template](https://github.com/Codecademy/ugc/blob/main/content/authorA/mock-article-1.md)           | [how-to-convert-css-to-scss.md](https://github.com/Codecademy/ugc/blob/main/content/kyrathompson/how-to-convert-css-to-scss.md) ([Raw](https://raw.githubusercontent.com/Codecademy/ugc/main/content/kyrathompson/how-to-convert-css-to-scss.md))                              | Coming soon         |
+| [Author Template](https://github.com/Codecademy/ugc/blob/main/content/authorA/author_meta.json) | [author_meta.json](https://github.com/Codecademy/ugc/blob/main/content/kyrathompson/author_meta.json) ([Raw](https://raw.githubusercontent.com/Codecademy/docs/main/content/python/concepts/lists/terms/append/append.md)) | Coming soon |
 
-### Codecademy Username
+### Codecademy Username and Profile Pic
 
-As a Codecademy Docs contributor, you have the opportunity to have your Codecademy username displayed on the side of the entry (this feature is coming in October)!
-
-If you wish to have your Codecademy profile listed in the entry, before making the PR, make sure that your Codecademy user profile and your GitHub are linked, and that your Codecademy profile is set to public. You can stay anonymous by not linking them.
-
-To link your Codecademy user profile to GitHub:
-
-1. Log out of Codecademy.
-2. Make sure that the email address associated with your Codecademy account is the [primary email associated with your Github account](https://github.com/settings/emails).
-3. Go to the [Codecademy login page](https://www.codecademy.com/login).
-4. Select the Github icon under "Or log in using:"
-5. Proceed through the OAuth process.
+As a UGC article content creator, you have the opportunity to have your Codecademy username and avatar displayed on the article!
 
 ## Any tips for a Pull Request?
 
@@ -74,7 +63,7 @@ To link your Codecademy user profile to GitHub:
 - Keep your PRs byte-sized. No more than 3 new entries per PR!
 - All contributors must sign the Contributor License Agreement (CLA).
 - All required [status checks](https://docs.github.com/en/github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks) are expected to pass in each PR.
-- We require at least two round of reviews from the [content team members](https://github.com/codecademy/docs#-content-team). Make sure to make the changes after each round.
+- For Beta, we currently require at least one round of reviews from the [content team members](https://github.com/codecademy/docs#-content-team). Make sure to make the changes within 5 days.
 - Requested changes must be resolved before merging.
 - Your entry will be deployed within the hour after it's merged!
 
@@ -86,8 +75,6 @@ To link your Codecademy user profile to GitHub:
 - Plagiarism
 
 ## Additional Resources
-
-- [How to Contribute to Codecademy Docs](https://dev.to/codecademy/how-to-contribute-to-codecademy-docs-1a77) article
 
 Remember, if you ever have any questions at all, we're always here to help in the [Codecademy Forums](https://discuss.codecademy.com/) and [Codecademy Discord](https://discord.com/invite/codecademy).
 
