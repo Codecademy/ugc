@@ -1,5 +1,5 @@
 ---
-Title: "How to Build a 3D Environment with Three.js"
+Title: "Build a 3D Environment with Three.js"
 Description: "Step-by-step tutorial about how to build a 3D environment with Three.js and render/move 3D objects."
 DatePublished: "2021-02-28"
 Categories:
