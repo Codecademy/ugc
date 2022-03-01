@@ -1,5 +1,5 @@
 ---
-Title: "Web Scrap with Selenium and Beautiful Soup"
+Title: "Web Scrape with Selenium and Beautiful Soup"
 Description: "A hands-on tutorial in web scraping featuring two popular libraries, Beautiful Soup and Selenium."
 DatePublished: "2022-02-28"
 Categories:
