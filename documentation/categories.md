@@ -1,8 +1,9 @@
 # Categories
 
-Here are the categories, slugs for Languages and Subjects:
+Here are the categories, slugs for both Languages and Subjects, which can be found on the left side of the [Articles hub page](https://www.codecademy.com/articles).
 
 ```
+--- Languages
 bash
 c-sharp
 c-plus-plus
@@ -18,6 +19,7 @@ ruby
 sql
 swift
 
+--- Subjects
 code-foundations
 computer-science
 cybersecurity
