@@ -224,6 +224,7 @@ Script
 Seaborn
 Search
 Selectors
+Selenium
 Semantic
 Servers
 Sets

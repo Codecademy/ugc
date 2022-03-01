@@ -1,3 +1,19 @@
+---
+Title: "Web Scrap with Selenium and Beautiful Soup"
+Description: "A hands-on tutorial in web scraping featuring two popular libraries, Beautiful Soup and Selenium."
+DatePublished: "2022-02-28"
+Categories:
+  - "data-science"
+  - "python"
+  - "html-css"
+Tags:
+  - "Selenium"
+  - "Beautiful Soup"
+CatalogContent:
+  - "learn-python-3"
+  - "learn-web-scraping"
+---
+
 > **Prerequisites:** Python, HTML, CSS
 > **Versions:** Selenium 3.141, Beautiful Soup 4.9.3, Python 3.8
 
