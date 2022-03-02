@@ -6,6 +6,26 @@
 [`str()` function]: https://www.codecademy.com/resources/docs/python/built-in-functions/str
 [Stack]: https://raw.githubusercontent.com/Codecademy/ugc/main/content/stevenswiniarski/stack.png
 
+---
+Title: "Web Scrape with Selenium and Beautiful Soup"
+Description: "A hands-on tutorial building a stack implementation in Python."
+DatePublished: "2022-02-28"
+Categories:
+  - "Data-Science"
+  - "Python"
+Tags:
+  - "Data Structures"
+  - "Classes"
+  - "Lists"
+CatalogContent:
+  - "learn-python-3"
+  - "paths/computer-science"
+---
+
+> **Prerequisites:** Python  
+> **Versions** Python 3.8
+
+
 <kbd>Python</kbd> <kbd>Computer Science</kbd>
 
 In computer science, a [“stack”] is a data structure represented by a collection of items that utilizes a last-in-first-out (LIFO) model for access. There are two operations that are fundamental to this data structure:
