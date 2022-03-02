@@ -1,11 +1,3 @@
-[depth-first search]: https://en.wikipedia.org/wiki/Depth-first_search
-[“stack”]: https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
-[exception]: https://www.codecademy.com/resources/docs/python/errors
-[Python class]: https://www.codecademy.com/resources/docs/python/classes
-[`.pop()` method]: https://www.codecademy.com/resources/docs/python/lists/pop
-[`str()` function]: https://www.codecademy.com/resources/docs/python/built-in-functions/str
-[Stack]: https://raw.githubusercontent.com/Codecademy/ugc/main/content/stevenswiniarski/stack.png
-
 ---
 Title: "Web Scrape with Selenium and Beautiful Soup"
 Description: "A hands-on tutorial building a stack implementation in Python."
@@ -22,9 +14,16 @@ CatalogContent:
   - "paths/computer-science"
 ---
 
+[depth-first search]: https://en.wikipedia.org/wiki/Depth-first_search
+[“stack”]: https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
+[exception]: https://www.codecademy.com/resources/docs/python/errors
+[Python class]: https://www.codecademy.com/resources/docs/python/classes
+[`.pop()` method]: https://www.codecademy.com/resources/docs/python/lists/pop
+[`str()` function]: https://www.codecademy.com/resources/docs/python/built-in-functions/str
+[Stack]: https://raw.githubusercontent.com/Codecademy/ugc/main/content/stevenswiniarski/stack.png
+
 > **Prerequisites:** Python  
 > **Versions** Python 3.8
-
 
 <kbd>Python</kbd> <kbd>Computer Science</kbd>
 
