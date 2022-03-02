@@ -1,5 +1,5 @@
 ---
-Title: "Web Scrape with Selenium and Beautiful Soup"
+Title: "Create a Stack in Python"
 Description: "A hands-on tutorial building a stack implementation in Python."
 DatePublished: "2022-02-28"
 Categories:
