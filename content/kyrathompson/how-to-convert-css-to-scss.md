@@ -291,7 +291,7 @@ We can then use our `mult` function:
   size: mult(2px, 4px, 5px, 8px);
 }
 ```
-Functions are very useful when creating complex calculations. Try making a `exponent` function that can calculate 3 to the power of 18. 
+Functions are very useful when creating complex calculations. Try making an `exponent` function that can calculate 3 to the power of 18. 
 
 **Hint:** SASS has a `@for` rule that allows for executing through expressions. It's written as follows
 
