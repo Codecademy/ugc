@@ -22,15 +22,15 @@ CatalogContent:
 [`str()` function]: https://www.codecademy.com/resources/docs/python/built-in-functions/str
 [Stack]: https://raw.githubusercontent.com/Codecademy/ugc/main/content/stevenswiniarski/stack.png
 
-> **Prerequisites:** Python  
-> **Versions** Python 3.8
+> **Prerequisites:** Python fundamentals  
+> **Versions:** Python 3.8
 
-<kbd>Python</kbd> <kbd>Computer Science</kbd>
+In computer science, a [stack] is a data structure represented by a collection of items that utilizes a last-in-first-out (LIFO) model for access. 
 
-In computer science, a [“stack”] is a data structure represented by a collection of items that utilizes a last-in-first-out (LIFO) model for access. There are two operations that are fundamental to this data structure:
+There are two operations that are fundamental to this data structure:
 
-* A “push()” function that adds an item to the stack.
-* A “pop()” function that removes the most recently added item to the stack. 
+* A `.push()` function that adds an item to the stack.
+* A `.pop()` function that removes the most recently added item to the stack. 
 
 In this way, this type of collection is analogous to a stack of items such as dinner plates, where the topmost item must be removed to access the items underneath. Stacks are useful in implementing actions such as a [depth-first search]. This article will explore the process of implementing a stack in Python.
 
