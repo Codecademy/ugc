@@ -3,8 +3,8 @@ Title: "Web Scrape with Selenium and Beautiful Soup"
 Description: "A hands-on tutorial building a stack implementation in Python."
 DatePublished: "2022-02-28"
 Categories:
-  - "Data-Science"
-  - "Python"
+  - "computer-science"
+  - "python"
 Tags:
   - "Data Structures"
   - "Classes"
