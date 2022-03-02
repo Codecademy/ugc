@@ -125,7 +125,7 @@ Let’s say you have a file called **default.scss** that contains the following 
 html,
 body,
 ul,
-li, {
+li {
   margin: 2;
   padding: 2;
 }
