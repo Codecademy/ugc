@@ -4,7 +4,7 @@
 [Python class]: https://www.codecademy.com/resources/docs/python/classes
 [`.pop()` method]: https://www.codecademy.com/resources/docs/python/lists/pop
 [`str()` function]: https://www.codecademy.com/resources/docs/python/built-in-functions/str
-[Stack]: https://raw.githubusercontent.com/Codecademy/articles/main/create-a-stack-in-python/stack.png
+[Stack]: https://raw.githubusercontent.com/Codecademy/ugc/main/content/stevenswiniarski/stack.png
 
 <kbd>Python</kbd> <kbd>Computer Science</kbd>
 
