@@ -32,14 +32,14 @@ The syntax for SASS variables is as follows:
 $variableName: value;
 ```
 
- Let’s take this piece of code for example:
+Let’s take this piece of code for example:
 
 ```css
 body {
-    color: #000000;
-    font: 100% Helvetica, sans-serif;
-    font-size: 50px;
-    font-weight: lighter;
+  color: #000000;
+  font: 100% Helvetica, sans-serif;
+  font-size: 50px;
+  font-weight: lighter;
 }
 ```
 
@@ -50,10 +50,10 @@ $black: #000000;
 $font-type: Helvetica, sans-serif;
 
 body {
-    color: $black;
-    font: 100% $font-type;
-    font-size: 50px;
-    font-weight: lighter;
+  color: $black;
+  font: 100% $font-type;
+  font-size: 50px;
+  font-weight: lighter;
 }
 ```
 
@@ -69,19 +69,19 @@ Take this CSS code for a navigation bar as an example:
 
 ```css
 nav ul {
-    margin: 2;
-    padding: 2;
-    list-style: none;
+  margin: 2;
+  padding: 2;
+  list-style: none;
 }
 
 nav li {
-    display: inline-block;
+  display: inline-block;
 }
 
 nav a {
-    display: block;
-    padding: 12px 24px;
-    text-decoration: none;
+  display: block;
+  padding: 12px 24px;
+  text-decoration: none;
 }
 ```
 
@@ -89,23 +89,23 @@ We can nest this in SCSS:
 
 ```css
 nav {
-    ul {
-        margin: 2;
-        padding: 2;
-        list-style: none;
-    }
-    li {
-        display: inline-block;
-    }
-    a {
-        display: block;
-        padding: 12px 24px;
-        text-decoration: none;
-    }
+  ul {
+    margin: 2;
+    padding: 2;
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+  }
+  a {
+    display: block;
+    padding: 12px 24px;
+    text-decoration: none;
+  }
 }
 ```
 
-Each child element is nested inside the parent element of `nav`. The hierarchical structure SCSS allows makes finding and changing elements much easier.
+Each child element is nested inside the parent element of `nav`. The hierarchical structure SCSS makes finding and changing elements much easier.
 
 ### Importing Files
 
@@ -125,9 +125,9 @@ Let’s say you have a file called **default.scss** that contains the following 
 html,
 body,
 ul,
-li, {
-    margin: 2;
-    padding: 2;
+li {
+  margin: 2;
+  padding: 2;
 }
 ```
 
@@ -137,11 +137,11 @@ You can import this file into another file by including the import line at the v
 @import "default";
 
 p {
-    text-align: center;
-    line-height: 1.8;
-    font-size: 25px;
-    display: block;
-    margin: 30px 0 10px;
+  text-align: center;
+  line-height: 1.8;
+  font-size: 25px;
+  display: block;
+  margin: 30px 0 10px;
 }
 ```
 
@@ -151,10 +151,10 @@ SASS includes a  feature called mixins that allows you to reuse snippets of CSS 
 
 ```css
 @mixin name {
-    property: value;
-    property: value;
-    property: value;
-    …
+  property: value;
+  property: value;
+  property: value;
+  …
 }
 ```
 
@@ -162,9 +162,9 @@ If we wanted to create a mixin to highlight a piece of text we think is importan
 
 ```css
 @mixin highlight-text{
-    color: blue;
-    font-size: 50px;
-    font-weight: bold;
+  color: blue;
+  font-size: 50px;
+  font-weight: bold;
 }
 ```
 
@@ -172,8 +172,8 @@ Then we can call it anywhere we want. Let’s try this by pretending we have a c
 
 ```css
 .highlight {
-    @include highlight-text;
-    background: yellow;
+  @include highlight-text;
+  background: yellow;
 }
 ```
 
@@ -181,10 +181,10 @@ The CSS will compile like this:
 
 ```css
 .highlight {
-    color: blue;
-    font-size: 50px;
-    font-weight: bold;
-    background: yellow;
+  color: blue;
+  font-size: 50px;
+  font-weight: bold;
+  background: yellow;
 }
 ```
 
@@ -192,15 +192,15 @@ The use of mixins eliminates the need to repeat yourself, resulting in cleaner c
 
 ### Extend/Inheritance
 
-With the built-in feature `@extend`, SASS allows you to share CSS properties to multiple selectors. For example if we have a basic button with the following properties:
+With the built-in feature `@extend`, SASS allows you to share CSS properties to multiple selectors. For example, if we have a basic button with the following properties:
 
 ```css
 .button-basic {
-    border: none;
-    padding: 25px 35px;
-    text-align: center;
-    font-size: 28px;
-    cursor: pointer;
+  border: none;
+  padding: 25px 35px;
+  text-align: center;
+  font-size: 28px;
+  cursor: pointer;
 }
 ```
 
@@ -208,14 +208,15 @@ We can extend these properties to other buttons we want to create:
 
 ```css
 .button-back {
-     @extend button-basic;
-     color: white;
-     background: blue;
+  @extend button-basic;
+  color: white;
+  background: blue;
 }
+
 .button-next {
-     @extend button-basic;
-     color: red;
-     background: green;
+   @extend button-basic;
+   color: red;
+   background: green;
 }
 ```
 
@@ -223,20 +224,21 @@ The CSS will compile like this:
 
 ```css
 .button-basic, .button-back, .button-next {
-    border: none;
-    padding: 25px 35px;
-    text-align: center;
-    font-size: 28px;
-    cursor: pointer;
+  border: none;
+  padding: 25px 35px;
+  text-align: center;
+  font-size: 28px;
+  cursor: pointer;
 }
+
 .button-back {
-     color: white;
-     background: blue;
+  color: white;
+  background: blue;
 }
 
 .button-next {
-     color: red;
-     background: green;
+  color: red;
+  background: green;
 }
 ```
 
@@ -248,7 +250,7 @@ SASS allows you to make use of math operators like `/`, `*`,`%`, `+`, and `-` to
 
 ```css
 .container {
-    width: 520px / 800px * 100%;
+  width: 520px / 800px * 100%;
 }
 ```
 
@@ -256,7 +258,7 @@ The following will compile in CSS as follows:
 
 ```css
 .container {
-    width: 65.0%;
+  width: 65.0%;
 }
 ```
 
@@ -273,11 +275,11 @@ If we needed a function that multiplies a list of numbers we can write the follo
 
 ```css
 @function mult($numbers...){
-    $mult: 1;
-    @each $num in $numbers {
-        $mult: $mult * $num;
-    }
-    @return $mult;
+  $mult: 1;
+  @each $num in $numbers {
+    $mult: $mult * $num;
+  }
+  @return $mult;
 }
 ```
 
@@ -286,10 +288,10 @@ If we needed a function that multiplies a list of numbers we can write the follo
 We can then use our `mult` function:
 ```css
 .increase {
-    size: mult(2px, 4px, 5px, 8px);
+  size: mult(2px, 4px, 5px, 8px);
 }
 ```
-Functions are very useful when creating complex calculations. Try making a `exponent` function that can calculate 3 to the power of 18. 
+Functions are very useful when creating complex calculations. Try making an `exponent` function that can calculate 3 to the power of 18. 
 
 **Hint:** SASS has a `@for` rule that allows for executing through expressions. It's written as follows
 
