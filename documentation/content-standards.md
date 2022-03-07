@@ -75,7 +75,9 @@ All code blocks should be delineated by triple backticks (```)
 
 #### Images and Source Code
 
-If you'd like to include an image, video, GIF, or other file in your article, please upload it to the same article folder. That way we'll never have any broken links!
+If you'd like to include an image, video, GIF, or other file in your article, please upload it to the same article folder. That way we'll never have any broken links! 
+
+**Note:** Each image/video/GIF should be < 1MB.
 
 ### I've read all the content standards. Now what?
 
