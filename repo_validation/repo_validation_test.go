@@ -212,11 +212,11 @@ func (s *unitTestSuite) validateMarkdownFile(path string, wg *sync.WaitGroup) {
 
 	// ensure categories and tags are in whitelist
 	for _, item := range meta.Categories {
-		s.Assert().Contains(s.categoryFileBody, item)
+		s.Assert().Contains(s.categoryFileBody, item+"\n")
 	}
 
 	for _, item := range meta.Tags {
-		s.Assert().Contains(s.tagsFileBody, item)
+		s.Assert().Contains(s.tagsFileBody, item+"\n")
 	}
 }
 
