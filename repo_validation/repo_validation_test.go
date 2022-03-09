@@ -114,7 +114,7 @@ func (s *unitTestSuite) TestValidateRepo() {
 	contentDirPath := filepath.Join(repoPath, CONTENT_DIR_NAME)
 
 	contentDir, err := os.ReadDir(contentDirPath)
-	s.Assert().Nil(err)
+	s.Assert().Nil(err, "Unable to parse content directory")
 
 	dirWg := new(sync.WaitGroup)
 	s.contentBasePath, _ = filepath.Abs(contentDirPath)
@@ -124,7 +124,7 @@ func (s *unitTestSuite) TestValidateRepo() {
 		if item.IsDir() {
 			dirWg.Add(1)
 			// validate contents of directory for author
-			s.validateAuthorDir(item, dirWg)
+			go s.validateAuthorDir(item, dirWg)
 		} else {
 			s.Fail("Non directory found in top level content path")
 		}
@@ -135,11 +135,11 @@ func (s *unitTestSuite) TestValidateRepo() {
 
 	// assert there are no duplicate parsed author ids
 	duplicateAuthorIds := hasDuplicates(s.authorIds)
-	s.Assert().False(duplicateAuthorIds)
+	s.Assert().False(duplicateAuthorIds, "List of author IDs is not unique")
 
 	// assert all author ids map to valid users in the production monolith
 	authorData := s.fetchAuthors(s.authorIds)
-	s.Assert().Equal(len(authorData.AuthorProfiles), len(s.authorIds))
+	s.Assert().Equal(len(authorData.AuthorProfiles), len(s.authorIds), "Monolith did not return expected count of authors")
 }
 
 // validateAuthorDir run validations on an author's directory by checking for a valid author_meta.json,
@@ -152,13 +152,13 @@ func (s *unitTestSuite) validateAuthorDir(dir fs.DirEntry, dirWg *sync.WaitGroup
 
 	// verify this dir has an author_meta.json file
 	authorMetaFile, err := os.ReadFile(metaFilePath)
-	s.Assert().Nil(err)
+	s.Assert().Nil(err, "No author_meta.json file found")
 
 	// verify author meta file format is parsable and a CcId exists
 	var author authorMeta
 	err = json.Unmarshal(authorMetaFile, &author)
-	s.Assert().Nil(err)
-	s.Assert().NotNil(author.CcId)
+	s.Assert().Nil(err, "Could not parse author_meta.json")
+	s.Assert().NotNil(author.CcId, "No CcId found in author_meta.json")
 
 	// save this CCID for later fetching of profile data from the monolith
 	s.ccIdsLock.Lock()
@@ -168,35 +168,37 @@ func (s *unitTestSuite) validateAuthorDir(dir fs.DirEntry, dirWg *sync.WaitGroup
 	// wait until all articles in dir are processed
 	articleWg := new(sync.WaitGroup)
 	filepath.Walk(authorDirPath, func(path string, info os.FileInfo, err error) error {
+
 		// skip the root dir while walking
 		if !info.IsDir() {
-			fmt.Printf("%s %v bytes\n", path, info.Size())
 			if strings.HasSuffix(path, ".md") {
 				articleWg.Add(1)
-				fmt.Print("Markdown file found... Validating frontmatter")
-				s.validateMarkdownFile(path, articleWg)
+				go s.validateMarkdownFile(path, articleWg)
 			} else {
 				// assert the size is below the limit for non markdown files
-				s.Assert().Less(info.Size(), byteLimit)
+				fmt.Printf("- validating non-markdown file: %v \n", path)
+				s.Assert().Less(info.Size(), byteLimit, "File is too large")
 			}
 		}
 
 		return err
 	})
+
+	articleWg.Wait()
 }
 
 // validateMarkdownFile runs validations on the provided markdown file path by making sure front matter is parsable and whitelisted
 // and that the file name is in lowercase kebab case
 func (s *unitTestSuite) validateMarkdownFile(path string, wg *sync.WaitGroup) {
 	defer wg.Done()
+	fmt.Printf("- validating markdown file: %v \n", path)
 
 	// validate markdown file name
 	ss := strings.Split(path, "/")
 	lastSegment := ss[len(ss)-1]
 	strippedSegment := strings.TrimSuffix(lastSegment, filepath.Ext(lastSegment))
 	isKebab := kebabCaseRE.MatchString(strippedSegment)
-	fmt.Println(strippedSegment)
-	s.Assert().True(isKebab)
+	s.Assert().True(isKebab, "The file name is not in kebab case")
 
 	// validate markdown front matter
 	f, _ := os.OpenFile(path, os.O_RDONLY, 0655)
@@ -204,19 +206,19 @@ func (s *unitTestSuite) validateMarkdownFile(path string, wg *sync.WaitGroup) {
 
 	var meta articleMeta
 	_, err := frontmatter.MustParse(f, &meta)
-	s.Assert().Nil(err)
+	s.Assert().Nil(err, "Error parsing frontmatter")
 
 	// make sure input is valid
 	err = validate.Struct(meta)
-	s.Assert().Nil(err)
+	s.Assert().Nil(err, "Frontmatter fails validation")
 
 	// ensure categories and tags are in whitelist
 	for _, item := range meta.Categories {
-		s.Assert().Contains(s.categoryFileBody, item+"\n")
+		s.Assert().Contains(s.categoryFileBody, item+"\n", "Category was not found in documentation/categories.md")
 	}
 
 	for _, item := range meta.Tags {
-		s.Assert().Contains(s.tagsFileBody, item+"\n")
+		s.Assert().Contains(s.tagsFileBody, item+"\n", "Tag was not found in documentation/tags.md")
 	}
 }
 
@@ -234,8 +236,8 @@ func (s *unitTestSuite) fetchAuthors(ccIds []string) monolithQueryResponse {
 
 	graphqlRequest.Var("ccIds", ccIds)
 	graphqlResponse := monolithQueryResponse{}
-	err := graphqlClient.Run(context.TODO(), graphqlRequest, &graphqlResponse)
-	s.Assert().Nil(err)
+	err := graphqlClient.Run(context.Background(), graphqlRequest, &graphqlResponse)
+	s.Assert().Nil(err, "Error fetching author info")
 
 	return graphqlResponse
 }
