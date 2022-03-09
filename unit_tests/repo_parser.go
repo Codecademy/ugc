@@ -103,7 +103,7 @@ func (p *githubRepoParser) Parse(ctx context.Context, repoPath string) ([]string
 		// only process dirs
 		if item.IsDir() {
 			dirWg.Add(1)
-			go p.processAuthorDir(ctx, item, dirWg) // from this point down, errors are logged but not returned
+			go p.ProcessAuthorDir(ctx, item, dirWg) // from this point down, errors are logged but not returned
 		}
 	}
 
@@ -117,7 +117,7 @@ func (p *githubRepoParser) Parse(ctx context.Context, repoPath string) ([]string
 
 // ProcessAuthorDir processes a single author dir.
 // Dir should contain a valid author_meta.json file and article markdown files.
-func (p *githubRepoParser) processAuthorDir(ctx context.Context, dir fs.DirEntry, dirWg *sync.WaitGroup) {
+func (p *githubRepoParser) ProcessAuthorDir(ctx context.Context, dir fs.DirEntry, dirWg *sync.WaitGroup) {
 	defer dirWg.Done()
 
 	authorDirPath := filepath.Join(p.contentBasePath, dir.Name())

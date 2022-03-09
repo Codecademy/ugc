@@ -2,8 +2,17 @@ package unit_tests
 
 import (
 	"context"
+	"encoding/json"
+	"fmt"
+	"io/fs"
+	"os"
+	"path/filepath"
+	"regexp"
+	"strings"
+	"sync"
 	"testing"
 
+	"github.com/adrg/frontmatter"
 	"github.com/machinebox/graphql"
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/suite"
@@ -11,10 +20,11 @@ import (
 
 type unitTestSuite struct {
 	suite.Suite
-	parser         githubRepoParser
-	authorProfiles map[string]*Author // only add or update, never delete
-	authorIds      []string
-	articles       []*RawArticle
+	parser          githubRepoParser
+	authorProfiles  map[string]*Author // only add or update, never delete
+	authorIds       []string
+	contentBasePath string
+	ccIdsLock       sync.Mutex
 }
 
 func TestUnitTestSuite(t *testing.T) {
@@ -25,39 +35,160 @@ func TestUnitTestSuite(t *testing.T) {
 
 func (suite *unitTestSuite) SetupSuite() {
 	// parse whole repo once
-	ccIds, articles, err := suite.parser.Parse(context.TODO(), "../")
+	// ccIds, articles, err := suite.parser.Parse(context.TODO(), "../")
 
-	suite.Assert().Empty(err)
+	// suite.Assert().Empty(err)
 
-	suite.authorIds = ccIds
-	suite.articles = articles
+	// suite.authorIds = ccIds
+	// suite.articles = articles
 
 }
 
 func (suite *unitTestSuite) TearDownSuite() {
 }
 
-func (s *unitTestSuite) TestAuthorMetaJson() {
+const repoPath = "./.."
+
+func (s *unitTestSuite) TestValidateRepo() {
+
 	// 1. must exist within every directory under content
 	// 2. every author must be a valid user on the monolith
 	// 3. every author must be unique to author folder
+
+	contentDirPath := filepath.Join(repoPath, CONTENT_DIR_NAME)
+
+	contentDir, err := os.ReadDir(contentDirPath)
+	s.Assert().Nil(err)
+
+	dirWg := new(sync.WaitGroup)
+	s.contentBasePath, _ = filepath.Abs(contentDirPath)
+
+	s.CheckAuthorDir(contentDir[0], dirWg)
+
+	// for _, item := range contentDir {
+	// 	// only process dirs
+	// 	if item.IsDir() {
+	// 		dirWg.Add(1)
+	// 		s.CheckAuthorDir(item, dirWg) // from this point down, errors are logged but not returned
+	// 	} else {
+	// 		s.Fail("Non directory found in top level content path")
+	// 	}
+	// }
+
+	// wait for all author directories to be processed
+	// dirWg.Wait()
+
+	// all final parsed author ids are unique
+	// s.Assert()
+
 }
 
-func (s *unitTestSuite) TestMarkdownFilenames() {
-	// 1. all markdown files must be lowercase and kebab case
+const byteLimit int64 = 1000000
+
+var kebabCaseRE = regexp.MustCompile("^[a-z0-9]+(-[a-z0-9]+)*$")
+
+func (s *unitTestSuite) CheckAuthorDir(dir fs.DirEntry, dirWg *sync.WaitGroup) {
+	authorDirPath := filepath.Join(s.contentBasePath, dir.Name())
+	metaFilePath := filepath.Join(authorDirPath, AUTHOR_META_FILENAME)
+
+	// verify this dir has an author_meta.json file
+	authorMetaFile, err := os.ReadFile(metaFilePath)
+
+	// There must be an author meta
+	s.Assert().Nil(err)
+
+	// verify author meta file format
+	var author authorMeta
+	err = json.Unmarshal(authorMetaFile, &author)
+
+	// it must be parsable
+	s.Assert().Nil(err)
+
+	// there must be an author CcId
+	s.Assert().NotNil(author.CcId)
+
+	s.ccIdsLock.Lock()
+	// save this CCID for later fetching of profile data from the monolith
+	s.authorIds = append(s.authorIds, author.CcId)
+	s.ccIdsLock.Unlock()
+
+	// list the contents of this dir
+	// authorDirEntries, err := os.ReadDir(authorDirPath)
+
+	// s.Assert().NotNil(err)
+
+	// articleWg := new(sync.WaitGroup)
+
+	filepath.Walk(authorDirPath+"/", func(path string, info os.FileInfo, err error) error {
+		// skip the root dir while walking
+		if !info.IsDir() {
+			fmt.Printf("%s %v bytes\n", path, info.Size())
+			if strings.HasSuffix(path, ".md") {
+				fmt.Print("Markdown file found...Validating frontmatter")
+				// validate markdown file contents
+
+				ss := strings.Split(path, "/")
+				lastSegment := ss[len(ss)-1]
+				strippedSegment := strings.TrimSuffix(lastSegment, filepath.Ext(lastSegment))
+				isKebab := kebabCaseRE.MatchString(strippedSegment)
+				fmt.Println(strippedSegment)
+				s.Assert().True(isKebab)
+
+				f, _ := os.OpenFile(path, os.O_RDONLY, 0655)
+				defer f.Close()
+
+				var meta articleMeta
+				_, err := frontmatter.MustParse(f, &meta)
+				s.Assert().Nil(err)
+
+				// make sure input is valid
+				err = validate.Struct(meta)
+				s.Assert().Nil(err)
+
+			} else {
+				// assert the size is less than we expect
+				s.Assert().Less(info.Size(), byteLimit)
+			}
+		}
+
+		return err
+	})
+
+	// // attempt to process each  file we find
+	// for _, entry := range authorDirEntries {
+	// 	fmt.Println(entry.Name())
+	// 	// skip if not a markdown file
+	// 	if !strings.HasSuffix(entry.Name(), ".md") {
+	// 		continue
+	//
+
+	// 	// 	articleWg.Add(1)
+
+	// 	// 	articlePath := filepath.Join(authorDirPath, entry.Name())
+	// 	// 	articleSlug := fmt.Sprintf("%s/%s", dir.Name(), strings.Split(entry.Name(), ".md")[0])
+
+	// 	// 	go p.processArticle(ctx, articlePath, articleSlug, author.CcId, articleWg)
+
+	// 	// }
+	// 	// articleWg.Wait()
+	// }
 }
 
-func (s *unitTestSuite) TestMarkdownFrontmatter() {
-	// 1. all markdown files should contain all required fields:
-	// 		Title, Description, DatePublished, Categories, Tags, CatalogContent
-	// 2. all fields should have parseable values
-	// 3. categories and tags should exist in the whitelists
+// func (s *unitTestSuite) TestMarkdownFilenames() {
+// 	// 	// 1. all markdown files must be lowercase and kebab case
+// }
 
-}
+// func (s *unitTestSuite) TestMarkdownFrontmatter() {
+// 	// 1. all markdown files should contain all required fields:
+// 	// 		Title, Description, DatePublished, Categories, Tags, CatalogContent
+// 	// 2. all fields should have parseable values
+// 	// 3. categories and tags should exist in the whitelists
 
-func (s *unitTestSuite) TestNonMarkdownFilesizes() {
-	// all non markdown file sizes should be less than 1mb
-}
+// }
+
+// func (s *unitTestSuite) TestNonMarkdownFilesizes() {
+// 	// all non markdown file sizes should be less than 1mb
+// }
 
 const monolithURL = "https://monolith.production-eks.codecademy.com/graphql"
 
