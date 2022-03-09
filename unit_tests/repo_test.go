@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/fs"
+	"io/ioutil"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -20,11 +21,13 @@ import (
 
 type unitTestSuite struct {
 	suite.Suite
-	parser          githubRepoParser
-	authorProfiles  map[string]*Author // only add or update, never delete
-	authorIds       []string
-	contentBasePath string
-	ccIdsLock       sync.Mutex
+	parser           githubRepoParser
+	authorProfiles   map[string]*Author // only add or update, never delete
+	authorIds        []string
+	contentBasePath  string
+	ccIdsLock        sync.Mutex
+	tagsFileBody     string
+	categoryFileBody string
 }
 
 func TestUnitTestSuite(t *testing.T) {
@@ -34,14 +37,13 @@ func TestUnitTestSuite(t *testing.T) {
 }
 
 func (suite *unitTestSuite) SetupSuite() {
-	// parse whole repo once
-	// ccIds, articles, err := suite.parser.Parse(context.TODO(), "../")
+	body, err := ioutil.ReadFile("../documentation/categories.md")
+	suite.Assert().Nil(err)
+	suite.categoryFileBody = string(body)
 
-	// suite.Assert().Empty(err)
-
-	// suite.authorIds = ccIds
-	// suite.articles = articles
-
+	body, err = ioutil.ReadFile("../documentation/tags.md")
+	suite.Assert().Nil(err)
+	suite.tagsFileBody = string(body)
 }
 
 func (suite *unitTestSuite) TearDownSuite() {
@@ -145,8 +147,16 @@ func (s *unitTestSuite) CheckAuthorDir(dir fs.DirEntry, dirWg *sync.WaitGroup) {
 				err = validate.Struct(meta)
 				s.Assert().Nil(err)
 
+				for _, item := range meta.Categories {
+					s.Assert().Contains(s.categoryFileBody, item)
+				}
+
+				for _, item := range meta.Tags {
+					s.Assert().Contains(s.tagsFileBody, item)
+				}
+
 			} else {
-				// assert the size is less than we expect
+				// assert the size is below the limit
 				s.Assert().Less(info.Size(), byteLimit)
 			}
 		}
