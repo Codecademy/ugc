@@ -27,7 +27,7 @@ var authorsURL = os.Getenv("AUTHORS_URL")
 const byteLimit int64 = 1000000
 const contentRoot = "./.."
 
-// validationr regex for markdown files
+// validation regex for markdown files
 var kebabCaseRE = regexp.MustCompile("^[a-z0-9]+(-[a-z0-9]+)*$")
 
 const (
@@ -100,7 +100,6 @@ TestValidateRepo walks the authors content folders and verifies the following re
 5. markdown files contain frontmatter and includes all required fields fields
 6. markdown frontmatter "categories" and "tags" are found in the documented passlists (./documentation/(categories|tags).md)
 7. non-markdown files should not exceed 1MB
-
 */
 func (s *unitTestSuite) TestValidateRepo() {
 	contentDirPath := filepath.Join(contentRoot, CONTENT_DIR_NAME)
