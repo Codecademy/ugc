@@ -23,4 +23,4 @@ jobs:
     - name: Test
       env:
         AUTHORS_URL: ${{ secrets.AUTHORS_URL }}
-      run: go test -failfast -v ./.tests/ 
+      run: cd ./.tests && go test -failfast -v

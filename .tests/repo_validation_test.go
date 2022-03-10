@@ -21,7 +21,7 @@ import (
 )
 
 // end point for checking author data
-const authorsURL = os.Getenv("AUTHORS_URL")
+var authorsURL = os.Getenv("AUTHORS_URL")
 
 // size limit for non markdown files (1mb)
 const byteLimit int64 = 1000000
@@ -215,7 +215,7 @@ func (s *unitTestSuite) validateMarkdownFile(path string, wg *sync.WaitGroup) {
 
 //fetchAuthors retrieves data for the given ccIds from the monolith
 func (s *unitTestSuite) fetchAuthors(ccIds []string) monolithQueryResponse {
-	graphqlClient := graphql.NewClient(monolithURL)
+	graphqlClient := graphql.NewClient(authorsURL)
 	graphqlRequest := graphql.NewRequest(`
 	query ($ccIds: [String!]!){
 		profiles(ccIds: $ccIds) {
