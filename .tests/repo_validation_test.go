@@ -20,10 +20,12 @@ import (
 	"github.com/stretchr/testify/suite"
 )
 
-const monolithURL = "https://monolith.production-eks.codecademy.com/graphql"
+// end point for checking author data
+const authorsURL = os.Getenv("AUTHORS_URL")
 
-// size limit for non markdown files
+// size limit for non markdown files (1mb)
 const byteLimit int64 = 1000000
+const contentRoot = "./.."
 
 // validationr regex for markdown files
 var kebabCaseRE = regexp.MustCompile("^[a-z0-9]+(-[a-z0-9]+)*$")
@@ -64,22 +66,6 @@ type articleMeta struct {
 	CatalogContent []string  `yaml:"CatalogContent" validate:"required"`
 }
 
-// UnmarshalYAML allows conversion of date string to time.Time.
-func (t *dateToISO) UnmarshalYAML(unmarshal func(interface{}) error) error {
-	var buf string
-	err := unmarshal(&buf)
-	if err != nil {
-		return err
-	}
-
-	tt, err := time.Parse("2006-01-02", strings.TrimSpace(buf))
-	if err != nil {
-		return err
-	}
-	t.Time = tt
-	return nil
-}
-
 type unitTestSuite struct {
 	suite.Suite
 	authorIds        []string
@@ -104,14 +90,20 @@ func (suite *unitTestSuite) SetupSuite() {
 	suite.tagsFileBody = string(body)
 }
 
-func (suite *unitTestSuite) TearDownSuite() {
+/**
+TestValidateRepo walks the authors content folders and verifies the following requirements:
 
-}
+1. each top level author directory has a author_meta.json with a "ccID" field
+2. each "ccId" is unique across the entire repo
+3. each "ccId" exists in an Authors DB
+4. markdown files should be named in kebab case and lowercase letters
+5. markdown files contain frontmatter and includes all required fields fields
+6. markdown frontmatter "categories" and "tags" are found in the documented passlists (./documentation/(categories|tags).md)
+7. non-markdown files should not exceed 1MB
 
-const repoPath = "./.."
-
+*/
 func (s *unitTestSuite) TestValidateRepo() {
-	contentDirPath := filepath.Join(repoPath, CONTENT_DIR_NAME)
+	contentDirPath := filepath.Join(contentRoot, CONTENT_DIR_NAME)
 
 	contentDir, err := os.ReadDir(contentDirPath)
 	s.Assert().Nil(err, "Unable to parse content directory")
@@ -142,7 +134,7 @@ func (s *unitTestSuite) TestValidateRepo() {
 	s.Assert().Equal(len(authorData.AuthorProfiles), len(s.authorIds), "Monolith did not return expected count of authors")
 }
 
-// validateAuthorDir run validations on an author's directory by checking for a valid author_meta.json,
+// validateAuthorDir runs validations on an author's directory by checking for a valid author_meta.json,
 // valid articles, and that non articles do not exceed the size limit
 func (s *unitTestSuite) validateAuthorDir(dir fs.DirEntry, dirWg *sync.WaitGroup) {
 	defer dirWg.Done()
@@ -168,7 +160,6 @@ func (s *unitTestSuite) validateAuthorDir(dir fs.DirEntry, dirWg *sync.WaitGroup
 	// wait until all articles in dir are processed
 	articleWg := new(sync.WaitGroup)
 	filepath.Walk(authorDirPath, func(path string, info os.FileInfo, err error) error {
-
 		// skip the root dir while walking
 		if !info.IsDir() {
 			if strings.HasSuffix(path, ".md") {
@@ -254,4 +245,20 @@ func hasDuplicates(items []string) bool {
 	}
 
 	return false
+}
+
+// UnmarshalYAML allows conversion of date string to time.Time.
+func (t *dateToISO) UnmarshalYAML(unmarshal func(interface{}) error) error {
+	var buf string
+	err := unmarshal(&buf)
+	if err != nil {
+		return err
+	}
+
+	tt, err := time.Parse("2006-01-02", strings.TrimSpace(buf))
+	if err != nil {
+		return err
+	}
+	t.Time = tt
+	return nil
 }

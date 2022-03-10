@@ -6,7 +6,6 @@ require (
 	github.com/adrg/frontmatter v0.2.0
 	github.com/go-playground/validator v9.31.0+incompatible
 	github.com/machinebox/graphql v0.2.2
-	github.com/rs/zerolog v1.26.1
 	github.com/stretchr/testify v1.7.0
 
 )
