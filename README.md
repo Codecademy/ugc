@@ -1,13 +1,13 @@
 <div align="center">
-  <h1>📝 UGC Articles</h1>
+  <h1>📝 Community Articles</h1>
   <strong>A library of technical articles on anything code.</strong><br>
   <strong>Written by the Codecademy community.</strong>
 </div>
 <br>
 
-## What is UGC Articles?
+## What are Community Articles?
 
-User generated content (UGC) articles are free articles written by the Codecademy community, available to developers all over the world! Here are some examples:
+Community articles are user-generated content (UGC) written by the Codecademy community, available to developers all over the world! Here are some examples:
 
 - [Web Scrape with Selenium and Beautiful Soup](https://github.com/Codecademy/ugc/blob/main/content/caupolicandiaz/web-scrape-with-selenium-and-beautiful-soup.md)
 - [Build a Discord Bot with Node.js](https://github.com/Codecademy/ugc/blob/main/content/christine_yang/build-a-discord-bot-with-node-js.md)
@@ -23,16 +23,16 @@ User generated content (UGC) articles are free articles written by the Codecadem
 
 ## What stage of development are we in right now?
 
-This is currently the beta phase of UGC articles. We are aiming to release 20 articles written by beta authors/Codecademy superusers. Let us know what you think!
+This is currently the beta phase of Community Articles. We are aiming to release 20 articles written by beta authors/Codecademy superusers. Let us know what you think!
 
 ## How do I contribute?
 
-There are many ways to contribute to UGC articles:
+There are many ways to contribute to articles:
 
 - Submit a Pull Request to edit an existing article.
 - Submit a Pull Request to create a new article of your choice.
 - Take a look in [GitHub Issues](https://github.com/Codecademy/docs/issues) to get inspirations for your article.
-- Join the [#CodecademyUGC](https://twitter.com/search?q=%23CodecademyUGC&src=typed_query&f=live) discussion on Twitter.
+- Join the [#CodecademyCommunity](https://twitter.com/search?q=%23CodecademyCommunity&src=typed_query&f=live) discussion on Twitter.
 
 Whether you are a code newbie or a seasoned hacker, there's something for you!
 
