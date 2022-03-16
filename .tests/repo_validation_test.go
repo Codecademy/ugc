@@ -202,7 +202,7 @@ func (s *unitTestSuite) validateMarkdownFile(path string, wg *sync.WaitGroup) {
 	err = validate.Struct(meta)
 	s.Assert().Nil(err, "Frontmatter fails validation")
 
-	// ensure categories and tags are in whitelist
+	// ensure categories and tags are in allowlist
 	for _, item := range meta.Categories {
 		s.Assert().Contains(s.categoryFileBody, item+"\n", "Category was not found in documentation/categories.md")
 	}
