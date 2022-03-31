@@ -220,6 +220,3 @@ We’ve now learned how to implement the core functions of a stack class in Pyth
 * Defining an upper limit to the stack size, which could be valuable in production use to prevent runaway operations from repeatedly adding items to the stack and causing an “Out of Memory” exception. 
 
 With this as a basis, we are well on our way to developing our own stack implementation.
-
-This is an additional paragraph.
-
