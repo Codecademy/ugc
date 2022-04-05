@@ -86,7 +86,7 @@ $ touch discordbot.js .env
 
 The **discordbot.js** file will hold the code for our bot’s functionality and the **.env** file will securely store the _secret token_ copied over from the previous section.
 
-```
+```pseudo
 // .env
 
 CLIENT_TOKEN=PasteYourTokenHere
