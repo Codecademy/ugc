@@ -15,7 +15,7 @@ CatalogContent:
   - "paths/build-chatbots-with-python"
 ---
 
-_**Prerequisites:** Discord, JavaScript, Node.js, Visual Studio Code_  
+_**Prerequisites:** Basic understanding of Discord, JavaScript, Node.js, Visual Studio Code_  
 _**Versions:** Node.js 12.20.2_
 
 ## Introduction
