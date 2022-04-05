@@ -25,6 +25,8 @@ CatalogContent:
 _**Prerequisites:** Python_  
 _**Versions:** Python 3.8_
 
+## Introduction
+
 In computer science, a [stack] is a data structure represented by a collection of items that utilizes a last-in-first-out (LIFO) model for access. 
 
 There are two operations that are fundamental to this data structure:
