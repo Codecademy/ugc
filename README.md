@@ -31,7 +31,7 @@ There are many ways to contribute to articles:
 
 - Submit a Pull Request to edit an existing article.
 - Submit a Pull Request to create a new article of your choice.
-- Take a look in [GitHub Issues](https://github.com/Codecademy/docs/issues) to get inspirations for your article.
+- Take a look in [GitHub Issues](https://github.com/Codecademy/ugc/issues) to get inspirations for your article.
 - Join the [#CodecademyCommunity](https://twitter.com/search?q=%23CodecademyCommunity&src=typed_query&f=live) discussion on Twitter.
 
 Whether you are a code newbie or a seasoned hacker, there's something for you!
