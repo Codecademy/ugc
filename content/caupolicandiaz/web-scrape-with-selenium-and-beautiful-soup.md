@@ -145,19 +145,19 @@ With the page content in hand we must now locate the table elements of interest,
 ```python
 head = the_soup.find(href=re.compile('USA'))
  
-head.find_all_next('td',limit=5)
+head.find_all_next('td', limit=5)
 ```
  
 ## Organizing Our Data
  
-At this point, we've completed the scaffolding for our browser automation and with the `head.find_all_next('td',limit=5)` object we have access to the medal counts for each medal type as well as the overall total for that year. Now, all that remains is to bundle our data and set up our export pipeline. First, we process the data we've sourced by calling the `.string` attribute on the elements we've captured and assigning the result to a variable, `medals_lst`. Then we supplement the medal values with the year and gender values and append the entire thing to a list.
+At this point, we've completed the scaffolding for our browser automation and with the `head.find_all_next('td', limit=5)` object we have access to the medal counts for each medal type as well as the overall total for that year. Now, all that remains is to bundle our data and set up our export pipeline. First, we process the data we've sourced by calling the `.string` attribute on the elements we've captured and assigning the result to a variable, `medals_lst`. Then we supplement the medal values with the year and gender values and append the entire thing to a list.
  
 ```python
 try:
    year_val = year.get_attribute('text')
    head = the_soup.find(href=re.compile('USA'))
  
-   medal_values = head.find_all_next('td',limit=5)
+   medal_values = head.find_all_next('td', limit=5)
    val_lst = [x.string for x in medal_values[1:]] # the first index is the link with the country abbreviation and flag
   
 except:
@@ -209,6 +209,6 @@ We've made it to the end! Now, with our tidy data in hand, we can import our CSV
  
 Web scraping can initially seem like an intimidating endeavor, but with a little patience and time, we can leverage powerful tools to achieve a lot. For more information on the libraries we used here please review the documentation at the links below.
  
-- The final solution code: [olympic_data.py](https://github.com/Codecademy/articles/blob/main/web-scrape-with-beautiful-soup-and-selenium/olympic_data.py)
+- Solution code: [olympic_data.py](https://github.com/Codecademy/articles/blob/main/web-scrape-with-beautiful-soup-and-selenium/olympic_data.py)
 - Selenium: https://selenium-python.readthedocs.io/index.html
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/bs4/doc
