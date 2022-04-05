@@ -317,5 +317,5 @@ When `to` is used, it excludes the last value,`through` includes it.
 
 SASS allows you to make sophisticated style sheets faster. It keeps your code from being repetitive by having features specifically made for code reuse. By incorporating SASS in your code, you’ll find your code to be cleaner and more readable.
 
-- Full code on GitHub: [conversion.scss](https://github.com/Codecademy/articles/blob/main/convert-css-to-scss/conversion.scss)
+- Solution code: **[conversion.scss](https://github.com/Codecademy/articles/blob/main/convert-css-to-scss/conversion.scss)**
 - [Full documentation of SASS](https://sass-lang.com/documentation)
