@@ -41,7 +41,7 @@ It may often be the case that we find the information we want, but in many insta
 In the coverage recapping the 2020 Tokyo Olympics, [FiveThirtyEight]  published an article, detailing the incredible success of the American women and how their participation and achievements have evolved over the history of the games. The piece includes a pair of visualizations illustrating the percentage of medals won over time and the number of athletes participating by gender. All of the data for the article was sourced from a single site, [Olympedia.org].
  
 ![538 figure one]
-<figcaption>(Figure 1)</figcaption>  
+(Figure 1)
 
 ![538 figure two]
 (Figure 2) 
