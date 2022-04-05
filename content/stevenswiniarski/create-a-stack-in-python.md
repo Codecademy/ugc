@@ -22,8 +22,8 @@ CatalogContent:
 [`str()` function]: https://www.codecademy.com/resources/docs/python/built-in-functions/str
 [Stack]: https://raw.githubusercontent.com/Codecademy/ugc/main/content/stevenswiniarski/stack.png
 
-**Prerequisites:** Python fundamentals  
-**Versions:** Python 3.8
+_**Prerequisites:** Python_  
+_**Versions:** Python 3.8_
 
 In computer science, a [stack] is a data structure represented by a collection of items that utilizes a last-in-first-out (LIFO) model for access. 
 
