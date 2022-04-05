@@ -14,8 +14,8 @@ CatalogContent:
   - "learn-web-scraping"
 ---
 
-**Prerequisites:** Python, HTML, CSS  
-**Versions:** Selenium 3.141, Beautiful Soup 4.9.3, Python 3.8
+***Prerequisites:** Python, HTML, CSS*  
+***Versions:** Selenium 3.141, Beautiful Soup 4.9.3, Python 3.8*
 
 [FiveThirtyEight]: https://fivethirtyeight.com/features/american-women-stole-the-show-in-tokyo/
 [Olympedia.org]: http://www.olympedia.org
