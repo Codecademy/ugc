@@ -38,6 +38,9 @@ CatalogContent:
 [rendered page with full-sized body]: https://raw.githubusercontent.com/Codecademy/articles/main/build-3d-environment-with-three-js/rendered_page_full_body.png?token=ABGEO3RHPAZJER45E463TLDBCK6KA
 [rendered page with cube]: https://raw.githubusercontent.com/Codecademy/articles/main/build-3d-environment-with-three-js/rendered_page_cube.png?token=ABGEO3TNG23SPGEGLFBXJKTBCK6LK
 
+_**Prerequisites:** HTML, CSS_  
+_**Versions:** A-Frame 1.3.0_
+
 ## Introduction
 
 [Three.js] is a JavaScript library that features 3D objects and views rendered on a web page. It builds on top of [WebGL] by adding functionality for visual aesthetics including:
