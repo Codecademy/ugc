@@ -38,7 +38,7 @@ CatalogContent:
 [rendered page with full-sized body]: https://raw.githubusercontent.com/Codecademy/articles/main/build-3d-environment-with-three-js/rendered_page_full_body.png?token=ABGEO3RHPAZJER45E463TLDBCK6KA
 [rendered page with cube]: https://raw.githubusercontent.com/Codecademy/articles/main/build-3d-environment-with-three-js/rendered_page_cube.png?token=ABGEO3TNG23SPGEGLFBXJKTBCK6LK
 
-### Introduction
+## Introduction
 
 [Three.js] is a JavaScript library that features 3D objects and views rendered on a web page. It builds on top of [WebGL] by adding functionality for visual aesthetics including:
 
@@ -54,7 +54,7 @@ In this article, we are going to learn how to build a 3D environment with Three.
 
 ![Completed 3D environment with rotating cube]
 
-#### The `renderer`, `Scene`, and `Camera`
+### The `renderer`, `Scene`, and `Camera`
 
 It should be noted that the Three.js API uses a considerable amount of stage and camera projection terms to name classes, functions and parameters.
 
@@ -73,7 +73,7 @@ Cameras use methods that utilize parameters named after terms in camera projecti
 
 With some terms out of the way, let’s begin building a 3D environment.
 
-### Step 1: setting up and installing Three.js
+## Step 1: setting up and installing Three.js
 
 We’ll begin by opening the [terminal], creating a directory called **/helloCube**, and changing into it.
 
@@ -96,7 +96,7 @@ Then, let’s install Three.js. There are two primary options for [installing Th
 
 For this article, we are going to use a CDN link to install Three.js. Let’s head to the next step to add markup.
 
-### Step 2: adding the HTML and connecting to our JS
+## Step 2: adding the HTML and connecting to our JS
 
 Let’s begin this step by opening **helloCube.html** and add the following markup:
 
@@ -189,7 +189,7 @@ Our markup is now connected with Three.js and with our local **helloCube.js** fi
 
 Let’s save and close the **helloCube.html** file. Next, we’ll proceed to build the actual 3D Three.js environment!
 
-### Step 3: establishing the 3D environment
+## Step 3: establishing the 3D environment
 
 For the remaining steps, we will finish building our 3D environment in the **helloCube.js** file. Let’s open the file and define a function called `create3DEnvironment()`. Then, we will execute it directly afterwards.
 
@@ -213,7 +213,7 @@ By passing nothing into `THREE.WebGLRenderer()`, the `renderer` will create a ne
 
 Let’s move on to the next step where we will set up a `Camera` object.
 
-### Step 4: setting up a new camera
+## Step 4: setting up a new camera
 
 In order to "see" the objects we render in our environment, we need to create a `Camera` object. We will be using a [perspective projection](<https://en.wikipedia.org/wiki/Perspective_(graphical)>) by creating a `new THREE.PerspectiveCamera()` and passing in the following values:
 
@@ -243,7 +243,7 @@ create3DEnvironment();
 
 We’ve got a new `camera` going! Let’s move on to the next step to build a scene for our camera to see _into_.
 
-### Step 5: creating a scene with 3D objects
+## Step 5: creating a scene with 3D objects
 
 The canvas inside the `renderer` constant is where a `Scene` object is set. Scenes are areas where 3D objects and effects, such as light effects, are stored. These objects are composed of geometric and material properties meshed together into one cohesive, 3-dimensional "shape", like a cube or a sphere.
 
@@ -308,7 +308,7 @@ create3DEnvironment();
 
 Let’s go ahead and save the **helloCube.js** file. It’s now time to see what our rendered cube finally looks like in the next step!
 
-### Step 6: rendering the scene and camera
+## Step 6: rendering the scene and camera
 
 Let’s take a step back and look at what we’ve done so far with our 3D environment:
 
@@ -344,7 +344,7 @@ And our rendered page should look like this:
 
 Wait?! That looks more like a square than a cube! Let’s find out for sure by trying to move it in the final step.
 
-### Step 7: animating the cube
+## Step 7: animating the cube
 
 In this last step, we are going to write an `.animate()` method that will move the cube in the 3D environment that just build in the previous step:
 
@@ -384,7 +384,7 @@ Our rendered page should look something like this:
 
 ![Completed 3D environment with rotating cube]
 
-### Conclusion
+## Conclusion
 
 There we have it! We just learned how to use the Three.js library to build a 3D environment. More specifically:
 
