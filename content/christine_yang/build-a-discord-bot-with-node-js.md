@@ -15,7 +15,7 @@ CatalogContent:
   - "paths/build-chatbots-with-python"
 ---
 
-### Introduction
+## Introduction
 
 [Discord](https://discord.com/) is a popular instant messaging application consisting of servers and channels. Servers are synonymous with group chats. Inside of servers, users may text, voice, or video chat. Channels belong to servers and are typically named according to their purpose. For example, you may have a server named "Gaming Group" with an "#announcements" channel to post announcements for users on that server.
 
@@ -25,7 +25,7 @@ In this article, we will set up a Discord Bot using [Node.js](https://nodejs.org
 
 ![Gif of Bot replying "Hello" to user](https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/discord_bot_reply.gif?raw=true)
 
-### Create our Discord Application
+## Create our Discord Application
 
 Let’s first head over to Discord [Developer Portal](https://discord.com/developers/applications). This is where we will create a new application.
 
@@ -60,7 +60,7 @@ When we choose the bot scope, we are then prompted to check off any permissions 
 
 After selecting the desired permissions, we will copy and paste the URL into a new window or tab.
 
-#### Add Bot to Server
+### Add Bot to Server
 
 The URL should take us to a private Discord page where we can add our bot to an existing server. 
 
@@ -68,11 +68,11 @@ After selecting a server, we will follow the prompts. Once our bot is authorized
 
 ![Discord message letting us know a bot has joined the server](https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/bot_hops_into_server.png?raw=true)
 
-### Build Discord Bot
+## Build Discord Bot
 
 Now that we have created our Discord Bot Application and added it to a server, we can start building out our bot’s functionality. You may use a text editor of choice; in this tutorial, we will be using [Visual Studio Code](https://code.visualstudio.com/).
 
-#### Step 1: Create Project Directory
+### Step 1: Create Project Directory
 
 Let’s open our terminal to where we wish our project to live and run the following commands to create our project directory and files:
 
@@ -82,7 +82,7 @@ $ cd discord-bot
 $ touch discordbot.js .env
 ```
 
-#### Step 2: Add Auth Token and Node Packages
+### Step 2: Add Auth Token and Node Packages
 
 The **discordbot.js** file will hold the code for our bot’s functionality and the **.env** file will securely store the _secret token_ copied over from the previous section.
 
@@ -106,7 +106,7 @@ Our project should now have the two files we originally created in addition to t
 - **package.json** file
 - **package-lock.json** file
 
-#### Step 3: Log In Bot and Add Functionality
+### Step 3: Log In Bot and Add Functionality
 
 We will now create some simple functionality for our bot. In order to do so, we need to first require and initialize the modules we installed via npm.
 
@@ -136,7 +136,7 @@ $ node discordbot.js
 Logged in as discordBot#0000!
 ```
 
-#### Add Functionality to Discord Bot
+### Add Functionality to Discord Bot
 
 Let’s set up a simple bot reply for whenever a user types "Hello". 
 
@@ -157,7 +157,7 @@ Let’s re-run the file and type "Hello" into the Discord chat.
 
 ![Gif of Bot replying "Hello" to user](https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/discord_bot_reply.gif?raw=true)
 
-### Conclusion
+## Conclusion
 
 We created a Discord Bot using Discord’s Developer Portal and Node.js. We used the discord.js module to interact with the Discord API and used dotenv to read **.env** files. Other [node packages/modules] can be utilized to upgrade the functionality of our bot. While the purpose of the bot we created today may be simple, the possibilities are endless! 
 
