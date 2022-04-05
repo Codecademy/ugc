@@ -12,7 +12,7 @@ There are many ways to contribute to UGC articles:
 
 - Submit a Pull Request to edit an existing article.
 - Submit a Pull Request to create a new article of your choice.
-- Take a look in [GitHub Issues](https://github.com/Codecademy/docs/issues) to get inspirations for your article.
+- Take a look in [GitHub Issues](https://github.com/Codecademy/ugc-articles/issues) to get inspirations for your article.
 - Join the [#CodecademyUGC](https://twitter.com/search?q=%23CodecademyUGC&src=typed_query&f=live) discussion on Twitter.
 
 If you're new to UGC articles and contributing for the first time, it is recommended that you visit the [Issues](https://github.com/Codecademy/docs/issues) section and ask to be assigned to an open issue that interests you. Otherwise, feel free to submit a [PR](https://www.codecademy.com/resources/docs/git/pull-requests) by creating a new [branch](https://www.codecademy.com/resources/docs/general/git/branch) in your fork to create a new article or edit an existing one.
