@@ -14,7 +14,7 @@ CatalogContent:
   - 'paths/front-end-engineer-career-path'
 ---
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg" width="40%">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg" width="20%">
 
 [SCSS](https://sass-lang.com) is the syntax used for the scripting language SASS, or Syntactically Awesome Style Sheet. This syntax can be used to significantly improve the readability of CSS code. It offers many advanced features that will make it easier for you to shorten your code. Since it is more advanced than CSS, it is sometimes coined as Sassy CSS. In this article, we’re going to learn more about what makes this style sheet so sassy.
 
@@ -242,7 +242,7 @@ The CSS will compile like this:
 }
 ```
 
-The `@extend`  allows for selectors to inherit properties from each other which eliminates the need to write multiple classes.
+The `@extend` allows for selectors to inherit properties from each other which eliminates the need to write multiple classes.
 
 ## Operators
 
@@ -270,12 +270,16 @@ To define complex computations that we wish to use multiple times, we can use fu
 
 A function in SASS uses the `@function` at-rule and is declared as follows:
 
- `@function <name>(<arguments...>) { ... }`
+```pseudo
+@function <name>(<arguments...>) { 
+  ... 
+}
+```
 
 If we needed a function that multiplies a list of numbers we can write the following:
 
 ```css
-@function mult($numbers...){
+@function mult($numbers...) {
   $mult: 1;
   @each $num in $numbers {
     $mult: $mult * $num;
