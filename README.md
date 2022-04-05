@@ -9,11 +9,11 @@
 
 Community articles are user-generated content (UGC) written by the Codecademy community, available to developers all over the world! Here are some examples:
 
-- [Web Scrape with Selenium and Beautiful Soup](https://github.com/Codecademy/ugc/blob/main/content/caupolicandiaz/web-scrape-with-selenium-and-beautiful-soup.md)
-- [Build a Discord Bot with Node.js](https://github.com/Codecademy/ugc/blob/main/content/christine_yang/build-a-discord-bot-with-node-js.md)
-- [Build a 3D Environment with Three.js](https://github.com/Codecademy/ugc/blob/main/content/brandondusch/build-a-3d-environment-with-three-js.md)
-- [How to Convert CSS to SCSS](https://github.com/Codecademy/ugc/blob/main/content/kyrathompson/how-to-convert-css-to-scss.md)
-- [Create a Stack in Python](https://github.com/Codecademy/ugc/blob/main/content/stevenswiniarski/create-a-stack-in-python.md)
+- [Web Scrape with Selenium and Beautiful Soup](https://www.codecademy.com/article/caupolicandiaz/web-scrape-with-selenium-and-beautiful-soup)
+- [Build a Discord Bot with Node.js](https://www.codecademy.com/article/christine_yang/build-a-discord-bot-with-node-js)
+- [Build a 3D Environment with Three.js](https://www.codecademy.com/article/brandondusch/build-a-3d-environment-with-three-js)
+- [How to Convert CSS to SCSS](https://www.codecademy.com/article/kyrathompson/how-to-convert-css-to-scss)
+- [Create a Stack in Python](https://www.codecademy.com/article/stevenswiniarski/create-a-stack-in-python )
 
 ## Why write articles?
 
