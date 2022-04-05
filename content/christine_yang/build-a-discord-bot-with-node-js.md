@@ -15,6 +15,9 @@ CatalogContent:
   - "paths/build-chatbots-with-python"
 ---
 
+_**Prerequisites:** Discord, JavaScript, Node.js, Visual Studio Code_  
+_**Versions:** Node.js 12.20.2_
+
 ## Introduction
 
 [Discord](https://discord.com/) is a popular instant messaging application consisting of servers and channels. Servers are synonymous with group chats. Inside of servers, users may text, voice, or video chat. Channels belong to servers and are typically named according to their purpose. For example, you may have a server named "Gaming Group" with an "#announcements" channel to post announcements for users on that server.
