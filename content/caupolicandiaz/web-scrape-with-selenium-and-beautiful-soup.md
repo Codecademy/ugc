@@ -209,6 +209,6 @@ We've made it to the end! Now, with our tidy data in hand, we can import our CSV
  
 Web scraping can initially seem like an intimidating endeavor, but with a little patience and time, we can leverage powerful tools to achieve a lot. For more information on the libraries we used here please review the documentation at the links below.
  
-- Solution code: [olympic_data.py](https://github.com/Codecademy/articles/blob/main/web-scrape-with-beautiful-soup-and-selenium/olympic_data.py)
+- Solution code: **[olympic_data.py](https://github.com/Codecademy/articles/blob/main/web-scrape-with-beautiful-soup-and-selenium/olympic_data.py)**
 - Selenium: https://selenium-python.readthedocs.io/index.html
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/bs4/doc
