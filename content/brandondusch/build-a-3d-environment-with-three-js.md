@@ -401,4 +401,3 @@ This is only scratching the surface of what Three.js can do. Visit their [offici
 
 - [Source code for this article]
 - [Three.js documentation]
-- [Learn A-Frame]
