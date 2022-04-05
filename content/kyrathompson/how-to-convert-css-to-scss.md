@@ -14,11 +14,11 @@ CatalogContent:
   - 'paths/front-end-engineer-career-path'
 ---
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg" width="40%">
+
 [SCSS](https://sass-lang.com) is the syntax used for the scripting language SASS, or Syntactically Awesome Style Sheet. This syntax can be used to significantly improve the readability of CSS code. It offers many advanced features that will make it easier for you to shorten your code. Since it is more advanced than CSS, it is sometimes coined as Sassy CSS. In this article, we’re going to learn more about what makes this style sheet so sassy.
 
 ### Getting Started With SASS
-
-![SASS Logo](https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg)
 
 Depending on your preference, SASS can be installed in many different ways. There are several free applications that allow you to have SASS up and running in no time. It can also be installed directly from the command line. If you don’t have SASS already installed, then take some time to explore your options here: [SASS Install Guide](https://sass-lang.com/install).
 
