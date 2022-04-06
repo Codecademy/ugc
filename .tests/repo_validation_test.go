@@ -21,8 +21,7 @@ import (
 )
 
 // end point for checking author data
-// var authorsURL = os.Getenv("AUTHORS_URL")
-var authorsURL = "https://monolith.production-eks.codecademy.com/graphql"
+var authorsURL = os.Getenv("AUTHORS_URL")
 
 // size limit for non markdown files (1mb)
 const byteLimit int64 = 1000000
@@ -116,7 +115,7 @@ func (s *unitTestSuite) TestValidateRepo() {
 		if item.IsDir() {
 			dirWg.Add(1)
 			// validate contents of directory for author
-			s.validateAuthorDir(item, dirWg)
+			go s.validateAuthorDir(item, dirWg)
 		} else {
 			s.Fail("Non directory found in top level content path")
 		}
@@ -164,7 +163,7 @@ func (s *unitTestSuite) validateAuthorDir(dir fs.DirEntry, dirWg *sync.WaitGroup
 		if !info.IsDir() {
 			if strings.HasSuffix(path, ".md") {
 				articleWg.Add(1)
-				s.validateMarkdownFile(path, articleWg)
+				go s.validateMarkdownFile(path, articleWg)
 			} else {
 				// assert the size is below the limit for non markdown files
 				fmt.Printf("- validating non-markdown file: %v \n", path)
@@ -217,18 +216,17 @@ func (s *unitTestSuite) validateMarkdownFile(path string, wg *sync.WaitGroup) {
 func (s *unitTestSuite) fetchAuthors(ccIds []string) monolithQueryResponse {
 	graphqlClient := graphql.NewClient(authorsURL)
 	graphqlRequest := graphql.NewRequest(`
-	query {
-		profiles(ccIds:["53ad6728c660e4eb130002e5", "56f6d56e4c432ce4d1000701", "610d6b838f6bbe7014931336", "53d18876fed2a851f8000029", "60cbc2d1011b910740680cbd"] ) {
+	query ($ccIds: [String!]!){
+		profiles(ccIds: $ccIds) {
 			id
 			profileImageUrl
 			username
 		}
 	}`)
 
-	// graphqlRequest.Var("ccIds", ccIds)
+	graphqlRequest.Var("ccIds", ccIds)
 	graphqlResponse := monolithQueryResponse{}
 	graphqlClient.Run(context.Background(), graphqlRequest, &graphqlResponse)
-
 	if err != nil {
 		panic(err)
 	}
