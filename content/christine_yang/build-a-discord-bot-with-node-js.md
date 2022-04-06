@@ -35,8 +35,8 @@ CatalogContent:
 [OAuth2 page bot permissions selected for a messaging bot]: https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/oauth2_bot_permissions.png?raw=true
 [Discord message letting us know a bot has joined the server]: https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/bot_hops_into_server.png?raw=true
 
-_**Prerequisites:** Basic understanding of Discord, JavaScript, Node.js, Visual Studio Code_  
-_**Versions:** Node.js 12.20.2_
+_**Prerequisites:** Understanding of Discord, JavaScript, Node.js, Visual Studio Code_  
+_**Versions:** Node.js 16.6_
 
 ## Introduction
 
