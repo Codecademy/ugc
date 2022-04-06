@@ -37,7 +37,7 @@ CatalogContent:
 [rendered page with cube]: https://raw.githubusercontent.com/Codecademy/articles/main/build-3d-environment-with-three-js/rendered_page_cube.png?token=ABGEO3TNG23SPGEGLFBXJKTBCK6LK
 
 _**Prerequisites:** HTML, CSS, JavaScript_  
-_**Versions:** A-Frame 1.3.0_
+_**Versions:** Three.js r128_
 
 ## Introduction
 
