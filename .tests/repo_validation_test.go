@@ -116,7 +116,7 @@ func (s *unitTestSuite) TestValidateRepo() {
 		if item.IsDir() {
 			dirWg.Add(1)
 			// validate contents of directory for author
-			go s.validateAuthorDir(item, dirWg)
+			s.validateAuthorDir(item, dirWg)
 		} else {
 			s.Fail("Non directory found in top level content path")
 		}
