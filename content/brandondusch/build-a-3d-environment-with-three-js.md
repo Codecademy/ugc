@@ -32,7 +32,7 @@ CatalogContent:
 [official website]: https://threejs.org/
 [learn a-frame]: https://www.codecademy.com/learn/learn-a-frame
 [github gif of rotating three.js globe]: https://raw.githubusercontent.com/Codecademy/articles/main/build-3d-environment-with-three-js/github.gif?token=ABGEO3RHPAZJER45E463TLDBCK6KA
-[completed 3d environment with rotating cube]: https://media.giphy.com/media/STFCkLhIXzEEEqMXko/giphy.gif?cid=790b761181498784867ee636f3df2887406daf1b2227a08a&rid=giphy.gif&ct=g
+[completed 3d environment with rotating cube]: https://raw.githubusercontent.com/Codecademy/articles/main/build-3d-environment-with-three-js/completed_3d_environent.gif
 [rendered page with full-sized body]: https://raw.githubusercontent.com/Codecademy/articles/main/build-3d-environment-with-three-js/rendered_page_full_body.png?token=ABGEO3RHPAZJER45E463TLDBCK6KA
 [rendered page with cube]: https://raw.githubusercontent.com/Codecademy/articles/main/build-3d-environment-with-three-js/rendered_page_cube.png?token=ABGEO3TNG23SPGEGLFBXJKTBCK6LK
 
