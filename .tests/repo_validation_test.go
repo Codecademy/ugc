@@ -216,15 +216,15 @@ func (s *unitTestSuite) validateMarkdownFile(path string, wg *sync.WaitGroup) {
 func (s *unitTestSuite) fetchAuthors(ccIds []string) monolithQueryResponse {
 	graphqlClient := graphql.NewClient(authorsURL)
 	graphqlRequest := graphql.NewRequest(`
-	query ($ccIds: [String!]!){
-		profiles(ccIds: $ccIds) {
+	query {
+		profiles(ccIds:["53ad6728c660e4eb130002e5", "56f6d56e4c432ce4d1000701", "610d6b838f6bbe7014931336", "53d18876fed2a851f8000029", "60cbc2d1011b910740680cbd"] ) {
 			id
 			profileImageUrl
 			username
 		}
 	}`)
 
-	graphqlRequest.Var("ccIds", ccIds)
+	// graphqlRequest.Var("ccIds", ccIds)
 	graphqlResponse := monolithQueryResponse{}
 	err := graphqlClient.Run(context.Background(), graphqlRequest, &graphqlResponse)
 	// TEST comment
