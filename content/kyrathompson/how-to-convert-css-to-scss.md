@@ -14,6 +14,9 @@ CatalogContent:
   - 'paths/front-end-engineer-career-path'
 ---
 
+_**Prerequisites:** HTML, CSS_  
+_**Versions:** SASS 1.49_
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg" width="20%">
 
 [SCSS](https://sass-lang.com) is the syntax used for the scripting language SASS, or Syntactically Awesome Style Sheet. This syntax can be used to significantly improve the readability of CSS code. It offers many advanced features that will make it easier for you to shorten your code. Since it is more advanced than CSS, it is sometimes coined as Sassy CSS. In this article, we’re going to learn more about what makes this style sheet so sassy.
