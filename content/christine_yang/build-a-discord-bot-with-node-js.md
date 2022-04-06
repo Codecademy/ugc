@@ -15,51 +15,71 @@ CatalogContent:
   - "paths/build-chatbots-with-python"
 ---
 
+[Discord]: https://discord.com/
+[Node.js]: https://nodejs.org/en/
+[Developer Portal]: https://discord.com/developers/applications
+[OAuth2]: https://discord.com/developers/docs/topics/oauth2
+[Visual Studio Code]: https://code.visualstudio.com/
+[npm]: https://www.codecademy.com/resources/docs/javascript/npm
+[Discord.js]: https://www.npmjs.com/package/discord.js
+[dotenv]: https://www.npmjs.com/package/dotenv
+[node packages/modules]: https://www.npmjs.com/
+
+[Gif of Bot replying "Hello" to user]: https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/discord_bot_reply.gif?raw=true
+[Discord Developer Portal to create new applications]: https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/discord_developer_portal.jpg?raw=true
+[Form modal to create an application with a name input]: https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/create_discord_app_modal.png?raw=true
+[Application’s general information page with a customizable icon image and an About Me section]: https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/general_info_bot.png?raw=true
+[Application’s bot page with an add bot button]: https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/discord_dev_bot.png?raw=true
+[After adding a bot to the application, a hidden authorization token is generated]: https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/a_wild_bot.png?raw=true
+[OAuth2 page with the bot option checked and an auto-generated URL bar]: https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/oauth2_scopes.png?raw=true
+[OAuth2 page bot permissions selected for a messaging bot]: https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/oauth2_bot_permissions.png?raw=true
+[Discord message letting us know a bot has joined the server]: https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/bot_hops_into_server.png?raw=true
+
 _**Prerequisites:** Basic understanding of Discord, JavaScript, Node.js, Visual Studio Code_  
 _**Versions:** Node.js 12.20.2_
 
 ## Introduction
 
-[Discord](https://discord.com/) is a popular instant messaging application consisting of servers and channels. Servers are synonymous with group chats. Inside of servers, users may text, voice, or video chat. Channels belong to servers and are typically named according to their purpose. For example, you may have a server named "Gaming Group" with an "#announcements" channel to post announcements for users on that server.
+[Discord] is a popular instant messaging application consisting of servers and channels. Servers are synonymous with group chats. Inside of servers, users may text, voice, or video chat. Channels belong to servers and are typically named according to their purpose. For example, you may have a server named "Gaming Group" with an "#announcements" channel to post announcements for users on that server.
 
 If you’re familiar with Discord, you may have noticed the presence of a Bot. Bots can help automate tasks such as playing music or moderating chats. 
 
-In this article, we will set up a Discord Bot using [Node.js](https://nodejs.org/en/). Node.js will allow us to write JavaScript outside of the browser.
+In this article, we will set up a Discord Bot using [Node.js]. Node.js will allow us to write JavaScript outside of the browser.
 
-![Gif of Bot replying "Hello" to user](https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/discord_bot_reply.gif?raw=true)
+![Gif of Bot replying "Hello" to user]
 
 ## Create our Discord Application
 
-Let’s first head over to Discord [Developer Portal](https://discord.com/developers/applications). This is where we will create a new application.
+Let’s first head over to Discord [Developer Portal]. This is where we will create a new application.
 
-![Discord Developer Portal to create new applications](https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/discord_developer_portal.jpg?raw=true)
+![Discord Developer Portal to create new applications]
 
 When we click the top right button labeled "New Application," a modal form will prompt us to create an application by first entering a name.
   
-![Form modal to create an application with a name input](https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/create_discord_app_modal.png?raw=true)
+![Form modal to create an application with a name input]
 
 After creating our application, we’ll be brought over to the general information tab where we can customize our bot’s profile icon and description.
 
-![Application’s general information page with a customizable icon image and an About Me section](https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/general_info_bot.png?raw=true)
+![Application’s general information page with a customizable icon image and an About Me section]
 
 In the bot tab, we will add our bot user to the application with a click of the "Add Bot" button.  
 
-[Application’s bot page with an add bot button](https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/discord_dev_bot.png?raw=true)
+![Application’s bot page with an add bot button]
 
 We should see a message that says, “A wild bot has appeared!”
 Our bot has a _secret token_ to share with us. Let’s copy and save it for a later step.
  
-![After adding a bot to the application, a hidden authorization token is generated](https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/a_wild_bot.png?raw=true)
+![After adding a bot to the application, a hidden authorization token is generated]
 
-Over on the settings tab, we can select the [OAuth2](https://discord.com/developers/docs/topics/oauth2) tab. This is where we can obtain the client ID and client secret to authenticate our application. 
+Over on the settings tab, we can select the [OAuth2] tab. This is where we can obtain the client ID and client secret to authenticate our application. 
 
 In the scopes section near the bottom of the page, we can generate a URL to authorize our application. Let’s check off the bot box.
 
-![OAuth2 page with the bot option checked and an auto-generated URL bar](https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/oauth2_scopes.png?raw=true)
+![OAuth2 page with the bot option checked and an auto-generated URL bar]
 
 When we choose the bot scope, we are then prompted to check off any permissions we wish to give our bot.
 
-![OAuth2 page bot permissions selected for a messaging bot](https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/oauth2_bot_permissions.png?raw=true)
+![OAuth2 page bot permissions selected for a messaging bot]
 
 After selecting the desired permissions, we will copy and paste the URL into a new window or tab.
 
@@ -69,11 +89,11 @@ The URL should take us to a private Discord page where we can add our bot to an 
 
 After selecting a server, we will follow the prompts. Once our bot is authorized and we are ready to close the window/tab, we'll hop over to the Discord server to confirm the action was a success.
 
-![Discord message letting us know a bot has joined the server](https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/bot_hops_into_server.png?raw=true)
+![Discord message letting us know a bot has joined the server]
 
 ## Build Discord Bot
 
-Now that we have created our Discord Bot Application and added it to a server, we can start building out our bot’s functionality. You may use a text editor of choice; in this tutorial, we will be using [Visual Studio Code](https://code.visualstudio.com/).
+Now that we have created our Discord Bot Application and added it to a server, we can start building out our bot’s functionality. You may use a text editor of choice; in this tutorial, we will be using [Visual Studio Code].
 
 ### Step 1: Create Project Directory
 
@@ -95,9 +115,9 @@ The **discordbot.js** file will hold the code for our bot’s functionality and 
 CLIENT_TOKEN=PasteYourTokenHere
 ```
 
-Node allows us to incorporate open-source code packages in our projects via [npm](https://www.codecademy.com/resources/docs/javascript/npm). There are tons of great npm packages.
+Node allows us to incorporate open-source code packages in our projects via [npm]. There are tons of great npm packages.
 
-We will install two packages: [Discord.js](https://www.npmjs.com/package/discord.js) is what allows us to interact with the Discord API and [dotenv](https://www.npmjs.com/package/dotenv) allows us to load environment variables from the **.env** file we created. It’s better to use an **.env** file in this situation because we want to keep our token secure.
+We will install two packages: [Discord.js] is what allows us to interact with the Discord API and [dotenv] allows us to load environment variables from the **.env** file we created. It’s better to use an **.env** file in this situation because we want to keep our token secure.
 
 ```bash
 $ npm install discord.js dotenv
@@ -158,7 +178,7 @@ In the newly added lines of code, the bot is listening for a message on the serv
 
 Let’s re-run the file and type "Hello" into the Discord chat.
 
-![Gif of Bot replying "Hello" to user](https://github.com/Codecademy/articles/blob/main/build-a-discord-bot-with-node-js/discord_bot_reply.gif?raw=true)
+![Gif of Bot replying "Hello" to user]
 
 ## Conclusion
 
