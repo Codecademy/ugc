@@ -242,7 +242,7 @@ In order to "see" the objects we render in our environment, we need to create a 
 create3DEnvironment();
 ```
 
-We’ve got a new `camera` going! Let’s move on to the next step to build a scene for our camera to see _into_.
+We’ve got a new `camera` going! Let’s move on to the next step to build a scene for our camera to see into.
 
 ## Step 5: Creating a scene with 3D objects
 
