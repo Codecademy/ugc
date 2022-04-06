@@ -66,7 +66,7 @@ When our code becomes more lengthy, it can become tedious to keep track of thing
 
 ## Nesting
 
-When defining rules in CSS, they must be defined one after another. CSS does not allow nesting. However, this can easily be done in SCSS.
+When defining rules in CSS, they must be defined one after another. CSS does not allow nesting. However, this can be done in SCSS.
 
 Take this CSS code for a navigation bar as an example:
 
@@ -249,7 +249,7 @@ The `@extend` allows for selectors to inherit properties from each other which e
 
 ## Operators
 
-SASS allows you to make use of math operators like `/`, `*`,`%`, `+`, and `-` to easily make calculations. Here is an example of calculations in use:
+SASS allows you to make use of math operators like `/`, `*`,`%`, `+`, and `-` to make calculations. Here is an example of calculations in use:
 
 ```css
 .container {
