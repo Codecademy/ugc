@@ -1,5 +1,5 @@
 ---
-Title: "How to Build a Discord Bot with Node.js"
+Title: "Build a Discord Bot with Node.js"
 Description: "Step-by-step tutorial about how to build a Discord Bot with Node.js."
 DatePublished: "2022-02-28"
 Categories:
