@@ -188,23 +188,23 @@ We now have a usable `stack` class. The code below highlights all of the functio
 
 ```py
 >>> s = stack()
->>> s.peek()			# stack = []
+>>> s.peek()           # stack = []
 Exception: peek() called on empty stack.
 >>> len(s)	
 0
->>> s.push(5)		# stack = [5]
+>>> s.push(5)          # stack = [5]
 >>> s.peek()
 5
->>> s.push('Apple')	# stack = ['Apple',5]
->>> s.push({'A':'B'})	# stack = [{'A':'B'},'Apple',5]
->>> s.push(25)		# stack = [25,{'A':'B'},'Apple',5]
+>>> s.push('Apple')    # stack = ['Apple',5]
+>>> s.push({'A':'B'})  # stack = [{'A':'B'},'Apple',5]
+>>> s.push(25)         # stack = [25,{'A':'B'},'Apple',5]
 >>> len(s)
 4
 >>> str(s)
 "[25, {'A': 'B'}, 'Apple', 5]"
->>> s.pop()			# stack = [{'A':'B'},'Apple',5]
+>>> s.pop()            # stack = [{'A':'B'},'Apple',5]
 25
->>> s.pop()			# stack = ['Apple',5]
+>>> s.pop()            # stack = ['Apple',5]
 {'A': 'B'}
 >>> str(s)
 "['Apple', 5]"
