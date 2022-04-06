@@ -25,7 +25,7 @@ CatalogContent:
 [range of viewable space]: https://en.wikipedia.org/wiki/Viewing_frustum
 [terminal]: https://www.codecademy.com/resources/docs/general/terminal
 [installing three.js]: https://threejs.org/docs/index.html#manual/en/introduction/Installation
-[intall it with npm]: https://www.codecademy.com/resources/docs/javascript/npm
+[npm]: https://www.codecademy.com/resources/docs/javascript/npm
 [cdn link]: https://www.codecademy.com/resources/docs/general/cdn
 [via cdn]: https://cdnjs.com/libraries/three.js/r128
 [perspective projection]: https://en.wikipedia.org/wiki/Perspective_(graphical)
@@ -92,7 +92,7 @@ $ touch helloCube.js
 
 Then, let’s install Three.js. There are two primary options for [installing Three.js](https://threejs.org/docs/index.html#manual/en/introduction/Installation) in a project:
 
-- We could [install it with npm] and import as a Node module with `import` or `require()`.
+- We could install it with [npm] and import as a Node module with `import` or `require()`.
 - We could use `<script>` elements to import the package source code via a [CDN link].
 
 For this article, we are going to use a CDN link to install Three.js. Let’s head to the next step to add markup.
