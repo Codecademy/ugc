@@ -265,7 +265,7 @@ The following will compile in CSS as follows:
 }
 ```
 
-Having operators at your fingertips makes it a lot easier to calculate sizing for margins, widths, and padding a lot simpler.
+Having operators at your fingertips makes it a lot easier to calculate sizing for margins, widths, and padding.
 
 ## Functions
 
