@@ -21,7 +21,8 @@ import (
 )
 
 // end point for checking author data
-var authorsURL = os.Getenv("AUTHORS_URL")
+// var authorsURL = os.Getenv("AUTHORS_URL")
+var authorsURL = "https://monolith.production-eks.codecademy.com/graphql"
 
 // size limit for non markdown files (1mb)
 const byteLimit int64 = 1000000
