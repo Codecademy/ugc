@@ -228,7 +228,7 @@ func (s *unitTestSuite) fetchAuthors(ccIds []string) monolithQueryResponse {
 	graphqlResponse := monolithQueryResponse{}
 	err := graphqlClient.Run(context.Background(), graphqlRequest, &graphqlResponse)
 	// TEST comment
-	s.Assert().Nil(err, fmt.Sprintf("Error fetching author info: %s", err.Error()))
+	s.Assert().Nil(err, fmt.Sprintf("Error fetching author infosss: %s", err.Error()))
 
 	return graphqlResponse
 }
