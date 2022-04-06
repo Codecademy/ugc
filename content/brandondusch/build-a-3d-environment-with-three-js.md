@@ -30,9 +30,7 @@ CatalogContent:
 [via cdn]: https://cdnjs.com/libraries/three.js/r128
 [perspective projection]: https://en.wikipedia.org/wiki/Perspective_(graphical)
 [official website]: https://threejs.org/
-[three.js documentation]: https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene
 [learn a-frame]: https://www.codecademy.com/learn/learn-a-frame
-[source code for this article]: https://github.com/Codecademy/articles/tree/main/build-3d-environment-with-three-js
 [github gif of rotating three.js globe]: https://raw.githubusercontent.com/Codecademy/articles/main/build-3d-environment-with-three-js/github.gif?token=ABGEO3RHPAZJER45E463TLDBCK6KA
 [completed 3d environment with rotating cube]: https://media.giphy.com/media/STFCkLhIXzEEEqMXko/giphy.gif?cid=790b761181498784867ee636f3df2887406daf1b2227a08a&rid=giphy.gif&ct=g
 [rendered page with full-sized body]: https://raw.githubusercontent.com/Codecademy/articles/main/build-3d-environment-with-three-js/rendered_page_full_body.png?token=ABGEO3RHPAZJER45E463TLDBCK6KA
@@ -399,5 +397,5 @@ This is only scratching the surface of what Three.js can do. Visit their [offici
 
 ### Resources
 
-- [Source code for this article]
-- [Three.js documentation]
+- Solution code: [3d-box](https://github.com/Codecademy/articles/tree/main/build-3d-environment-with-three-js/3d-box)
+- Three.js documentation: https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene
