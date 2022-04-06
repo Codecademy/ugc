@@ -118,7 +118,7 @@ SCSS has a major upgrade for importing files. In CSS, when a file is imported, a
 The syntax for importing files is as follows:
 
 ```css
-@import "filename"
+@import "filename";
 ```
 
 When using SASS, there is no need to include the file extension in the file name. SASS automatically assumes you’re importing a file of **.sass** or **.scss**.
