@@ -397,5 +397,5 @@ This is only scratching the surface of what Three.js can do. Visit their [offici
 
 ### Resources
 
-- Solution code: [3d-box](https://github.com/Codecademy/articles/tree/main/build-3d-environment-with-three-js/3d-box)
+- Solution code: [helloCube.html](https://github.com/Codecademy/articles/blob/main/build-3d-environment-with-three-js/3d-box/helloCube.html), [helloCube.js](https://github.com/Codecademy/articles/blob/main/build-3d-environment-with-three-js/3d-box/helloCube.js)
 - Three.js documentation: https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene
