@@ -164,7 +164,7 @@ func (s *unitTestSuite) validateAuthorDir(dir fs.DirEntry, dirWg *sync.WaitGroup
 		if !info.IsDir() {
 			if strings.HasSuffix(path, ".md") {
 				articleWg.Add(1)
-				go s.validateMarkdownFile(path, articleWg)
+				s.validateMarkdownFile(path, articleWg)
 			} else {
 				// assert the size is below the limit for non markdown files
 				fmt.Printf("- validating non-markdown file: %v \n", path)
