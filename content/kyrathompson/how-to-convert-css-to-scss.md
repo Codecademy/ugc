@@ -47,7 +47,7 @@ body {
 }
 ```
 
-If we know, we’re going to be using the color black and font Helvetica often in our code, then we can set them to variables using SCSS. We can do this as follows:
+If we know we’re going to be using the color black and font Helvetica often in our code, then we can set them to variables using SCSS. We can do this as follows:
 
 ```css
 $black: #000000;
@@ -109,7 +109,7 @@ nav {
 }
 ```
 
-Each child element is nested inside the parent element of `nav`. The hierarchical structure SCSS makes finding and changing elements much easier.
+Each child element is nested inside the parent element of `nav`. The hierarchical structure in SCSS makes finding and changing elements much easier.
 
 ## Importing Files
 
@@ -151,7 +151,7 @@ p {
 
 ## Mixins
 
-SASS includes a  feature called mixins that allows you to reuse snippets of CSS code wherever you want. Once you create a mixin, you can use it by calling it. The syntax for creating a mixin is as follows:
+SASS includes a feature called mixins that allows you to reuse snippets of CSS code wherever you want. Once you create a mixin, you can use it by calling it. The syntax for creating a mixin is as follows:
 
 ```css
 @mixin name {
@@ -250,7 +250,7 @@ The `@extend` allows for selectors to inherit properties from each other which e
 
 ## Operators
 
-SASS allows you to make use of math operators like `/`, `*`,`%`, `+`, and `-` to make calculations. Here is an example of calculations in use:
+SASS allows you to make use of math operators like `/`, `*`, `%`, `+`, and `-` to make calculations. Here is an example of calculations in use:
 
 ```css
 .container {
@@ -302,20 +302,15 @@ We can then use our `mult` function:
 ```
 Functions are very useful when creating complex calculations. Try making an `exponent` function that can calculate 3 to the power of 18. 
 
-**Hint:** SASS has a `@for` rule that allows for executing through expressions. It's written as follows
+**Hint:** SASS has a `@for` rule that allows for executing through expressions. It's written as follows:
 
 ```css
+/* Exclude last expression or value using to  */
 @for <variable> from <expression> to <expression> { ... } 
-```
 
-or 
-
-```css
+/* Include last value using through */
 @for <variable> from <expression> through <expression> { ... },
 ```
-
-When `to` is used, it excludes the last value,`through` includes it.
-
 
 ## Conclusion
 
