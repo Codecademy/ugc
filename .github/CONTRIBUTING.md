@@ -56,7 +56,7 @@ As a UGC article content creator, you have the opportunity to have your Codecade
 
 Contributing follows this workflow:
 
-1. Fork [this project repository](https://github.com/codecademy/docs).
+1. Fork [this project repository](https://github.com/codecademy/ugc).
 2. Clone the forked repository to your computer.
 3. Create and switch into a new branch.
 4. Edit or create an article and commit the changes.
