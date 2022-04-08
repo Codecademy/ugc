@@ -129,8 +129,8 @@ func (s *unitTestSuite) TestValidateRepo() {
 	s.Assert().False(duplicateAuthorIds, "List of author IDs is not unique")
 
 	// assert all author ids map to valid users in the production monolith
-	authorData := s.fetchAuthors(s.authorIds)
-	s.Assert().Equal(len(authorData.AuthorProfiles), len(s.authorIds), "Monolith did not return expected count of authors")
+	// authorData := s.fetchAuthors(s.authorIds)
+	// s.Assert().Equal(len(authorData.AuthorProfiles), len(s.authorIds), "Monolith did not return expected count of authors")
 }
 
 // validateAuthorDir runs validations on an author's directory by checking for a valid author_meta.json,
