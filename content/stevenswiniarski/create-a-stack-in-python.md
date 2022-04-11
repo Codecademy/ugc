@@ -36,7 +36,7 @@ In this way, this type of collection is analogous to a stack of items such as di
 
 ![Stack]
 
-### Planning our stack implementation
+### Planning Our Stack Implementation
 
 Before we begin, we need to decide what kind of capabilities we want in our stack implementation. The `.push()` and `.pop()` functions fulfill the minimum requirements. But we also might want the following:
 
@@ -45,7 +45,7 @@ Before we begin, we need to decide what kind of capabilities we want in our stac
 
 Lastly, we want to decide how the `.peek()` or `.pop()` methods behave when they are called on an empty stack. We could return something like `NaN`, but that might lead to subtle errors down the line, especially if a `NaN` value is added to the stack. A better practice in this scenario is to raise an [exception] when we try to use these functions on an empty stack. That way, such an event can get caught during testing and the code using the stack can be updated appropriately.
 
-### Starting to build the stack class
+### Starting To Build the Stack Class
 
 Our stack is going to be a [Python class]. Once we declare our class, the first thing we want to add is a container to hold the items in our stack. To do this we create an internal variable:
 
@@ -57,7 +57,7 @@ class stack:
 
 Upon initialization of our `stack` class, it will initialize the `__index` variable as an empty list. This list will hold the items in our stack.
 
-### Setting up the `len()` function
+### Setting Up the `len()` Function
 
 We’ll set up the `len()` function for our class first, since we’ll want to check it before using our `.pop()` and `.peek()` methods. We’ll do this by implementing a  “magic” method, also called a Dunder (double-underscore) method. Dunder methods allow us to override the behavior of built-in Python operations. For our stack we can leverage the `len()` Dunder method to institute the “length” behavior we need:
 
@@ -72,7 +72,7 @@ class stack:
 
 Now, when we call `len(stack_instance)`, it will return the number of items in our `__index` variable.
 
-### Setting up the `.push()` method
+### Setting Up the `.push()` Method
 
 Next, we want to set up our `.push()` method that will place items in our `__index` variable. Since `__index` is a list, our main decision will be at which “end” of the list we should insert our items.
 
@@ -92,9 +92,9 @@ class stack:
     self.__index.insert(0,item)
 ```
 
-### Setting up the `.peek()` method
+### Setting Up the `.peek()` Method
 
-The `peek` method is pretty straightforward. It returns the "top" value of the stack, which refers to the first item in our list, `__index[0]`. However, we need to take into account the possibility that our list is empty. We will want to check our stack with the `len()` function and throw an exception if we’re trying to use `peek()` on an empty stack:
+The `.peek()` method is pretty straightforward. It returns the "top" value of the stack, which refers to the first item in our list, `__index[0]`. However, we need to take into account the possibility that our list is empty. We will want to check our stack with the `len()` function and throw an exception if we’re trying to use `.peek()` on an empty stack:
 
  ```py
 class stack:
@@ -113,7 +113,7 @@ class stack:
     return self.__index[0]
 ```
 
-### Setting up the `.pop()` method
+### Setting Up the `.pop()` Method
 
 The `.pop()` method is exactly the same as the `.peek()` method with the further step of removing the returned item from the stack. Like `.peek()`, we’ll want to check for an empty list before trying to return a value:
 
@@ -141,7 +141,7 @@ class stack:
 
 It's important to note that a Python list has its own [`.pop()` method], which behaves almost the same as our stack `.pop()` method, except that the list-version can take an index and “pop” an item from anywhere in the list.
 
-### Setting up the `str()` function
+### Setting Up the `str()` Function
 
 An additional thing we can do is tell Python how we want our stack printed with the [`str()` function]. At the moment, using it yields the following results:
 
@@ -180,7 +180,7 @@ class stack:
 
 This will return the contents of our stack, just like printing out the items of a generic list.
 
-### Using the `stack` class
+### Using the `stack` Class
 
 We now have a usable `stack` class. The code below highlights all of the functionality we’ve implemented in our custom class:
 
