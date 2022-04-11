@@ -230,7 +230,6 @@ func (s *unitTestSuite) fetchAuthors(ccIds []string) monolithQueryResponse {
 	if err != nil {
 		panic(err)
 	}
-	// s.Assert().Nil(err, "Error fetching author info") small comment
 
 	return graphqlResponse
 }
@@ -264,4 +263,3 @@ func (t *dateToISO) UnmarshalYAML(unmarshal func(interface{}) error) error {
 	t.Time = tt
 	return nil
 }
-// asdfsdfasdf
