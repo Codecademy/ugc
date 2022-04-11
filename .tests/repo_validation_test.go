@@ -21,7 +21,7 @@ import (
 )
 
 // end point for checking author data
-var authorsURL = os.Getenv("AUTHORS_URL")
+var authorsURL = "https://www.codecademy.com/graphql"
 
 // size limit for non markdown files (1mb)
 const byteLimit int64 = 1000000
@@ -129,8 +129,8 @@ func (s *unitTestSuite) TestValidateRepo() {
 	s.Assert().False(duplicateAuthorIds, "List of author IDs is not unique")
 
 	// assert all author ids map to valid users in the production monolith
-	// authorData := s.fetchAuthors(s.authorIds)
-	// s.Assert().Equal(len(authorData.AuthorProfiles), len(s.authorIds), "Monolith did not return expected count of authors")
+	authorData := s.fetchAuthors(s.authorIds)
+	s.Assert().Equal(len(authorData.AuthorProfiles), len(s.authorIds), "Monolith did not return expected count of authors")
 }
 
 // validateAuthorDir runs validations on an author's directory by checking for a valid author_meta.json,
