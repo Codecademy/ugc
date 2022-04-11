@@ -230,7 +230,6 @@ func (s *unitTestSuite) fetchAuthors(ccIds []string) monolithQueryResponse {
 	if err != nil {
 		panic(err)
 	}
-	// s.Assert().Nil(err, "Error fetching author info")
 
 	return graphqlResponse
 }
