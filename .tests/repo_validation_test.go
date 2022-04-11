@@ -226,7 +226,7 @@ func (s *unitTestSuite) fetchAuthors(ccIds []string) monolithQueryResponse {
 
 	graphqlRequest.Var("ccIds", ccIds)
 	graphqlResponse := monolithQueryResponse{}
-	graphqlClient.Run(context.Background(), graphqlRequest, &graphqlResponse)
+	err := graphqlClient.Run(context.Background(), graphqlRequest, &graphqlResponse)
 	if err != nil {
 		panic(err)
 	}
