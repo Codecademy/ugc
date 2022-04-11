@@ -36,6 +36,7 @@ All article file names use the **.md** format along with the following standards
 
 - All text should be written in Markdown language. For more details on Markdown, see Codecademy's [Curriculum Markdown Style Guide](http://curriculum-documentation.codecademy.com/content-guidelines/markdown-style-guide/).
 - Each subsection should begin with a heading of size h2 (i.e. preceded by `##`).
+- Titles should be title case and subheaders (`##`, `###`, etc) should be sentence case.
 - All in-line code should be delineated by single backticks (`).
 
 #### Code Blocks
@@ -75,7 +76,9 @@ All code blocks should be delineated by triple backticks (```)
 
 #### Images and Source Code
 
-If you'd like to include an image, video, GIF, or other file in your article, please upload it to the same article folder. That way we'll never have any broken links!
+If you'd like to include an image, video, GIF, or other file in your article, please upload it to the same article folder. That way we'll never have any broken links! 
+
+**Note:** Each image/video/GIF should be < 1MB.
 
 ### I've read all the content standards. Now what?
 
