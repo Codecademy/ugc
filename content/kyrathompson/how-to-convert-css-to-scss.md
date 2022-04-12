@@ -309,7 +309,7 @@ Functions are very useful when creating complex calculations. Try making an `exp
 @for <variable> from <expression> to <expression> { ... } 
 
 /* Include last value using through */
-@for <variable> from <expression> through <expression> { ... },
+@for <variable> from <expression> through <expression> { ... }
 ```
 
 ## Conclusion
