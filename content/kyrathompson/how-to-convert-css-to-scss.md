@@ -172,7 +172,7 @@ If we wanted to create a mixin to highlight a piece of text we think is importan
 }
 ```
 
-Then we can call it anywhere we want. Let’s try this by pretending we have a class called `.highlight` where we want to use our mixin in, we can write the following:
+Then we can call it anywhere we want. Let’s try this by pretending we have a class called `.highlight` where we want to use our mixin, we can write the following:
 
 ```css
 .highlight {
