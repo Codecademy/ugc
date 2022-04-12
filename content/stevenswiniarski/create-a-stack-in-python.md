@@ -15,12 +15,12 @@ CatalogContent:
 ---
 
 [depth-first search]: https://en.wikipedia.org/wiki/Depth-first_search
-[“stack”]: https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
+[stack]: https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
 [exception]: https://www.codecademy.com/resources/docs/python/errors
 [Python class]: https://www.codecademy.com/resources/docs/python/classes
 [`.pop()` method]: https://www.codecademy.com/resources/docs/python/lists/pop
 [`str()` function]: https://www.codecademy.com/resources/docs/python/built-in-functions/str
-[Stack]: https://raw.githubusercontent.com/Codecademy/ugc/main/content/stevenswiniarski/stack.png
+[Stack Image]: https://raw.githubusercontent.com/Codecademy/ugc/main/content/stevenswiniarski/stack.png
 
 _**Prerequisites:** Python_  
 _**Versions:** Python 3.8_
@@ -36,7 +36,7 @@ There are two operations that are fundamental to this data structure:
 
 In this way, this type of collection is analogous to a stack of items such as dinner plates, where the topmost item must be removed to access the items underneath. Stacks are useful in implementing actions such as a [depth-first search]. This article will explore the process of implementing a stack in Python.
 
-![Stack]
+![Stack Image]
 
 ## Planning our stack implementation
 
@@ -74,6 +74,13 @@ class stack:
 
 Now, when we call `len(stack_instance)`, it will return the number of items in our `__index` variable.
 
+```py
+>>> s = stack()
+>>> # some additional stack operations go here
+>>> len(s) # fetch number of items in the stack
+2
+```
+
 ## Setting up the `.push()` method
 
 Next, we want to set up our `.push()` method that will place items in our `__index` variable. Since `__index` is a list, our main decision will be at which “end” of the list we should insert our items.
@@ -96,7 +103,7 @@ class stack:
 
 ## Setting up the `.peek()` method
 
-The `peek` method is pretty straightforward. It returns the "top" value of the stack, which refers to the first item in our list, `__index[0]`. However, we need to take into account the possibility that our list is empty. We will want to check our stack with the `len()` function and throw an exception if we’re trying to use `peek()` on an empty stack:
+The `.peek()` method is pretty straightforward. It returns the "top" value of the stack, which refers to the first item in our list, `__index[0]`. However, we need to take into account the possibility that our list is empty. We will want to check our stack with the `len()` function and throw an exception if we’re trying to use `.peek()` on an empty stack:
 
  ```py
 class stack:
@@ -216,9 +223,9 @@ Exception: peek() called on empty stack.
 
 We’ve now learned how to implement the core functions of a stack class in Python. We could definitely add more functions to this implementation if we wanted. Some examples may include:
 
-* Refactoring `peek()` to look at any item in the stack by index.
+* Refactoring `.peek()` to look at any item in the stack by index.
 * Support for appending the contents of lists as a series of items within our stack.
-* Adding a `clear()` method to empty the stack.
+* Adding a `.clear()` method to empty the stack.
 * Defining an upper limit to the stack size, which could be valuable in production use to prevent runaway operations from repeatedly adding items to the stack and causing an “Out of Memory” exception. 
 
 With this as a basis, we are well on our way to developing our own stack implementation.
