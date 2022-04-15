@@ -16,7 +16,7 @@ CatalogContent:
 ---
 
 [Discord]: https://discord.com/
-[Node.js]: https://nodejs.org/en/
+[Node.js]: https://www.codecademy.com/resources/docs/general/node-js
 [Developer Portal]: https://discord.com/developers/applications
 [OAuth2]: https://discord.com/developers/docs/topics/oauth2
 [Visual Studio Code]: https://code.visualstudio.com/
@@ -44,7 +44,7 @@ _**Versions:** Node.js 16.6_
 
 If you’re familiar with Discord, you may have noticed the presence of a Bot. Bots can help automate tasks such as playing music or moderating chats. 
 
-In this article, we will set up a Discord Bot using [Node.js]. Node.js will allow us to write JavaScript outside of the browser.
+In this article, we will set up a Discord Bot using [Node.js], which allows us to write JavaScript outside of the browser.
 
 ![Gif of Bot replying "Hello" to user]
 
@@ -131,7 +131,7 @@ Our project should now have the two files we originally created in addition to t
 
 ### Step 3: Log In Bot and Add Functionality
 
-We will now create some simple functionality for our bot. In order to do so, we need to first require and initialize the modules we installed via npm.
+We will now create some functionality for our bot. In order to do so, we need to first require and initialize the modules we installed via npm.
 
 In **discordbot.js**:
 
@@ -143,7 +143,6 @@ require('dotenv').config();
 const { Client, Intents } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-// The console log string will appear in our terminal when we first run this file
 client.on('ready', () => {
  console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -161,7 +160,7 @@ Logged in as discordBot#0000!
 
 ### Add Functionality to Discord Bot
 
-Let’s set up a simple bot reply for whenever a user types "Hello". 
+Let’s set up a bot reply for whenever a user types "Hello". 
 
 ```js
 client.login(process.env.CLIENT_TOKEN);
@@ -176,13 +175,13 @@ client.on('messageCreate', msg => {
 
 In the newly added lines of code, the bot is listening for a message on the server. If the content of that message equals the string "Hello," our bot will reply "Hello" back with the author’s username.
 
-Let’s re-run the file and type "Hello" into the Discord chat.
+Let’s relaunch our bot with `node discordbot.js` and type "Hello" into the Discord chat.
 
 ![Gif of Bot replying "Hello" to user]
 
 ## Conclusion
 
-We created a Discord Bot using Discord’s Developer Portal and Node.js. We used the discord.js module to interact with the Discord API and used dotenv to read **.env** files. Other [node packages/modules] can be utilized to upgrade the functionality of our bot. While the purpose of the bot we created today may be simple, the possibilities are endless! 
+We created a Discord Bot using Discord’s Developer Portal and Node.js. We used the `discord.js` module to interact with the Discord API and used `dotenv` to read **.env** files. Other [node packages/modules] can be utilized to upgrade the functionality of our bot. While the bot we created today has only one function, the possibilities are endless! 
 
 Here is the source code:
 
