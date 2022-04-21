@@ -45,7 +45,7 @@ A Git project generally has:
 
 - A staging area - contains the changes made to files in the working directory ready to be committed.
 
-- A repository - also known as the "repo", the place where changes are saved by Git as different versions of the project. There will always be a local repo but there will also often be a remote repo hosted by a provider such as GitHub, GitLab or Bitbucket.
+- A repository - also known as the "repo", the place where changes are saved by Git as different versions of the project. A local repo will exist when either a remote repo is cloned onto our local machine, or when we create a project on our local machine and initialize Git in that project. There may also be a remote repo hosted by a provider such as GitHub, GitLab or Bitbucket.
 
 The steps commonly taken in a Git workflow include the following:
 
