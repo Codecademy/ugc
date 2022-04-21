@@ -67,13 +67,13 @@ This initialises a Git repo (which is just a name for a special folder called `.
 
 ![git-init](git-init.png)
 
-When `git init` is run inside the Git Tutorial folder, an empty Git repo is created inside of that directory. The repo is currently empty because Git doesn't know at this point which files it should track. Any untracked files can be viewed using the command:
+When `git init` is run inside the **Git Tutorial** folder, an empty Git repo is created inside of that directory. The repo is currently empty because Git doesn't know at this point which files it should track. Any untracked files can be viewed using the command:
 
 ```bash
 git status
 ```
 
-This will display untracked files in <span style="color:red">red</span>, and will show some useful output confirming that nothing has been added. For example, if `git status` is run in the Git Tutorial folder, which now contains a file called `learning-git.txt` the output looks like this:
+This will display untracked files in <span style="color:red">red</span>, and will show some useful output confirming that nothing has been added. For example, if `git status` is run in the **Git Tutorial** folder, which now contains a file called **learning-git.txt** the output looks like this:
 
 ![git-status-untracked](git-status-untracked-files.png)
 
