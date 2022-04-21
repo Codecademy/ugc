@@ -49,9 +49,9 @@ A Git project generally has:
 
 The steps commonly taken in a Git workflow include the following:
 
-1. Initializing Git in the Working Directory;
-2. Working on files in the Working Directory, then adding these to the Staging Area;
-3. Commmiting the changes from the Staging Area into the repo.
+1. Initializing Git in the working directory;
+2. Working on files in the working directory, then adding these to the staging area;
+3. Commmiting the changes from the staging area into the repo.
 
 Let's unpack each of these steps.
 
@@ -81,7 +81,7 @@ The output will begin with "On branch main" which can be ignored for now. One of
 
 ### .gitignore
 
-The **.gitignore** file is a special file which generally lives in the root of the Working Directory. It contains a list of files and/or directories which a developer has added that Git should not track, and so will not be committed. These files may be log files, or particular modules in a project that shouldn't be tracked, or (for Mac users) files like `.DS_Store`. Make sure to try and remember to add files which should not be tracked ***before*** they are committed.
+The **.gitignore** file is a special file which generally lives in the root of the working directory. It contains a list of files and/or directories which a developer has added that Git should not track, and so will not be committed. These files may be log files, or particular modules in a project that shouldn't be tracked, or (for Mac users) files like `.DS_Store`. Make sure to try and remember to add files which should not be tracked ***before*** they are committed.
 
 Now, with the **.gitignore file** made and the **.DS_Store** file added, running `git status` in the terminal shows the following output:
 
@@ -89,7 +89,7 @@ Now, with the **.gitignore file** made and the **.DS_Store** file added, running
 
 ## Updating the staging area
 
-In order for Git to start tracking changes, files need to be added to the Staging Area. This can be done with the command:
+In order for Git to start tracking changes, files need to be added to the staging area. This can be done with the command:
 
 ```bash
 git add <filename>
@@ -101,7 +101,7 @@ The `<filename>` is the name and extension of the file to be added to the stagin
 git add <filename1> <filename2> <filename3>
 ```
 
-If all files in the Working Directory need to be tracked, this syntax can be used, which should be run at the root directory:
+If all files in the working directory need to be tracked, this syntax can be used, which should be run at the root directory:
 
 ```bash
 git add .
@@ -113,7 +113,7 @@ Another command we can use to stage all changes is:
 git add -A
 ```
 
-Once a file has been added, `git status` can be run in the terminal/command prompt to check that the file is in the Staging Area. Git will show the changed files to be committed in <span style="color:green">green</span> text like so:
+Once a file has been added, `git status` can be run in the terminal/command prompt to check that the file is in the staging area. Git will show the changed files to be committed in <span style="color:green">green</span> text like so:
 
 ![git-status-untracked-with-gitignore](git-add-and-status.png)
 
@@ -121,7 +121,7 @@ More about the additional extensions to `git add` can be found in the [Add] sect
 
 ### Oops! I didn't want to add that!
 
-There may be occasions where a file has been incorrectly added to the Staging Area. This can be undone with the command `git reset <filename>`. This will not affect the changes done to the file in any way, it will simply remove it from the staging area. 
+There may be occasions where a file has been incorrectly added to the staging area. This can be undone with the command `git reset <filename>`. This will not affect the changes done to the file in any way, it will simply remove it from the staging area. 
 
 In the case where all files need to be unstaged, the command `git reset` can be run without adding further arguments.
 
@@ -187,7 +187,7 @@ is used. These two steps can however be neatly combined into one using:
 git checkout -b <name-of-new-branch>
 ```
 
-Once on a new branch, files in the Working Directory can be worked on as usual, and changes can be added and committed. Those changes will however only be committed to the current branch and will not affect anything on `main`.
+Once on a new branch, files in the working directory can be worked on as usual, and changes can be added and committed. Those changes will however only be committed to the current branch and will not affect anything on `main`.
 
 ### Merging
 
