@@ -254,7 +254,7 @@ One of the advantages of creating branches, rather than working off `main` is th
 To push code to the remote repo, the `git push` command is used as follows:
 
 ```bash
-git push <remote-branch-name><local-branch-name>
+git push <remote-branch-name> <local-branch-name>
 ```
 
 This command pushes the local branch, along with all of the changes which have been committed to that branch, to the remote destination repo. If the remote branch does not already exist, one will be automatically created with the name of the local branch. An alternative syntax to this is:
