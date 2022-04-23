@@ -41,7 +41,7 @@ Before jumping in to using Git, it will be helpful to have an overview of a stra
 
 A Git project generally has:
 
-- A working directory - the project folder on a computer where files are created, edited and deleted i.e. where work is actually done.
+- A working directory - the project folder on a computer where files are created, edited, and deleted. This is where work is actually done.
 
 - A staging area - contains the changes made to files in the working directory ready to be committed.
 
@@ -49,15 +49,15 @@ A Git project generally has:
 
 The steps commonly taken in a Git workflow include the following:
 
-1. Initializing Git in the working directory;
-2. Working on files in the working directory, then adding these to the staging area;
+1. Initializing Git in the working directory.
+2. Working on files in the working directory, then adding these to the staging area.
 3. Commmiting the changes from the staging area into the repo.
 
 Let's unpack each of these steps.
 
 ## Initializing Git
 
-To turn a Working Directory into a Git project, navigate to the directory in the terminal/command prompt and run the following command:
+To turn a working directory into a Git project, navigate to the directory in the terminal/command prompt and run the following command:
 
 ```bash
 git init
