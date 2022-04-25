@@ -13,10 +13,9 @@ CatalogContent:
   - "paths/computer-science"
 ---
 [Git]: https://www.codecademy.com/resources/docs/git
-[terminal]: https://www.codecademy.com/resources/docs/general/terminal
-[the Git Website]: https://git-scm.com/downloads
-[Add]: https://www.codecademy.com/resources/docs/git/add
-[Reset]: https://www.codecademy.com/resources/docs/git/reset
+[following the instructions]: https://git-scm.com/downloads
+[`git add`]: https://www.codecademy.com/resources/docs/git/add
+[`git reset`]: https://www.codecademy.com/resources/docs/git/reset
 [here]: https://www.theserverside.com/feature/Why-GitHub-renamed-its-master-branch-to-main
 [GitHub]: https://github.com/
 [conventions]: https://www.conventionalcommits.org/en/v1.0.0/
@@ -29,23 +28,27 @@ _**Prerequisites:** the Command Line_
 
 ## Getting started
 
-To get started with using Git, we must first download and install the software by following the instructions on [the Git Website] according to our operating system. Once installed, we can run the command below on a [terminal] (for Mac and Linux) or command prompt (for Windows) to check that installation was successful:
+To get started, we will first check that Git is installed in our system by running the following command:
 
-```
+```bash
 git --version
 git version 2.35.3
 ```
+
+If not installed, we can install Git by [following the instructions] on the Git website according to our operating system.
 ## Git workflow
 
-Before jumping in to using Git, it will be helpful to have an overview of a straightforward Git workflow. 
+Before using Git, it will be helpful to have an overview of a straightforward Git workflow. 
 
-A Git project generally has:
+A Git project generally has the following:
 
-- A working directory - the project folder on a computer where files are created, edited, and deleted. This is where work is actually done.
+- A working directory (or working tree) where project files are created, edited, and deleted on the computer.
 
-- A staging area - contains the changes made to files in the working directory ready to be committed.
+- A staging area that contains the changes made to files in the working directory ready to be committed.
 
-- A repository - also known as the "repo", the place where changes are saved by Git as different versions of the project. A local repo will exist when either a remote repo is cloned onto our local machine, or when we create a project on our local machine and initialize Git in that project. There may also be a remote repo hosted by a provider such as GitHub, GitLab or Bitbucket.
+- A repository - also known as the "repo", the place where changes are saved by Git as different versions of the project. 
+
+A local repo is created either when a remote repo is cloned onto our local machine, or when a project is created on a local machine and initialized as a Git repo. Remote repos are commonly hosted on providers like GitHub, GitLab, or Bitbucket.
 
 The steps commonly taken in a Git workflow include the following:
 
@@ -57,47 +60,47 @@ Let's unpack each of these steps.
 
 ## Initializing Git
 
-To turn a working directory into a Git project, navigate to the directory in the terminal/command prompt and run the following command:
+To turn a working directory into a Git project, we navigate to the directory in the terminal/command prompt and run the following command:
 
 ```bash
 git init
 ```
 
-This initialises a Git repo (which is just a name for a special folder called `.git` inside a project) on a local machine, and is required in order for Git to start tracking changes. This step might look something like this:
+This initializes a local Git repo by creating a special **.git** folder inside a project. This is required in order for any changes to be tracked and pushed to the repo. This step might look like this:
 
-![git-init](git-init.png)
+![Image of git init command being run](git-init.png)
 
-When `git init` is run inside the **Git Tutorial** folder, an empty Git repo is created inside of that directory. The repo is currently empty because Git doesn't know at this point which files it should track. Any untracked files can be viewed using the command:
+When `git init` is run inside the **Git Tutorial** folder, an empty Git repo is created inside of that directory. The repo is currently empty because at this point, Git doesn't know which files it should track. Any untracked files can be viewed using the following command:
 
 ```bash
 git status
 ```
 
-This will display untracked files in <span style="color:red">red</span>, and will show some useful output confirming that nothing has been added. For example, if `git status` is run in the **Git Tutorial** folder, which now contains a file called **learning-git.txt** the output looks like this:
+This will display untracked files in red and will show some useful output confirming that nothing has been added. For example, if `git status` is run in the **Git Tutorial** folder, which now contains a file called **learning-git.txt**. The output would look like this:
 
-![git-status-untracked](git-status-untracked-files.png)
+![Image of git status command being run for untracked files](git-status-untracked-files.png)
 
 The output will begin with "On branch main" which can be ignored for now. One of the files listed is one called **.DS_Store** that is automatically created by Mac OS X. This file contains information about system configurations, so should not be committed as part of the Git workflow. To make sure of this, a file called **.gitignore** should be made in the working directory.
 
 ### .gitignore
 
-The **.gitignore** file is a special file which generally lives in the root of the working directory. It contains a list of files and/or directories which a developer has added that Git should not track, and so will not be committed. These files may be log files, or particular modules in a project that shouldn't be tracked, or (for Mac users) files like `.DS_Store`. Make sure to try and remember to add files which should not be tracked ***before*** they are committed.
+The **.gitignore** file is a special file that generally lives in the root of the working directory. It contains a list of files and directories that are excluded from being tracked or committed by Git. This may include log files, particular modules, or (for Mac users) files like **.DS_Store**. It is recommended that these files be added to **.gitignore** before anything is committed.
 
-Now, with the **.gitignore file** made and the **.DS_Store** file added, running `git status` in the terminal shows the following output:
+With **.gitignore** made and the **.DS_Store** file added, running `git status` will show the following output:
 
-![git-status-untracked-with-gitignore](git-status-untracked-with-ignore.png)
+![Image of git status command being run with gitignore file added](git-status-untracked-with-ignore.png)
 
 ## Updating the staging area
 
-In order for Git to start tracking changes, files need to be added to the staging area. This can be done with the command:
+In order for Git to start tracking changes, files need to be added to the staging area. This can be done with the [`git add`] command:
 
-```bash
+```pseudo
 git add <filename>
 ```
 
 The `<filename>` is the name and extension of the file to be added to the staging area. Multiple files can also be added by name with the following syntax:
 
-```bash
+```pseudo
 git add <filename1> <filename2> <filename3>
 ```
 
@@ -113,21 +116,19 @@ Another command we can use to stage all changes is:
 git add -A
 ```
 
-Once a file has been added, `git status` can be run in the terminal/command prompt to check that the file is in the staging area. Git will show the changed files to be committed in <span style="color:green">green</span> text like so:
+Once a file has been added, `git status` can be run in the terminal/command prompt to check that the file is in the staging area. Git will show the changed files to be committed in green text:
 
-![git-status-untracked-with-gitignore](git-add-and-status.png)
+![Image of git status command being run after file in staging area](git-add-and-status.png)
 
-More about the additional extensions to `git add` can be found in the [Add] section of the Codecademy Docs for Git.
-
-### Oops! I didn't want to add that!
+### Unstaging a file
 
 There may be occasions where a file has been incorrectly added to the staging area. This can be undone with the command `git reset <filename>`. This will not affect the changes done to the file in any way, it will simply remove it from the staging area. 
 
-In the case where all files need to be unstaged, the command `git reset` can be run without adding further arguments.
+In the case where all files need to be unstaged, the command [`git reset`] can be run without adding further arguments.
 
 As of version 2.24, there is an alternative syntax for unstaging files in Git: 
 
-```bash
+```pseudo
 git restore --staged <filename>
 ``` 
 
@@ -149,21 +150,18 @@ Messages should always be clear and informative to others who may go back to con
 
 Committing is an important step in the Git workflow, as once a change has been committed, it can be recalled at a later date or the project can be rewound to that particular version. Commit history can be viewed with `git log`, which will display a list of commits in chronological order (the most recent commits being at the top), along with information such as the author of the commit, the date and time of the commit and the commit message.
 
-### Oops! I didn't want to commit that!
+### Undoing a commit
 
 In the situation where the last commit needs to be undone, the `git reset` command can again be used, with some modifications. 
 
-The current commit is called the `HEAD` commit, which is generally the most recently made commit. To find out which commit this is, the command `git show HEAD` can be executed in the terminal/command prompt. This will display information about the most recent commit, including a unique 40 character SHA hash, which Git uses like an id to identify revisions in the repo.
+The current commit is called the `HEAD` commit, which is generally the most recently made commit. To find out which commit this is, the command `git show HEAD` can be executed in the terminal. This will display information about the most recent commit, including a unique 40 character SHA hash, which Git uses like an id to identify revisions in the repo.
 
 To undo the immediately previous commit, the command `git reset --soft HEAD~1` can be run, which will rewind the current `HEAD` commit to the immediately previous commit. The `--soft` flag ensures that any changes made to the files are preserved.
 
 If the rewind needs to go beyond the most recent commit, the command `git reset SHA`, where `SHA` is the first 7 characters of the SHA of the commit, can be used. Note that the SHA of all previous commits can be viewed using `git log`.
-
-More about the `reset` command can be viewed in the [Reset] section of the Codecademy docs for Git.
-
 ## Git branching
 
-In the Initializing Git section of this article, the output from running `git status` referred to being on `branch main`. In Git, branches are a core feature. They can be created, deleted, compared, merged and tracked. 
+Previously, the output from running `git status` referred to being on `branch main`. Branches are a core feature in Git. They allow for new updates and features to be developed and tested without disrupting the `main` branch of the project.
 
 The first branch to be aware of is the `HEAD` branch, which is the currently active branch. So, the `main` branch referenced above was the currently active branch and in GitHub is the name of the default branch. In Git, the default branch name is `master`, which was also originally the case in GitHub however this was renamed for the reasons outlined [here]. The main take away though is that both `master` and `main` are used as default branch names.
 
@@ -171,19 +169,19 @@ The idea of Git branches is that different branches can be created and worked on
 
 A new branch can be made with the following command:
 
-```bash
+```pseudo
 git branch <name-of-new-branch>
 ```
 
 To switch over to the new branch in a project the command:
 
-```bash
+```pseudo
 git checkout <name-of-the-branch>
 ```
 
 is used. These two steps can however be neatly combined into one using:
 
-```bash
+```pseudo
 git checkout -b <name-of-new-branch>
 ```
 
@@ -195,7 +193,7 @@ Merging combines multiple commits into one history and is generally used to join
 
 Once a branch has been merged, it is no longer needed so can be deleted with:
 
-```bash
+```pseudo
 git branch -d <branch-name>
 ``` 
 
@@ -207,7 +205,7 @@ When collaborating with others on a project, it is generally the case that a sha
 
 ### Git and GitHub
 
-Git is a version control tool whereas GitHub is an online hosting service for Git repositories. While not required to work with Git, remote repo providers like GitHub are ideal for working with others on a project.
+[Git] is a version control system used for tracking changes to files over a period of time. Understanding Git is a fundamental skill for all developers as it is an industry-standard for software development within a team.
 
 ### Workflow
 
@@ -253,13 +251,13 @@ One of the advantages of creating branches, rather than working off `main` is th
 
 To push code to the remote repo, the `git push` command is used as follows:
 
-```bash
+```pseudo
 git push <remote-branch-name> <local-branch-name>
 ```
 
 This command pushes the local branch, along with all of the changes which have been committed to that branch, to the remote destination repo. If the remote branch does not already exist, one will be automatically created with the name of the local branch. An alternative syntax to this is:
 
-```bash
+```pseudo
 git push origin <local-branch-name>
 ```
 
@@ -269,7 +267,7 @@ Once pushed, a pull request (sometimes called a merge request or "PR") can be cr
 
 ### Pull requests
 
-After the PR is created, other team members can review the code and make suggested changes. Any requested changes can be made with either of the following methods:
+After the PR is created, other team members can review the code and make suggested changes. Changes can be requested with either of the following methods:
 - They can be made locally and committed/pushed to the remote branch with the usual `add/commit` commands as described above.
 - If direct changes to the files are suggested, they can be made and committed to the remote repo from within the GUI of the hosting provider.
 
