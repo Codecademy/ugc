@@ -1,0 +1,154 @@
+---
+Title: "Creating Queues Using JavaScript"
+Description: "Creating a queue and implementing several of it's operations using JavaScript"
+DatePublished: "2022-04-28"
+Categories:
+  - "computer-science"
+Tags:
+  - "Algorithms"
+  - "Arrays"
+  - "ES6"
+  - "Classes"
+CatalogContent:
+  - "learn-javascript"
+  - "course/linear-data-structures"
+---
+
+## Creating Queues Using JavaScript
+
+During conversations about data structures in the programming world, queues are heard quite often.
+A queue is a linear data structure that follows the first-in-first-out pattern i.e removal takes place at the front, and addition takes place at the end. Think of it as the checkout point of a grocery store. Customers who walk there first get attended to first.
+
+
+## Use cases for queues
+
+There are several use cases for queues in the programming and real world. some them include:
+
+- A desk printer 
+- Adding songs to a queue in your music player
+- Customer service wait-lines
+- File sharing between / data transfer between two processes
+
+Queues can be implemented in any programming language but our focus is on how to do it using javaScript. In javascript, it can also be implemented in two ways (arrays and linked lists), for this article we would implement queues using arrays.
+
+
+## Operations in queues
+
+These are some basic  operations that are performed on queues
+
+- Enqueue
+- Dequeue
+- Peek
+- Reversing a queue
+
+For the implementation of the above operations, we’d use an [ES6 class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) and have the various operations as methods
+
+
+## Getting started
+
+First step is to initialize our class with it's own storage (an array where our queue items would be stores)
+
+```js
+class Queue {
+  constructor() {
+    this.queue = [];
+  }
+}
+```
+
+Next up we add each operation as a method of the class
+
+### Enqueue
+
+This term refers to adding a new item to the queue. Since we're implementing our queue with an array, we can use the `push` array method to add new items to the queue.
+
+```js
+class Queue {
+  constructor() {
+    this.queue = [];
+  }
+
+  enqueue(item) {
+    this.queue.push(item);
+  }
+}
+```
+
+### Dequeue
+
+This term refers to removing a new item from the queue. Again, the `shift` array method takes care of this for us easily.
+
+```js
+class Queue {
+  constructor() {
+    this.queue = [];
+  }
+
+  enqueue(item) {
+    this.queue.push(item);
+  }
+
+  dequeue() {
+    return this.queue.shift();
+  }
+}
+```
+
+### Peek
+
+We use the peek method to check for the item at the front of the queue, without removing it
+
+```js
+class Queue {
+  constructor() {
+    this.queue = [];
+  }
+
+  enqueue(item) {
+    this.queue.push(item);
+  }
+
+  dequeue() {
+    return this.queue.shift();
+  }
+
+  peek() {
+    return this.queue[0];
+  }
+}
+```
+
+### Reversing a Queue
+
+As the title implies, we are simply trying to change the order of the queue from back to front.
+
+```js
+class Queue {
+  constructor() {
+    this.queue = [];
+  }
+
+  enqueue(item) {
+    this.queue.push(item);
+  }
+
+  dequeue() {
+    return this.queue.shift();
+  }
+
+  peek() {
+    return this.queue[0];
+  }
+
+  reverse() {
+    const reversed = []
+    while (this.queue.length > 0) {
+      reversed.push(this.queue.shift());
+    }
+    this.queue = reversed;
+    return this.queue;
+  }
+}
+```
+
+That’s it, folks. We’ve successfully implemented a queue and its basic operations using JavaScript.
