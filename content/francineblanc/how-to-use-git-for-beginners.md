@@ -9,11 +9,11 @@ Tags:
   - "GitHub"
 CatalogContent:
   - "learn-git"
-  - "learn-the-command-line"
   - "paths/computer-science"
 ---
 [Git]: https://www.codecademy.com/resources/docs/git
 [following the instructions]: https://git-scm.com/downloads
+[initializes]: https://www.codecademy.com/resources/docs/git/init
 [`git status`]: https://www.codecademy.com/resources/docs/git/status
 [`git add`]: https://www.codecademy.com/resources/docs/git/add
 [`git reset`]: https://www.codecademy.com/resources/docs/git/reset
@@ -23,7 +23,8 @@ CatalogContent:
 [GitHub]: https://github.com/
 [conventions]: https://www.conventionalcommits.org/en/v1.0.0/
 
-_**Prerequisites:** the Command Line_
+_**Prerequisites:** Command Line_
+_**Versions:** Git 2.35.3_
 
 ## Introduction
 
@@ -70,7 +71,7 @@ To turn a working directory into a Git project, we navigate to the directory in 
 git init
 ```
 
-This initializes a local Git repo by creating a special **.git** folder inside a project. This is required in order for any changes to be tracked and pushed to the repo. This step might look like this:
+This [initializes] a local Git repo by creating a special **.git** folder inside a project. This is required in order for any changes to be tracked and pushed to the repo. This step might look like this:
 
 ![Image of git init command being run](git-init.png)
 
@@ -146,7 +147,8 @@ Commits are an important step in the workflow and is generally one of the last s
 git commit -m "Add title and description to intro file"
 ```
 
-There are general [conventions] for writing a commit message including: 
+There are general [conventions] for writing a commit message including:
+
 - Making sure they are no more than 50 characters long.
 
 - Writing them in the imperative or present tense. 
@@ -154,6 +156,7 @@ There are general [conventions] for writing a commit message including:
 Messages should always be clear and informative to others who may go back to confirm what changes were made.
 
 A commit history can be viewed with `git log`, which will display a list of commits in chronological order (starting with the most recent), along with information such as:
+
 - The author of the commit.
 - The date and time.
 - The commit message.
@@ -169,7 +172,8 @@ To undo the immediately previous commit, the following command can be run:
 ```bash
 git reset --soft HEAD~1
 ```
- This will repoint the current HEAD commit to the one immediately before it. If we need to go beyond the most recent commit, we can run git reset SHA, where SHA is the first 7 characters of the commit hash. The `--soft` flag ensures that any changes made to the files are preserved.
+
+This will repoint the current HEAD commit to the one immediately before it. If we need to go beyond the most recent commit, we can run git reset SHA, where SHA is the first 7 characters of the commit hash. The `--soft` flag ensures that any changes made to the files are preserved.
 
 If the rewind needs to go beyond the most recent commit, the command `git reset SHA`, where `SHA` is the first 7 characters of the SHA of the commit, can be used. 
 
@@ -237,31 +241,30 @@ Let's take a closer look at steps 2 and 5.
 
 ### Updating branches
 
-To keep the local repo up to date with the remote repo, changes can be fetched and merged from the remote and integrated into the local branch. This can be done in two stages using `git fetch` and `git merge` or in one step using `git pull`.
+To keep the local repo up to date with the remote repo, changes can be fetched and merged from the remote and integrated into the local branch. This can be done in two stages using `git fetch` and `git merge` or in one step with `git pull`.
 
-`git fetch` downloads files and commits from a remote repo into the local repo. It is used to see what changes have been made to the remote before they are merged into the local repo.
+The `git fetch` command downloads files and commits from a remote repo into the local repo. It is used to see what changes have been made to the remote before they are merged into the local repo. To merge changes into the local repo after running `git fetch`, the `git merge` command can be run next. The following syntax shows three primary ways `git fetch` is used, along with `git merge` used afterwards:
 
-Fetching all branches from the remote can be achieved with `git fetch <remote-name>`.
+```pseudo
+git fetch <remote-name>
 
-Alternatively, a specific branch can be fetched with `git fetch <remote-name><branch-name>`.
+git fetch <remote-name> <branch-name>
 
-Lastly, all registered remotes and their associated branches can be achieved with `git fetch --all`.
+git fetch --all
 
-`git fetch` does not automatically merge changes made in the remote repo to the local repo, so is useful in cases where code needs to be reviewed before being locally merged. To merge changes into the local repo, the usual `git merge` command is required.
+git merge origin <local-branch>
+```
 
-The `git fetch <remote>` and `git merge origin <local-branch>` command is combined as one into the `git pull` command, which automatically fetches and merges changes from a remote into the local branch. `git pull` can be run as a standalone command or with options such as `git pull <remote-name>` which will fetch and merge a specified remote with the local branch.
+Fetching all branches from the remote can be achieved by including the `<remote-name>`. Alternatively, a specific branch can be fetched by adding a `<branch-name>`. Lastly, all registered remotes and their associated branches can be gotten with the `--all` flag. While `git fetch` does not automatically merge changes into the remote repo, it is useful in cases where code needs to be reviewed before being locally merged. Afterwards, a `git merge` command can be run merge the fetched changes into the `<local-branch>` or the `origin` remote.
 
-It is important to keep a habit of updating the local repo of a codebase being remotely worked on with others in a team. This includes fetching and merging or pulling changes from the remote branch.
+The `git fetch` and `git merge` commands can be combined into one `git pull` command. This automatically fetches and merges changes from a remote into the local branch. `git pull` can be run as a standalone command or with options such as `git pull <remote-name>` which will fetch and merge a specified remote with the local branch. Some important points to keep in mind when updating branches include the following:
 
-It is also important to form a habit of fetching and merging or pulling when working in a team to make sure the codebase being worked on locally is always up to date with the remote.
+- It is good to keep a habit of updating the local repo of a codebase being remotely worked on with others in a team. This includes fetching, merging, or pulling changes from the remote branch.
+- When working in a team, it is good to ensure the local-side of the codebase is kept up to date with the remote-side.
 
 ### Pushing
 
-When collaborating on a project, it is often the case that to (amongst other reasons) prevent broken code from being added to the main development branch and/or to ensure code is correctly formatted and follows whatever code conventions have been set by the team, those who have not been working on the new feature or fix will be asked to review the code. 
-
-Code reviews are an important part of quality assurance in software development and not only help protect against broken code from being mistakenly included in a codebase but also help share knowledge amongst a team and can help develop the skills of both the reviewer and author.
-
-One of the advantages of creating branches, rather than working off `main` is that any changes made to that branch do not affect the work of any other developers in the team. When a branch is pushed up to the remote, the team members can also take the time to review the code properly without needing to worry that there may be broken code included in `main`.
+One of the advantages of creating branches, rather than working off `main` is that any changes made to that branch do not affect the work of any other developers in the team. When changes from a branch are pushed up to the remote, the team members can also take the time to review the code properly without needing to worry that there may be broken code included in `main`.
 
 To push code to the remote repo, the `git push` command is used as follows:
 
@@ -277,13 +280,20 @@ git push origin <local-branch-name>
 
 This also pushes the current local branch to a remote branch of the same name.
 
-Once pushed, a pull request (sometimes called a merge request or "PR") can be created. PRs are generally requests for merging changes into the `main` branch of the remote repo. Although the command line has been used throughout this article, there are some cases where using the GUI (Graphical User Interface) of GitHub is another option. This is the case when creating a PR, which can be done through the GUI of all of the major hosting services.
-
 ### Pull requests
 
-After the PR is created, other team members can review the code and make suggested changes. Changes can be requested with either of the following methods:
+Once pushed, a pull request (sometimes called a merge request or "PR") can be created. PRs are generally requests for merging changes into the `main` branch of the remote repo. Although the command line has been used throughout this article, there are some cases where using the GUI (graphical user interface) of GitHub is another option. This is the case when creating a PR, which can be done through the GUI of all of the major hosting services.
+
+After the PR is created, other team members can review the code and suggest changes. Changes can be requested with either of the following methods:
+
 - They can be made locally and committed/pushed to the remote branch with the usual `add/commit` commands as described above.
 - If direct changes to the files are suggested, they can be made and committed to the remote repo from within the GUI of the hosting provider.
+
+### Code reviews
+
+When collaborating on a project, it is often the case that to (amongst other reasons) prevent broken code from being added to the main development branch and/or to ensure code is correctly formatted and follows whatever code conventions have been set by the team, those who have not been working on the new feature or fix will be asked to review the code. 
+
+Code reviews are an important part of quality assurance in software development and not only help protect against broken code from being mistakenly included in a codebase but also help share knowledge amongst a team and can help develop the skills of both the reviewer and author.
 
 ## Conclusion
 
