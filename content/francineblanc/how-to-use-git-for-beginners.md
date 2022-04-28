@@ -17,7 +17,9 @@ CatalogContent:
 [`git status`]: https://www.codecademy.com/resources/docs/git/status
 [`git add`]: https://www.codecademy.com/resources/docs/git/add
 [`git reset`]: https://www.codecademy.com/resources/docs/git/reset
-[here]: https://www.theserverside.com/feature/Why-GitHub-renamed-its-master-branch-to-main
+[`git commit`]: https://www.codecademy.com/resources/docs/git/commit
+[here]: https://github.com/github/renaming/blob/main/README.md
+[Branches]: https://www.codecademy.com/resources/docs/git/branch
 [GitHub]: https://github.com/
 [conventions]: https://www.conventionalcommits.org/en/v1.0.0/
 
@@ -48,7 +50,7 @@ A Git project generally has the following:
 
 - A staging area that contains the changes made to files in the working directory ready to be committed.
 
-- A repository - also known as the "repo", the place where changes are saved by Git as different versions of the project. 
+- A repository, also known as the "repo", where changes are saved by Git as different versions of the project. 
 
 A local repo is created either when a remote repo is cloned onto our local machine, or when a project is created on a local machine and initialized as a Git repo. Remote repos are commonly hosted on providers like GitHub, GitLab, or Bitbucket.
 
@@ -124,9 +126,9 @@ Once a file has been added, `git status` can be run in the terminal/command prom
 
 ### Unstaging a file
 
-There may be occasions where a file has been incorrectly added to the staging area. This can be undone with the command `git reset <filename>`. This will not affect the changes done to the file in any way, it will simply remove it from the staging area. 
+There may be times where a file has been incorrectly added to the staging area. This can be undone with the [`git reset`] command. While the file is removed from the staging area, the changes within it remain unaffected.
 
-In the case where all files need to be unstaged, the command [`git reset`] can be run without adding further arguments.
+In the case where all files need to be unstaged, the command `git reset` can be run without additional arguments.
 
 As of version 2.24, there is an alternative syntax for unstaging files in Git: 
 
@@ -138,7 +140,7 @@ The `<filename>` is the name of the file to be unstaged.
 
 ## Committing changes
 
-Committing is generally the last step of the Git workflow and is generally thought of as being a snapshot of a project at a particular time. In this stage, changes in the staging area are saved inside the local repo, which is achieved with the command `git commit -m` followed by a space and a short message explaining the commit in quotes. For example:
+Commits are an important step in the workflow and is generally one of the last steps. They are regarded as snapshots of a project at a particular time. At this stage, changes in the staging area are saved inside the local repo. This is achieved with the [`git commit`] command followed by the `-m` flag to include a short message explaining the changes. When run, the command will look like this:
 
 ```bash
 git commit -m "Add title and description to intro file"
@@ -146,26 +148,36 @@ git commit -m "Add title and description to intro file"
 
 There are general [conventions] for writing a commit message including: 
 - Making sure they are no more than 50 characters long.
+
 - Writing them in the imperative or present tense. 
 
 Messages should always be clear and informative to others who may go back to confirm what changes were made.
 
-Committing is an important step in the Git workflow, as once a change has been committed, it can be recalled at a later date or the project can be rewound to that particular version. Commit history can be viewed with `git log`, which will display a list of commits in chronological order (the most recent commits being at the top), along with information such as the author of the commit, the date and time of the commit and the commit message.
+A commit history can be viewed with `git log`, which will display a list of commits in chronological order (starting with the most recent), along with information such as:
+- The author of the commit.
+- The date and time.
+- The commit message.
 
 ### Undoing a commit
 
 In the situation where the last commit needs to be undone, the `git reset` command can again be used, with some modifications. 
 
-The current commit is called the `HEAD` commit, which is generally the most recently made commit. To find out which commit this is, the command `git show HEAD` can be executed in the terminal. This will display information about the most recent commit, including a unique 40 character SHA hash, which Git uses like an id to identify revisions in the repo.
+Generally, the most recently made commit on the current branch is called the `HEAD` commit. To find out which commit this is, the command `git log` can be executed in the terminal. This will display information about the most recent commit, including a unique 40 character SHA hash, which Git uses like an id to identify revisions in the repo. `git log` also outputs the SHA of all previous commits. 
 
-To undo the immediately previous commit, the command `git reset --soft HEAD~1` can be run, which will rewind the current `HEAD` commit to the immediately previous commit. The `--soft` flag ensures that any changes made to the files are preserved.
+To undo the immediately previous commit, the following command can be run: 
 
-If the rewind needs to go beyond the most recent commit, the command `git reset SHA`, where `SHA` is the first 7 characters of the SHA of the commit, can be used. Note that the SHA of all previous commits can be viewed using `git log`.
+```bash
+git reset --soft HEAD~1
+```
+ This will repoint the current HEAD commit to the one immediately before it. If we need to go beyond the most recent commit, we can run git reset SHA, where SHA is the first 7 characters of the commit hash. The `--soft` flag ensures that any changes made to the files are preserved.
+
+If the rewind needs to go beyond the most recent commit, the command `git reset SHA`, where `SHA` is the first 7 characters of the SHA of the commit, can be used. 
+
 ## Git branching
 
-Previously, the output from running `git status` referred to being on `branch main`. Branches are a core feature in Git. They allow for new updates and features to be developed and tested without disrupting the `main` branch of the project.
+[Branches] are a core feature in Git. They allow for new updates and features to be developed and tested without disrupting the `main` branch of the project. Previously, the output from running `git status` referred to being on `branch main`. 
 
-The first branch to be aware of is the `HEAD` branch, which is the currently active branch. So, the `main` branch referenced above was the currently active branch and in GitHub is the name of the default branch. In Git, the default branch name is `master`, which was also originally the case in GitHub however this was renamed for the reasons outlined [here]. The main take away though is that both `master` and `main` are used as default branch names.
+The `main` branch usually refers to the default branch that serves as the base of a project. In Git, the default branch name is `master`, which was also originally the case in GitHub. However this was renamed in GitHub for the reasons outlined [here]. The main take away though is that both `master` and `main` are used as default branch names.
 
 The idea of Git branches is that different branches can be created and worked on, and changes can be merged into the `main` branch. Branches are in effect an independent line for the adding/staging/committing process, forked from the `main` branch. Once on a branch, commits are recorded in that branch's history and when ready a branch (including the changes made on that branch) can be merged i.e. combined into `main`.
 
