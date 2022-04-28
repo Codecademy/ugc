@@ -14,6 +14,7 @@ CatalogContent:
 ---
 [Git]: https://www.codecademy.com/resources/docs/git
 [following the instructions]: https://git-scm.com/downloads
+[`git status`]: https://www.codecademy.com/resources/docs/git/status
 [`git add`]: https://www.codecademy.com/resources/docs/git/add
 [`git reset`]: https://www.codecademy.com/resources/docs/git/reset
 [here]: https://www.theserverside.com/feature/Why-GitHub-renamed-its-master-branch-to-main
@@ -36,7 +37,8 @@ git version 2.35.3
 ```
 
 If not installed, we can install Git by [following the instructions] on the Git website according to our operating system.
-## Git workflow
+
+### Git workflow
 
 Before using Git, it will be helpful to have an overview of a straightforward Git workflow. 
 
@@ -76,15 +78,15 @@ When `git init` is run inside the **Git Tutorial** folder, an empty Git repo is 
 git status
 ```
 
-This will display untracked files in red and will show some useful output confirming that nothing has been added. For example, if `git status` is run in the **Git Tutorial** folder, which now contains a file called **learning-git.txt**. The output would look like this:
+This will display untracked files in red and will show some useful output confirming that nothing has been added. For example, if [`git status`] is run in the **Git Tutorial** folder, which now contains a file called **learning-git.txt**. The output would look like this:
 
 ![Image of git status command being run for untracked files](git-status-untracked-files.png)
 
 The output will begin with "On branch main" which can be ignored for now. One of the files listed is one called **.DS_Store** that is automatically created by Mac OS X. This file contains information about system configurations, so should not be committed as part of the Git workflow. To make sure of this, a file called **.gitignore** should be made in the working directory.
 
-### .gitignore
+### Ignoring changes in Git
 
-The **.gitignore** file is a special file that generally lives in the root of the working directory. It contains a list of files and directories that are excluded from being tracked or committed by Git. This may include log files, particular modules, or (for Mac users) files like **.DS_Store**. It is recommended that these files be added to **.gitignore** before anything is committed.
+The **.gitignore** file is a special file that generally lives in the root of the repo. It contains a list of files and directories that are excluded from being tracked or committed by Git. This may include log files, particular modules, or (for Mac users) files like **.DS_Store**. It is recommended that these files be added to **.gitignore** before anything is committed.
 
 With **.gitignore** made and the **.DS_Store** file added, running `git status` will show the following output:
 
@@ -173,13 +175,13 @@ A new branch can be made with the following command:
 git branch <name-of-new-branch>
 ```
 
-To switch over to the new branch in a project the command:
+Switching between branches can be done with the `git checkout` command:
 
 ```pseudo
 git checkout <name-of-the-branch>
 ```
 
-is used. These two steps can however be neatly combined into one using:
+It is also possible to create and switch into a new branch with one command:
 
 ```pseudo
 git checkout -b <name-of-new-branch>
@@ -201,11 +203,11 @@ This will only delete the branch once it has been merged into the `main` branch.
 
 ## Collaboration
 
-When collaborating with others on a project, it is generally the case that a shared remote Git repo will exist so that multiple people can work on the same project from different locations. There is a wide range of providers of remote repositories but the most popular and well-known is [GitHub].
+When collaborating with others on a project, it is generally the case that a shared remote Git repo will exist so that multiple people can work on the same project from different locations. Today, there is a wide range of providers of remote repos.
 
-### Git and GitHub
+### GitHub
 
-[Git] is a version control system used for tracking changes to files over a period of time. Understanding Git is a fundamental skill for all developers as it is an industry-standard for software development within a team.
+One of the most popular and well-known providers is [GitHub]. It utilizes Git version control for project creation and collaboration between teams. Using GitHub can feel like a skill in and of itself.
 
 ### Workflow
 
