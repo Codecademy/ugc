@@ -1,6 +1,6 @@
-# UGC Articles: Contribution Guide 👩🏻‍💻👨🏾‍💻👩🏼‍💻
+# Community Articles: Contribution Guide 👩🏻‍💻👨🏾‍💻👩🏼‍💻
 
-Welcome to the Codecademy UGC Articles GitHub repo!
+Welcome to the Codecademy Community Articles GitHub repo!
 
 We are an inclusive and passionate team of technologists and life-long learners around the world building free programming resources for a better tomorrow. All the content in UGC articles are written by amazing creative developers like yourself.
 
@@ -10,9 +10,9 @@ If you have some interesting learnings to share with the community, we'd love to
 
 There are many ways to contribute to UGC articles:
 
-- Submit a Pull Request to edit an existing article.
+- Submit a Pull Request to edit an existing article (typo/bug).
 - Submit a Pull Request to create a new article of your choice.
-- Take a look in [GitHub Issues](https://github.com/Codecademy/docs/issues) to get inspirations for your article.
+- Take a look in [GitHub Issues](https://github.com/Codecademy/ugc/issues) to get inspirations for your article.
 - Join the [#CodecademyUGC](https://twitter.com/search?q=%23CodecademyUGC&src=typed_query&f=live) discussion on Twitter.
 
 If you're new to UGC articles and contributing for the first time, it is recommended that you visit the [Issues](https://github.com/Codecademy/docs/issues) section and ask to be assigned to an open issue that interests you. Otherwise, feel free to submit a [PR](https://www.codecademy.com/resources/docs/git/pull-requests) by creating a new [branch](https://www.codecademy.com/resources/docs/general/git/branch) in your fork to create a new article or edit an existing one.
@@ -38,8 +38,8 @@ And here, templates for creating your new articles:
 
 | Template                                                                                                 | GitHub Example                                                                                                                                                                                                                      | Article Example                                                            |
 | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| [Article Template](https://github.com/Codecademy/ugc/blob/main/documentation/authorA/mock-article-1.md)           | [how-to-convert-css-to-scss.md](https://github.com/Codecademy/ugc/blob/main/content/kyrathompson/how-to-convert-css-to-scss.md) ([Raw](https://raw.githubusercontent.com/Codecademy/ugc/main/content/kyrathompson/how-to-convert-css-to-scss.md))                              | Coming soon         |
-| [Author Template](https://github.com/Codecademy/ugc/blob/main/documentation/authorA/author_meta.json) | [author_meta.json](https://github.com/Codecademy/ugc/blob/main/content/kyrathompson/author_meta.json) ([Raw](https://raw.githubusercontent.com/Codecademy/ugc/main/content/kyrathompson/author_meta.json)) | Coming soon |
+| [Article Template](https://github.com/Codecademy/ugc/blob/main/documentation/authorA/mock-article-1.md)           | [web-scrape-with-selenium-and-beautiful-soup.md](https://github.com/Codecademy/ugc/blob/main/content/caupolicandiaz/web-scrape-with-selenium-and-beautiful-soup.md) ([Raw](https://raw.githubusercontent.com/Codecademy/ugc/main/content/caupolicandiaz/web-scrape-with-selenium-and-beautiful-soup.md))                              | [Web Scrape with Selenium and Beautiful Soup](https://www.codecademy.com/article/caupolicandiaz/web-scrape-with-selenium-and-beautiful-soup)    |
+| [Author Template](https://github.com/Codecademy/ugc/blob/main/documentation/authorA/author_meta.json) | [author_meta.json](https://github.com/Codecademy/ugc/blob/main/content/caupolicandiaz/author_meta.json) | N/A |
 
 Please read through the following in the [/documentation](https://github.com/Codecademy/docs/tree/main/documentation) folder. In these links, you'll find a write-up of our standards for content and style:
 
@@ -56,7 +56,7 @@ As a UGC article content creator, you have the opportunity to have your Codecade
 
 Contributing follows this workflow:
 
-1. Fork [this project repository](https://github.com/codecademy/docs).
+1. Fork [this project repository](https://github.com/codecademy/ugc).
 2. Clone the forked repository to your computer.
 3. Create and switch into a new branch.
 4. Edit or create an article and commit the changes.

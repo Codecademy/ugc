@@ -14,15 +14,19 @@ CatalogContent:
   - 'paths/front-end-engineer-career-path'
 ---
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg" width="20%">
+<br>
+
+_**Prerequisites:** HTML, CSS_  
+_**Versions:** SASS 1.38_
+
 [SCSS](https://sass-lang.com) is the syntax used for the scripting language SASS, or Syntactically Awesome Style Sheet. This syntax can be used to significantly improve the readability of CSS code. It offers many advanced features that will make it easier for you to shorten your code. Since it is more advanced than CSS, it is sometimes coined as Sassy CSS. In this article, we’re going to learn more about what makes this style sheet so sassy.
 
-### Getting Started With SASS
-
-![SASS Logo](https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg)
+## Getting Started With SASS
 
 Depending on your preference, SASS can be installed in many different ways. There are several free applications that allow you to have SASS up and running in no time. It can also be installed directly from the command line. If you don’t have SASS already installed, then take some time to explore your options here: [SASS Install Guide](https://sass-lang.com/install).
 
-### Variables
+## Variables
 
 SCSS makes use of variables. Unlike CSS, where you have to call a `var()` function to make a variable, SCSS allows you to make variables directly. This is great for keeping track of things like fonts, colors, and sizing that you know you’re going to use over and over again.
 
@@ -43,7 +47,7 @@ body {
 }
 ```
 
-If we know, we’re going to be using the color black and font Helvetica often in our code, then we can set them to variables using SCSS. We can do this as follows:
+If we know we’re going to be using the color black and font Helvetica often in our code, then we can set them to variables using SCSS. We can do this as follows:
 
 ```css
 $black: #000000;
@@ -61,9 +65,9 @@ We initiated a variable named black and font-type using the symbol, `$`, and def
 
 When our code becomes more lengthy, it can become tedious to keep track of things. Variables are a great way to store items that we would like to have for later use. They can be a container for many things including strings, booleans, numbers, colors, and more. Storing these commonly used items in variables can make your code shorter and easier to read.
 
-### Nesting
+## Nesting
 
-When defining rules in CSS, they must be defined one after another. CSS does not allow nesting. However, this can easily be done in SCSS.
+When defining rules in CSS, they must be defined one after another. CSS does not allow nesting. However, this can be done in SCSS.
 
 Take this CSS code for a navigation bar as an example:
 
@@ -105,16 +109,16 @@ nav {
 }
 ```
 
-Each child element is nested inside the parent element of `nav`. The hierarchical structure SCSS makes finding and changing elements much easier.
+Each child element is nested inside the parent element of `nav`. The hierarchical structure in SCSS makes finding and changing elements much easier.
 
-### Importing Files
+## Importing Files
 
 SCSS has a major upgrade for importing files. In CSS, when a file is imported, an HTTP request is made each time the file is called. SCSS eliminates this by directly including the file into the CSS code. This improves the runtime and performance of your code.
 
 The syntax for importing files is as follows:
 
 ```css
-@import "filename"
+@import "filename";
 ```
 
 When using SASS, there is no need to include the file extension in the file name. SASS automatically assumes you’re importing a file of **.sass** or **.scss**.
@@ -145,9 +149,9 @@ p {
 }
 ```
 
-### Mixins
+## Mixins
 
-SASS includes a  feature called mixins that allows you to reuse snippets of CSS code wherever you want. Once you create a mixin, you can use it by calling it. The syntax for creating a mixin is as follows:
+SASS includes a feature called mixins that allows you to reuse snippets of CSS code wherever you want. Once you create a mixin, you can use it by calling it. The syntax for creating a mixin is as follows:
 
 ```css
 @mixin name {
@@ -168,7 +172,7 @@ If we wanted to create a mixin to highlight a piece of text we think is importan
 }
 ```
 
-Then we can call it anywhere we want. Let’s try this by pretending we have a class called `.highlight` where we want to use our mixin in, we can write the following:
+Then we can call it anywhere we want. Let’s try this by pretending we have a class called `.highlight` and we want to use our mixin inside of it. We can write the following:
 
 ```css
 .highlight {
@@ -190,7 +194,7 @@ The CSS will compile like this:
 
 The use of mixins eliminates the need to repeat yourself, resulting in cleaner code.
 
-### Extend/Inheritance
+## Extend/Inheritance
 
 With the built-in feature `@extend`, SASS allows you to share CSS properties to multiple selectors. For example, if we have a basic button with the following properties:
 
@@ -242,11 +246,11 @@ The CSS will compile like this:
 }
 ```
 
-The `@extend`  allows for selectors to inherit properties from each other which eliminates the need to write multiple classes.
+The `@extend` allows for selectors to inherit properties from each other which eliminates the need to write multiple classes.
 
-### Operators
+## Operators
 
-SASS allows you to make use of math operators like `/`, `*`,`%`, `+`, and `-` to easily make calculations. Here is an example of calculations in use:
+SASS allows you to make use of math operators like `/`, `*`, `%`, `+`, and `-` to make calculations. Here is an example of calculations in use:
 
 ```css
 .container {
@@ -262,19 +266,24 @@ The following will compile in CSS as follows:
 }
 ```
 
-Having operators at your fingertips makes it a lot easier to calculate sizing for margins, widths, and padding a lot simpler.
+Having operators at your fingertips makes it a lot easier to calculate sizing for margins, widths, and padding.
 
-### Functions
+## Functions
+
 To define complex computations that we wish to use multiple times, we can use functions to simplify the process. 
 
 A function in SASS uses the `@function` at-rule and is declared as follows:
 
- `@function <name>(<arguments...>) { ... }`
+```pseudo
+@function <name>(<arguments...>) { 
+  ... 
+}
+```
 
 If we needed a function that multiplies a list of numbers we can write the following:
 
 ```css
-@function mult($numbers...){
+@function mult($numbers...) {
   $mult: 1;
   @each $num in $numbers {
     $mult: $mult * $num;
@@ -293,24 +302,19 @@ We can then use our `mult` function:
 ```
 Functions are very useful when creating complex calculations. Try making an `exponent` function that can calculate 3 to the power of 18. 
 
-**Hint:** SASS has a `@for` rule that allows for executing through expressions. It's written as follows
+**Hint:** SASS has a `@for` rule that allows for executing through expressions. It's written as follows:
 
 ```css
+/* Exclude last expression or value using to  */
 @for <variable> from <expression> to <expression> { ... } 
+
+/* Include last value using through */
+@for <variable> from <expression> through <expression> { ... }
 ```
 
-or 
-
-```css
-@for <variable> from <expression> through <expression> { ... },
-```
-
-When `to` is used, it excludes the last value,`through` includes it.
-
-
-### Conclusion
+## Conclusion
 
 SASS allows you to make sophisticated style sheets faster. It keeps your code from being repetitive by having features specifically made for code reuse. By incorporating SASS in your code, you’ll find your code to be cleaner and more readable.
 
-- Full code on GitHub: [conversion.scss](https://github.com/Codecademy/articles/blob/main/convert-css-to-scss/conversion.scss)
-- [Full documentation of SASS](https://sass-lang.com/documentation)
+- Solution code: [conversion.scss](https://github.com/Codecademy/articles/blob/main/convert-css-to-scss/conversion.scss)
+- Documentation of SASS: https://sass-lang.com/documentation

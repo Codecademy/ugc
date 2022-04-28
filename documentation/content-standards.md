@@ -36,6 +36,7 @@ All article file names use the **.md** format along with the following standards
 
 - All text should be written in Markdown language. For more details on Markdown, see Codecademy's [Curriculum Markdown Style Guide](http://curriculum-documentation.codecademy.com/content-guidelines/markdown-style-guide/).
 - Each subsection should begin with a heading of size h2 (i.e. preceded by `##`).
+- Titles should be title case and subheaders (`##`, `###`, etc) should be sentence case.
 - All in-line code should be delineated by single backticks (`).
 
 #### Code Blocks

@@ -21,7 +21,7 @@ import (
 )
 
 // end point for checking author data
-var authorsURL = os.Getenv("AUTHORS_URL")
+var authorsURL = "https://www.codecademy.com/graphql"
 
 // size limit for non markdown files (1mb)
 const byteLimit int64 = 1000000
@@ -227,7 +227,9 @@ func (s *unitTestSuite) fetchAuthors(ccIds []string) monolithQueryResponse {
 	graphqlRequest.Var("ccIds", ccIds)
 	graphqlResponse := monolithQueryResponse{}
 	err := graphqlClient.Run(context.Background(), graphqlRequest, &graphqlResponse)
-	s.Assert().Nil(err, "Error fetching author info")
+	if err != nil {
+		panic(err)
+	}
 
 	return graphqlResponse
 }
