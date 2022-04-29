@@ -154,7 +154,6 @@ git commit -m "Add title and description to intro file"
 There are general [conventions] for writing a commit message including:
 
 - Making sure they are no more than 50 characters long.
-
 - Writing them in the imperative or present tense. 
 
 Messages should always be clear and informative to others who may go back to confirm what changes were made.
