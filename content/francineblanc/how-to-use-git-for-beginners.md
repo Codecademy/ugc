@@ -51,7 +51,7 @@ A Git project generally has the following:
 
 - A staging area that contains the changes made to files in the working directory ready to be committed.
 
-- A repository, also known as the "repo", where changes are saved by Git as different versions of the project. 
+- A repository, also known as the repo, where changes are saved by Git as different versions of the project. 
 
 A local repo is created either when a remote repo is cloned onto our local machine, or when a project is created on a local machine and initialized as a Git repo. Remote repos are commonly hosted on providers like GitHub, GitLab, or Bitbucket.
 
@@ -75,17 +75,19 @@ This [initializes] a local Git repo by creating a special **.git** folder inside
 
 ![Image of git init command being run](git-init.png)
 
-When `git init` is run inside the **Git Tutorial** folder, an empty Git repo is created inside of that directory. The repo is currently empty because at this point, Git doesn't know which files it should track. Any untracked files can be viewed using the following command:
+When `git init` is run while in the **Git Tutorial** directory, an empty Git repo is created inside of that directory. The repo is currently empty because at this point, Git doesn't know which files it should track. Any untracked files can be viewed using the following command:
 
 ```bash
 git status
 ```
 
-This will display untracked files in red and will show some useful output confirming that nothing has been added. For example, if [`git status`] is run in the **Git Tutorial** folder, which now contains a file called **learning-git.txt**. The output would look like this:
+This will display untracked files in red and will show some useful output confirming that nothing has been added.
+
+In the example shown below, if [`git status`] is run in the **Git Tutorial** folder, which contains a file called **learning-git.txt**. The output would look like this:
 
 ![Image of git status command being run for untracked files](git-status-untracked-files.png)
 
-The output will begin with "On branch main" which can be ignored for now. One of the files listed is one called **.DS_Store** that is automatically created by Mac OS X. This file contains information about system configurations, so should not be committed as part of the Git workflow. To make sure of this, a file called **.gitignore** should be made in the working directory.
+The output will begin with `On branch main` which will be mentioned later. One of the files listed is one called **.DS_Store** that is automatically created by Mac OS X. This file contains information about system configurations that typically is not committed as part of the Git workflow. To make sure certain files are not included in commits, a file called **.gitignore** should be made in the working directory.
 
 ### Ignoring changes in Git
 
@@ -181,7 +183,7 @@ If the rewind needs to go beyond the most recent commit, the command `git reset 
 
 [Branches] are a core feature in Git. They allow for new updates and features to be developed and tested without disrupting the `main` branch of the project. Previously, the output from running `git status` referred to being on `branch main`. 
 
-The `main` branch usually refers to the default branch that serves as the base of a project. In Git, the default branch name is `master`, which was also originally the case in GitHub. However this was renamed in GitHub for the reasons outlined [here]. The main take away though is that both `master` and `main` are used as default branch names.
+The `main` branch usually refers to the default branch that serves as the base of a project. In Git, the default branch name is `master`, which was also originally the case in GitHub. However, this was renamed in GitHub for the reasons outlined [here]. The main take away though is that both `master` and `main` are used as default branch names.
 
 The idea of Git branches is that different branches can be created and worked on, and changes can be merged into the `main` branch. Branches are in effect an independent line for the adding/staging/committing process, forked from the `main` branch. Once on a branch, commits are recorded in that branch's history and when ready a branch (including the changes made on that branch) can be merged i.e. combined into `main`.
 
@@ -255,7 +257,7 @@ git fetch --all
 git merge origin <local-branch>
 ```
 
-Fetching all branches from the remote can be achieved by including the `<remote-name>`. Alternatively, a specific branch can be fetched by adding a `<branch-name>`. Lastly, all registered remotes and their associated branches can be gotten with the `--all` flag. While `git fetch` does not automatically merge changes into the remote repo, it is useful in cases where code needs to be reviewed before being locally merged. Afterwards, a `git merge` command can be run merge the fetched changes into the `<local-branch>` or the `origin` remote.
+Fetching all branches from the remote can be achieved by including the `<remote-name>`. Alternatively, a specific branch can be fetched by adding a `<branch-name>`. Lastly, all registered remotes and their associated branches can be gotten with the `--all` flag. While `git fetch` does not automatically merge changes into the remote repo, it is useful in cases where code needs to be reviewed before being locally merged. Afterward, a `git merge` command can be run merge the fetched changes into the `<local-branch>` or the `origin` remote.
 
 The `git fetch` and `git merge` commands can be combined into one `git pull` command. This automatically fetches and merges changes from a remote into the local branch. `git pull` can be run as a standalone command or with options such as `git pull <remote-name>` which will fetch and merge a specified remote with the local branch. Some important points to keep in mind when updating branches include the following:
 
@@ -282,7 +284,7 @@ This also pushes the current local branch to a remote branch of the same name.
 
 ### Pull requests
 
-Once pushed, a pull request (sometimes called a merge request or "PR") can be created. PRs are generally requests for merging changes into the `main` branch of the remote repo. Although the command line has been used throughout this article, there are some cases where using the GUI (graphical user interface) of GitHub is another option. This is the case when creating a PR, which can be done through the GUI of all of the major hosting services.
+Once pushed, a pull request (sometimes called a merge request or PR for short) can be created. PRs are generally requests for merging changes into the `main` branch of the remote repo. Although the command line has been used throughout this article, there are some cases where using the GUI (graphical user interface) of GitHub is another option. This is the case when creating a PR, which can be done through the GUI of all of the major hosting services.
 
 After the PR is created, other team members can review the code and suggest changes. Changes can be requested with either of the following methods:
 
@@ -291,7 +293,7 @@ After the PR is created, other team members can review the code and suggest chan
 
 ### Code reviews
 
-When collaborating on a project, it is often the case that to (amongst other reasons) prevent broken code from being added to the main development branch and/or to ensure code is correctly formatted and follows whatever code conventions have been set by the team, those who have not been working on the new feature or fix will be asked to review the code. 
+When collaborating on a project, it is often the case (amongst other reasons) that to prevent broken code from being added to the main development branch and/or to ensure code is correctly formatted and follows whatever code conventions have been set by the team, those who have not been working on the new feature or fix will be asked to review the code. 
 
 Code reviews are an important part of quality assurance in software development and not only help protect against broken code from being mistakenly included in a codebase but also help share knowledge amongst a team and can help develop the skills of both the reviewer and author.
 
