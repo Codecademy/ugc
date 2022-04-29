@@ -11,8 +11,12 @@ CatalogContent:
   - "learn-git"
   - "paths/computer-science"
 ---
+
 [Git]: https://www.codecademy.com/resources/docs/git
 [following the instructions]: https://git-scm.com/downloads
+[GitHub]: https://github.com
+[GitLab]: https://about.gitlab.com
+[Bitbucket]: https://bitbucket.org/product
 [initializes]: https://www.codecademy.com/resources/docs/git/init
 [`git status`]: https://www.codecademy.com/resources/docs/git/status
 [`git add`]: https://www.codecademy.com/resources/docs/git/add
@@ -23,7 +27,7 @@ CatalogContent:
 [GitHub]: https://github.com/
 [conventions]: https://www.conventionalcommits.org/en/v1.0.0/
 
-_**Prerequisites:** Command Line_
+_**Prerequisites:** Command Line_  
 _**Versions:** Git 2.35.3_
 
 ## Introduction
@@ -48,12 +52,10 @@ Before using Git, it will be helpful to have an overview of a straightforward Gi
 A Git project generally has the following:
 
 - A working directory (or working tree) where project files are created, edited, and deleted on the computer.
-
 - A staging area that contains the changes made to files in the working directory ready to be committed.
-
 - A repository, also known as the repo, where changes are saved by Git as different versions of the project. 
 
-A local repo is created either when a remote repo is cloned onto our local machine, or when a project is created on a local machine and initialized as a Git repo. Remote repos are commonly hosted on providers like GitHub, GitLab, or Bitbucket.
+A local repo is created either when a remote repo is cloned onto our local machine, or when a project is created on a local machine and initialized as a Git repo. Remote repos are commonly hosted on providers like [GitHub], [GitLab], or [Bitbucket].
 
 The steps commonly taken in a Git workflow include the following:
 
@@ -73,7 +75,7 @@ git init
 
 This [initializes] a local Git repo by creating a special **.git** folder inside a project. This is required in order for any changes to be tracked and pushed to the repo. This step might look like this:
 
-![Image of git init command being run](git-init.png)
+![Image of git init command being run](https://raw.githubusercontent.com/Codecademy/ugc/main/content/francineblanc/git-init.png)
 
 When `git init` is run while in the **Git Tutorial** directory, an empty Git repo is created inside of that directory. The repo is currently empty because at this point, Git doesn't know which files it should track. Any untracked files can be viewed using the following command:
 
@@ -85,7 +87,7 @@ This will display untracked files in red and will show some useful output confir
 
 In the example shown below, if [`git status`] is run in the **Git Tutorial** folder, which contains a file called **learning-git.txt**. The output would look like this:
 
-![Image of git status command being run for untracked files](git-status-untracked-files.png)
+![Image of git status command being run for untracked files](https://raw.githubusercontent.com/Codecademy/ugc/main/content/francineblanc/git-status-untracked-files.png)
 
 The output will begin with `On branch main` which will be mentioned later. One of the files listed is one called **.DS_Store** that is automatically created by Mac OS X. This file contains information about system configurations that typically is not committed as part of the Git workflow. To make sure certain files are not included in commits, a file called **.gitignore** should be made in the working directory.
 
@@ -95,7 +97,7 @@ The **.gitignore** file is a special file that generally lives in the root of th
 
 With **.gitignore** made and the **.DS_Store** file added, running `git status` will show the following output:
 
-![Image of git status command being run with gitignore file added](git-status-untracked-with-ignore.png)
+![Image of git status command being run with gitignore file added](https://raw.githubusercontent.com/Codecademy/ugc/main/content/francineblanc/git-status-untracked-with-ignore.png)
 
 ## Updating the staging area
 
@@ -125,7 +127,7 @@ git add -A
 
 Once a file has been added, `git status` can be run in the terminal/command prompt to check that the file is in the staging area. Git will show the changed files to be committed in green text:
 
-![Image of git status command being run after file in staging area](git-add-and-status.png)
+![Image of git status command being run after file in staging area](https://raw.githubusercontent.com/Codecademy/ugc/main/content/francineblanc/git-add-and-status.png)
 
 ### Unstaging a file
 
