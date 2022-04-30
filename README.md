@@ -9,11 +9,11 @@
 
 Community articles are user-generated content (UGC) written by the Codecademy community, available to developers all over the world! Here are some examples:
 
-- [Web Scrape with Selenium and Beautiful Soup](https://github.com/Codecademy/ugc/blob/main/content/caupolicandiaz/web-scrape-with-selenium-and-beautiful-soup.md)
-- [Build a Discord Bot with Node.js](https://github.com/Codecademy/ugc/blob/main/content/christine_yang/build-a-discord-bot-with-node-js.md)
-- [Build a 3D Environment with Three.js](https://github.com/Codecademy/ugc/blob/main/content/brandondusch/build-a-3d-environment-with-three-js.md)
-- [How to Convert CSS to SCSS](https://github.com/Codecademy/ugc/blob/main/content/kyrathompson/how-to-convert-css-to-scss.md)
-- [Create a Stack in Python](https://github.com/Codecademy/ugc/blob/main/content/stevenswiniarski/create-a-stack-in-python.md)
+- [Web Scrape with Selenium and Beautiful Soup](https://www.codecademy.com/article/caupolicandiaz/web-scrape-with-selenium-and-beautiful-soup) by Paul Daiz
+- [Build a Discord Bot with Node.js](https://www.codecademy.com/article/christine_yang/build-a-discord-bot-with-node-js) by Christine Yang
+- [Build a 3D Environment with Three.js](https://www.codecademy.com/article/brandondusch/build-a-3d-environment-with-three-js) by Brandon Dusch
+- [How to Convert CSS to SCSS](https://www.codecademy.com/article/kyrathompson/how-to-convert-css-to-scss) by Kyra Thompson
+- [Create a Stack in Python](https://www.codecademy.com/article/stevenswiniarski/create-a-stack-in-python ) by Steven Swiniarski
 
 ## Why write articles?
 
@@ -31,7 +31,7 @@ There are many ways to contribute to articles:
 
 - Submit a Pull Request to edit an existing article.
 - Submit a Pull Request to create a new article of your choice.
-- Take a look in [GitHub Issues](https://github.com/Codecademy/docs/issues) to get inspirations for your article.
+- Take a look in [GitHub Issues](https://github.com/Codecademy/ugc/issues) to get inspirations for your article.
 - Join the [#CodecademyCommunity](https://twitter.com/search?q=%23CodecademyCommunity&src=typed_query&f=live) discussion on Twitter.
 
 Whether you are a code newbie or a seasoned hacker, there's something for you!
