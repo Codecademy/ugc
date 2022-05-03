@@ -20,13 +20,13 @@ _**Versions:** ECMAScript 2015 (ES6)_
 ## Introduction
 
 During conversations about data structures in the programming world, queues are heard quite often.
-A queue is a linear data structure that follows the first-in-first-out (FIFO) pattern; i.e., removal takes place at the front, and addition takes place at the end. Think of it as the checkout point of a grocery store. Customers who get to checkout counter first get attended to first. They can only join the queue from the back of the line, and after they get attended to, they leave from the front of the line.
+A queue is a linear data structure that follows the first-in-first-out (FIFO) pattern; i.e., removal takes place at the front, and addition takes place at the end. Think of it as the checkout point of a grocery store. Customers who get to the checkout counter first get attended to first. They can only join the queue from the back of the line, and after they get attended to, they leave from the front of the line.
 
-What are Linear Data Structures, and what makes queues a Linear Data Structure?
-Linear Data Structures are types of data structures in which elements are stored sequentially. The elements are organized in such a way that each element is directly linked to its previous and next element, except for the first element that is only linked to it's previous element and the last element that is only linked to the next element
+## Linear Data Structures
 
-Queues follow this arrangement pattern, and we can see that by referring to our grocery store checkout counter analogy. Each customer that walks to the checkout counter represents an element, the first customer has a link to the previous customer, the last customer has a link to the next customer and every ther customer in-between has a link to a previous and next customer 
+Linear data structures are types of data structures in which elements are stored sequentially. The elements are organized in such a way that each element is directly linked to its previous and next element, except for the first element that is only linked to its previous element and the last element that is only linked to the next element
 
+Queues follow this arrangement pattern, and we can see that by referring to our grocery store checkout counter analogy. Each customer that walks to the checkout counter represents an element, the first customer has a link to the previous customer, the last customer has a link to the next customer and every other customer in-between has a link to a previous and next customer 
 
 ## Use cases for queues
 
@@ -64,7 +64,7 @@ class Queue {
 
 The code block above represents the creation of a class, the [`constructor()`](https://www.codecademy.com/resources/docs/javascript/constructors) method is a special method of a class that used to create an object instance of that class. It can be used to initialize any object that would be used across the class methods. The [`this`](https://www.codecademy.com/resources/docs/javascript/this) keyword serves as a regular object within this context. It can be used to initialize any value.
 
-Next up, we add each queue operation as a method of the class
+Next up, we add each queue operation as a method of the class.
 
 ### Enqueue
 
@@ -82,7 +82,7 @@ class Queue {
 }
 ```
 
-The added lines to our code block represnts a method of class `Queue`. it handles one operation, adding a new item to the array object initialised in our constructor.
+The added lines to our code block represnt a method of class `Queue`. it handles one operation, adding a new item to the array object initialized in our constructor.
 The method accepts one argument `element` and then adds it to `this.queue` using the `.push()` array method.
 
 ### Dequeue
@@ -181,7 +181,7 @@ First we need to create a new instance of our class, then use that instance to a
 ```js
 const result = new Queue // creating a new instance of our class
 
-// adding a new element
+// adding elements
 result.enqueue(5) // returns [5]
 result.enqueue(3) // returns [5, 3]
 result.enqueue(4) // returns [5, 3, 4]
