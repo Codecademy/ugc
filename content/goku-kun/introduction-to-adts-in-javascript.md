@@ -10,8 +10,8 @@ Tags:
   - "Classes"
   - "OOP"
 CatalogContent:
-  - "paths/computer-science"
   - "introduction-to-javascript"
+  - "paths/computer-science"
 ---
 
 ![Introduction to Abstract Data Type](./adt.png)
@@ -32,7 +32,7 @@ There are 3 general advantages of using ADTs, listed as follows:
 
 ### Encapsulation
 
-An ADT will provide certain methods and properties and knowledge of these methods and properties is all the user will need to successfully operate with the ADT.
+An ADT will provide certain methods and properties. And the knowledge of these methods and properties is all the user will need to successfully operate with the ADT.
 
 ### Compartmentalization
 
@@ -42,15 +42,15 @@ The code that is using the ADT will not have to be changed even if the internal 
 
 Real world programs continue to evolve with ever changing requirements or new constraints. Differently implemented ADTs, with all the same properties and methods, can thus be used interchangeably. For example, if there was linked list created using lists/arrays that contained name of the patients in a hospital but later it's decided to include all the information about the patient in the linked list, then a linked list implemented using class based nodes with all the necessary fields would serve as a much better replacement as compared to the linked list that is simply using arrays/lists. Therefore, ADTs can adapt to the situation in which they're used.
 
-## General Operations supported by ADTs
+## General operations supported by ADTs
 
 ADTs support the follow operations:
 
-1. **Traversing**: Traversing allows each element in the ADT to be accessed once for processing
-2. **Searching**: Searching allows the user to look for a specific element in the ADT
-3. **Inserting**: Inserting allows the user to insert an element at a particular index/space in the ADT
-4. **Deleting**: Deleting allows the user to either delete a particular element or delete an element at a particular location
-5. **Sorting**: Sorting operation would allow the elements to be ordered in ascending or descending order, depending on the preference.
+- **Traversing**, which allows each element in the ADT to be accessed once for processing.
+- **Searching**, which allows the user to look for a specific element in the ADT.
+- **Inserting**, which allows the user to insert an element at a particular index/space in the ADT.
+- **Deleting**, which allows the user to either delete a particular element or delete an element at a particular location.
+- **Sorting**, which allows the elements to be ordered in ascending or descending order, depending on the preference.
 
 ## How ADTs coexist with other programs
 
@@ -73,46 +73,50 @@ getSize(); // return the current size of the linked-list
 isEmpty(); // returns true if the linked-list is empty
 
 // insert and replace operations
-insertBeginning(value); // inserts new value at the beginning of the linked-list
-insertEnd(value); // inserts new value at the end of the linked-list
-insertAtPosition(value, index); // inserts new value at the given positional index
-replaceAtPosition(value, index); // replaces the value at give index with the new value
+insertBeginning(element); // inserts new element at the beginning of the linked-list
+insertEnd(element); // inserts new element at the end of the linked-list
+insertAtPosition(element, index); // inserts new element at the given positional index
+replaceAtPosition(element, index); // replaces the element at give index with the new element
 
 // delete operations
-deleteBeginning(); // removes the first value and returns its value
-deleteEnd(); // removes the last value and returns its value
-deleteAtPosition(index); // removes node from the given positional index and returns its value
+deleteBeginning(); // removes the first element and returns its element
+deleteEnd(); // removes the last element and returns its element
+deleteAtPosition(index); // removes node from the given positional index and returns its element
 
 // traverse, sort and search operations
 traverse(); // goes through all the elements once in the linked list and prints them
-search(value); // searches given value and returns true if the value is found in linked-list
+search(element); // searches given element and returns true if the element is found in linked-list
 sort(order); // sorts the linked-list in the given order (ascending/descending)
-retrieve(index); // returns the value stored at the given index location
+retrieve(index); // returns the element stored at the given index location
 ```
 
 ## Stack ADTs
 
-A **Stack** is a linear data structure, in which data is entered and removed from _only a single point_. This point is called the **top** of the stack. It follows the last-in, first-out (abbreviated as LIFO) format for storing and discarding data. This means that the last element added to the top of the stack is the first element that will be removed from the stack. There is no other way to access other elements in the stack but the element that is at the top of the stack.
+**Stacks** are linear data structures, in which data is entered and removed from _only a single point_. This point is called the **top** of the stack. It follows the last-in, first-out (abbreviated as LIFO) format for storing and discarding data. This means that the last element added to the top of the stack is the first element that will be removed from the stack. There is no other way to access other elements in the stack but the element that is at the top of the stack.
 
 ![Stack ADT](./stack-adt.png)
 
 A stack ADT supports the following operations:
 
 ```js
-push(value); // inserts a new value at the top of the stack
+push(element); // inserts a new element at the top of the stack
 pop(); // removes the element stored at the top of the stack and returns it
 peek(); // returns the top element without removing it from the stack
 ```
 
 ## Queue ADTs
 
-A **Queue** is a linear data structure, in which data is inserted from one end and removed from the other end. The place where the data is inserted is called the **rear** end of the queue and the place from which the data is removed is called the **front** of the queue. It follows the first-in, first-out (abbreviated as FIFO) configuration for storing and removing data. This means that the data that entered first, also leaves first out of the queue. There is no other way to access other elements in the queue but the front of the queue.
+**Queues** are linear data structures, in which data is inserted from one end and removed from the other end. The place where the data is inserted in the queue is called the **rear** end of the queue and this insertion operation is called **enqueue**. Data can be removed from the **front** of the queue and this deletion operation is called **dequeue**. It follows the first-in, first-out (abbreviated as FIFO) configuration for storing and removing data. This means that the data that was first to enter the queue is also first to leave the queue.
 
 ![Queue ADT](./queue-adt.png)
 
 A Queue ADT supports the following operations:
 
 ```js
-enqueue(value); // inserts a new value in the queue
+enqueue(element); // inserts a new element at the rear of the queue
 dequeue(); // removes the element at the front of the queue and returns it
 ```
+
+## Conclusion
+
+ADTs fulfill a very important role in everyday programming tasks. This article talked about how ADTs are used in application development. It also showed how ADTs offer encapsulation, compartmentalization and adaptability. Finally, the article discussed about some basic ADTs such as Linked-lists, Stacks and Queues.
