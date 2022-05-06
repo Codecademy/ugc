@@ -175,7 +175,7 @@ class Queue {
 
 To see how our code works, we are going to test out each method of our class.
 
-First we need to create a new instance of our class, then use that instance to access our methods.
+First, we need to create a new instance of our class, then use that instance to access our methods.
 
 ```js
 const result = new Queue // Creating a new instance of our class
