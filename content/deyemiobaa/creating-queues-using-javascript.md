@@ -171,13 +171,6 @@ class Queue {
 }
 ```
 
-The `.reverse()` method is handled using a [while loop](https://www.codecademy.com/resources/docs/javascript/loops).
-
-- First we declare an empty array.
-- Go through each content in the queue `while (this.queue.length > 0)` till it's empty.
-- Remove the last element and push it into the new array `reversed.push(this.queue.pop())`.
-- Update the queue with the new array.
-
 ## Usage
 
 To see how our code works, we are going to test out each method of our class.
