@@ -1,5 +1,5 @@
 ---
-Title: "An introduction to Abstract Data Types"
+Title: "An introduction to Abstract Data Types in JavaScript"
 Description: "Introduction to ADTs in JavaScript"
 DatePublished: "2022-04-25"
 Categories:
@@ -14,7 +14,7 @@ CatalogContent:
   - "paths/computer-science"
 ---
 
-![Introduction to Abstract Data Type](./adt.png)
+![Introduction to Abstract Data Type](https://raw.githubusercontent.com/Codecademy/ugc/main/content/goku-kun/adt.png)
 
 ## Introduction
 
@@ -56,13 +56,13 @@ ADTs support the follow operations:
 
 Each ADT supports specific operations which can be leveraged in a particular situation. Some ADTs can provide better speeds at looking up data while others can save space. But, these ADTs work in conjunction with other programs to track, store, retrieve and manipulate the data. The user is the one that decides which particular ADT would best serve their requirements.
 
-![Abstract Data Type Usage](./abstract-data-type-usage.png)
+![Abstract Data Type Usage](https://raw.githubusercontent.com/Codecademy/ugc/main/content/goku-kun/abstract-data-type-usage.png)
 
 ## Linked-lists as an ADT
 
 Linked-lists are made up of a sequence of elements (called nodes, refer the left note below), which may or may not be stored sequentially in memory. For a simple linked-list, each node has the ability to store some data and the link to the next node in the linked-list. Every linked-list begins at the head node which is then linked to the next node.
 
-![node and linked list](./node-linked-list.png)
+![node and linked list](https://raw.githubusercontent.com/Codecademy/ugc/main/content/goku-kun/node-linked-list.png)
 
 Linked-list ADTs would support the following operations:
 
@@ -94,7 +94,7 @@ retrieve(index); // returns the element stored at the given index location
 
 **Stacks** are linear data structures, in which data is entered and removed from _only a single point_. This point is called the **top** of the stack. It follows the last-in, first-out (abbreviated as LIFO) format for storing and discarding data. This means that the last element added to the top of the stack is the first element that will be removed from the stack. There is no other way to access other elements in the stack but the element that is at the top of the stack.
 
-![Stack ADT](./stack-adt.png)
+![Stack ADT](https://raw.githubusercontent.com/Codecademy/ugc/main/content/goku-kun/stack-adt.png)
 
 A stack ADT supports the following operations:
 
@@ -108,7 +108,7 @@ peek(); // returns the top element without removing it from the stack
 
 **Queues** are linear data structures, in which data is inserted from one end and removed from the other end. The place where the data is inserted in the queue is called the **rear** end of the queue and this insertion operation is called **enqueue**. Data can be removed from the **front** of the queue and this deletion operation is called **dequeue**. It follows the first-in, first-out (abbreviated as FIFO) configuration for storing and removing data. This means that the data that was first to enter the queue is also first to leave the queue.
 
-![Queue ADT](./queue-adt.png)
+![Queue ADT](https://raw.githubusercontent.com/Codecademy/ugc/main/content/goku-kun/queue-adt.png)
 
 A Queue ADT supports the following operations:
 
