@@ -186,7 +186,7 @@ result.enqueue(3) // Returns [5, 3]
 result.enqueue(4) // Returns [5, 3, 4]
 result.enqueue(7) // Returns [5, 3, 4, 7]
 
-// removing an element
+// Removing an element
 result.dequeue() // Returns [3, 4, 7]
 
 // Checking the first element in the queue
