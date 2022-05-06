@@ -1,6 +1,6 @@
 ---
 Title: "An introduction to Abstract Data Types in JavaScript"
-Description: "Introduction to ADTs in JavaScript"
+Description: "A simple introduction to ADTs in JavaScript"
 DatePublished: "2022-04-25"
 Categories:
   - "code-foundations"
