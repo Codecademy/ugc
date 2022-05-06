@@ -1,0 +1,118 @@
+---
+Title: "An introduction to Abstract Data Types"
+Description: "Introduction to ADTs in JavaScript"
+DatePublished: "2022-04-25"
+Categories:
+  - "code-foundations"
+  - "computer-science"
+Tags:
+  - "Data Structures"
+  - "Classes"
+  - "OOP"
+CatalogContent:
+  - "paths/computer-science"
+  - "introduction-to-javascript"
+---
+
+![Introduction to Abstract Data Type](./adt.png)
+
+## Introduction
+
+An **Abstract Data Type** (abbreviated as ADT), as the name suggests, is an abstract understanding of a data structure. An ADT is defined through its behavior and characteristics, particularly in terms of what data can be stored into it, the operations that can be performed on this data, and the behavior of these operations. For example, stacks and queues can be internally implemented using linked-lists made up of nodes or lists/arrays. However, the primary function of a stack is to be a Last In First Out (LIFO) data structure and the primary function of a queue is to be a First In First Out (FIFO) data structure. The behavior, from the point of the user, remains intact, regardless of the internal implementation either using linked-lists or arrays/lists. If the user was interacting with a stack, the user will simply worry about pushing data onto the stack or popping data off the stack. The user won't need to have the knowledge how that stack is working internally.
+
+In contrast to the data structures which are specific and detailed implementations that deal with how the data structure does its job, an ADT focuses on _what it does_ and not how it does its job. In short, the ADT defines what that particular data construct must do and the data structure is the concrete implementation of that construct.
+
+An analogy to explain ADTs in terms of web development would be CRUD (abbreviated as Create, Read, Update and Delete) APIs. The user of any CRUD API has to simply know what request method (GET, POST, etc.) should they send and if they followed the rules of the API, the API server would send data back. The user didn't have to worry about the internal workings of the API server. The user simply had to know the rules of interactions and behavior of a CRUD API. In this case, the CRUD API is functioning as an ADT _from the perspective of the user_.
+
+There are no specific rules which force the implementation of particular methods and operations in a particular ADT. This is decided based on the requirements in a use-case scenario and therefore, ultimately a design decision.
+
+## Why use ADTs?
+
+There are 3 general advantages of using ADTs, listed as follows:
+
+### Encapsulation
+
+An ADT will provide certain methods and properties and knowledge of these methods and properties is all the user will need to successfully operate with the ADT.
+
+### Compartmentalization
+
+The code that is using the ADT will not have to be changed even if the internal workings of the ADT have been changed. The change in the ADT is isolated and compartmentalized.
+
+### Adaptability
+
+Real world programs continue to evolve with ever changing requirements or new constraints. Differently implemented ADTs, with all the same properties and methods, can thus be used interchangeably. For example, if there was linked list created using lists/arrays that contained name of the patients in a hospital but later it's decided to include all the information about the patient in the linked list, then a linked list implemented using class based nodes with all the necessary fields would serve as a much better replacement as compared to the linked list that is simply using arrays/lists. Therefore, ADTs can adapt to the situation in which they're used.
+
+## General Operations supported by ADTs
+
+ADTs support the follow operations:
+
+1. **Traversing**: Traversing allows each element in the ADT to be accessed once for processing
+2. **Searching**: Searching allows the user to look for a specific element in the ADT
+3. **Inserting**: Inserting allows the user to insert an element at a particular index/space in the ADT
+4. **Deleting**: Deleting allows the user to either delete a particular element or delete an element at a particular location
+5. **Sorting**: Sorting operation would allow the elements to be ordered in ascending or descending order, depending on the preference.
+
+## How ADTs coexist with other programs
+
+Each ADT supports specific operations which can be leveraged in a particular situation. Some ADTs can provide better speeds at looking up data while others can save space. But, these ADTs work in conjunction with other programs to track, store, retrieve and manipulate the data. The user is the one that decides which particular ADT would best serve their requirements.
+
+![Abstract Data Type Usage](./abstract-data-type-usage.png)
+
+## Linked-lists as an ADT
+
+Linked-lists are made up of a sequence of elements (called nodes, refer the left note below), which may or may not be stored sequentially in memory. For a simple linked-list, each node has the ability to store some data and the link to the next node in the linked-list. Every linked-list begins at the head node which is then linked to the next node.
+
+![node and linked list](./node-linked-list.png)
+
+Linked-list ADTs would support the following operations:
+
+```js
+// general operations
+getHead(); // returns back head node
+getSize(); // return the current size of the linked-list
+isEmpty(); // returns true if the linked-list is empty
+
+// insert and replace operations
+insertBeginning(value); // inserts new value at the beginning of the linked-list
+insertEnd(value); // inserts new value at the end of the linked-list
+insertAtPosition(value, index); // inserts new value at the given positional index
+replaceAtPosition(value, index); // replaces the value at give index with the new value
+
+// delete operations
+deleteBeginning(); // removes the first value and returns its value
+deleteEnd(); // removes the last value and returns its value
+deleteAtPosition(index); // removes node from the given positional index and returns its value
+
+// traverse, sort and search operations
+traverse(); // goes through all the elements once in the linked list and prints them
+search(value); // searches given value and returns true if the value is found in linked-list
+sort(order); // sorts the linked-list in the given order (ascending/descending)
+retrieve(index); // returns the value stored at the given index location
+```
+
+## Stack ADTs
+
+A **Stack** is a linear data structure, in which data is entered and removed from _only a single point_. This point is called the **top** of the stack. It follows the last-in, first-out (abbreviated as LIFO) format for storing and discarding data. This means that the last element added to the top of the stack is the first element that will be removed from the stack. There is no other way to access other elements in the stack but the element that is at the top of the stack.
+
+![Stack ADT](./stack-adt.png)
+
+A stack ADT supports the following operations:
+
+```js
+push(value); // inserts a new value at the top of the stack
+pop(); // removes the element stored at the top of the stack and returns it
+peek(); // returns the top element without removing it from the stack
+```
+
+## Queue ADTs
+
+A **Queue** is a linear data structure, in which data is inserted from one end and removed from the other end. The place where the data is inserted is called the **rear** end of the queue and the place from which the data is removed is called the **front** of the queue. It follows the first-in, first-out (abbreviated as FIFO) configuration for storing and removing data. This means that the data that entered first, also leaves first out of the queue. There is no other way to access other elements in the queue but the front of the queue.
+
+![Queue ADT](./queue-adt.png)
+
+A Queue ADT supports the following operations:
+
+```js
+enqueue(value); // inserts a new value in the queue
+dequeue(); // removes the element at the front of the queue and returns it
+```
