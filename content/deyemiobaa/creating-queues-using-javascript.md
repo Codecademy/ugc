@@ -10,8 +10,8 @@ Tags:
   - "ES6"
   - "Classes"
 CatalogContent:
-  - "learn-javascript"
-  - "course/linear-data-structures"
+  - "introduction-to-javascript"
+  - "linear-data-structures"
 ---
 
 _**Prerequisites:** JavaScript_  
@@ -135,7 +135,7 @@ The `.peek()` method checks for the value at the front of the queue by accessing
 
 ### Reversing a Queue
 
-As the title implies, we are simply trying to change the order of the queue from back to front.
+As the title implies, we are simply trying to change the order of the queue from back to front. The `reverse()` method is handled using a [while loop](https://www.codecademy.com/resources/docs/javascript/loops).
 
 ```js
 class Queue {
@@ -157,10 +157,14 @@ class Queue {
   }
 
   reverse() {
+    // Declare an empty array
     const reversed = []
+
+    // Iterate through the array using a while loop
     while (this.queue.length > 0) {
       reversed.push(this.queue.pop());
     }
+    // Set queue using the new array
     this.queue = reversed;
     return this.queue;
   }
