@@ -31,10 +31,23 @@ Queues follow this arrangement pattern, and we can see that by referring to our 
 
 There are several use cases for queues in the programming and real world. Some of them include the following.
 
-- A desk printer: When you send documents to the printer, they are printed in the same order in which they are sent, and this is very useful when you're trying to print documents that follow a specific order. The printer makes sure the pages don't get mixed up.
-- Adding songs to a queue in your music player: Sometimes, while we are working on a task, we have our go-to songs to keep the momentum going. The queue function of the music player makes sure you listen to your song selections just the way it is arranged.
-- Customer service wait-lines: If you go to a bank to file a complaint, they make you wait in lines and the next person in line won't be called unless the issue of the current customer has been resolved.
-- File sharing/data transfer between two processes: When transferring files from one device to another, the files are received on the other end in the same order they were sent, irrespective of the time it takes for any of them to get completed.
+### A desk printer
+
+When you send documents to the printer, they are printed in the same order in which they are sent, and this is very useful when you're trying to print documents that follow a specific order. The printer makes sure the pages don't get mixed up.
+
+### Adding songs to a queue in your music player
+
+Sometimes, while we are working on a task, we have our go-to songs to keep the momentum going. The queue function of the music player makes sure you listen to your song selections just the way it is arranged.
+
+### Customer service wait-lines
+  
+If you go to a bank to file a complaint, they make you wait in lines and the next person in line won't be called unless the issue of the current customer has been resolved.
+
+### File sharing/data transfer between two processes
+
+When transferring files from one device to another, the files are received on the other end in the same order they were sent, irrespective of the time it takes for any of them to get completed.
+
+## Implementation of Queues
 
 Queues can be implemented in any programming language, but our focus is on how to create them using JavaScript. In JavaScript, it can also be implemented in two ways: arrays and linked lists. For this article, we will implement queues using arrays.
 
@@ -135,7 +148,7 @@ The `.peek()` method checks for the value at the front of the queue by accessing
 
 ### Reversing a Queue
 
-As the title implies, we are simply trying to change the order of the queue from back to front. The `reverse()` method is handled using a [while loop](https://www.codecademy.com/resources/docs/javascript/loops).
+As the title implies, we are simply trying to change the order of the queue from back to front. The `reverse()` method is handled using a [while loop](https://www.codecademy.com/resources/docs/javascript/loops) and the [`.pop()`](https://www.codecademy.com/resources/docs/javascript/arrays/pop) array method.
 
 ```js
 class Queue {
@@ -178,24 +191,34 @@ To see how our code works, we are going to test out each method of our `Queue` c
 First, we need to create a new instance of our class. Then, we will use it to access our methods:
 
 ```js
-const result = new Queue // Creating a new instance of our class
+// Creating a new instance of our class
+const result = new Queue
 
 // Adding elements
-result.enqueue(5) // Returns [5]
-result.enqueue(3) // Returns [5, 3]
-result.enqueue(4) // Returns [5, 3, 4]
-result.enqueue(7) // Returns [5, 3, 4, 7]
+result.enqueue(5)
+result.enqueue(3)
+result.enqueue(4)
+result.enqueue(7)
+console.log('After adding elements:', result.queue)
 
 // Removing an element
-result.dequeue() // Returns [3, 4, 7]
+result.dequeue()
+console.log('After removing an element:', result.queue)
 
 // Checking the first element in the queue
-result.peek() // Returns 3
+console.log('After peeking:', result.peek())
 
 // Reversing the queue
-result.reverse() // Returns [7, 4, 3]
+console.log('After reversing the queue:', result.reverse())
 ```
+After multiple operations are performed on our `result` queue, we get the following output in the console:
 
+```
+After adding elements: [ 5, 3, 4, 7 ]
+After removing an element: [ 3, 4, 7 ]
+After peeking: 3
+After reverse: [ 7, 4, 3 ]
+```
 ## Conclusion
 
 Here is a summary of what was covered in this article:
