@@ -96,11 +96,11 @@ class Queue {
 
 The added lines to our code block represent a method of class `Queue`. It handles one operation which adds a new item to the array object that is initialized using the `constructor` method.
 
-The `.enqueue()` method accepts one argument `element` and then adds it to `this.queue` using the `.push()` array method.
+The `.enqueue()` method accepts one argument `element` and then adds it to `this.queue` using the [`.push()`](https://www.codecademy.com/resources/docs/javascript/arrays/push) array method.
 
 ### Dequeue
 
-This term refers to removing a new element from the queue. Again, the `.shift()` array method takes care of this for us easily.
+This term refers to removing a new element from the queue. Again, the [`.shift()`](https://www.codecademy.com/resources/docs/javascript/arrays/shift) array method takes care of this for us easily.
 
 ```js
 class Queue {
@@ -148,7 +148,7 @@ The `.peek()` method checks for the value at the front of the queue by accessing
 
 ### Reversing a Queue
 
-As the title implies, we are simply trying to change the order of the queue from back to front. The `reverse()` method is handled using a [while loop](https://www.codecademy.com/resources/docs/javascript/loops) and the [`.pop()`](https://www.codecademy.com/resources/docs/javascript/arrays/pop) array method.
+As the title implies, we are simply trying to change the order of the queue from back to front. The `.reverse()` method is handled using a [while loop](https://www.codecademy.com/resources/docs/javascript/loops) and the [`.pop()`](https://www.codecademy.com/resources/docs/javascript/arrays/pop) array method.
 
 ```js
 class Queue {
