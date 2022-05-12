@@ -29,12 +29,12 @@ Queues follow this arrangement pattern, and we can see that by referring to our 
 
 ## Use cases for queues
 
-There are several use cases for queues in the programming and real world. Some of them include:
+There are several use cases for queues in the programming and real world. Some of them include the following.
 
 - A desk printer: When you send documents to the printer, they are printed in the same order in which they are sent, and this is very useful when you're trying to print documents that follow a specific order. The printer makes sure the pages don't get mixed up.
 - Adding songs to a queue in your music player: Sometimes, while we are working on a task, we have our go-to songs to keep the momentum going. The queue function of the music player makes sure you listen to your song selections just the way it is arranged.
 - Customer service wait-lines: If you go to a bank to file a complaint, they make you wait in lines and the next person in line won't be called unless the issue of the current customer has been resolved.
-- File sharing / data transfer between two processes: When transferring files from one device to another, the files are received on the other end in the same order they were sent, irrespective of the time it takes for any of them to get completed.
+- File sharing/data transfer between two processes: When transferring files from one device to another, the files are received on the other end in the same order they were sent, irrespective of the time it takes for any of them to get completed.
 
 Queues can be implemented in any programming language, but our focus is on how to create them using JavaScript. In JavaScript, it can also be implemented in two ways: arrays and linked lists. For this article, we will implement queues using arrays.
 
@@ -173,9 +173,9 @@ class Queue {
 
 ## Usage
 
-To see how our code works, we are going to test out each method of our class.
+To see how our code works, we are going to test out each method of our `Queue` class.
 
-First, we need to create a new instance of our class, then use that instance to access our methods.
+First, we need to create a new instance of our class. Then, we will use it to access our methods:
 
 ```js
 const result = new Queue // Creating a new instance of our class
@@ -198,7 +198,7 @@ result.reverse() // Returns [7, 4, 3]
 
 ## Conclusion
 
-Summary:
+Here is a summary of what was covered in this article:
 
 - We explained the concept of queues (FIFO) and how they are applied in the real world.
 - We created a class and performed various queue operations (enqueue, dequeue, peek, reverse).
