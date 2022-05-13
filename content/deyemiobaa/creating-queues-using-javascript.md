@@ -35,19 +35,19 @@ There are several use cases for queues in the programming and real world. Some o
 
 When you send documents to the printer, they are printed in the same order in which they are sent, and this is very useful when you're trying to print documents that follow a specific order. The printer makes sure the pages don't get mixed up.
 
-### Adding songs to a queue in your music player
+### Updating a music player queue
 
 Sometimes, while we are working on a task, we have our go-to songs to keep the momentum going. The queue function of the music player makes sure you listen to your song selections just the way it is arranged.
 
-### Customer service wait-lines
-  
+### Customer service lines
+
 If you go to a bank to file a complaint, they make you wait in lines and the next person in line won't be called unless the issue of the current customer has been resolved.
 
-### File sharing/data transfer between two processes
+### File sharing between two processes
 
 When transferring files from one device to another, the files are received on the other end in the same order they were sent, irrespective of the time it takes for any of them to get completed.
 
-## Implementation of Queues
+## Implementation of queues
 
 Queues can be implemented in any programming language, but our focus is on how to create them using JavaScript. In JavaScript, it can also be implemented in two ways: arrays and linked lists. For this article, we will implement queues using arrays.
 
@@ -62,7 +62,7 @@ These are some basic operations that are performed on queues:
 
 For the implementation of the above operations, we’d use an [ES6 class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) and have the various operations as methods.
 
-## Creating a queue with its operations 
+## Creating a queue with its operations
 
 The first step is to initialize our class with its own storage (an array where our queue elements would be stored):
 
@@ -171,7 +171,7 @@ class Queue {
 
   reverse() {
     // Declare an empty array
-    const reversed = []
+    const reversed = [];
 
     // Iterate through the array using a while loop
     while (this.queue.length > 0) {
@@ -192,25 +192,26 @@ First, we need to create a new instance of our class. Then, we will use it to ac
 
 ```js
 // Creating a new instance of our class
-const result = new Queue
+const result = new Queue();
 
 // Adding elements
-result.enqueue(5)
-result.enqueue(3)
-result.enqueue(4)
-result.enqueue(7)
-console.log('After adding elements:', result.queue)
+result.enqueue(5);
+result.enqueue(3);
+result.enqueue(4);
+result.enqueue(7);
+console.log("After adding elements:", result.queue);
 
 // Removing an element
-result.dequeue()
-console.log('After removing an element:', result.queue)
+result.dequeue();
+console.log("After removing an element:", result.queue);
 
 // Checking the first element in the queue
-console.log('After peeking:', result.peek())
+console.log("After peeking:", result.peek());
 
 // Reversing the queue
-console.log('After reversing the queue:', result.reverse())
+console.log("After reversing the queue:", result.reverse());
 ```
+
 After multiple operations are performed on our `result` queue, we get the following output in the console:
 
 ```
@@ -219,6 +220,7 @@ After removing an element: [ 3, 4, 7 ]
 After peeking: 3
 After reverse: [ 7, 4, 3 ]
 ```
+
 ## Conclusion
 
 Here is a summary of what was covered in this article:
