@@ -214,7 +214,7 @@ console.log("After reversing the queue:", result.reverse());
 
 After multiple operations are performed on our `result` queue, we get the following output in the console:
 
-```
+```shell
 After adding elements: [ 5, 3, 4, 7 ]
 After removing an element: [ 3, 4, 7 ]
 After peeking: 3
