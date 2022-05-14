@@ -1,6 +1,6 @@
 ---
 Title: "An Introduction to Abstract Data Types in JavaScript"
-Description: "A simple introduction to ADTs in JavaScript."
+Description: "An introduction to ADTs in JavaScript."
 DatePublished: "2022-04-25"
 Categories:
   - "code-foundations"
@@ -92,9 +92,9 @@ retrieve(index); // Returns the element stored at the given index location
 
 ## Stack ADTs
 
-**Stacks** are linear data structures in which data is entered and removed from _only a single point_. This point is called the **top** of the stack. It follows the last-in, first-out (L I F O) format for storing and discarding data. This means that the last element added to the top of the stack is the first element that will be removed from the stack. There is no other way to access other elements in the stack but the element that is at the top of the stack.
+**Stacks** are linear data structures in which data is entered and removed from _only a single point_. This point is called the **top** of the stack. It follows the last-in, first-out (LIFO) format for storing and discarding data. This means that the last element added to the top of the stack is the first element that will be removed from the stack. There is no other way to access other elements in the stack but the element that is at the top of the stack.
 
-![Stack A D T](https://raw.githubusercontent.com/Codecademy/ugc/main/content/goku-kun/stack-adt.png)
+![Stack Abstract Data Type](https://raw.githubusercontent.com/Codecademy/ugc/main/content/goku-kun/stack-adt.png)
 
 A stack ADT supports the following operations:
 
@@ -106,9 +106,9 @@ peek(); // Returns the top element without removing it from the stack
 
 ## Queue ADTs
 
-**Queues** are linear data structures, in which data is inserted from one end and removed from the other end. The place where the data is inserted in the queue is called the **rear** end of the queue and this insertion operation is called **enqueue**. Data can be removed from the **front** of the queue and this deletion operation is called **dequeue**. It follows the first-in, first-out (F I F O) configuration for storing and removing data. This means that the data that was first to enter the queue is also first to leave the queue.
+**Queues** are linear data structures, in which data is inserted from one end and removed from the other end. The place where the data is inserted in the queue is called the **rear** end of the queue and this insertion operation is called **enqueue**. Data can be removed from the **front** of the queue and this deletion operation is called **dequeue**. It follows the first-in, first-out (FIFO) configuration for storing and removing data. This means that the data that was first to enter the queue is also first to leave the queue.
 
-![Queue ADT](https://raw.githubusercontent.com/Codecademy/ugc/main/content/goku-kun/queue-adt.png)
+![Queue Abstract Data Type](https://raw.githubusercontent.com/Codecademy/ugc/main/content/goku-kun/queue-adt.png)
 
 A Queue ADT supports the following operations:
 
