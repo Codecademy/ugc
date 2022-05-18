@@ -91,5 +91,3 @@ If you are uncomfortable using Git, you can also check out [this YouTube video](
 ## Additional Resources
 
 Remember, if you ever have any questions at all, we're always here to help in the [Codecademy Forums](https://discuss.codecademy.com/) and [Codecademy Discord](https://discord.com/invite/codecademy).
-
-Tag [@sonnynomnom](https://twitter.com/sonnynomnom) if you find a typo, bug, or issue! 🖖
