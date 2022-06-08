@@ -67,8 +67,21 @@ INSTALLED_APPS = [
     # ...
 ]
 ```
-Create a Models.py file in your project that contains tthe models you want to use.:
+If you run the server, you see this error:
+```ImportError: cannot import name 'force_text' from 'django.utils.encoding```
 
+add this to your settings.py file:
+
+```python
+import django
+from django.utils.encoding import force_str
+
+django.utils.encoding.force_text = force_str
+
+```
+or downgrade your django version.
+
+Create a Models.py file in your project that contains tthe models you want to use.:
 ```python
 from django.db import models
 class Restaurant(models.Model):
@@ -113,3 +126,35 @@ class Query(graphene.ObjectType):
 
     def resolve_restaurants(self, info, **kwargs):
       return Restaurant.objects.all()
+
+
+
+
+```
+
+To get the list of Restaurants run a query with this
+```graphql
+query {
+    restaurants {
+        id
+        name
+        address
+    }
+}
+
+```
+
+Next create a mutation to create a restaurant
+```graphql
+mutation {
+    createRestaurant(name: "Kada Plaza", address: "Lekki GARDENS") {
+        ok
+        restaurant {
+            id
+            name
+            address
+        }
+    }
+}
+```
+
