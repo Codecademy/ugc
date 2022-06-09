@@ -98,7 +98,7 @@ Add a graphql route to your urls.py file for django 2.0 and above:
 ```python
 from graphene_django.views import GraphQLView
 from django.views.decorators.csrf import csrf_exempt
-from djql.schema import schema
+from djql.schema import schema #change djql to your app name
 
 urlpatterns = [
     path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),
@@ -109,14 +109,11 @@ Graphql comes with an api browser similar to django's browsable api that you can
 The fourth import statement ```from djql.schema import schema``` is the schema that we will use to create our queries. Create a `schema.py` file in your project directory or your app directory.
 Django's csrf_exempt decorator is used to allow API clients to POST to the graphql endpoint we have created.
 
-Create a Graphql Type for your models:
+Create a Graphql Type for your models on your schema.py file as shown below:
 ```python
 import graphene
 from graphene_django import DjangoObjectType
 from djql.models import Restaurant
-
-
-
 
 class Query(graphene.ObjectType):
     """
@@ -131,6 +128,7 @@ class Query(graphene.ObjectType):
 
 
 ```
+Visit the `/graphql` route to see the api browser, it sh
 
 To get the list of Restaurants run a query with this
 ```graphql
@@ -145,6 +143,7 @@ query {
 ```
 
 Next create a mutation to create a restaurant
+
 ```graphql
 mutation {
     createRestaurant(name: "Kada Plaza", address: "Lekki GARDENS") {
