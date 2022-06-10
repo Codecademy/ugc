@@ -128,7 +128,10 @@ class Query(graphene.ObjectType):
 
 
 ```
-Visit the `/graphql` route to see the api browser, it sh
+Start the django server with `python manage.py runsrver` then visit the `/graphql` route to see the api browser, it should look like this
+
+![Api browser](https://raw.githubusercontent.com/Codecademy/ugc/main/content/smyja/api-browser.png)
+
 
 To get the list of Restaurants run a query with this
 ```graphql
