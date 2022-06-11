@@ -1,6 +1,6 @@
 ---
 Title: "How to use GrahQl with Django"
-Description: "An introduction to ADTs in JavaScript."
+Description: "A Basic GUide on How to use Graphql with Django"
 DatePublished: "2022-06-05"
 Categories:
   - "web-development"
@@ -124,13 +124,10 @@ class Query(graphene.ObjectType):
     def resolve_restaurants(self, info, **kwargs):
       return Restaurant.objects.all()
 
-
-
-
 ```
 Start the django server with `python manage.py runsrver` then visit the `/graphql` route to see the api browser, it should look like this
 
-![Api browser](https://raw.githubusercontent.com/Codecademy/ugc/main/content/smyja/api-browser.png)
+![Api browser](https://raw.githubusercontent.com/Smyja/ugc/grahql-with-django/content/smyja/api-browser.png)
 
 
 To get the list of Restaurants run a query with this
@@ -144,8 +141,39 @@ query {
 }
 
 ```
+Output should look like this:
+![list of restaurants](https://raw.githubusercontent.com/Smyja/ugc/grahql-with-django/content/smyja/restaurant-list.png)
 
-Next create a mutation to create a restaurant
+
+To modify any data in our database we would need to create a mutation.
+Below is the Create Restaurant mutation,add it to the `schema.py` file.
+```python
+class CreateRestaurant(graphene.Mutation):
+    class Arguments:
+        name = graphene.String()
+        address = graphene.String()
+
+    ok = graphene.Boolean() 
+    restaurant = graphene.Field(RestaurantType)
+
+    def mutate(self, info, name, address):
+        restaurant = Restaurant(name=name, address=address)
+        restaurant.save()
+
+        return CreateRestaurant(ok=True, restaurant=restaurant)
+```
+The CreateRestaurant Mutation takes in the model fields as argument while the mutate function is where the db change happens using django's orm.
+
+Create a Mutation class then Initialize the mutation with the schema.
+```python
+class Mutation(graphene.ObjectType):
+    create_restaurant = CreateRestaurant.Field()
+```
+After adding the mutation and query, define the schema at the end of the `schema.py` file.
+
+```schema = graphene.Schema(query=Query, mutation=Mutation)```
+
+Start the server and a run a mutation with the graphql api browser using this 
 
 ```graphql
 mutation {
@@ -159,4 +187,81 @@ mutation {
     }
 }
 ```
+The mutation returns a restaurant object with the fields that were passed in.
 
+Once the mutation is created, we can use it to delete a restaurant.
+To delete a restaurant, we would need to create a mutation.
+Below is the Delete Restaurant mutation,add it to the `schema.py` file.
+```python
+class DeleteRestaurant(graphene.Mutation):
+    class Arguments:
+        id = graphene.Int()
+
+    ok = graphene.Boolean()
+
+    def mutate(self, info, id):
+        restaurant = Restaurant.objects.get(id=id)
+        restaurant.delete()
+
+        return DeleteRestaurant(ok=True)
+```
+Add Delete Restaurant mutation to the Mutation class.
+
+```delete_restaurant = DeleteRestaurant.Field()```
+
+Run the mutation with the graphql api browser using this.
+
+```graphql  
+    mutation {
+        deleteRestaurant(id: 1) {
+            ok
+        }
+    }
+```
+Pass the restaurant id as an argument to the mutation as shown above.
+Output should look like this:
+```json
+{
+    "data": {
+        "deleteRestaurant": {
+            "ok": true
+        }
+    }
+}
+```
+    Note: Run a query to get the list of restaurants again to see the change.
+
+To update a restaurant, we would need to create a mutation.
+Below is the Update Restaurant mutation,add it to the `schema.py` file.
+```python
+class UpdateRestaurant(graphene.Mutation):
+    class Arguments:
+        id = graphene.Int()
+        name = graphene.String()
+        address = graphene.String()
+
+    ok = graphene.Boolean()
+    restaurant = graphene.Field(RestaurantType)
+
+    def mutate(self, info, id, name, address):
+        restaurant = Restaurant.objects.get(id=id)
+        restaurant.name = name
+        restaurant.address = address
+        restaurant.save()
+
+        return UpdateRestaurant(ok=True, restaurant=restaurant)
+```
+
+Run the mutation with the graphql api browser using this.
+``` graphql
+    mutation {
+        updateRestaurant(id: 2, name: "Kada Plaza Ltd", address: "Lekki Gardens") {
+            ok
+            restaurant {
+                id
+                name
+                address
+            }
+        }
+    }
+``` 
