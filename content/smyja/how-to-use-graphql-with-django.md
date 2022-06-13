@@ -24,7 +24,8 @@ This tutorial will cover the creation of a CRUD(create,read,update,delete)graphq
 
  **Properties of Graphql**:
 
-The following terms would be used a lot when interacting with graphql.
+The following terms would be used a lot when interacting with graphql. It is important that you know them, though we wouldn't cover all of them in this tutorial.
+
 - schema
 - query
 - Nesting
@@ -33,11 +34,10 @@ The following terms would be used a lot when interacting with graphql.
 - Resolvers
 
 **Schema:** 
-A schema is a collection of types. A type is a collection of fields. A field is a property of a type.
+GraphQl Schema describes the functionality available to the client applications that connect to it. 
 
 **Query:**
-A Query is a type on a schema that defines the kind of operations that can be done to get data.
-Creating a query involves adding fields to a query type, then creating resolvers for the fields
+A Query is a type on a schema that defines the kind of operations that can be done to read or fetch data. Queries represent the `GET` request.
 
 **Resolvers:**
 They are functions that return values for fields that exist on types in a schema. 
@@ -46,7 +46,7 @@ They are functions that return values for fields that exist on types in a schema
 A mutation is a type on a schema that defines the kind of operations that can be done to modify data.
 
 **Subscription:**
-A subscription in graphql i
+Subscriptions in graphql are for notifying your client server in real time about changes in the data.
 
 **Nesting:**
 A nested query is a query that is a child of another query.
@@ -251,6 +251,9 @@ class UpdateRestaurant(graphene.Mutation):
 
         return UpdateRestaurant(ok=True, restaurant=restaurant)
 ```
+Add Update Restaurant mutation to the Mutation class.
+
+```update_restaurant = UpdateRestaurant.Field()```
 
 Run the mutation with the graphql api browser using this.
 ``` graphql
@@ -265,3 +268,20 @@ Run the mutation with the graphql api browser using this.
         }
     }
 ``` 
+Output should look like this:
+```json
+{
+    "data": {
+        "updateRestaurant": {
+            "ok": true,
+            "restaurant": {
+                "id": 2,
+                "name": "Kada Plaza Ltd",
+                "address": "Lekki Gardens"
+            }
+        }
+    }
+}
+```
+### Conclusion
+Graphql allows you request for what you want from your database without creating separate endpoints for each request. We have been able to build CRUD api using graphql that would have needed to create separate endpoints for each request for REST api.
