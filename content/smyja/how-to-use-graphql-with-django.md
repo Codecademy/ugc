@@ -54,7 +54,7 @@ INSTALLED_APPS = [
 ]
 ```
 If you run the server, you see this error:
-```ImportError: cannot import name 'force_text' from 'django.utils.encoding```
+`ImportError: cannot import name 'force_text' from 'django.utils.encoding`
 
 add this to your settings.py file:
 
