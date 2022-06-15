@@ -284,4 +284,5 @@ Output should look like this:
 }
 ```
 ### Conclusion
-Graphql allows you request for what you want from your database without creating separate endpoints for each request. We have been able to build CRUD api using graphql that would have needed to create separate endpoints for each request for REST api.
+
+GraphQL lets you request for what you want from your database without creating separate endpoints for each request. In this article, we built a CRUD application with Django using GraphQL queries and mutations.
