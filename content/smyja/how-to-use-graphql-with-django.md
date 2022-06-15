@@ -238,7 +238,8 @@ class UpdateRestaurant(graphene.Mutation):
 
         return UpdateRestaurant(ok=True, restaurant=restaurant)
 ```
-Add Update Restaurant mutation to the Mutation class.
+
+Let's add the `UpdateRestaurant` mutation to the `Mutation` class:
 
 ```update_restaurant = UpdateRestaurant.Field()```
 
