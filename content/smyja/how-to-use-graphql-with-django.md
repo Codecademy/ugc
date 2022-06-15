@@ -238,21 +238,21 @@ To update a restaurant, we would need to create a mutation. Below is the `Update
 
 ```py
 class UpdateRestaurant(graphene.Mutation):
-    class Arguments:
-        id = graphene.Int()
-        name = graphene.String()
-        address = graphene.String()
+  class Arguments:
+      id = graphene.Int()
+      name = graphene.String()
+      address = graphene.String()
 
-    ok = graphene.Boolean()
-    restaurant = graphene.Field(RestaurantType)
+  ok = graphene.Boolean()
+  restaurant = graphene.Field(RestaurantType)
 
-    def mutate(self, info, id, name, address):
-        restaurant = Restaurant.objects.get(id=id)
-        restaurant.name = name
-        restaurant.address = address
-        restaurant.save()
+  def mutate(self, info, id, name, address):
+      restaurant = Restaurant.objects.get(id=id)
+      restaurant.name = name
+      restaurant.address = address
+      restaurant.save()
 
-        return UpdateRestaurant(ok=True, restaurant=restaurant)
+      return UpdateRestaurant(ok=True, restaurant=restaurant)
 ```
 
 Let's add the `UpdateRestaurant` mutation to the `Mutation` class:
