@@ -48,9 +48,9 @@ Add it to your `settings.py` file:
 
 ```py
 INSTALLED_APPS = [
-    'graphene_django',
+  'graphene_django',
 
-    # ...
+  # ...
 ]
 ```
 
