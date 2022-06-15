@@ -26,7 +26,7 @@ This tutorial will cover the creation of a CRUD (create, read, update, delete) G
 
 ## Properties of GraphQL
 
-The following terms would be used a lot when interacting with graphql. It is important that you know them, though we wouldn't cover all of them in this tutorial.
+The following terms are often used when interacting with GraphQL. Knowing them can be helpful, though we won't be covering all of them in this tutorial.
 
 - **Schema**: Describes the functionality available to the client applications that connect to it.
 - **Query**: A schema type that represents the `GET` request and defines the operations that can be used for reading or fetching data.
