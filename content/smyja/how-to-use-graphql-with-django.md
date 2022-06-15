@@ -11,8 +11,8 @@ Tags:
   - "Python"
   - "Queries"
 CatalogContent:
-  - "how-to-use-graphql-with-django"
-  - "paths/computer-science"
+  - "python-for-programmers"
+  - "paths/full-stack-engineer-career-path"
 ---
 
 _**Prerequisites:** Understanding of Python and Django._  
