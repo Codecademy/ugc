@@ -281,16 +281,16 @@ The output should look like this:
 
 ```json
 {
-    "data": {
-        "updateRestaurant": {
-            "ok": true,
-            "restaurant": {
-                "id": 2,
-                "name": "Kada Plaza Ltd",
-                "address": "Lekki Gardens"
-            }
-        }
-    }
+  "data": {
+      "updateRestaurant": {
+          "ok": true,
+          "restaurant": {
+              "id": 2,
+              "name": "Kada Plaza Ltd",
+              "address": "Lekki Gardens"
+          }
+      }
+  }
 }
 ```
 ### Conclusion
