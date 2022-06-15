@@ -224,11 +224,11 @@ Pass the restaurant id as an argument to the mutation as shown above. Output sho
 
 ```json
 {
-    "data": {
-        "deleteRestaurant": {
-            "ok": true
-        }
-    }
+  "data": {
+      "deleteRestaurant": {
+          "ok": true
+      }
+  }
 }
 ```
 
