@@ -255,7 +255,8 @@ Add Update Restaurant mutation to the Mutation class.
 
 ```update_restaurant = UpdateRestaurant.Field()```
 
-Run the mutation with the graphql api browser using this.
+Run the mutation with the GraphQL API browser using this:
+
 ``` graphql
     mutation {
         updateRestaurant(id: 2, name: "Kada Plaza Ltd", address: "Lekki Gardens") {
