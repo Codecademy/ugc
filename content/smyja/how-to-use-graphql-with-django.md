@@ -14,8 +14,8 @@ CatalogContent:
   - "how-to-use-graphql-with-django"
   - "paths/computer-science"
 ---
-_**Prerequisites:** Understanding of Python and Django._
 
+_**Prerequisites:** Understanding of Python and Django._  
 _**Versions:** Python 3.8.10, Django 4.0.4_
 
 ## Introduction
