@@ -97,7 +97,8 @@ GraphQL comes with an API browser, [GraphiQL](https://graphiql-test.netlify.app/
 The third import statement ```from djql.schema import schema``` is the schema that we will use to create our queries. Create a `schema.py` file in your project directory or your app directory.
 Django's csrf_exempt decorator is used to allow API clients to POST to the graphql endpoint we have created.
 
-Create a Graphql Type for your models on your schema.py file as shown below:
+Create a GraphQL type for your models on your `schema.py` file as shown below:
+
 ```py
 import graphene
 from graphene_django import DjangoObjectType
@@ -204,7 +205,7 @@ Next, we'll add the `DeleteRestaurant` mutation to the `Mutation` class:
 
 ```delete_restaurant = DeleteRestaurant.Field()```
 
-Run the mutation with the graphql api browser using this.
+Run the mutation with the GraphQL API browser using this.
 
 ```graphql  
     mutation {
