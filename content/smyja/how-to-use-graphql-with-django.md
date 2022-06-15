@@ -268,7 +268,9 @@ Run the mutation with the graphql api browser using this.
         }
     }
 ``` 
-Output should look like this:
+
+The output should look like this:
+
 ```json
 {
     "data": {
