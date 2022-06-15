@@ -166,7 +166,9 @@ class Mutation(graphene.ObjectType):
 
 After adding the mutation and query, define the schema at the end of the `schema.py` file.
 
-```schema = graphene.Schema(query=Query, mutation=Mutation)```
+```py
+schema = graphene.Schema(query=Query, mutation=Mutation)
+```
 
 Start the server and a run a mutation with the GraphQL API browser using this:
 
@@ -203,7 +205,9 @@ class DeleteRestaurant(graphene.Mutation):
 
 Next, we'll add the `DeleteRestaurant` mutation to the `Mutation` class:
 
-```delete_restaurant = DeleteRestaurant.Field()```
+```py
+delete_restaurant = DeleteRestaurant.Field()
+```
 
 Run the mutation with the GraphQL API browser using this.
 
