@@ -66,7 +66,7 @@ django.utils.encoding.force_text = force_str
 ```
 or downgrade your django version.
 
-Create a Models.py file in your project that contains tthe models you want to use.:
+Create a `Models.py` file in your project that contains the models you want to use:
 ```python
 from django.db import models
 class Restaurant(models.Model):
