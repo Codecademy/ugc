@@ -58,7 +58,7 @@ If you run the server, you see this error:
 
 add this to your settings.py file:
 
-```python
+```py
 import django
 from django.utils.encoding import force_str
 
