@@ -235,6 +235,7 @@ Pass the restaurant id as an argument to the mutation as shown above. Output sho
 **Note**: We should run a query to get the list of restaurants again to see the change.
 
 To update a restaurant, we would need to create a mutation. Below is the `UpdateRestaurant` mutation. We will add it to the `schema.py` file:
+
 ```py
 class UpdateRestaurant(graphene.Mutation):
     class Arguments:
