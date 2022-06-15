@@ -70,6 +70,7 @@ django.utils.encoding.force_text = force_str
 or downgrade your django version.
 
 Create a `Models.py` file in your project that contains the models you want to use:
+
 ```py
 from django.db import models
 
