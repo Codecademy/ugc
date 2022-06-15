@@ -43,7 +43,8 @@ To use graphql with django, you will need to install graphene-django
 
 ```pip install graphene-django```
 
-Add it to your settings.py file:
+Add it to your `settings.py` file:
+
 ```python
 INSTALLED_APPS = [
     'graphene_django',
