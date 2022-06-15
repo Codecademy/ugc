@@ -35,9 +35,10 @@ The following terms would be used a lot when interacting with graphql. It is imp
 - **Subscription**: Notifies the client server in real time about updates to the data.
 - **Resolvers**: Functions that return values for fields associated with existing schema types.
 
-## Setting up graphql with django
-First, we need to install Django and create a project. I will be using a bash script i created to do this.
-[Django-bash-script](https://github.com/Smyja/Django-bash)
+## Setting up GraphQL with Django
+
+First, we need to install Django and create a project. I will be using a [bash script](https://github.com/Smyja/Django-bash) I created to do this.
+
 
 To use graphql with django, you will need to install graphene-django
 
