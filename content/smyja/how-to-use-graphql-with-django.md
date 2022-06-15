@@ -40,9 +40,9 @@ The following terms would be used a lot when interacting with graphql. It is imp
 First, we need to install Django and create a project. I will be using a [bash script](https://github.com/Smyja/Django-bash) I created to do this.
 
 
-To use graphql with django, you will need to install graphene-django
+To use GraphQL with Django, you will need to install the `graphene-django` package:
 
-```pip install graphene-django```
+`pip install graphene-django`
 
 Add it to your `settings.py` file:
 
