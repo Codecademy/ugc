@@ -28,30 +28,12 @@ This tutorial will cover the creation of a CRUD (create, read, update, delete) G
 
 The following terms would be used a lot when interacting with graphql. It is important that you know them, though we wouldn't cover all of them in this tutorial.
 
-- schema
-- query
-- Nesting
-- Mutation
-- Subscription
-- Resolvers
-
-**Schema:** 
-GraphQl Schema describes the functionality available to the client applications that connect to it. 
-
-**Query:**
-A Query is a type on a schema that defines the kind of operations that can be done to read or fetch data. Queries represent the `GET` request.
-
-**Resolvers:**
-They are functions that return values for fields that exist on types in a schema. 
-
-**Mutation:**
-A mutation is a type on a schema that defines the kind of operations that can be done to modify data.
-
-**Subscription:**
-Subscriptions in graphql are for notifying your client server in real time about changes in the data.
-
-**Nesting:**
-A nested query is a query that is a child of another query.
+- **Schema**: Describes the functionality available to the client applications that connect to it.
+- **Query**: A schema type that represents the `GET` request and defines the operations that can be used for reading or fetching data.
+- **Nesting**: Queries can be nested inside of other queries.
+- **Mutation**: A schema type that defines the kind of operations that can be done to modify data.
+- **Subscription**: Notifies the client server in real time about updates to the data.
+- **Resolvers**: Functions that return values for fields associated with existing schema types.
 
 ## Setting up graphql with django
 First, we need to install Django and create a project. I will be using a bash script i created to do this.
