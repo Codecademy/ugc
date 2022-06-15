@@ -20,7 +20,7 @@ _**Versions:** Python 3.8.10, Django 4.0.4_
 ## Introduction
 GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. Unlike a REST api, Graphql api’s do not require verbs(PUT,POST,GET) for requests, they do not need multiple Endpoints. They have just one endpoint and making a query to that endpoint is all that's needed. 
 
-This tutorial will cover the creation of a CRUD(create,read,update,delete)graphql api for a restaurant with django.
+This tutorial will cover the creation of a CRUD (create, read, update, delete) GraphQL API for a restaurant with Django.
 
  **Properties of Graphql**:
 
