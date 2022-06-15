@@ -74,11 +74,11 @@ Create a `Models.py` file in your project that contains the models you want to u
 from django.db import models
 
 class Restaurant(models.Model):
-    name = models.CharField(max_length=100)
-    address = models.CharField(max_length=200)
+  name = models.CharField(max_length=100)
+  address = models.CharField(max_length=200)
 
-    def __str__(self):
-        return self.name
+  def __str__(self):
+      return self.name
 ```
 
 Add a GraphQL route to your `urls.py` file for Django version 2.0 and above:
