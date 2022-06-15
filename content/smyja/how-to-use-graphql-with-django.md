@@ -1,5 +1,5 @@
 ---
-Title: "How to use GrahQl with Django"
+Title: "How to Use GraphQL With Django"
 Description: "A Basic GUide on How to use Graphql with Django"
 DatePublished: "2022-06-05"
 Categories:
