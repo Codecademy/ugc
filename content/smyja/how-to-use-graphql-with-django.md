@@ -23,7 +23,7 @@ _**Versions:** Python 3.8.10, Django 4.0.4_
 
 This tutorial will cover the creation of a CRUD (create, read, update, delete) GraphQL API for a restaurant with Django.
 
- **Properties of Graphql**:
+## Properties of GraphQL
 
 The following terms would be used a lot when interacting with graphql. It is important that you know them, though we wouldn't cover all of them in this tutorial.
 
