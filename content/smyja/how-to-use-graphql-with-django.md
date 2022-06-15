@@ -9,6 +9,7 @@ Tags:
   - "APIs"
   - "Django"
   - "Python"
+  - "Queries"
 CatalogContent:
   - "how-to-use-graphql-with-django"
   - "paths/computer-science"
