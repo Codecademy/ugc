@@ -92,7 +92,7 @@ urlpatterns = [
 ]
 ```
 
-Graphql comes with an api browser similar to django's browsable api that you can use to test your queries and mutations. If you do not want to use it, you can set the `graphiql` parameter to False.
+GraphQL comes with an API browser, [GraphiQL](https://graphiql-test.netlify.app/typedoc/), that is similar to Django's browsable API where you can use to test your queries and mutations. This is done with the `graphiql` parameter of the `.as_view()` method. However, if you do not want to use it, you can set `graphiql` to `False`.
 The fourth import statement ```from djql.schema import schema``` is the schema that we will use to create our queries. Create a `schema.py` file in your project directory or your app directory.
 Django's csrf_exempt decorator is used to allow API clients to POST to the graphql endpoint we have created.
 
