@@ -251,7 +251,9 @@ class UpdateRestaurant(graphene.Mutation):
 Let's add the `UpdateRestaurant` mutation to the `Mutation` class:
 
 ```py
-update_restaurant = UpdateRestaurant.Field()```
+update_restaurant = UpdateRestaurant.Field()
+```
+
 
 Run the mutation with the GraphQL API browser using this:
 
