@@ -53,10 +53,12 @@ INSTALLED_APPS = [
     # ...
 ]
 ```
-If you run the server, you see this error:
+
+If you run the server, you will see this error:
+
 `ImportError: cannot import name 'force_text' from 'django.utils.encoding`
 
-add this to your settings.py file:
+Add the following to the top of your `settings.py` file:
 
 ```py
 import django
@@ -79,10 +81,9 @@ class Restaurant(models.Model):
         return self.name
 ```
 
+Add a GraphQL route to your `urls.py` file for Django version 2.0 and above:
 
-Add a graphql route to your urls.py file for django 2.0 and above:
-
-```python
+```py
 from graphene_django.views import GraphQLView
 from django.views.decorators.csrf import csrf_exempt
 from djql.schema import schema #change djql to your app name
@@ -97,7 +98,7 @@ The fourth import statement ```from djql.schema import schema``` is the schema t
 Django's csrf_exempt decorator is used to allow API clients to POST to the graphql endpoint we have created.
 
 Create a Graphql Type for your models on your schema.py file as shown below:
-```python
+```py
 import graphene
 from graphene_django import DjangoObjectType
 from djql.models import Restaurant
@@ -117,7 +118,8 @@ Start the django server with `python manage.py runsrver` then visit the `/graphq
 ![Api browser](https://raw.githubusercontent.com/Smyja/ugc/grahql-with-django/content/smyja/api-browser.png)
 
 
-To get the list of Restaurants run a query with this
+To get the list of restaurants with specific data like name and address, run a query with this:
+
 ```graphql
 query {
     restaurants {
@@ -128,13 +130,15 @@ query {
 }
 
 ```
-Output should look like this:
+
+The output should look like this:
+
 ![list of restaurants](https://raw.githubusercontent.com/Smyja/ugc/grahql-with-django/content/smyja/restaurant-list.png)
 
-
 To modify any data in our database we would need to create a mutation.
-Below is the Create Restaurant mutation,add it to the `schema.py` file.
-```python
+Below is the `CreateRestaurant` mutation, which we will add to the `schema.py` file.
+
+```py
 class CreateRestaurant(graphene.Mutation):
     class Arguments:
         name = graphene.String()
@@ -149,18 +153,21 @@ class CreateRestaurant(graphene.Mutation):
 
         return CreateRestaurant(ok=True, restaurant=restaurant)
 ```
-The CreateRestaurant Mutation takes in the model fields as argument while the mutate function is where the db change happens using django's orm.
 
-Create a Mutation class then Initialize the mutation with the schema.
-```python
+The `CreateRestaurant` mutation takes in the model fields as arguments while the `mutate()` function is where the db change happens using Django's object-relational mapper (ORM).
+
+Create a `Mutation` class then initialize the mutation with the schema.
+
+```py
 class Mutation(graphene.ObjectType):
     create_restaurant = CreateRestaurant.Field()
 ```
+
 After adding the mutation and query, define the schema at the end of the `schema.py` file.
 
 ```schema = graphene.Schema(query=Query, mutation=Mutation)```
 
-Start the server and a run a mutation with the graphql api browser using this 
+Start the server and a run a mutation with the GraphQL API browser using this:
 
 ```graphql
 mutation {
@@ -174,11 +181,11 @@ mutation {
     }
 }
 ```
+
 The mutation returns a restaurant object with the fields that were passed in.
 
-Once the mutation is created, we can use it to delete a restaurant.
-To delete a restaurant, we would need to create a mutation.
-Below is the Delete Restaurant mutation,add it to the `schema.py` file.
+To delete a restaurant, we would need to create a mutation. Below is the `DeleteRestaurant` mutation. Let's add it to our `schema.py` file.
+
 ```python
 class DeleteRestaurant(graphene.Mutation):
     class Arguments:
@@ -192,7 +199,8 @@ class DeleteRestaurant(graphene.Mutation):
 
         return DeleteRestaurant(ok=True)
 ```
-Add Delete Restaurant mutation to the Mutation class.
+
+Next, we'll add the `DeleteRestaurant` mutation to the `Mutation` class:
 
 ```delete_restaurant = DeleteRestaurant.Field()```
 
@@ -205,8 +213,9 @@ Run the mutation with the graphql api browser using this.
         }
     }
 ```
-Pass the restaurant id as an argument to the mutation as shown above.
-Output should look like this:
+
+Pass the restaurant id as an argument to the mutation as shown above. Output should look like this:
+
 ```json
 {
     "data": {
@@ -216,11 +225,11 @@ Output should look like this:
     }
 }
 ```
-    Note: Run a query to get the list of restaurants again to see the change.
 
-To update a restaurant, we would need to create a mutation.
-Below is the Update Restaurant mutation,add it to the `schema.py` file.
-```python
+**Note**: We should run a query to get the list of restaurants again to see the change.
+
+To update a restaurant, we would need to create a mutation. Below is the `UpdateRestaurant` mutation. We will add it to the `schema.py` file:
+```py
 class UpdateRestaurant(graphene.Mutation):
     class Arguments:
         id = graphene.Int()
