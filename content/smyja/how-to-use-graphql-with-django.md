@@ -264,16 +264,16 @@ update_restaurant = UpdateRestaurant.Field()
 Run the mutation with the GraphQL API browser using this:
 
 ``` graphql
-    mutation {
-        updateRestaurant(id: 2, name: "Kada Plaza Ltd", address: "Lekki Gardens") {
-            ok
-            restaurant {
-                id
-                name
-                address
-            }
-        }
+mutation {
+  updateRestaurant(id: 2, name: "Kada Plaza Ltd", address: "Lekki Gardens") {
+    ok
+    restaurant {
+      id
+      name
+      address
     }
+  }
+}
 ``` 
 
 The output should look like this:
