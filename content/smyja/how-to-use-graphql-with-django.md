@@ -41,7 +41,9 @@ First, we need to install Django and create a project. I will be using a  I crea
 
 You will be prompted to enter a name for the Django _project_ and _app_. After this, our application will be created and we'll be ready to move to the next steps.
 
-To use GraphQL with Django, you will need to install the `graphene-django` package:
+### Using `graphene-django`
+
+To use GraphQL with Django, you will need to install the [`graphene-django`](https://docs.graphene-python.org/projects/django/en/latest/) package. This will help us with adding GraphQL functionality to our restaurant Django app:
 
 `pip install graphene-django`
 
