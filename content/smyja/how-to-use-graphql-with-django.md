@@ -37,9 +37,18 @@ The following terms are often used when interacting with GraphQL. Knowing them c
 
 ## Setting up GraphQL with Django
 
-First, we need to install Django and create a project. I will be using a [bash script](https://github.com/Smyja/Django-bash) to do this but the commands can be found below:
+First, we need to install Django and create a project. Run  ```virtualenv venv```  to setup a virtual environment. Then, run ```source venv/bin/activate``` on Linux/MacOs or ```source/scripts/activate``` on windows to activate the virtual environment. 
 
-You will be prompted to enter a name for the Django _project_ and _app_. After this, our application will be created and we'll be ready to move to the next steps.
+Next,install django with ```pip install django``` and run ```django-admin startproject project .``` to create a new project.
+
+Create an app in the project with ```python manage.py startapp myapp``` . Add the app to the project's ```INSTALLED_APPS``` like this
+```py
+INSTALLED_APPS = [
+  'myapp',
+
+  # ...
+]
+```
 
 ### Using `graphene-django`
 
@@ -57,21 +66,6 @@ INSTALLED_APPS = [
 ]
 ```
 
-If you run the server, you will see this error:
-
-`ImportError: cannot import name 'force_text' from 'django.utils.encoding`
-
-Add the following to the top of your `settings.py` file:
-
-```py
-import django
-from django.utils.encoding import force_str
-
-django.utils.encoding.force_text = force_str
-
-```
-or downgrade your django version.
-
 Create a `Models.py` file in your project that contains the models you want to use:
 
 ```py
@@ -84,30 +78,72 @@ class Restaurant(models.Model):
   def __str__(self):
       return self.name
 ```
+Register the  models in the admin.py file:
 
-Add a GraphQL route to your `urls.py` file for Django version 2.0 and above:
+```py
+from . import models
+
+admin.site.register(models.Restaurant)
+```
+
+Make migrations with ```python manage.py makemigrations``` . Then, run ```python manage.py migrate``` to apply the migrations.
+
+If you run the server with ```python manage.py runserver```, you will see this error in your Command Prompt:
+
+`ImportError: cannot import name 'force_text' from 'django.utils.encoding`
+
+This error comes up because django no longer supports the ```force_text``` variable which the graphene package uses.
+Add the following to the top of your `settings.py` file to resolve it:
+
+```py
+import django
+from django.utils.encoding import force_str
+
+django.utils.encoding.force_text = force_str
+
+```
+or downgrade your django version.
+
+Create a `urls.py` file in your `myapp` directory and add a GraphQL route for Django version 2.0 and above:
 
 ```py
 from graphene_django.views import GraphQLView
 from django.views.decorators.csrf import csrf_exempt
-from djql.schema import schema #change djql to your app name
+from django.urls import path
 
-url_patterns = [
-  path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),
+urlpatterns = [
+  path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True))),
+]
+```
+Add the app urls to your `urls.py` file in your project folder:
+
+```py
+from django.urls import path, include
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", include("myapp.urls")),
 ]
 ```
 
 GraphQL comes with an API browser, [GraphiQL](https://graphiql-test.netlify.app/typedoc/), that is similar to Django's browsable API where you can use to test your queries and mutations. This is done with the `graphiql` parameter of the `.as_view()` method. However, if you do not want to use it, you can set `graphiql` to `False`.
-The third `import` statement `from djql.schema import schema` is the schema that we will use to create our queries. Create a `schema.py` file in your project directory or your app directory.
 Django's `csrf_exempt` decorator is used to allow API clients to POST to the graphql endpoint we have created.
 
-Create a GraphQL type for your models on your `schema.py` file as shown below:
-
+Create a Schema.py file in the `myapp` directory and then create a type for your models in your `schema.py` file as shown below:
 ```py
 import graphene
 from graphene_django import DjangoObjectType
-from djql.models import Restaurant
+from myapp.models import Restaurant
+class RestaurantType(DjangoObjectType):
+    class Meta:
+        model = Restaurant
+        fields = ("id", "name", "address")
 
+```
+
+Create a Query type for the Restaurant model on your `schema.py` file as shown below:
+
+```py
 class Query(graphene.ObjectType):
     """
     Queries for the Restaurant model
@@ -118,10 +154,57 @@ class Query(graphene.ObjectType):
       return Restaurant.objects.all()
 
 ```
+The Query type contains a resolver for the `restaurants` field. This resolver returns all the restaurants in the database.
+Add to the end of your `schema.py` file which will create the schema for your GraphQL API:
+ 
+```py
+schema = graphene.Schema(query=Query)
+``` 
+Import the schema variable into the `urls.py` file and pass it to the graphql view as seen below:
+
+```py
+from myapp.schema import schema
+
+url_patterns = [
+  path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),
+]
+```
+Th entire schema.py file should look like this:
+
+```py
+import graphene
+from graphene_django import DjangoObjectType
+from myapp.models import Restaurant
+
+class RestaurantType(DjangoObjectType):
+    class Meta:
+        model = Restaurant
+        fields = ("id", "name", "address")
+
+class Query(graphene.ObjectType):
+    """
+    Queries for the Restaurant model
+    """
+    restaurants = graphene.List(RestaurantType)
+
+    def resolve_restaurants(self, info, **kwargs):
+      return Restaurant.objects.all()
+
+
+schema = graphene.Schema(query=Query)
+
+```
+
+
 Start the django server with `python manage.py runsrver` then visit the `/graphql` route to see the api browser, it should look like this
 
 ![Api browser](https://raw.githubusercontent.com/Smyja/ugc/grahql-with-django/content/smyja/api-browser.png)
 
+Create a Superuser account,login by visiting the admin url and add restaurants to the database with the following command:
+
+```py
+python manage.py createsuperuser
+```
 
 To get the list of restaurants with specific data like name and address, run a query with this:
 
@@ -168,7 +251,7 @@ class Mutation(graphene.ObjectType):
     create_restaurant = CreateRestaurant.Field()
 ```
 
-After adding the mutation and query, define the schema at the end of the `schema.py` file.
+After adding the mutation, pass the mutation to the schema at the end of the `schema.py` file.
 
 ```py
 schema = graphene.Schema(query=Query, mutation=Mutation)
@@ -213,7 +296,7 @@ Next, we'll add the `DeleteRestaurant` mutation to the `Mutation` class:
 delete_restaurant = DeleteRestaurant.Field()
 ```
 
-Run the mutation with the GraphQL API browser using this.
+Run the mutation to delete a restaurant with the GraphQL API browser using this.
 
 ```graphql  
     mutation {
@@ -264,7 +347,6 @@ Let's add the `UpdateRestaurant` mutation to the `Mutation` class:
 update_restaurant = UpdateRestaurant.Field()
 ```
 
-
 Run the mutation with the GraphQL API browser using this:
 
 ``` graphql
@@ -299,3 +381,5 @@ The output should look like this:
 ### Conclusion
 
 GraphQL lets you request for what you want from your database without creating separate endpoints for each request. In this article, we built a CRUD application with Django using GraphQL queries and mutations.
+
+Github repository: https://github.com/Smyja/codecademy
