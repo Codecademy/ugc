@@ -251,7 +251,7 @@ class Mutation(graphene.ObjectType):
     create_restaurant = CreateRestaurant.Field()
 ```
 
-After adding the mutation, pass the mutation to the schema at the end of the `schema.py` file.
+After adding the mutation, let's pass the mutation to the schema at the end of the `schema.py` file.
 
 ```py
 schema = graphene.Schema(query=Query, mutation=Mutation)
