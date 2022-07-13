@@ -269,7 +269,7 @@ The output should look like this:
 
 ## Step 5: mutating the database
 
-To modify any data in our GraphQL database we would need to create a mutation. In this step, we're going to built three mutations for creating, updating, and deleting data in our database.
+To modify any data in our GraphQL database we would need to create a mutation. In this step, we're going to build three mutations for creating, updating, and deleting data in our database.
 
 Below is the `CreateRestaurant` mutation, which we will add to the `schema.py` file:
 
