@@ -170,7 +170,7 @@ urlpatterns = [
 
 ## Step 4: building a GraphQL schema
 
-Let's create a new file in our `my_app` directory called `schema.py`. Inside, we'll define a new type fo the `Restaurant` model we previously created:
+Let's create a new file in our `my_app` directory called `schema.py`. Inside, we'll define a new type for the `Restaurant` model we previously created:
 
 ```py
 import graphene
