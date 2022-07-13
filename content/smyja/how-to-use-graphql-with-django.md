@@ -20,7 +20,7 @@ _**Versions:** Django 4.0.4, Python 3.8.10, virtualenv 20.15.1_
 
 ### Introduction
 
-[GraphQL](https://www.codecademy.com/resources/docs/general/graphql) is a query language for [APIs](https://www.codecademy.com/resources/docs/general/api) and a runtime for fulfilling those queries with your existing data. Unlike a REST API, GraphQL APIs do not require verbs (`PUT`, `POST`, `GET`, `PATCH`,  and `DELETE`) for requests, nor do they need multiple endpoints. They have just one endpoint and making a query to that endpoint is all that's needed. 
+[GraphQL](https://www.codecademy.com/resources/docs/general/graphql) is a query language for [APIs](https://www.codecademy.com/resources/docs/general/api) and a runtime for fulfilling those queries with your existing data. Unlike a REST API, GraphQL APIs do not require verbs (`PUT`, `POST`, `GET`, `PATCH`, and `DELETE`) for requests, nor do they need multiple endpoints. They have just one endpoint and making a query to that endpoint is all that's needed. 
 
 This tutorial will cover the creation of a CRUD (create, read, update, and delete) GraphQL API for a restaurant with Django.
 
@@ -38,12 +38,37 @@ The following terms are often used when interacting with GraphQL. Knowing them c
 ## Step 1: setting up our virtual environment
 
 First, we are going to create and launch a virtual environment for our project with the `virtualenv` package (which can be [installed via `pip`](https://virtualenv.pypa.io/en/latest/installation.html#via-pip). While not necessary for starting a new Django project, working in separate environments is generally a best practice that mitigates conflicts between sites. Let's open a [terminal](https://www.codecademy.com/resources/docs/general/terminal) and create a new environment named `my_env` by running the following:
+
+```bash
+virtualenv my_env
+```
+
 Next, will activate our new environment `my_env` with either of the following commands:
+
+```bash
+# Linux/macOS
+source my_env/bin/activate
+
+# Windows
+source/scripts/activate
+```
+
+Let's go to the next step.
+
 ## Step 2: creating our Django project
 
-Next, if we haven't already, let's[ install](https://docs.djangoproject.com/en/4.0/topics/install/#how-to-install-django) the `Django` package and create a new project called `restaurant_graphql_api`:
+Next, if we haven't already, let's [install](https://docs.djangoproject.com/en/4.0/topics/install/#how-to-install-django) the `Django` package. Then, let's create a new project called `restaurant_graphql_api` and change into it:
 
-Next, we're going to create a new application without our project called `my_app` by running the following:
+```bash
+django-admin startproject restaurant_graphql_api
+cd restaurant_graphql_api
+```
+
+Next, we're going to create a new application within our project called `my_app` by running the following:
+
+```bash
+python manage.py startapp my_app
+```
 
 Then, we'll add `my_app` to our list of `INSTALLED_APPS` in our `settings.py` file under the `restaurant-graphql_api/` directory:
 
@@ -52,7 +77,6 @@ INSTALLED_APPS = [
   'my_app',
   'django.contrib.admin',
   'django.contrib.auth',
-
   # ...
 ]
 ```
@@ -61,7 +85,9 @@ INSTALLED_APPS = [
 
 To use GraphQL with Django, we will need to install the [`graphene-django`](https://docs.graphene-python.org/projects/django/en/latest/) package.
 
-`pip install graphene-django`
+```bash
+pip install graphene-django
+```
 
 This will help add GraphQL functionality to our restaurant Django app such as resolvers and mutations. Next, let's add `'graphene_django'` to the list of `INSTALLED_APPS` in our `settings.py` file:
 
@@ -84,7 +110,7 @@ class Restaurant(models.Model):
   address = models.CharField(max_length=200)
 
   def __str__(self):
-      return self.name
+    return self.name
 ```
 
 Inside the `Restaurant` class model above, we defined a few fields, `name` and `address`, along with a `__str__()` [dunder method](https://www.codecademy.com/resources/docs/python/dunder-methods) that returns the `name` of the restaurant.
@@ -102,16 +128,17 @@ It is now time to create and perform a migration for this new data. This will al
 
 By now, we may encounter the following error:
 
-`ImportError: cannot import name 'force_text' from 'django.utils.encoding`
+```shell
+ImportError: cannot import name 'force_text' from 'django.utils.encoding
+```
 
-The `ImportError` is due to Django 4.0 no longer supporting the `force_text` variable (which the `graphene` package uses). To this resolve this, we can add the following to our `settings.py` file:
+The `ImportError` is due to Django 4.0 not supporting the `force_text` variable (which the `graphene` package uses with earlier versions of Django). To this resolve this, we can add the following to our `settings.py` file:
 
 ```py
 import django
 from django.utils.encoding import force_str
 
 django.utils.encoding.force_text = force_str
-
 ```
 
 Alternatively, we can downgrade our Django version to 3.2.x. At this point, it would be good to run `python manage.py runserver` and check `http://127.0.0.1:8000` on a browser to ensure our application starts properly.
@@ -143,17 +170,17 @@ urlpatterns = [
 
 ## Step 4: building a GraphQL schema
 
-Let's create a  new file in our `my_app` directory called `schema.py`. Inside, we'll define a new type fo the `Restaurant` model we previously created:
+Let's create a new file in our `my_app` directory called `schema.py`. Inside, we'll define a new type fo the `Restaurant` model we previously created:
 
 ```py
 import graphene
 from graphene_django import DjangoObjectType
-from myapp.models import Restaurant
+from my_app.models import Restaurant
 
 class RestaurantType(DjangoObjectType):
-    class Meta:
-        model = Restaurant
-        fields = ("id", "name", "address")
+  class Meta:
+    model = Restaurant
+    fields = ("id", "name", "address")
 ```
 
 Our `RestaurantType` class borrows from the `DjangoObjectType` class. The inner-`Meta` class is where general type attributes like `model` and `fields` are defined.
@@ -162,25 +189,49 @@ Below here, let's next create a `Query` type class for the `Restaurant` model:
 
 ```py
 class Query(graphene.ObjectType):
-    """
-    Queries for the Restaurant model
-    """
-    restaurants = graphene.List(RestaurantType)
+  """
+  Queries for the Restaurant model
+  """
+  restaurants = graphene.List(RestaurantType)
 
-    def resolve_restaurants(self, info, **kwargs):
-      return Restaurant.objects.all()
-
+  def resolve_restaurants(self, info, **kwargs):
+    return Restaurant.objects.all()
 ```
 
 The `Query` type contains a resolver function for the `restaurants` field (e.g., `resolve_restaurants()`). This resolver returns all the restaurants in the database.
 
-Next,  at the end of our `schema.py` file, we will pass in our `Query` type into the `graphene.Schema()` function. This allow our schema to be exportable to other files:
+Next, at the end of our `schema.py` file, we will pass in our `Query` type into the `graphene.Schema()` function. This allow our schema to be exportable to other files:
  
 ```py
 schema = graphene.Schema(query=Query)
-``` 
+```
 
-Then, let's import the `schema` variable into the `my_app/urls.py` file and pass it to the Graphql view as seen below:
+The entire `schema.py` file should look like this:
+
+```py
+import graphene
+from graphene_django import DjangoObjectType
+from my_app.models import Restaurant
+
+class RestaurantType(DjangoObjectType):
+  class Meta:
+      model = Restaurant
+      fields = ("id", "name", "address")
+
+class Query(graphene.ObjectType):
+  """
+  Queries for the Restaurant model
+  """
+  restaurants = graphene.List(RestaurantType)
+
+  def resolve_restaurants(self, info, **kwargs):
+    return Restaurant.objects.all()
+
+
+schema = graphene.Schema(query=Query)
+```
+
+Let's now import the `schema` variable into the `my_app/urls.py` file and pass it to the Graphql view as seen below:
 
 ```py
 from my_app.schema import schema
@@ -190,35 +241,7 @@ url_patterns = [
 ]
 ```
 
-The entire `schema.py` file should look like this:
-
-```py
-import graphene
-from graphene_django import DjangoObjectType
-from myapp.models import Restaurant
-
-class RestaurantType(DjangoObjectType):
-    class Meta:
-        model = Restaurant
-        fields = ("id", "name", "address")
-
-class Query(graphene.ObjectType):
-    """
-    Queries for the Restaurant model
-    """
-    restaurants = graphene.List(RestaurantType)
-
-    def resolve_restaurants(self, info, **kwargs):
-      return Restaurant.objects.all()
-
-
-schema = graphene.Schema(query=Query)
-
-```
-
-
-
-Let's start the Django server with `python manage.py runserver` then visit the `/graphql` route to see the GraphiQL browser, which should look like this
+Let's run the Django server with `python manage.py runserver` then visit the `/graphql` route to see the GraphiQL browser, which should look like this
 
 ![API browser](https://raw.githubusercontent.com/Smyja/ugc/grahql-with-django/content/smyja/api-browser.png)
 
@@ -233,9 +256,9 @@ To get the list of restaurants with specific data like `name` and `address`, we 
 ```graphql
 query {
   restaurants {
-      id
-      name
-      address
+    id
+    name
+    address
   }
 }
 ```
@@ -244,7 +267,7 @@ The output should look like this:
 
 ![list of restaurants](https://raw.githubusercontent.com/Smyja/ugc/grahql-with-django/content/smyja/restaurant-list.png)
 
-## Step # 5: mutating the database
+## Step 5: mutating the database
 
 To modify any data in our GraphQL database we would need to create a mutation. In this step, we're going to built three mutations for creating, updating, and deleting data in our database.
 
@@ -253,21 +276,21 @@ Below is the `CreateRestaurant` mutation, which we will add to the `schema.py` f
 ```py
 class CreateRestaurant(graphene.Mutation):
   class Arguments:
-      name = graphene.String()
-      address = graphene.String()
+    name = graphene.String()
+    address = graphene.String()
 
   ok = graphene.Boolean() 
   restaurant = graphene.Field(RestaurantType)
 
   def mutate(self, info, name, address):
-      restaurant = Restaurant(name=name, address=address)
-      restaurant.save()
-      return CreateRestaurant(ok=True, restaurant=restaurant)
+    restaurant = Restaurant(name=name, address=address)
+    restaurant.save()
+    return CreateRestaurant(ok=True, restaurant=restaurant)
 ```
 
 The `CreateRestaurant` mutation takes in the model fields as arguments within the inner-`Argument` class. The `mutate()` function is where the database change happens using Django's object-relational mapper (ORM).
 
-Next, let's create a `Mutation` class then initialize with the schema at the end of the file.
+Next, let's create a `Mutation` class then initialize with the schema at the end of the file:
 
 ```py
 class Mutation(graphene.ObjectType):
@@ -287,31 +310,31 @@ Start the server and a run a mutation with the GraphQL API browser using this:
 ```graphql
 mutation {
   createRestaurant(name: "Kada Plaza", address: "Lekki GARDENS") {
-      ok
-      restaurant {
-          id
-          name
-          address
-      }
+    ok
+    restaurant {
+        id
+        name
+        address
+    }
   }
 }
 ```
 
 The mutation returns a restaurant object with the fields that were passed in.
 
-To delete a restaurant, we would need to create a mutation. Below is the `DeleteRestaurant` mutation. Let's add it to our `schema.py` file.
+Let now define a `DeleteRestaurant` mutation that removes a single restaurant from our database. We'll add it to our `schema.py` file between our `CreateRestaurant` and `Mutation` classes:
 
 ```py
 class DeleteRestaurant(graphene.Mutation):
   class Arguments:
-      id = graphene.Int()
+    id = graphene.Int()
 
   ok = graphene.Boolean()
 
   def mutate(self, info, id):
-      restaurant = Restaurant.objects.get(id=id)
-      restaurant.delete()
-      return DeleteRestaurant(ok=True)
+    restaurant = Restaurant.objects.get(id=id)
+    restaurant.delete()
+    return DeleteRestaurant(ok=True)
 ```
 
 Next, we'll add the `DeleteRestaurant` mutation to the `Mutation` class:
@@ -324,7 +347,7 @@ class Mutation(graphene.ObjectType):
 
 Next, let's run the mutation on the browser to delete a restaurant from our GraphQL databsae:
 
-```graphql  
+```graphql
 mutation {
   deleteRestaurant(id: 1) {
     ok
@@ -338,7 +361,7 @@ Pass the restaurant id as an argument to the mutation as shown above. Output sho
 {
   "data": {
     "deleteRestaurant": {
-        "ok": true
+      "ok": true
     }
   }
 }
@@ -351,19 +374,19 @@ Lastly, let's make an `UpdateRestaurant` mutation that modifies data for a singl
 ```py
 class UpdateRestaurant(graphene.Mutation):
   class Arguments:
-      id = graphene.Int()
-      name = graphene.String()
-      address = graphene.String()
+    id = graphene.Int()
+    name = graphene.String()
+    address = graphene.String()
 
   ok = graphene.Boolean()
   restaurant = graphene.Field(RestaurantType)
 
   def mutate(self, info, id, name, address):
-      restaurant = Restaurant.objects.get(id=id)
-      restaurant.name = name
-      restaurant.address = address
-      restaurant.save()
-      return UpdateRestaurant(ok=True, restaurant=restaurant)
+    restaurant = Restaurant.objects.get(id=id)
+    restaurant.name = name
+    restaurant.address = address
+    restaurant.save()
+    return UpdateRestaurant(ok=True, restaurant=restaurant)
 ```
 
 Let's add the `UpdateRestaurant` mutation to the `Mutation` class:
@@ -396,18 +419,19 @@ The output should look like this:
 {
   "data": {
     "updateRestaurant": {
-        "ok": true,
-        "restaurant": {
-            "id": 2,
-            "name": "Kada Plaza Ltd",
-            "address": "Lekki Gardens"
-        }
+      "ok": true,
+      "restaurant": {
+        "id": 2,
+        "name": "Kada Plaza Ltd",
+        "address": "Lekki Gardens"
+      }
     }
   }
 }
 ```
+
 ### Conclusion
 
-GraphQL lets you request for what you want from your database without creating separate endpoints for each request. In this article, we built a CRUD application with Django using GraphQL queries and mutations.
+GraphQL lets you request for what you want from your database without creating separate endpoints for each request. In this article, we built a CRUD application with Django using GraphQL queries and mutations. 
 
-Github repository: https://github.com/Smyja/codecademy
+Source code for this article: [https://github.com/Smyja/codecademy](https://github.com/Smyja/codecademy)
