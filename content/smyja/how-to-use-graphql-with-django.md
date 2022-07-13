@@ -337,7 +337,6 @@ class UpdateRestaurant(graphene.Mutation):
       restaurant.name = name
       restaurant.address = address
       restaurant.save()
-
       return UpdateRestaurant(ok=True, restaurant=restaurant)
 ```
 
