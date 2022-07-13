@@ -241,7 +241,7 @@ url_patterns = [
 ]
 ```
 
-Let's run the Django server with `python manage.py runserver` then visit the `/graphql` route to see the GraphiQL browser, which should look like this
+Let's run the Django server with `python manage.py runserver` then visit the `/graphql` route to see the GraphiQL browser, which should look like this:
 
 ![API browser](https://raw.githubusercontent.com/Smyja/ugc/grahql-with-django/content/smyja/api-browser.png)
 
