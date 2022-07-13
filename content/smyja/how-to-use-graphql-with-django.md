@@ -33,7 +33,7 @@ The following terms are often used when interacting with GraphQL. Knowing them c
 - **Nesting**: Queries can be nested inside of other queries.
 - **Mutation**: A schema type that defines the kind of operations that can be done to modify data.
 - **Subscription**: Notifies the client server in real time about updates to the data.
-- **Resolvers**: Functions that return values for fields associated with existing schema types.
+- **Resolver**: Functions that return values for fields associated with existing schema types.
 
 ## Setting up GraphQL with Django
 
