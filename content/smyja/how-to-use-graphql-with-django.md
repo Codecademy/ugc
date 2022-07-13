@@ -198,7 +198,7 @@ schema = graphene.Schema(query=Query)
 
 Start the django server with `python manage.py runsrver` then visit the `/graphql` route to see the api browser, it should look like this
 
-![Api browser](https://raw.githubusercontent.com/Smyja/ugc/grahql-with-django/content/smyja/api-browser.png)
+![API browser](https://raw.githubusercontent.com/Smyja/ugc/grahql-with-django/content/smyja/api-browser.png)
 
 Create a Superuser account,login by visiting the admin url and add restaurants to the database with the following command:
 
