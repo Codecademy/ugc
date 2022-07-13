@@ -290,7 +290,7 @@ class CreateRestaurant(graphene.Mutation):
 
 The `CreateRestaurant` mutation takes in the model fields as arguments within the inner-`Argument` class. The `mutate()` function is where the database change happens using Django's object-relational mapper (ORM).
 
-Next, let's create a `Mutation` class then initialize with the schema at the end of the file:
+Next, let's create a `Mutation` class and initialize with the schema at the end of the file:
 
 ```py
 class Mutation(graphene.ObjectType):
