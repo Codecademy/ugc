@@ -345,7 +345,7 @@ class Mutation(graphene.ObjectType):
   delete_restaurant = DeleteRestaurant.Field()
 ```
 
-Next, let's run the mutation on the browser to delete a restaurant from our GraphQL databsae:
+Next, let's run the mutation on the browser to delete a restaurant from our GraphQL database:
 
 ```graphql
 mutation {
