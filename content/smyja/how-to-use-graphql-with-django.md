@@ -35,7 +35,7 @@ The following terms are often used when interacting with GraphQL. Knowing them c
 - **Subscription**: Notifies the client server in real time about updates to the data.
 - **Resolver**: Functions that return values for fields associated with existing schema types.
 
-## Setting up GraphQL with Django
+## Step 1: setting up our virtual environment
 
 First, we need to install Django and create a project. Run  ```virtualenv venv```  to setup a virtual environment. Then, run ```source venv/bin/activate``` on Linux/MacOs or ```source/scripts/activate``` on windows to activate the virtual environment. 
 
