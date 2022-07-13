@@ -15,7 +15,7 @@ CatalogContent:
   - "paths/full-stack-engineer-career-path"
 ---
 
-_**Prerequisites:** Understanding of Python and Django._  
+_**Prerequisites:** Understanding of Python, the Command Line, and Django._  
 _**Versions:** Python 3.8.10, Django 4.0.4_
 
 ## Introduction
