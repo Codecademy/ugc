@@ -43,7 +43,7 @@ First, we are going to create and launch a virtual environment for our project w
 virtualenv my_env
 ```
 
-Next, will activate our new environment `my_env` with either of the following commands:
+Next, we will activate our new environment `my_env` with either of the following commands:
 
 ```bash
 # Linux/macOS
