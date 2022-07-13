@@ -185,7 +185,7 @@ class RestaurantType(DjangoObjectType):
 
 Our `RestaurantType` class borrows from the `DjangoObjectType` class. The inner-`Meta` class is where general type attributes like `model` and `fields` are defined.
 
-Below here, let's next create a `Query` type class for the `Restaurant` model:
+Next, let's create a `Query` type class for the `Restaurant` model:
 
 ```py
 class Query(graphene.ObjectType):
@@ -200,7 +200,7 @@ class Query(graphene.ObjectType):
 
 The `Query` type contains a resolver function for the `restaurants` field (e.g., `resolve_restaurants()`). This resolver returns all the restaurants in the database.
 
-Next, at the end of our `schema.py` file, we will pass in our `Query` type into the `graphene.Schema()` function. This allow our schema to be exportable to other files:
+Next, at the end of our `schema.py` file, we will pass in our `Query` type into the `graphene.Schema()` function. This will allow our schema to be exportable to other files:
  
 ```py
 schema = graphene.Schema(query=Query)
@@ -295,8 +295,7 @@ Next, let's create a `Mutation` class and initialize with the schema at the end 
 ```py
 class Mutation(graphene.ObjectType):
   create_restaurant = CreateRestaurant.Field()
-  
-schema = graphene.Schema(query=Query, mutation=Mutation) 
+
 ```
 
 After adding the mutation, let's pass the mutation to the schema at the end of the `schema.py` file.
@@ -432,6 +431,6 @@ The output should look like this:
 
 ### Conclusion
 
-GraphQL lets you request for what you want from your database without creating separate endpoints for each request. In this article, we built a CRUD application with Django using GraphQL queries and mutations. 
+GraphQL lets you make requests from your database without creating separate endpoints for each request. In this article, we built a CRUD application with Django using GraphQL queries and mutations. 
 
 Source code for this article: [https://github.com/Smyja/codecademy](https://github.com/Smyja/codecademy)
