@@ -322,7 +322,7 @@ mutation {
 
 The mutation returns a restaurant object with the fields that were passed in.
 
-Let now define a `DeleteRestaurant` mutation that removes a single restaurant from our database. We'll add it to our `schema.py` file between our `CreateRestaurant` and `Mutation` classes:
+Let's now define a `DeleteRestaurant` mutation that removes a single restaurant from our database. We'll add it to our `schema.py` file between our `CreateRestaurant` and `Mutation` classes:
 
 ```py
 class DeleteRestaurant(graphene.Mutation):
