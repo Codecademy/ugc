@@ -16,7 +16,7 @@ CatalogContent:
 ---
 
 _**Prerequisites:** Understanding of Python, the Command Line, and Django._  
-_**Versions:** Python 3.8.10, Django 4.0.4_
+_**Versions:** Django 4.0.4, Python 3.8.10, virtualenv 20.15.1_
 
 ## Introduction
 
