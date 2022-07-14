@@ -20,7 +20,7 @@ _**Versions:** Django 4.0.4, Python 3.8.10, virtualenv 20.15.1_
 
 ### Introduction
 
-[GraphQL](https://www.codecademy.com/resources/docs/general/graphql) is a query language for [APIs](https://www.codecademy.com/resources/docs/general/api) and a runtime for fulfilling those queries with your existing data. Unlike a REST API, GraphQL APIs do not require verbs (`PUT`, `POST`, `GET`, `PATCH`, and `DELETE`) for requests, nor do they need multiple endpoints. They have just one endpoint and making a query to that endpoint is all that's needed. 
+[GraphQL](https://www.codecademy.com/resources/docs/general/graphql) is a query language for [APIs](https://www.codecademy.com/resources/docs/general/api) and a runtime for fulfilling those queries with existing data. Unlike a REST API, GraphQL APIs do not require verbs (`PUT`, `POST`, `GET`, `PATCH`, and `DELETE`) for requests, nor do they need multiple endpoints. They have just one endpoint and making a query to that endpoint is all that's needed. 
 
 This tutorial will cover the creation of a CRUD (create, read, update, and delete) GraphQL API for a restaurant with Django.
 
@@ -431,6 +431,6 @@ The output should look like this:
 
 ### Conclusion
 
-GraphQL lets you make requests from your database without creating separate endpoints for each request. In this article, we built a CRUD application with Django using GraphQL queries and mutations. 
+GraphQL lets us make requests from our database without creating separate endpoints for each request. In this article, we built a CRUD application with Django using GraphQL queries and mutations. 
 
 Source code for this article: [https://github.com/Smyja/codecademy](https://github.com/Smyja/codecademy)
