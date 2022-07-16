@@ -22,7 +22,7 @@ _**Versions:** Django 4.0.4, Python 3.8.10, virtualenv 20.15.1_
 
 [GraphQL](https://www.codecademy.com/resources/docs/general/graphql) is a query language for [APIs](https://www.codecademy.com/resources/docs/general/api) and a runtime for fulfilling those queries with existing data. Unlike a REST API, GraphQL APIs do not require verbs (`PUT`, `POST`, `GET`, `PATCH`, and `DELETE`) for requests, nor do they need multiple endpoints. They have just one endpoint and making a query to that endpoint is all that's needed. 
 
-This tutorial will cover the creation of a CRUD (create, read, update, and delete) GraphQL API for a restaurant with Django.
+This tutorial will cover the creation of a CRUD (create, read, update, and delete) GraphQL API with Django providing a list of restaurants.
 
 ## Properties of GraphQL
 
@@ -57,7 +57,9 @@ Let's go to the next step.
 
 ## Step 2: creating our Django project
 
-Next, if we haven't already, let's [install](https://docs.djangoproject.com/en/4.0/topics/install/#how-to-install-django) the `Django` package. Then, let's create a new project called `restaurant_graphql_api` and change into it:
+Next, if we haven't already, let's [install](https://docs.djangoproject.com/en/4.0/topics/install/#how-to-install-django) the `Django` package. 
+
+Once we've done that, let's create a new project called `restaurant_graphql_api` and change into it:
 
 ```bash
 django-admin startproject restaurant_graphql_api
@@ -89,7 +91,7 @@ To use GraphQL with Django, we will need to install the [`graphene-django`](http
 pip install graphene-django
 ```
 
-This will help add GraphQL functionality to our restaurant Django app such as resolvers and mutations. Next, let's add `'graphene_django'` to the list of `INSTALLED_APPS` in our `settings.py` file:
+This will add GraphQL functionality to our restaurant Django app such as resolvers and mutations. Next, let's add `'graphene_django'` to the list of `INSTALLED_APPS` in our `settings.py` file:
 
 ```py
 INSTALLED_APPS = [
@@ -100,7 +102,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-Let's go to the `models.py` file in our project and then define a new `Restaurant` class:
+Now, let's go to the `models.py` file in our project and then define a new `Restaurant` class:
 
 ```py
 from django.db import models
@@ -113,7 +115,7 @@ class Restaurant(models.Model):
     return self.name
 ```
 
-Inside the `Restaurant` class model above, we defined a few fields, `name` and `address`, along with a `__str__()` [dunder method](https://www.codecademy.com/resources/docs/python/dunder-methods) that returns the `name` of the restaurant.
+Inside the `Restaurant` class model above, we've defined a few fields, `name` and `address`, along with a `__str__()` [dunder method](https://www.codecademy.com/resources/docs/python/dunder-methods) that returns the `name` of the restaurant.
 
 Next, let's register our new `Restaurant` model in the `admin.py` file of our application:
 
@@ -141,7 +143,9 @@ from django.utils.encoding import force_str
 django.utils.encoding.force_text = force_str
 ```
 
-Alternatively, we can downgrade our Django version to 3.2.x. At this point, it would be good to run `python manage.py runserver` and check `http://127.0.0.1:8000` on a browser to ensure our application starts properly.
+Alternatively, we can downgrade our Django version to 3.2.x. 
+
+After this, it would be good to run `python manage.py runserver` and check `http://127.0.0.1:8000` on a browser to ensure our application starts properly.
 
 Let's now create a `urls.py` in the `my_app` directory (for our _application_, not our overall Django project) and add the following:
 
@@ -247,8 +251,8 @@ Let's run the Django server with `python manage.py runserver` then visit the `/g
 
 Let's quickly test our query by doing the following:
 
-1. Create a superuser account by running `python manage.py createsuperuser` and following the prompts to create a username and password.
-2. Log into our application as an admin by visiting the `"/admin"` URL.
+1. Create a superuser account by running `python manage.py createsuperuser` in the terminal window, and following the prompts to create a username and password.
+2. Log into our application as an admin by visiting the `"/admin"` URL in the browser.
 3. Add restaurants to the database by interacting with the admin dashboard.
 
 To get the list of restaurants with specific data like `name` and `address`, we can type and run the following query on the browser:
@@ -269,7 +273,7 @@ The output should look like this:
 
 ## Step 5: mutating the database
 
-To modify any data in our GraphQL database we would need to create a mutation. In this step, we're going to build three mutations for creating, updating, and deleting data in our database.
+To modify any data in our GraphQL database we need to create a mutation. In this step, we're going to build three mutations for creating, updating, and deleting data in our database.
 
 Below is the `CreateRestaurant` mutation, which we will add to the `schema.py` file:
 
