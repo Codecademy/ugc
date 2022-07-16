@@ -354,7 +354,7 @@ mutation {
 }
 ```
 
-Pass the restaurant id as an argument to the mutation as shown above. Output should look like this:
+We pass the restaurant id as an argument to the mutation as shown above. The output should look like this:
 
 ```json
 {
