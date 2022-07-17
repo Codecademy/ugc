@@ -159,7 +159,7 @@ urlpatterns = [
 ]
 ```
 
-With the help of `import` statements, we added a `"graphql"` route to our list of `urlpatterns` that will automatically open the [GraphiQL](https://graphiql-test.netlify.app/typedoc/) API browser for testing our queries and mutations. This is done with the `graphiql` parameter of the `GraphQLView.as_view()` method. However, it can switched off by setting `graphiql` to `False`. Django's `csrf_exempt` decorator is used to allow API clients to POST to the graphql endpoint we have created.
+With the help of `import` statements, we added a `"graphql"` route to our list of `urlpatterns` that will automatically open the [GraphiQL](https://graphiql-test.netlify.app/typedoc/) API browser for testing our queries and mutations. This is done with the `graphiql` parameter of the `GraphQLView.as_view()` method. However, it can be switched off by setting `graphiql` to `False`. Django's `csrf_exempt` decorator is used to allow API clients to POST to the graphql endpoint we have created.
 
 Next, let's import the `include()` function to add the app urls to our `restaurants_graphql_api/urls.py` file (for our entire Django _project_):
 
@@ -294,7 +294,7 @@ class CreateRestaurant(graphene.Mutation):
 
 The `CreateRestaurant` mutation takes in the model fields as arguments within the inner-`Argument` class. The `mutate()` function is where the database change happens using Django's object-relational mapper (ORM).
 
-Next, let's create a `Mutation` class and initialize with the schema at the end of the file:
+Next, let's create a `Mutation` class and initialize it with the schema at the end of the file:
 
 ```py
 class Mutation(graphene.ObjectType):
@@ -308,7 +308,7 @@ After adding the mutation, let's pass the mutation to the schema at the end of t
 schema = graphene.Schema(query=Query, mutation=Mutation)
 ```
 
-Start the server and a run a mutation with the GraphQL API browser using this:
+Start the server and run a mutation with the GraphQL API browser by using this:
 
 ```graphql
 mutation {
@@ -435,6 +435,6 @@ The output should look like this:
 
 ### Conclusion
 
-GraphQL lets us make requests from our database without creating separate endpoints for each request. In this article, we built a CRUD application with Django using GraphQL queries and mutations. 
+GraphQL allows us to make requests from our database without creating separate endpoints for each request. In this article, we built a CRUD application with Django using GraphQL queries and mutations. 
 
 Source code for this article: [https://github.com/Smyja/codecademy](https://github.com/Smyja/codecademy)
