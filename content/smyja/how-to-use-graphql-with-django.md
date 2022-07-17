@@ -131,7 +131,7 @@ It is now time to create and perform a migration for this new data. This will al
 By now, we may encounter the following error:
 
 ```shell
-ImportError: cannot import name 'force_text' from 'django.utils.encoding
+ImportError: cannot import name 'force_text' from 'django.utils.encoding'
 ```
 
 The `ImportError` is due to Django 4.0 not supporting the `force_text` variable (which the `graphene` package uses with earlier versions of Django). To resolve this, we can add the following to our `settings.py` file:
