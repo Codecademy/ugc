@@ -21,12 +21,11 @@ _**Versions:** Ruby 3.2.0, Ruby on Rails 7.0.4, PostgreSQL 15_
 
 ## Introduction
 
-This article is an introduction to building a full-stack app using Ruby on Rails. For this article, we are building a To-do list
+This article is an introduction to building a full-stack app using Ruby on Rails. For this article, we are building a To-do list.
 
-I was inspired to write this article while learning ruby on rails. I often got lost looking for information on the official rails guide and I want to help you reduce the time it’ll take you to get started with building your own rails app.
+I was inspired to write this article while learning Ruby on Rails. I often got lost looking for information on the official Rails guide and I want to help you reduce the time it’ll take you to get started with building your own Rails app.
 
 The article is beginner friendly, and I hope it helps you learn something new.
-
 
 ## What I’ll talk about:
 
@@ -34,9 +33,8 @@ The article is beginner friendly, and I hope it helps you learn something new.
 2. Understanding the MVC design pattern.
 3. Creating a new schema in your local database using migrations.
 4. Handling requests within controller methods.
-5. Using erb to write logic and display content in HTML.
-6. Understanding the rails routing system
-
+5. Using ERB to write logic and display content in HTML.
+6. Understanding the Rails routing system.
 
 ## Brief overview of Ruby on Rails
 
@@ -45,32 +43,29 @@ Rails is a web application development framework written in the Ruby programming
 The Rails framework is guided by two major principles:
 
 1. Don’t Repeat Yourself: The [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) is very common in software development. The idea is that developers should spend less time writing code by avoiding repetition. This is done by making sure every element of your code can stand alone and be called anywhere and changes to that element don't have to be repeated across several points.
-
 2. Convention over Configuration: This is one of Rails’ superpowers. Rails has a set of guidelines and format for doing things. From naming methods, classes, files, and building a database schema. These conventions help to keep the whole application in sync and help you spend less time debugging errors that result from the wrong configuration.
-
 
 ## Setting up your dev environment: Installing Ruby, Rails, and PostgreSQL
 
-[GoRails](https://gorails.com/) Has in-depth guides on setting up rails on various machines. Here's a link to all of them. Since we're using postgreSQL for this project, skip any step that mentions setting up sqllite or MySQL.
+[GoRails](https://goRails.com/) Has in-depth guides on setting up Rails on various machines. Here's a link to all of them. Since we're using PostgreSQL for this project, skip any step that mentions setting up SQLite or MySQL.
 
-- [For Ubuntu](https://gorails.com/setup/ubuntu/22.04)
-- [Mac OS](https://gorails.com/setup/macos/13-ventura)
-- [For Windows](https://www.hanselman.com/blog/ruby-on-rails-on-windows-is-not-just-possible-its-fabulous-using-wsl2-and-vs-code)
-
+- [For Ubuntu](https://goRails.com/setup/ubuntu/22.04)
+- [Mac OS](https://goRails.com/setup/macos/13-ventura)
+- [For Windows](https://www.hanselman.com/blog/ruby-on-Rails-on-windows-is-not-just-possible-its-fabulous-using-wsl2-and-vs-code)
 
 ## Setting up a new Rails app
 
-To create a new rails app, simply open up your terminal, navigate to where you want this app to stay and run the following command.
+To create a new Rails app, simply open up your terminal, navigate to where you want this app to stay and run the following command.
 
 ```bash
 rails new todolist -d postgresql –css tailwind
 ```
 
-The commands after the app name (todolist) are optional. The `-d postgresql` flag tells rails to use postgreSQL as the database for this app. The `–css tailwind` flag tells rails to use tailwind as the CSS framework for this app. You can use any CSS framework you want or just plain CSS. I chose tailwind because it’s easy to use and it’s a breeze to set up.
+The commands after the app name (`todolist`) are optional. The `-d postgresql` flag tells rails to use PostgreSQL as the database for this app. The `–css tailwind` flag tells rails to use tailwind as the CSS framework for this app. You can use any CSS framework you want or just plain CSS. I chose tailwind because it’s easy to use and it’s a breeze to set up.
 
-After running the command, you’ll see a bunch of files and folders being created. This is the default structure of a rails app. You can read more about it [here](https://guides.rubyonrails.org/getting_started.html#creating-the-blog-application).
+After running the command, you’ll see a bunch of files and folders being created. This is the default structure of a Rails app. You can read more about it [here](https://guides.rubyonrails.org/getting_started.html#creating-the-blog-application).
 
-To get our app running, we need to make sure it is connected to a database. The database config lives in the `config/database.yml` file. There we can see the provided database name and some other info. This database doesn't exist yet and needs to be created. For most people you need supply your postgresql username and password that was set during installation to this file. The default username is `postgres` and this applies to most linux distros.
+To get our app running, we need to make sure it is connected to a database. The database config lives in the `config/database.yml` file. There we can see the provided database name and some other info. This database doesn't exist yet and needs to be created. For most people, you need to supply your PostgreSQL username and password that was set during installation to this file. The default username is `postgres` and this applies to most Linux distros.
 
 Most times we would use an env file to manage this but we can keep it there for the scope of this project.
 
@@ -86,7 +81,7 @@ default: &default
 
 To create the database, run `rails db:create`.
 
-Now run `rails s` to start the server. If everything went well, you should see a url to visit (`http://127.0.0.1:3000/`) in your terminal. Open that url in your browser and you should see the default rails page.
+Now run `rails s` to start the server. If everything went well, you should see a url to visit (`http://127.0.0.1:3000/`) in your terminal. Open that url in your browser and you should see the default Rails page.
 
 Since we have TailwindCSS in our project, starting our server requires an additional step. We need to run `rails tailwindcss:watch` in a separate terminal window. This will compile our tailwind styles and make them available to our app.
 
@@ -94,25 +89,23 @@ Rails ties both the server and the tailwind compiler together into a single comm
 
 ## Understanding the MVC design pattern
 
-MVC stands for Model, View, Controller. It is a design pattern that helps to organize the code in a rails app. It is a common pattern in web development and is used in many other frameworks. The MVC pattern is used to separate the code into three different layers. Each layer has a specific responsibility and is responsible for handling a specific part of the app. We'll look at the three layers closely as we build our app.
-
+MVC stands for Model, View, Controller. It is a design pattern that helps to organize the code in a Rails app. It is a common pattern in web development and is used in many other frameworks. The MVC pattern is used to separate the code into three different layers. Each layer has a specific responsibility and is responsible for handling a specific part of the app. We'll look at the three layers closely as we build our app.
 
 ## Creating a new schema in your local database using migrations.
 
-Migrations help us build/alter our database schema in a consistent way. It uses the ruby DSL (domain specific language), and the dedicated rails ORM (Object-relational mapping) called Active Record so we don't have to write any SQL by hand.
+Migrations help us build/alter our database schema in a consistent way. It uses the Ruby DSL (domain-specific language), and the dedicated rails ORM (Object-relational mapping) called Active Record so we don't have to write any SQL by hand.
 
 Our app requires on table and a column to store our todo items. We'll call that column `description`.
 To create this table with the column, we'll run `rails generate model Todo description`
 
-There are a few things to unpack about this.
-1. rails generate: compulsory prefix for generating various resources like models, controllers, etc.
-2. model: This tells rails that we intend to create a model. Creating a model will create a migration by default. Models represent the M in MVC and are the part of the application that handles the business logic. How data is represented, accessed, and modified can be specified in the model. The model interacts with the database to carry out several operations.
-3. Todo: This is the name of the model we want to create. Rails will automatically pluralize this to create a table named `todos`
-4. description: This is the column name we want our table to have. Columns are usually created with a default string datatype. We could do clicks:integer to add a column with a datatype integer instead.
+There are a few things to unpack about this:
+1. `rails generate`: compulsory prefix for generating various resources like models, controllers, etc.
+2. `model`: This tells rails that we intend to create a model. Creating a model will create a migration by default. Models represent the M in MVC and are part of the application that handles the business logic. How data is represented, accessed, and modified can be specified in the model. The model interacts with the database to carry out several operations.
+3. `Todo`: This is the name of the model we want to create. Rails will automatically pluralize this to create a table named `todos`.
+4. `description`: This is the column name we want our table to have. Columns are usually created with a default string datatype. We could do `clicks:integer` to add a column with a datatype integer instead.
 
 After running this command, you'll see a new file in the `db/migrate` folder. This file contains the migration code that will be used to create the table and the column in our database. The migration file name is in the format `yyyymmddhhmmss_create_todos.rb`. The first part of the file name is the timestamp of when the migration was created. This is used to keep track of the order in which migrations were created. The second part is the name of the table we want to create.
 A model file will also be created in the `app/models` folder. This file contains the model class and is used to define the model's attributes and relationships with other models.
-
 
 ## Handling requests within controller methods.
 
@@ -149,13 +142,12 @@ This will create a route that maps the `/todos` url to the `todos#index` control
 
 Now run `rails s` or `bin/dev` to start the server, and visit `http://localhost:3000/todos` in your browser. You should see the 'Hello World' message.
 
-
-## Using erb to write logic and display content in HTML.
+## Using ERB to write logic and display content in HTML.
 
 ERB stands for Embedded Ruby. It is a templating system that allows us to write ruby code within HTML files. This is useful because it allows us to write logic and display content in HTML. We can also use it to write HTML in a more concise way. 
 This aspect of Rails is the V in MVC. The view layer is responsible for displaying the content to the user. It is the part of the application that handles the presentation logic. The view layer interacts with the controller to get the data it needs to display. Without controllers, views would not be able to display any data.
 
-On our webpage, we would have a simple form for creating new todo items, and a table to list all the todo items. We'll use erb to write the logic for this.
+On our webpage, we would have a simple form for creating new todo items, and a table to list all the todo items. We'll use ERB to write the logic for this.
 
 Open the `app/views/todos/index.html.erb` file and add the following code.
 
@@ -186,7 +178,7 @@ class TodosController < ApplicationController
 end
 ```
 
-If you started your server with `rails s`, restart it with `bin/dev` to see the changes on `http://localhost:3000/todos`.
+If you started your server with `Rails s`, restart it with `bin/dev` to see the changes on `http://localhost:3000/todos`.
 
 We can't create todo items with this form yet. We need to add a route to handle the form submission. Open the `config/routes.rb` file and replace what you have with the following code.
 
@@ -196,9 +188,9 @@ Rails.application.routes.draw do
 end
 ```
 
-## Understanding the rails routing system
+## Understanding the Rails routing system
 
-The `resources` method in the code block above creates a set of routes for a given resource. The `only` option specifies the controller methods to create routes for. In our case we only want to create routes for the `index` and `create` methods. The `resources` method creates the following routes.
+The `resources` method in the code block above creates a set of routes for a given resource. The `only` option specifies the controller methods to create routes for. In our case, we only want to create routes for the `index` and `create` methods. The `resources` method creates the following routes.
 
 | HTTP Verb | Path   | Controller#Action | Used for                    |
 |-----------|--------|-------------------|-----------------------------|
@@ -216,7 +208,6 @@ Without passing the `only` option, the `resources` method would create routes fo
 | GET       | /todos/:id/edit | todos#edit | return an HTML form for editing a todo |
 | PATCH/PUT | /todos/:id | todos#update | update a specific todo |
 | DELETE    | /todos/:id | todos#destroy | delete a specific todo |
-
 
 ## Creating a new todo item
 
@@ -355,6 +346,6 @@ The `Todo.find` method finds a todo by the id. Every todo gets a unique id when 
 
 Now, you should be able to delete a todo item from the list.
 
-That is all. We’ve built a working todolist with READ, CREATE and DESTROY methods.
+That is all. We’ve built a working todo list with READ, CREATE and DESTROY methods.
 
-You can find the working code on this [Github repo](https://github.com/deyemiobaa/rails_todolist).
+You can find the working code on this [Github repo](https://github.com/deyemiobaa/Rails_todolist).
