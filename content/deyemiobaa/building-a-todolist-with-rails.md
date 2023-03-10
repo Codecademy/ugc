@@ -95,7 +95,7 @@ MVC stands for Model, View, Controller. It is a design pattern that helps to org
 
 Migrations help us build/alter our database schema in a consistent way. It uses the Ruby DSL (domain-specific language), and the dedicated rails ORM (Object-relational mapping) called Active Record so we don't have to write any SQL by hand.
 
-Our app requires on table and a column to store our todo items. We'll call that column `description`.
+Our app requires a table and a column to store our todo items. We'll call that column `description`.
 To create this table with the column, we'll run `rails generate model Todo description`
 
 There are a few things to unpack about this:
