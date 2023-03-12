@@ -91,7 +91,7 @@ Rails ties both the server and the tailwind compiler together into a single comm
 
 MVC stands for Model, View, Controller. It is a design pattern that helps to organize the code in a Rails app. It is a common pattern in web development and is used in many other frameworks. The MVC pattern is used to separate the code into three different layers. Each layer has a specific responsibility and is responsible for handling a specific part of the app. We'll look at the three layers closely as we build our app.
 
-## Creating a new schema in your local database using migrations.
+## Creating a new schema in the local database using migrations.
 
 Migrations help us build/alter our database schema in a consistent way. It uses the Ruby DSL (domain-specific language), and the dedicated rails ORM (Object-relational mapping) called Active Record so we don't have to write any SQL by hand.
 
@@ -102,9 +102,12 @@ There are a few things to unpack about this:
 1. `rails generate`: compulsory prefix for generating various resources like models, controllers, etc.
 2. `model`: This tells rails that we intend to create a model. Creating a model will create a migration by default. Models represent the M in MVC and are part of the application that handles the business logic. How data is represented, accessed, and modified can be specified in the model. The model interacts with the database to carry out several operations.
 3. `Todo`: This is the name of the model we want to create. Rails will automatically pluralize this to create a table named `todos`.
-4. `description`: This is the column name we want our table to have. Columns are usually created with a default string datatype. We could do `clicks:integer` to add a column with a datatype integer instead.
+4. `description`: This is the column name we want our table to have. Columns are usually created with a default string datatype. We could do `clicks:integer` to add a column with an integer datatype instead.
 
-After running this command, you'll see a new file in the `db/migrate` folder. This file contains the migration code that will be used to create the table and the column in our database. The migration file name is in the format `yyyymmddhhmmss_create_todos.rb`. The first part of the file name is the timestamp of when the migration was created. This is used to keep track of the order in which migrations were created. The second part is the name of the table we want to create.
+After running this command, you'll see a new file in the `db/migrate` folder. This file contains the migration code that will be used to create the table and the column in our database. The migration file name is in the format `yyyymmddhhmmss_create_todos.rb`. The first part of the file name is the timestamp of when the migration was created. This is used to keep track of the order in which migrations were created. The second part is the name is the kind of migration we want to create.
+
+Run `rails db:migrate` to apply the schema to our local database.
+
 A model file will also be created in the `app/models` folder. This file contains the model class and is used to define the model's attributes and relationships with other models.
 
 ## Handling requests within controller methods.
