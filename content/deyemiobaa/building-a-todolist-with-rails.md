@@ -143,7 +143,7 @@ end
 
 This will create a route that maps the `/todos` url to the `todos#index` controller method. The `get` method specifies the HTTP verb to use. The `to` option specifies the controller and method to use. The `todos#index` syntax is a shorthand for `controller: 'todos', action: 'index'`.
 
-Now run `rails s` or `bin/dev` to start the server, and visit `http://localhost:3000/todos` in your browser. You should see the 'Hello World' message.
+Now run `rails s` or `bin/dev` to start the server, and visit `http://localhost:3000/todos` in your browser. You should see the '**Hello World**' message.
 
 ## Using ERB to write logic and display content in HTML.
 
@@ -152,7 +152,7 @@ This aspect of Rails is the V in MVC. The view layer is responsible for displayi
 
 On our webpage, we would have a simple form for creating new todo items, and a table to list all the todo items. We'll use ERB to write the logic for this.
 
-Open the `app/views/todos/index.html.erb` file and add the following code.
+Open the `app/views/todos/index.html.erb` file and replace its contents with the following code.
 
 ```erb
 <h1 class="text-2xl">Todo List</h1>
@@ -181,7 +181,7 @@ class TodosController < ApplicationController
 end
 ```
 
-If you started your server with `Rails s`, restart it with `bin/dev` to see the changes on `http://localhost:3000/todos`.
+If you started your server with `rails s`, restart it with `bin/dev` to see the changes on `http://localhost:3000/todos`.
 
 We can't create todo items with this form yet. We need to add a route to handle the form submission. Open the `config/routes.rb` file and replace what you have with the following code.
 
