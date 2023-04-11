@@ -63,12 +63,20 @@ The Rails framework is guided by two major principles:
 To create a new rails app, simply open up your terminal, navigate to where you want this app to stay and run the following command.
 
 ```bash
-rails new todolist -d postgresql –css tailwind
+rails new todolist -d postgresql
+
+cd todolist/
+
+bundle add tailwindcss-rails
+
+rails tailwindcss:install
 ```
 
-The commands after the app name (todolist) are optional. The `-d postgresql` flag tells rails to use postgreSQL as the database for this app. The `–css tailwind` flag tells rails to use tailwind as the CSS framework for this app. You can use any CSS framework you want or just plain CSS. I chose tailwind because it’s easy to use and it’s a breeze to set up.
+The commands after the app name (todolist) are optional. The `-d postgresql` flag tells rails to use postgreSQL as the database for this app. 
+`bundle add tailwindcss-rails` adds tailwindcss to our Gemfile. Tailwind is a utility-first CSS framework and a great tool to help you build a responsive and beautiful UI. 
+`rails tailwindcss:install` installs tailwindcss in our app and sets up a Procfile for running our app in development.
 
-After running the command, you’ll see a bunch of files and folders being created. This is the default structure of a rails app. You can read more about it [here](https://guides.rubyonrails.org/getting_started.html#creating-the-blog-application).
+After running these commands, you’ll see a bunch of files and folders created for us. This is the default structure of a rails app. You can read more about it [here](https://guides.rubyonrails.org/getting_started.html#creating-the-blog-application).
 
 To get our app running, we need to make sure it is connected to a database. The database config lives in the `config/database.yml` file. There we can see the provided database name and some other info. This database doesn't exist yet and needs to be created. For most people you need supply your postgresql username and password that was set during installation to this file. The default username is `postgres` and this applies to most linux distros.
 
@@ -86,7 +94,7 @@ default: &default
 
 To create the database, run `rails db:create`.
 
-Now run `rails s` to start the server. If everything went well, you should see a url to visit (`http://127.0.0.1:3000/`) in your terminal. Open that url in your browser and you should see the default rails page.
+If you are using a Linux machine, you need to start your postgreSQL service before your rails server. Run `sudo service postgresql start`. Then run `rails s` to start the Rails server. If everything went well, you should see a url to visit (`http://127.0.0.1:3000/`) in your terminal. Open that url in your browser and you should see the default rails page.
 
 Since we have TailwindCSS in our project, starting our server requires an additional step. We need to run `rails tailwindcss:watch` in a separate terminal window. This will compile our tailwind styles and make them available to our app.
 
