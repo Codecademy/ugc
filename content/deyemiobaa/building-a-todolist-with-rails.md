@@ -87,9 +87,13 @@ default: &default
 ...
 ```
 
+Make sure your terminals' current directory is the root of your app before running the following commands.
+
+If you are using a Linux machine, you need to start your postgreSQL service before proceeding. Run `sudo service postgresql start`.
+
 To create the database, run `rails db:create`.
 
-If you are using a Linux machine, you need to start your postgreSQL service before your rails server. Run `sudo service postgresql start`. Then run `rails s` to start the Rails server. If everything went well, you should see a url to visit (`http://127.0.0.1:3000/`) in your terminal. Open that url in your browser and you should see the default rails page.
+ Then run `rails s` to start the Rails server. If everything went well, you should see a url to visit (`http://127.0.0.1:3000/`) in your terminal. Open that url in your browser and you should see the default rails page.
 
 Since we have TailwindCSS in our project, starting our server requires an additional step. We need to run `rails tailwindcss:watch` in a separate terminal window. This will compile our tailwind styles and make them available to our app.
 
@@ -165,7 +169,7 @@ Open the `app/views/todos/index.html.erb` file and replace its contents with the
 ```erb
 <h1 class="text-2xl">Todo List</h1>
 
-<%= form_with(model: @todo, class: "my-10") do |form| %>
+<%= form_with(model: Todo.new, class: "my-10") do |form| %>
   <div class="my-5">
     <%= form.label :description %>
     <%= form.text_field :description, placeholder: "new todo", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-2/4" %>
@@ -177,19 +181,10 @@ Open the `app/views/todos/index.html.erb` file and replace its contents with the
 <% end %>
 ```
 
-This code will render a form with a text field and a submit button. The `form_with` method is a helper method that creates a form for a given model. The `model` option specifies the model to use. The `class` option specifies the css class to use for the form. The `do |form|` block specifies the content of the form. The `form.label` method creates a label for the text field. The `form.text_field` method creates a text field for the form. The `form.submit` method creates a submit button for the form.
+This code will render a form with a text field and a submit button. The `form_with` method is a helper method that creates a form for a given model. The `model` option specifies the model we are creating a record for.
+The `class` option specifies the css class to use for the form. The `do |form|` block specifies the content of the form. The `form.label` method creates a label for the text field. The `form.text_field` method creates a text field for the form. The `form.submit` method creates a submit button for the form.
 
-To view this on our webpage, we need to create a new instance of the Todo model in the controller. Open the `app/controllers/todos_controller.rb` file and replace what you have with the following code.
-
-```ruby
-class TodosController < ApplicationController
-  def index
-    @todo = Todo.new
-  end
-end
-```
-
-If you started your server with `rails s`, restart it with `bin/dev` to see the changes on `http://localhost:3000/todos`.
+To view this on our webpage. Run `rails s` or `bin/dev` to start the server, and visit `http://localhost:3000/todos` in your browser. You should see the form we just created.
 
 We can't create todo items with this form yet. We need to add a route to handle the form submission. Open the `config/routes.rb` file and replace what you have with the following code.
 
@@ -227,7 +222,6 @@ Now that we have our routes setup, we need add the corresponding method in our c
 ```ruby
 class TodosController < ApplicationController
   def index
-    @todo = Todo.new
   end
 
   def create
@@ -253,7 +247,7 @@ The `create` method creates a new instance of the Todo model and saves it to the
 
 The `params[:todo][:description]` syntax gets the value of the hash. The `valid?` method checks if the model is valid. If the model is valid it renders the `index` view and show the list of todos. If the model is not valid, it just renders the `index` view. In a real application, we would want to display the errors to the user.
 
-You can submit the form multiple time to have enough data to test the table. The table will be empty for now. We'll add the table in the next section.
+You can submit the form multiple time to have enough data to test the table. We'll add the table in the next section. You can verify that your todos are being saved to the database by opening your terminal to your apps directory and running `rails c` to open the rails console. Then run `Todo.all` to see the list of todos.
 
 ## Displaying the list of todos
 
@@ -290,7 +284,6 @@ In order to display the list of todos, we need to get the list of todos from the
 ```ruby
 ...
 def index
-  @todo = Todo.new
   @todos = Todo.all
 end
 ...
