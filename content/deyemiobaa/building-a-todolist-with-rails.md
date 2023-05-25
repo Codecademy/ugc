@@ -227,9 +227,7 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.create(description: params[:todo][:description])
     if @todo.valid?
-      render :index
-    else
-      render :index
+      redirect_to todos_path 
     end
   end
 end
@@ -341,8 +339,9 @@ Open the `app/controllers/todos_controller.rb` file and add the following code t
 ...
   def destroy
     @todo = Todo.find(params[:id])
-    @todo.destroy
-    render :index
+    if @todo.destroy
+      redirect_to todos_path
+    end
   end
 ```
 
