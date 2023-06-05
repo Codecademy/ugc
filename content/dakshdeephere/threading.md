@@ -16,7 +16,7 @@ CatalogContent:
 ---
 
 [thread]: (https://raw.githubusercontent.com/Codecademy/ugc/main/content/thread.png)
-_**Prerequisites:** Understanding of C, Operating System_
-_**Version:** C89/C90, C99, C11, and C18._
+_**Prerequisites:** Understanding of C, Operating System, Visual studio code_
+_**Version:** C89/C90, C99, C11, and C18_
 
 ## Introduction
