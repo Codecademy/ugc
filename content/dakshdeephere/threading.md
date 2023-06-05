@@ -15,10 +15,8 @@ CatalogContent:
   - "paths/threading"
 ---
 
+[thread]: (https://raw.githubusercontent.com/Codecademy/ugc/main/content/thread.png)
+_**Prerequisites:** Understanding of C, Operating System
+_**Version:** C89/C90, C99, C11, and C18.
+
 ## Introduction
-
-[thread]: (content/dakshdeephere/thread.png)
-
-! [thread]
-
-![threads](thread.png)
