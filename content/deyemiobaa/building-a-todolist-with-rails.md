@@ -42,7 +42,7 @@ Rails is a web application development framework written in the Ruby programming
 
 The Rails framework is guided by two major principles:
 
-1. Don’t Repeat Yourself: The [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) is very common in software development. The idea is that developers should spend less time writing code by avoiding repetition. This is done by making sure every element of your code can stand alone and be called anywhere and changes to that element don't have to be repeated across several points.
+1. Don’t Repeat Yourself: The [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) is very common in software development. The idea is that developers should spend less time writing code by avoiding repetition. This is done by making sure every element of your code can stand alone and be called anywhere, and changes to that element don't have to be repeated across several points.
 2. Convention over Configuration: This is one of Rails’ superpowers. Rails has a set of guidelines and format for doing things. From naming methods, classes, files, and building a database schema. These conventions help to keep the whole application in sync and help you spend less time debugging errors that result from the wrong configuration.
 
 ## Setting up your dev environment: Installing Ruby, Rails, and PostgreSQL
@@ -55,7 +55,7 @@ The Rails framework is guided by two major principles:
 
 ## Setting up a new Rails app
 
-To create a new Rails app, simply open up your terminal, navigate to where you want this app to stay and run the following command.
+To create a new Rails app, simply open up your terminal, navigate to where you want this app to stay, and run the following commands.
 
 ```bash
 rails new todolist -d postgresql
@@ -93,9 +93,9 @@ If you are using a Linux machine, you need to start your postgreSQL service befo
 
 To create the database, run `rails db:create`.
 
- Then run `rails s` to start the Rails server. If everything went well, you should see a url to visit (`http://127.0.0.1:3000/`) in your terminal. Open that url in your browser and you should see the default rails page.
+Then run `rails s` to start the Rails server. If everything went well, you should see a URL to visit (`http://127.0.0.1:3000/`) in your terminal. Open that URL in your browser and you should see the default rails page.
 
-Since we have TailwindCSS in our project, starting our server requires an additional step. We need to run `rails tailwindcss:watch` in a separate terminal window. This will compile our tailwind styles and make them available to our app.
+Since we have TailwindCSS in our project, starting our server requires an additional step. We need to run `rails tailwindcss:watch` in a separate terminal window pointing at our app directory. This will compile our tailwind styles and make them available to our app.
 
 Rails ties both the server and the tailwind compiler together into a single command. To run both at the same time, run `bin/dev`.
 
@@ -153,7 +153,7 @@ Rails.application.routes.draw do
 end
 ```
 
-This will create a route that maps the `/todos` url to the `todos#index` controller method. The `get` method specifies the HTTP verb to use. The `to` option specifies the controller and method to use. The `todos#index` syntax is a shorthand for `controller: 'todos', action: 'index'`.
+This will create a route that maps the `/todos` URL to the `todos#index` controller method. The `get` method specifies the HTTP verb to use. The `to` option specifies the controller and method to use. The `todos#index` syntax is a shorthand for `controller: 'todos', action: 'index'`.
 
 Now run `rails s` or `bin/dev` to start the server, and visit `http://localhost:3000/todos` in your browser. You should see the '**Hello World**' message.
 
@@ -162,7 +162,7 @@ Now run `rails s` or `bin/dev` to start the server, and visit `http://localhost:
 ERB stands for Embedded Ruby. It is a templating system that allows us to write ruby code within HTML files. This is useful because it allows us to write logic and display content in HTML. We can also use it to write HTML in a more concise way. 
 This aspect of Rails is the V in MVC. The view layer is responsible for displaying the content to the user. It is the part of the application that handles the presentation logic. The view layer interacts with the controller to get the data it needs to display. Without controllers, views would not be able to display any data.
 
-On our webpage, we would have a simple form for creating new todo items, and a table to list all the todo items. We'll use ERB to write the logic for this.
+On our webpage, we want to have a simple form for creating new todo items, and a table to list all the todo items. We'll use ERB to write the logic for this.
 
 Open the `app/views/todos/index.html.erb` file and replace its contents with the following code.
 
@@ -182,7 +182,7 @@ Open the `app/views/todos/index.html.erb` file and replace its contents with the
 ```
 
 This code will render a form with a text field and a submit button. The `form_with` method is a helper method that creates a form for a given model. The `model` option specifies the model we are creating a record for.
-The `class` option specifies the css class to use for the form. The `do |form|` block specifies the content of the form. The `form.label` method creates a label for the text field. The `form.text_field` method creates a text field for the form. The `form.submit` method creates a submit button for the form.
+The `class` option specifies the CSS class to use for the form. The `do |form|` block specifies the content of the form. The `form.label` method creates a label for the text field. The `form.text_field` method creates a text field for the form. The `form.submit` method creates a submit button for the form.
 
 To view this on our webpage. Run `rails s` or `bin/dev` to start the server, and visit `http://localhost:3000/todos` in your browser. You should see the form we just created.
 
@@ -345,7 +345,7 @@ Open the `app/controllers/todos_controller.rb` file and add the following code t
   end
 ```
 
-The `Todo.find` method finds a todo by the id. Every todo gets a unique id when it's created. The `destroy` method deletes the todo from the database. The `render :index` method renders the `index` view.
+The `Todo.find` method finds a todo by the id. Every todo gets a unique id when it's created. The `destroy` method deletes the todo from the database. The `redirect_to` method redirects the user to the `todos_path` which is the index page. This will reload the page and show the updated list of todos.
 
 Now, you should be able to delete a todo item from the list.
 
