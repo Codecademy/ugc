@@ -34,6 +34,7 @@ Now, let's create a slug!
 ## How to Create a Slug 
 
 Consider using the following methods to creating a slug:
+
 ### Method # 1: Manually 
 1. **Think of a short yet descriptive name:**  We recommend making it easy for people to remember. For example,  let's say a person wanted to create a slug for the blog post titled "How to Make Your Issue Requests Come True".
 
