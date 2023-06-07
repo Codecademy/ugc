@@ -13,6 +13,7 @@ CatalogContent:
 ---
 
 ## Introduction 
+
 Picture this, you're scrolling through the internet, find a cookie recipe,  and click on the Share button to the send this link to your friend:
 (https://downshiftology.com/recipes/gluten-free-chocolate-chip-cookies/) 
 You see `gluten-free-chocolate-chip-cookies` after the backblash (“/”)? This is called a **slug**. It is a part in the URL that identifies a specific page in a website to make easier for people to read. In other words, slugs explains the content on the page. In this article, you will learn the importance of slugs in your SEO strategy, how to create them, and best practices.   
