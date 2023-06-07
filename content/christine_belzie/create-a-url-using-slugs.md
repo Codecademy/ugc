@@ -17,7 +17,9 @@ CatalogContent:
 Picture this, you're scrolling through the internet, find a cookie recipe,  and click on the Share button to the send this link to your friend:
 (https://downshiftology.com/recipes/gluten-free-chocolate-chip-cookies/) 
 You see `gluten-free-chocolate-chip-cookies` after the backblash (“/”)? This is called a **slug**. It is a part in the URL that identifies a specific page in a website to make easier for people to read. In other words, slugs explains the content on the page. In this article, you will learn the importance of slugs in your SEO strategy, how to create them, and best practices.   
+
 ## Why Are Slugs Important to SEO Strategy?
+
 Even though slugs won't have a direct impact on how your content ranks on the web, they do influence a visitor's decision on whether to view your content or not. Here's how:
 1. **Increases Search Ranking:** Cannibalization is a common issue for content creators. It's when most of the blog posts, articles, and other pieces of content on a website share the same keyword. This making it difficult for people to find them on your site. Slugs solve this issue by putting a unique name like a title or heading, thus, making it easier for people to find a person's work. Think of this as the names of the folders on your Google Drive or OneDrive account. 
 2.  **Improves Shareability:** 
