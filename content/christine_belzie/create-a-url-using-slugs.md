@@ -50,6 +50,7 @@ Creating a URL slug for your content can sometimes very be time consuming, so we
 ![Step 3 of URL slug](https://github.com/rupali-codes/LinksHub/assets/105683440/8d162c25-d52b-4ecf-8c2c-4d4f0e21dffb)
 
 ## Best Practices 
+
 When it comes to creating a URL slug, keep the following practices in mind:
 
 1. **Keep them Short:** According to [John Mueller from Google(start at 19:00)](https://www.youtube.com/live/4FkSZIW6d48?feature=share), Google favors URLs under 2,000 characters. With that it mind, it's best to keep your slugs within that limit so your content can been ranked in that search engine.  
