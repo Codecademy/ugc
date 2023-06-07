@@ -52,6 +52,7 @@ Creating a URL slug for your content can sometimes very be time consuming, so we
 ![Step 1 of URL slug](https://github.com/rupali-codes/LinksHub/assets/105683440/99d288f1-bb6c-4a19-91bc-87aaf2831de6)
 
 2. Click on **Slugify(Generate Slug)**
+
 ![Step 2 of URL slug](https://github.com/rupali-codes/LinksHub/assets/105683440/11a09935-a07a-4ec2-afd6-08e89ef39564)
 
 3. Click on **Copy**. Then, add it to your website's URL.
