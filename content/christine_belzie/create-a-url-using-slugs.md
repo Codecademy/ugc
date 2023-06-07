@@ -24,6 +24,7 @@ You see `gluten-free-chocolate-chip-cookies` after the backblash (“/”)? This
 
 Even though slugs won't have a direct impact on how your content ranks on the web, they do influence a visitor's decision on whether to view your content or not. Here's how:
 
+
 1. **Increases Search Ranking:** Cannibalization is a common issue for content creators. It's when most of the blog posts, articles, and other pieces of content on a website share the same keyword. This makes it difficult for people to find them on your site. Slugs solve this issue by putting a unique name like a title or heading, thus, making it easier for people to find a person's work. Think of this as the names of the folders on your Google Drive or OneDrive account. 
 
 2.  **Improves Shareability:** 
