@@ -50,6 +50,7 @@ Creating a URL slug for your content can sometimes very be time consuming, so we
 ## Best Practices 
 When it comes to creating a URL slug, keep the following practices in mind:
 
-1. **Keep them Short:** According to [John Mueller from Google(start at 19:00)](https://www.youtube.com/live/4FkSZIW6d48?feature=share),  Google favors URLs under 2,000 characters. With that it mind, it's best to keep your slugs within that limit so your content can been ranked in that search engine.  
+1. **Keep them Short:** According to [John Mueller from Google(start at 19:00)](https://www.youtube.com/live/4FkSZIW6d48?feature=share), Google favors URLs under 2,000 characters. With that it mind, it's best to keep your slugs within that limit so your content can been ranked in that search engine.  
+
 2. **Match it to the page's content:** This ensures that Google and other search engines will rank it based on the query it falls into. 
 3. **No upper-case:** When creating slugs, it's best to present them in lower-case letters. This can prevent 404 error pages and content duplication from appearing whenever someone views your content. 
