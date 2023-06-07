@@ -39,7 +39,8 @@ Consider using the following methods to creating a slug:
 
 1. **Think of a short yet descriptive name:**  We recommend making it easy for people to remember. For example,  let's say a person wanted to create a slug for the blog post titled "How to Make Your Issue Requests Come True".
 
-2. **Place hyphens("-") in between the parts of your name:** Doing this in the slug would make it easier for users to access the link as they would have to use a CAPS Lock to view the content.  Here's how it would look with the blog post referenced in the previous step: `how-to-make-your-issues-requests-come-true`.
+2. **Place hyphens ("-") in between the parts of your name:** Doing this in the slug would make it easier for users to access the link as they would have to use a CAPS Lock to view the content.  Here's how it would look with the blog post referenced in the previous step: `how-to-make-your-issues-requests-come-true`.
+
 3. **Done:** Your URL is now SEO-Friendly 
 ### Method 2: Use an URL Slug Generator 
 Creating a URL slug for your content can sometimes very be time consuming, so we suggest using a tool like [slugify.online](https://slugify.online/)  to help you finish quickly:
