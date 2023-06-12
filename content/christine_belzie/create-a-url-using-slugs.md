@@ -48,16 +48,17 @@ Consider using the following methods to creating a slug:
 Creating a URL slug for your content can sometimes very be time consuming, so we suggest using a tool like [slugify.online](https://slugify.online/)  to help you finish quickly:
 
 1. Type your content's title in the textbox titled **INPUT STRING**. Make sure that the **Separate with a dash (-) option is highlighted. 
-![Step 1](https://github.com/CBID2/ugc/assets/105683440/5ad55c17-85b4-4fe1-932d-ef58bf4d8026)
+
+![Step 1 of URL slug](https://github.com/Codecademy/ugc/main/content/christine_belzie/step1-of-slug.png)
 
 2. Click on **Slugify(Generate Slug)**
 
-![Step 2 of URL slug](https://github.com/CBID2/ugc/assets/105683440/6f113480-d68e-4221-952a-8ef8ad3eb677)
+![Step 2 of URL slug](https://github.com/Codecademy/ugc/main/content/christine_belzie/step2-of-slug.png)
 
 
 3. Click on **Copy**. Then, add it to your website's URL.
 
-![Step 3 of URL slug](https://github.com/CBID2/ugc/assets/105683440/43445e53-3cbc-4a12-83ee-37d135f538f5)
+![Step 3 of URL slug](https://github.com/Codecademy/ugc/main/content/christine_belzie/step3-of-slug.png)
 
 
 ## Best Practices 
