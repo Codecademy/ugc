@@ -18,31 +18,33 @@ CatalogContent:
 _**Prerequisites:** Understanding of C, Operating System, Visual studio code_  
 _**Version:** Standard C language versions C89/C90, C99, C11, and C18_
 
-[oneToOne]:https://raw.githubusercontent.com/Codecademy/ugc/main/content/dakshdeephere/one-to-one.png
-
-![oneToOne]
-
 ## Introduction
 
-A thread is a path of execution within a process. A process can contain multiple threads. A thread is also known as lightweight process. The idea is to achieve parallelism by dividing a process
+A `thread` is a path of execution within a process. A process can contain multiple threads. A thread is also known as lightweight process. The idea is to achieve parallelism by dividing a process
 into multiple threads. For example, in a browser, multiple tabs can be different threads. MS Word uses multiple threads: one thread to format the text, another thread to process inputs, etc.
 
 **`Thread`** is an execution unit which consists of its own program `counter`, a `stack`, and a set of `registers`. `Program counter` keeps track of which instruction to execute next, system registers which hold its current working variables, and a stack which contains the execution history.
 
-<div>
-  <div style="display: inline-block; width: 45%;">
-    <img src="single-thread-process.png" alt="Image 1" style="width: 100%;">
-    <p style="font-weight: bold;">Single Thread</p>
-  </div>
-  <div style="display: inline-block; width: 45%;">
-    <img src="Multi-threaded-process.png" alt="Image 2" style="width: 100%;">
-    <p style="font-weight: bold;">Multi Thread</p>
-  </div>
-</div>
+**A thread comprise of :**
+
+- Thread ID
+- Program Counter
+- Register Set
+- Stack
+
+**A thread shares with other threads :**
+
+- Code section
+- Data Section
+- Other resources like - open files
+
+Single Thread             |  Multiple threads
+:-------------------------:|:-------------------------:
+![SingleThread](single-thread-process.png)| ![Alt text](Multi-threaded-process.png)
 
 ## Multithreading
 
-- A thread is a path which is followed during a program’s execution.
+- A `thread` is a path which is followed during a program’s execution.
 - Let's consider an instance where a program cannot simultaneously read keystrokes and create drawings. These activities pose a challenge for the program as they cannot be performed concurrently. However, this issue can be resolved through multitasking, enabling the program to execute multiple tasks simultaneously.
 - Multitasking is of two types: `Processor based` and `thread based`.
 - `Processor based` multitasking is totally managed by the OS, however multitasking through multithreading can be controlled by the programmer to some extent.
@@ -61,13 +63,6 @@ into multiple threads. For example, in a browser, multiple tabs can be different
 | 5 | Multiple processes without using threads use more resources. | Multiple threaded processes use fewer resources. |
 | 6 | In multiple processes each process operates independently of the others. | One thread can read, write or change another thread's data. |
 
-## Benefits of creating threads in Operating System
-
-- `Responsiveness` – multi-threading increase the responsiveness of the process. For example, in MSWord while one thread does the spelling check the other thread allows you to keep tying the input. Therefore, you feel that Word is always responding.
-- `Resource sharing` – All the threads share the code and data of the process. Therefore, this allows several threads to exist within the same address space
-- `Economy` – For the same reason as mentioned above it is convenient to create threads. Since they share resources they are less costly
-- `Scalability` – Having a multiprocessor system greatly increases the benefits of multithreading. As a result, each thread can run in a separate processor in parallel.
-
 ## Challenges for Programmers while creating Threads
 
 - `Dividing activities` – It involves finding the functions within the job that can be run in parallel on separate processors.
@@ -76,9 +71,26 @@ into multiple threads. For example, in a browser, multiple tabs can be different
 - `Data dependency` – sometimes the data required by one thread (T1) might be produced by another (T2). Thus, T1 can not run before T2. Therefore, it becomes difficult for programmers to code.
 - `Testing and debugging` – Multiple threads running in parallel on multiple cores poses another challenge in the testing of applications.
 
+## Syntax
+
+```c
+#include <pthread.h>
+
+int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg);
+```
+
+- `thread`: A pointer to a pthread_t variable that will store the thread ID of the newly created thread.
+- `attr`: An optional pointer to a pthread_attr_t structure that specifies the attributes of the thread (such as its stack size or scheduling policy). You can pass NULL for default attributes.
+- `start_routine: A function pointer to the function that will be executed by the thread. It should have the following signature: void *function_name(void *arg). It takes a single argument arg and returns a void * pointer.
+- `arg`: An optional argument that can be passed to the start_routine function. It can be used to provide data or parameters to the thread.
+
+The `pthread_create` function returns 0 on success, indicating that the thread was successfully created. On failure, it returns an error code indicating the cause of the failure.
+
+Remember to link your program with the `pthread` library by adding `-pthread` to the compiler command during the compilation process.
+
 ## Example
 
-Now see how to create and join threads with code sample in `C`:
+Now we will see how to create  threads using Pthread with code sample in `C`:
 
 ```c
 #include <stdio.h>
@@ -155,4 +167,95 @@ gcc -o multithreading multithreading.c -pthread
 The output for the above code will be:
 
 ```shell
+Threading % ls
+thread.c
 
+Threading % chmod u+x thread.c 
+
+Threading % gcc -o multithreading thread.c -pthread
+
+Threading % ls
+multithreading thread.c
+
+Threading % ./multithreading 
+Choose an option:
+1. Find factorial of a number
+2. Find HCF of two numbers
+Enter your choice (1 or 2): 2
+Enter two numbers to find their HCF: 10 15
+HCF of 10 and 15 is 5
+Program completed. Exiting.
+
+Threading % ./multithreading 
+Choose an option:
+1. Find factorial of a number
+2. Find HCF of two numbers
+Enter your choice (1 or 2): 1
+Enter a number to find its factorial: 3
+Factorial of 3 is 6
+```
+
+![Screenshot](<Screenshot 2023-06-13 at 10.31.43 AM.png>)
+
+## Types of Threads
+
+### Threads are implemented in following two ways −
+
+- User Level Threads
+  - User managed threads.
+  - These are the threads that application programmers use in their programs.
+- Kernel Level Threads
+  - Operating System managed threads acting on kernel.
+  - Kernel threads are supported within the kernel of the OS itself. All modern OSs support kernel level threads, allowing the kernel to perform multiple simultaneous tasks or to service multiple kernel system calls simultaneously.
+
+|  USER LEVEL THREAD |  KERNEL LEVEL THREAD   |
+|-----------|-----------|
+| User thread are implemented by users.  | kernel threads are implemented by OS.  |
+| OS doesn't recognized user level threads.  | Kernel threads are recognized by OS.  |
+| Implementation of User threads is easy.  | Implementation of Kernel thread is complicated.|
+| Context switch time is less.  | Context switch time is more.  |
+| Context switch requires no hardware support.| Hardware support is needed.  |
+| If one user level thread perform blocking operation then the entire process will be blocked.  | If one kernel thread perform blocking operation then another thread can continue execution.  |
+|Example: Java thread, POSIX threads.|Example: Window Solaris.|
+
+## Multithreading Models
+
+### The user threads must be mapped to kernel threads, by one of the following strategies:
+
+- Many to One Model
+- One to One Model
+- Many To Many Model
+
+## Many to One Model
+
+- In the **many to one model**, many user-level threads are all mapped onto a single kernel thread.
+- Thread management is handled by the thread library in user space, which is efficient in nature.
+- **Drawback**: The Entire process will block if a thread makes a blocking system call
+- Examples: Solaris Green Threads, GNU Portable Threads
+
+![ManyToOne](Many-to-one.png)
+
+## One to One Model
+
+- The **one to one model** creates a separate kernel thread to handle each and every user thread.
+- Most implementations of this model place a limit on how many threads can be created.
+- Linux and Windows from 95 to XP implement the one-to-one model for threads.
+
+![OneToOne](one-to-one.png)
+
+## Many to Many Model
+
+- The **many to many model** multiplexes any number of user threads onto an equal or smaller number of kernel threads, combining the best features of the one-to-one and many-to-one models.
+- Users can create any number of the threads.
+- Processes can be split across multiple processors.
+
+![ManyToMany](Many-to-many.png)
+
+## Benefits of creating threads in Operating System
+
+- `Responsiveness` – multi-threading increase the responsiveness of the process. For example, in MSWord while one thread does the spelling check the other thread allows you to keep tying the input. Therefore, you feel that Word is always responding.
+- `Resource sharing` – All the threads share the code and data of the process. Therefore, this allows several threads to exist within the same address space
+- `Economy` – For the same reason as mentioned above it is convenient to create threads. Since they share resources they are less costly
+- `Scalability` – Having a multiprocessor system greatly increases the benefits of multithreading. As a result, each thread can run in a separate processor in parallel.
+- `Faster context switch` - Context switch time between threads is lower compared to process context switch.
+- `Communication` - Communication between multiple threads is easier, as the threads shares common address space.
