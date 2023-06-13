@@ -88,9 +88,9 @@ The `pthread_create` function returns 0 on success, indicating that the thread w
 
 Remember to link your program with the `pthread` library by adding `-pthread` to the compiler command during the compilation process.
 
-## Example
+## Examples
 
-Now we will see how to create  threads using Pthread with code sample in `C`:
+**Now we will see how to create  threads using Pthread with code sample in `C`:**
 
 ```c
 #include <stdio.h>
@@ -196,6 +196,100 @@ Factorial of 3 is 6
 ```
 
 ![Screenshot](<Screenshot 2023-06-13 at 10.31.43 AM.png>)
+
+**Program to pass message from main function to threads in `C`:**
+
+```c
+#include <pthread.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+void *myfunc(void *myvar);
+
+int main(int argc, char *argv[])
+{
+    pthread_t thread1, thread2;
+    char *msg1 = "first thread";
+    char *msg2 = "second thread";
+    int ret1, ret2;
+
+    ret1 = pthread_create(&thread1, NULL, myfunc, (void *)msg1);
+    ret2 = pthread_create(&thread2, NULL, myfunc, (void *)msg2);
+
+    printf("Main function after pthread_create \n");
+
+    pthread_join(thread1, NULL);
+    pthread_join(thread2, NULL);
+
+    printf("first thread ret1 = %d \n", ret1);
+    printf("second thread ret2 = %d \n", ret2);
+
+    return 0;
+}
+
+void *myfunc(void *myvar)
+{
+    char *msg;
+    msg = (char *)myvar;
+    int i;
+
+    for (i = 0; i < 10; i++)
+    {
+        printf("%s %d \n", msg, i);
+        sleep(2);
+    }
+
+    return NULL;
+}
+```
+
+To compile the above code, you have to use following command:
+
+```shell
+chmod u+x filename.c
+gcc filename.c -o pthread_example -pthread
+./pthread_example
+```
+
+The output for the above code will be:
+
+```shell
+Threading2 % ls
+message.c
+
+Threading2 % chmod u+x message.c 
+Threading2 % gcc message.c -o pthread_example -pthread
+
+Threading2 % ls
+message.c	pthread_example
+
+Threading2 % ./pthread_example 
+Main function after pthread_create 
+first thread 0 
+second thread 0 
+first thread 1 
+second thread 1 
+first thread 2 
+second thread 2 
+first thread 3 
+second thread 3 
+second thread 4 
+first thread 4 
+second thread 5 
+first thread 5 
+second thread 6 
+first thread 6 
+second thread 7 
+first thread 7 
+second thread 8 
+first thread 8 
+second thread 9 
+first thread 9 
+first thread ret1 = 0 
+second thread ret2 = 0 
+```
+
+There will be 2 seconds of gap between each output and it is due to `sleep(2)` function call inside the `myfunc` function. The purpose of `sleep(2)` is to simulate some processing or work being done within each iteration of the loop. By introducing this delay, you can observe the interleaved execution of the two threads more easily.
 
 ## Types of Threads
 
