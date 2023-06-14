@@ -293,7 +293,7 @@ There will be 2 seconds of gap between each output and it is due to `sleep(2)` f
 
 ## Types of Threads
 
-### Threads are implemented in following two ways −
+Threads are implemented in the following two ways −
 
 - User Level Threads
   - User managed threads.
