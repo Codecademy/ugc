@@ -25,16 +25,16 @@ into multiple threads. For example, in a browser, multiple tabs can be different
 
 **`Thread`** is an execution unit which consists of its own program `counter`, a `stack`, and a set of `registers`. `Program counter` keeps track of which instruction to execute next, system registers which hold its current working variables, and a stack which contains the execution history.
 
-**A thread comprise of :**
+**A thread comprises of:**
 
 - Thread ID
 - Program Counter
 - Register Set
 - Stack
 
-**A thread shares with other threads :**
+**A thread shares with other threads:**
 
-- Code section
+- Code Section
 - Data Section
 - Other resources like - open files
 
