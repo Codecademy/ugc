@@ -243,7 +243,7 @@ void *myfunc(void *myvar)
 }
 ```
 
-To compile the above code, you have to use following command:
+To compile the above code, you have to use the following command:
 
 ```shell
 chmod u+x filename.c
