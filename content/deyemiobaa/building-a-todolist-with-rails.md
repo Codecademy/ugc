@@ -67,7 +67,7 @@ bundle add tailwindcss-rails
 rails tailwindcss:install
 ```
 
-The commands after the app name (todolist) are optional. The `-d postgresql` flag tells rails to use postgreSQL as the database for this app. 
+The commands after the app name (**todolist**) are optional. The `-d postgresql` flag tells rails to use postgreSQL as the database for this app. 
 `bundle add tailwindcss-rails` adds tailwindcss to our Gemfile. Tailwind is a utility-first CSS framework and a great tool to help you build a responsive and beautiful UI. 
 `rails tailwindcss:install` installs tailwindcss in our app and sets up a Procfile for running our app in development.
 
@@ -75,7 +75,7 @@ After running these commands, you’ll see a bunch of files and folders created 
 
 To get our app running, we need to make sure it is connected to a database. The database config lives in the `config/database.yml` file. There we can see the provided database name and some other info. This database doesn't exist yet and needs to be created. For most people, you need to supply your PostgreSQL username and password that was set during installation to this file. The default username is `postgres` and this applies to most Linux distros.
 
-Most times we would use an env file to manage this but we can keep it there for the scope of this project.
+Most times we would use a **.env** file to manage this but we can keep it there for the scope of this project.
 
 ```yml
 ...
@@ -89,15 +89,23 @@ default: &default
 
 Make sure your terminals' current directory is the root of your app before running the following commands.
 
-If you are using a Linux machine, you need to start your postgreSQL service before proceeding. Run `sudo service postgresql start`.
+If you are using a Linux machine, you need to start your postgreSQL service before proceeding. Run the following command to start the service:
 
-To create the database, run `rails db:create`.
+```bash
+sudo service postgresql start
+```
+
+To create the local database for our app, run: 
+
+```bash 
+rails db:create
+```
 
 Then run `rails s` to start the Rails server. If everything went well, you should see a URL to visit (`http://127.0.0.1:3000/`) in your terminal. Open that URL in your browser and you should see the default rails page.
 
 Since we have TailwindCSS in our project, starting our server requires an additional step. We need to run `rails tailwindcss:watch` in a separate terminal window pointing at our app directory. This will compile our tailwind styles and make them available to our app.
 
-Rails ties both the server and the tailwind compiler together into a single command. To run both at the same time, run `bin/dev`.
+To make it easier, Rails ties both the server and the tailwind compiler together into a single command. To run both at the same time, run `bin/dev`.
 
 ## Understanding the MVC design pattern
 
@@ -108,17 +116,25 @@ MVC stands for Model, View, Controller. It is a design pattern that helps to org
 Migrations help us build/alter our database schema in a consistent way. It uses the Ruby DSL (domain-specific language), and the dedicated rails ORM (Object-relational mapping) called Active Record so we don't have to write any SQL by hand.
 
 Our app requires a table and a column to store our todo items. We'll call that column `description`.
-To create this table with the column, we'll run `rails generate model Todo description`
+To create this table with the column, we'll run:
+
+```bash
+rails generate model Todo description
+```
 
 There are a few things to unpack about this:
-1. `rails generate`: compulsory prefix for generating various resources like models, controllers, etc.
+1. `rails generate`: Compulsory prefix for generating various resources like models, controllers, etc.
 2. `model`: This tells rails that we intend to create a model. Creating a model will create a migration by default. Models represent the M in MVC and are part of the application that handles the business logic. How data is represented, accessed, and modified can be specified in the model. The model interacts with the database to carry out several operations.
 3. `Todo`: This is the name of the model we want to create. Rails will automatically pluralize this to create a table named `todos`.
 4. `description`: This is the column name we want our table to have. Columns are usually created with a default string datatype. We could do `clicks:integer` to add a column with an integer datatype instead.
 
 After running this command, you'll see a new file in the `db/migrate` folder. This file contains the migration code that will be used to create the table and the column in our database. The migration file name is in the format `yyyymmddhhmmss_create_todos.rb`. The first part of the file name is the timestamp of when the migration was created. This is used to keep track of the order in which migrations were created. The second part is the name is the kind of migration we want to create.
 
-Run `rails db:migrate` to apply the schema to our local database.
+To apply the schema to our local database, we'll run:
+
+```bash
+rails db:migrate
+```
 
 A model file will also be created in the `app/models` folder. This file contains the model class and is used to define the model's attributes and relationships with other models.
 
@@ -126,9 +142,15 @@ A model file will also be created in the `app/models` folder. This file contains
 
 Controllers are responsible for handling requests and sending responses. They are the middleman between the user and the model. They receive requests from the user and send responses back to the user. They also interact with the model to get the data it needs to perform its operations.
 
-Let's create a controller for our todo items. Run `rails generate controller todos`. This will create a controller file in the `app/controllers` folder. It will also create a folder named `todos` in the `app/views` folder. This folder will contain all the views for our todo items.
+Let's create a controller for our todo items. In the terminal, run:
 
-To display a simple 'Hello World' message, we'll create a new method in the todos controller, and specify routes for it. Open the `app/controllers/todos_controller.rb` file and add the following code.
+```bash 
+rails generate controller todos
+```
+
+This will create a controller file in the `app/controllers` folder. It will also create a folder named `todos` in the `app/views` folder. This folder will contain all the views for our todo items.
+
+To display a simple `'Hello World'` message, we'll create a new method in the todos controller, and specify routes for it. Open the `app/controllers/todos_controller.rb` file and add the following code.
 
 ```ruby
 class TodosController < ApplicationController
@@ -196,7 +218,7 @@ end
 
 ## Understanding the Rails routing system
 
-The `resources` method in the code block above creates a set of routes for a given resource. The `only` option specifies the controller methods to create routes for. In our case, we only want to create routes for the `index` and `create` methods. The `resources` method creates the following routes.
+The `resources` method in the code block above creates a set of routes for a given resource. The `only` option specifies the controller methods to create routes for. In our case, we only want to create routes for the `index` and `create` methods. The `resources` method creates the following routes:
 
 | HTTP Verb | Path   | Controller#Action | Used for                    |
 |-----------|--------|-------------------|-----------------------------|
@@ -233,7 +255,7 @@ class TodosController < ApplicationController
 end
 ```
 
-The `create` method creates a new instance of the Todo model and saves it to the database. The `description` attribute is set to the value of the `description` field in the form. The `params` method returns a hash of the form data. The hash looks like this.
+The `create` method creates a new instance of the Todo model and saves it to the database. The `description` attribute is set to the value of the `description` field in the form. The `params` method returns a hash of the form data. The hash looks like this:
 
 ```ruby
 {
@@ -248,6 +270,18 @@ The `params[:todo][:description]` syntax gets the value of the hash. The `valid?
 You can submit the form multiple time to have enough data to test the table. We'll add the table in the next section. You can verify that your todos are being saved to the database by opening your terminal to your apps directory and running `rails c` to open the rails console. Then run `Todo.all` to see the list of todos.
 
 ## Displaying the list of todos
+
+In order to display the list of todos, we need to get the list of todos from the database. Open the `app/controllers/todos_controller.rb` file and add the following code to the `index` method.
+
+```ruby
+...
+def index
+  @todos = Todo.all
+end
+...
+```
+
+The `Todo.all` method returns an array of all the Todo models in the database. The `@todos` variable is now available in the view.
 
 In our view, we need to add a table to display the list of todos. Open the `app/views/todos/index.html.erb` file and append the following code to it.
 
@@ -277,22 +311,29 @@ In our view, we need to add a table to display the list of todos. Open the `app/
 
 This code will render a table with the list of todos. The `@todos` variable is an array of Todo models. The `each` method iterates over the array and renders a row for each todo. The `todo.id` and `todo.description` syntax gets the id and description of the todo.
 
-In order to display the list of todos, we need to get the list of todos from the database. Open the `app/controllers/todos_controller.rb` and add the following code to the `index` method.
 
-```ruby
-...
-def index
-  @todos = Todo.all
-end
-...
-```
-
-The `Todo.all` method returns an array of all the Todo models in the database. The `@todos` variable is now available in the view.
 Once you have the code above, you should see a table with the list of todos previous created on the browser.
 
 ## Adding a delete button
 
-Let's add a functionality to delete a todo item. We'll add a delete button to each row in the table. Open the `app/views/todos/index.html.erb` and add an extra column to the table head and table body with the following code.
+First we need to add a `destroy` method will handle the delete request. 
+
+Open the `app/controllers/todos_controller.rb` file and add the following code to create `destroy` method.
+
+```ruby
+...
+  def destroy
+    @todo = Todo.find(params[:id])
+    if @todo.destroy
+      redirect_to todos_path
+    end
+  end
+```
+
+The `Todo.find` method finds a todo by the id (Every todo gets a unique id when it's created). The `destroy` method deletes the todo from the database. The `redirect_to` method redirects the user to the `todos_path` which is the index page. This will reload the page and show the updated list of todos.
+
+
+In our view, we'll add a delete button to each row in the table. Open the `app/views/todos/index.html.erb` and add an extra column to the table head and table body with the following code.
 
 ```erb
 ...
@@ -324,29 +365,12 @@ Let's add a functionality to delete a todo item. We'll add a delete button to ea
 
 The `button_to` method creates a form with a button. The `method: :delete` option specifies that the form should be submitted using the `DELETE` HTTP verb. The `todo_path(todo)` syntax generates the path for the todo. The `todo_path` method takes the todo model as an argument.
 
-Next, we need to add a route to handle the delete request. Open the `config/routes.rb` file and update the todos resource with the following code.
+Finally, we need to add a route to handle the delete request. Open the `config/routes.rb` file and update the todos resource with the following code.
 
 ```ruby
 ...
   resources :todos, only: [:index, :create, :destroy]
 ```
-
-The `destroy` method will handle the delete request. 
-
-Open the `app/controllers/todos_controller.rb` file and add the following code to create `destroy` method.
-
-```ruby
-...
-  def destroy
-    @todo = Todo.find(params[:id])
-    if @todo.destroy
-      redirect_to todos_path
-    end
-  end
-```
-
-The `Todo.find` method finds a todo by the id. Every todo gets a unique id when it's created. The `destroy` method deletes the todo from the database. The `redirect_to` method redirects the user to the `todos_path` which is the index page. This will reload the page and show the updated list of todos.
-
 Now, you should be able to delete a todo item from the list.
 
 That is all. We’ve built a working todo list with READ, CREATE and DESTROY methods.
