@@ -20,8 +20,8 @@ _**Version:** Standard C language versions C89/C90, C99, C11, and C18_
 
 ## Introduction
 
-A `thread` is a path of execution within a process. A process can contain multiple threads. A thread is also known as lightweight process. The idea is to achieve parallelism by dividing a process
-into multiple threads. For example, in a browser, multiple tabs can be different threads. MS Word uses multiple threads: one thread to format the text, another thread to process inputs, etc.
+A `thread` is a path of execution within a process, which can contain multiple threads. It is also known as a lightweight process. The goal of threading is to achieve parallelism by dividing a process
+into multiple threads. For example, in a browser, multiple tabs can be different threads. MS Word uses multiple threads: one to format the text and another to process inputs, etc.
 
 **`Thread`** is an execution unit that consists of its own program `counter`, a `stack`, and a set of `registers`. `Program counter` keeps track of which instruction to execute next, the system registers which hold its current working variables, and a stack that contains the execution history.
 
