@@ -21,13 +21,17 @@ _**Versions:** Ruby 3.2.0, Ruby on Rails 7.0.4, PostgreSQL 15_
 
 ## Introduction
 
-This article is an introduction to building a full-stack app using Ruby on Rails. For this article, we are building a To-do list.
+Have you ever felt lost while learning something new? I know exactly how you feel. When I started my journey with Ruby on Rails, I found myself constantly searching for information in the official Rails guide, only to get overwhelmed and confused. But fear not! This article is here to guide you through the process of building a full-stack app using Ruby on Rails, with a specific focus on creating a To-do list.
 
-I was inspired to write this article while learning Ruby on Rails. I often got lost looking for information on the official Rails guide and I want to help you reduce the time it’ll take you to get started with building your own Rails app.
+As someone who has experienced the frustration of trying to piece together information from various sources, I understand the importance of having a clear and beginner-friendly resource that can help you get started with building your own Rails app. That's why I was inspired to write this article: to give you a detailed guide that will save you time and enable you confidently start your own Rails journey.
 
-The article is beginner friendly, and I hope it helps you learn something new.
+Whether you're a complete beginner or have some prior programming experience, this article is designed to be accessible and informative, making it easier for you to grasp the concepts and techniques involved.
+
+If you're ready to dive into the exciting world of Ruby on Rails and build your own To-do list app, let's get started! By the end of this article, you'll have a solid foundation in Rails development and the confidence to continue exploring and creating your own amazing applications.
 
 ## What I’ll talk about:
+
+In this article, we will take a look at building a full-stack app using Ruby on Rails. Throughout the course of the article, we'll cover the following main points:
 
 1. Setting up a new Rails app.
 2. Understanding the MVC design pattern.
