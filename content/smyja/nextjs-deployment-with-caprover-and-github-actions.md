@@ -43,13 +43,37 @@ Next.js, Caprover, and GitHub Actions are all powerful tools that can be used to
   - Cost-effective: These tools are often free or low-cost, making them a good option for indiehackers with limited budgets.
 
 ### Setting up Caprover on Digital Ocean
-Sign up on Digitalocean if you don't have an account yet. Once you have signed up, create a droplet.
+Sign up on Digitalocean if you don't have an account yet. 
+Once you have signed up, create a droplet.
+
+![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/droplets.png)
+
+Next, select caprover from the marketplace.
+
+![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/caprover-marketplace.png)
+
+
 Choose a region, specify the CPU as 1GB RAM, you can always upgrade it to a higher RAM.
+![Specify CPU](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/cpu-choice.png)
+
 Once the droplet has been created, you can access the caprover dashboard by visiting http://YOUR_IP_ADDRESS:3000 or click the `Get started` link ,then the Quick access to Caprover console.
+
+![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/created-caprover-droplet.png)
+
+The quick access button can be found here.
+![caprover quick access](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/caprover-quick-access.png)
+
 The default login for caprover apps is `captain42`, ensure you change it from your dashboard settings.
+
 After logging in, create an app. Give it any name.
-Next, add a domain name to your app. You should login your registrar and point the domain name to server's ip address
-Now, Add a wildcard to your subdomain. The wildcard domain is needed so we can change the caprover server link from an ip address to a domain name.
+![create caprover app](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/caprover-app.png)
+
+Next, add a domain name to your app. You should login to your domain registrar and point the domain name to droplet/server's ip address. I am using a subdomain on Namecheap, here's what that looks like.
+![point domain to ip](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/set-domain.png)
+
+Now, Add a wildcard to your domain. The wildcard domain is needed so we can change the caprover server link from an ip address to a domain name.
+![domain wildcard](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/root-domain.png)
+
 Select force https and click the "save and update" button. This redirectes http traffic to https.
 Enable Https for your domain. Caprover issues lets encrypt certificate for domains.
 Our website is live now.
