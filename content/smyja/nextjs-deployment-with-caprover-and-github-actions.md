@@ -23,7 +23,6 @@ Next.js is an open-source React framework that enables you to create server-rend
 - Hybrid rendering: Next.js can also be used to combine server-side rendering and static site generation. This gives you the best of both worlds: performance and SEO.
 - Automatic routing: Next.js provides automatic routing that makes it easy to create complex web applications with nested routes.
 - Data fetching: Next.js provides a number of ways to fetch data from APIs, including asynchronous async/await and the fetch() API.
-- Internationalization: Next.js supports internationalization, so you can easily create web applications that support multiple languages.
 - Deployment: Next.js can be deployed to a variety of hosting services, including Vercel, Netlify, and AWS Amplify, DigitalOcean.
 
 This tutorial will cover the creation of a NextJs app and Deploying it on Caprover(Opensource Platform as a service) using DigitalOcean and Github actions.
@@ -43,7 +42,7 @@ Next.js, Caprover, and GitHub Actions are all powerful tools that can be used to
   - Cost-effective: These tools are often free or low-cost, making them a good option for indiehackers with limited budgets.
 
 ### Setting up Caprover on Digital Ocean
-Sign up on Digitalocean if you don't have an account yet. 
+Sign up on [Digitalocean](https://digitalocean.com) if you don't have an account yet. 
 Once you have signed up, create a droplet.
 
 ![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/droplets.png)
@@ -75,8 +74,13 @@ Now, Add a wildcard to your domain. The wildcard domain is needed so we can chan
 ![domain wildcard](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/root-domain.png)
 
 Select force https and click the "save and update" button. This redirectes http traffic to https.
+![force https](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/force-https.png)
+
 Enable Https for your domain. Caprover issues lets encrypt certificate for domains.
+![enable https certificate](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/enable-https.png)
+
 Our website is live now.
+![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/website.png)
 
 ### Setting up a NextJs app
 
