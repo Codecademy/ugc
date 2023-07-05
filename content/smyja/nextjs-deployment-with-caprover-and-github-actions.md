@@ -83,4 +83,18 @@ Our website is live now.
 ![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/website.png)
 
 ### Setting up a NextJs app
+Follow the guide on [Nextjs Docs](https://nextjs.org/docs/getting-started/installation) to create a NextJs app. 
+Once that's setup
 
+Add a Private Docker Registry to :
+
+If you need to pull images from a private docker registry such as ghcr.io or dockerhub etc, you will need to provide CapRover with your credentials so that it can pull images. For example for ghcr.io you'll need the following:
+
+    Username: <your github username>
+    Password: a personal token that you create - make sure it has access to read packages at least.
+    Domain: ghcr.io
+    Image Prefix: <your github username>
+
+If Docker images are stored as your-username/your-image then use your github username as the image prefix. Otherwise, if you have an organization in github where your images are stored as my-org/my-image, use my-org as your image prefix.
+
+`CAPROVER_SERVER` is https://captain.example.scrapeweb.page
