@@ -84,17 +84,41 @@ Our website is live now.
 
 ### Setting up a NextJs app
 Follow the guide on [Nextjs Docs](https://nextjs.org/docs/getting-started/installation) to create a NextJs app. 
-Once that's setup
+Once that's setup, we will create a cluster for the app. 
+![remote registry](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/remote-registry.png)
 
-Add a Private Docker Registry to :
+To add a private Docker registry to CapRover, you will need to provide your username, personal access token(begins with ghp_), domain, and image prefix. We will be using the GitHub Container Registry (ghcr.io), your username would be your GitHub username, your password would be a personal token that you create with read package access, your domain would be ghcr.io, and your image prefix would be your GitHub username.
 
-If you need to pull images from a private docker registry such as ghcr.io or dockerhub etc, you will need to provide CapRover with your credentials so that it can pull images. For example for ghcr.io you'll need the following:
+If your Docker images are stored in the format `your-username/your-image`, then you should use your GitHub username as your image prefix. Otherwise, if your images are stored in the format `my-org/my-image`, where `my-org` is your GitHub organization, then you should use `my-org` as your image prefix.
 
-    Username: <your github username>
-    Password: a personal token that you create - make sure it has access to read packages at least.
-    Domain: ghcr.io
-    Image Prefix: <your github username>
+Once you have provided these credentials, CapRover will be able to pull images from your private Docker registry.
+Your created registry would show
+![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/docker-registeries.png)
 
-If Docker images are stored as your-username/your-image then use your github username as the image prefix. Otherwise, if you have an organization in github where your images are stored as my-org/my-image, use my-org as your image prefix.
+
+```docker 
+FROM node:16-alpine
+
+# Set working directory
+
+ENV NODE_ENV=production
+# Copy package.json and package-lock.json (if available)
+COPY package*.json ./
+
+
+# Copy the built application files
+
+COPY ./.next ./.next
+COPY ./next.config.js ./next.config.js
+COPY ./public ./public
+COPY ./.next/static ./_next/static
+COPY ./node_modules ./node_modules
+# Expose the desired port (e.g., 3000)
+
+EXPOSE 3000
+
+# Start the Node.js server
+CMD ["npm", "run", "start"]
+```
 
 `CAPROVER_SERVER` is https://captain.example.scrapeweb.page
