@@ -96,6 +96,8 @@ Your created registry would show
 ![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/docker-registeries.png)
 
 
+Caprover uses Docker to create apps, to deploy our nextjs apps we will create a Dockerfile
+
 ```docker 
 FROM node:16-alpine
 
@@ -120,5 +122,153 @@ EXPOSE 3000
 # Start the Node.js server
 CMD ["npm", "run", "start"]
 ```
+The first stage of the build uses the node:16-alpine image as a base. This image is a lightweight version of Node.js that is optimized for production use. The `ENV NODE_ENV=production` line sets the environment variable `NODE_ENV` to production. This tells Next.js to use its production build configuration.
+
+The second stage of the build copies the application files into the image. The `COPY package*.json ./` line copies the package.json and package-lock.json files into the image. These files are used to install the application's dependencies. The COPY ./.next ./.next line copies the built application files into the image. These files are the static files that are served by the Next.js server.
+
+The `EXPOSE 3000` line exposes port 3000 on the image. This is the port that the Next.js server will listen on.
+
+The `CMD ["npm", "run", "start"]` line tells Docker to run the npm start command when the container is started. This command will start the Next.js server.
+
+Now, we need to specify the PORT on Caprover as 3000
+![container port](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/container-port.png)
+
+Caprover also uses a `captain-definition` file which specifies the path tothe Dockerfile. For our Nextjs app, the `captain-definition` file and the Dockerfile are to be placed at the root of our app along with the `package.json` file.
+```json
+{
+    "schemaVersion": 2,
+    "dockerfilePath": "Dockerfile"
+}
+```
+
+To ensure every change we make to our nextjs app through commits automatically shows on the live website, we will need a workflow file with github actions. Create a` .github` folder and a subfolder `workflows` with `release.yaml` file in this subfolder.
+The yaml file should contain the below code.
+
+```yaml
+name: Deploy to caprover instance.
+
+env:
+    CONTEXT_DIR: './'
+    IMAGE_NAME: ${{ github.repository }}
+    DOCKERFILE: ./Dockerfile
+    # CAPROVER_APP: myapp-staging
+    DOCKER_REGISTRY: ghcr.io
+
+on:
+    push:
+        branches:
+            - main
+
+
+jobs:
+    build-and-publish:
+        runs-on: ubuntu-latest
+        permissions:
+          contents: read
+          packages: write
+        steps:
+            - uses: actions/checkout@v1
+            - name: Cache 
+              uses: actions/cache@v2
+              with:
+                  # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
+                  path: |
+                    ~/.npm
+                    ${{ github.workspace }}/.next/cache
+                  # Generate a new cache whenever packages or source files change.
+                  key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx') }}
+                  # If source files changed but packages didn't, rebuild from a prior cache.
+                  restore-keys: |
+                    ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                node-version: ${{ matrix.node-version }}
+                cache: "npm"
+            - run: npm ci
+            - run: npm run build --if-present
+            - run: npm run test --if-present
+           
+            - name: Log in to the Container registry
+              uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+              with:
+                  registry: ${{ env.DOCKER_REGISTRY }}
+                  username: ${{ github.actor }}
+                  password: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Extract metadata (tags, labels) for Docker
+              id: meta
+              uses: docker/metadata-action@v4
+              with:
+                images: ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}
+
+            - name: Build and push Docker image
+              uses: docker/build-push-action@v3
+              with:
+                context: .
+                push: true
+                tags: ${{ steps.meta.outputs.tags }}
+                labels: ${{ steps.meta.outputs.labels }}
+
+
+            - name: Deploy to CapRover
+              uses: caprover/deploy-from-github@d76580d79952f6841c453bb3ed37ef452b19752c
+              with:
+                  server: ${{ secrets.CAPROVER_SERVER }}
+                  app: ${{ secrets.APP_NAME }}
+                  token: '${{ secrets.APP_TOKEN }}'
+                  image: ${{ steps.meta.outputs.tags }}
+```
+The code provided is a GitHub Actions workflow file for deploying a Docker image to a CapRover instance. CapRover is a multi-purpose deployment tool that simplifies the process of deploying applications to your own servers.
+
+Let's break down the workflow file:
+
+- `env`: This section defines environment variables used in the workflow.
+
+- `on`: This section specifies the trigger for the workflow. In this case, it runs when a push event occurs on the `main` branch.
+
+- `jobs`: This section contains the main sequence of steps to be executed as part of the workflow.
+
+  - `build-and-publish`: This job is responsible for building the application, publishing the Docker image, and deploying it to CapRover.
+
+    - `runs-on`: Specifies that this job runs on the latest Ubuntu environment.
+
+    - `permissions`: Grants necessary permissions to the job.
+
+    - `steps`: Contains a sequence of steps to be executed.
+
+      - `uses: actions/checkout@v1`: Checks out the repository code.
+
+      - `name: Cache`: Configures caching to speed up subsequent builds.
+
+      - `uses: actions/cache@v2`: Caches specified directories and files to avoid redundant operations.
+
+      - `name: Use Node.js ${{ matrix.node-version }}`: Sets up the Node.js environment.
+
+      - `run: npm ci`: Installs the project dependencies.
+
+      - `run: npm run build --if-present`: Builds the project (if there is a build script defined in the `package.json` file).
+
+      - `run: npm run test --if-present`: Runs tests (if there is a test script defined in the `package.json` file).
+
+      - `name: Log in to the Container registry`: Logs in to the specified container registry using the provided credentials.
+
+      - `name: Extract metadata (tags, labels) for Docker`: Retrieves metadata for the Docker image using the `docker/metadata-action` action.
+
+      - `name: Build and push Docker image`: Builds the Docker image and pushes it to the container registry using the `docker/build-push-action` action.
+
+      - `name: Deploy to CapRover`: Deploys the Docker image to the CapRover instance using the `caprover/deploy-from-github` action.
+
+        - `server`: Specifies the CapRover server URL (configured as a secret).
+
+        - `app`: Specifies the CapRover application name (configured as a secret).
+
+        - `token`: Specifies the CapRover application token (configured as a secret).
+
+        - `image`: Specifies the Docker image to be deployed (using the image tag from the previous step).
+
+
+This workflow will trigger a build, test, and deployment whenever a push event occurs on the `main` branch. The Docker image will be built and pushed to the specified container registry, and then it will be deployed to the CapRover instance.
+You will need to set up the necessary secrets in your GitHub repository to provide the CapRover server URL, application name, and application token. Make sure you have the CapRover server up and running and the required secrets configured correctly.
 
 `CAPROVER_SERVER` is https://captain.example.scrapeweb.page
