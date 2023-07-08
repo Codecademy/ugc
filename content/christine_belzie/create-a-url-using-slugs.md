@@ -39,13 +39,10 @@ Now, let's create a slug!
 
 ## How To Create a Slug
 
-Consider using the following methods to create a slug:
+1. **Think of a short yet descriptive name:**  We recommend making it easy for people to remember. For example, let's say a person wanted to create a slug for a tutorial on creating issue requests on GitHub. This part of the URL slug will look like this:
+   `How to Make your Issue Requests Come True`
 
-### Method 1: Manually
-
-1. **Think of a short yet descriptive name:**  We recommend making it easy for people to remember. For example, let's say a person wanted to create a slug for the blog post titled "How to Make Your Issue Requests Come True".
-
-2. **Place hyphens ("-") in between the parts of your name:**  Spaces can't be used in a URL, so you'd have to replace them with "%20", which makes things really hard to read. By using hyphens, your URL would be easier for people to read. Here's how it would look with the blog post referenced in the previous step: `how-to-make-your-issues-requests-come-true`.
+2. **Place hyphens ("-") in between the parts of your name:**  Spaces can't be used in a URL because , so you'd have to replace them with "%20", which makes things really hard to read. By using hyphens, your URL would be easier for people to read. Here's how it would look with the blog post referenced in the previous step: `how-to-make-your-issues-requests-come-true`.
 
 Your URL is now SEO-Friendly!
 
