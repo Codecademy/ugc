@@ -95,8 +95,11 @@ Once you have provided these credentials, CapRover will be able to pull images f
 Your created registry would show
 ![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/docker-registeries.png)
 
+Navigate to the deployments tab and enable app token, the token generated will be needed for this deployment.
 
-Caprover uses Docker to create apps, to deploy our nextjs apps we will create a Dockerfile
+![github actions settings](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/enable-token.png)
+
+Caprover uses Docker to create apps, to deploy our Nextjs app we will create a Dockerfile
 
 ```docker 
 FROM node:16-alpine
@@ -271,4 +274,14 @@ Let's break down the workflow file:
 This workflow will trigger a build, test, and deployment whenever a push event occurs on the `main` branch. The Docker image will be built and pushed to the specified container registry, and then it will be deployed to the CapRover instance.
 You will need to set up the necessary secrets in your GitHub repository to provide the CapRover server URL, application name, and application token. Make sure you have the CapRover server up and running and the required secrets configured correctly.
 
-`CAPROVER_SERVER` is https://captain.example.scrapeweb.page
+To configure your secrets, navigate to your Github repository's settings and click the Secrets and variables
+
+![github actions settings](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/gh-actions-settings.png)
+
+Your `CAPROVER_SERVER` should be similar to this` https://captain.example.scrapeweb.page`
+APP_NAME is `server1`, the name you specified when creating the app.
+`APP_TOKEN` is the Token generated when we enabled app token on the dashboard.
+
+Conclusion:
+
+Source code: https://github.com/smyja/nextapp
