@@ -217,6 +217,8 @@ Regular Expressions
 Requests
 Responsive
 Rest Parameter
+Ruby
+Ruby on Rails
 Sass
 Schema Design
 Scikit-learn
