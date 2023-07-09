@@ -67,6 +67,9 @@ The default login for caprover apps is `captain42`, ensure you change it from yo
 After logging in, create an app. Give it any name.
 ![create caprover app](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/caprover-app.png)
 
+Caprover has a marketplace of apps that can be created with one click including postgres, supabase and more.
+![caprover app marketplace](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/app-market.png)
+
 Next, add a domain name to your app. You should login to your domain registrar and point the domain name to droplet/server's ip address. I am using a subdomain on Namecheap, here's what that looks like.
 ![point domain to ip](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/set-domain.png)
 
@@ -79,7 +82,7 @@ Select force https and click the "save and update" button. This redirectes http 
 Enable Https for your domain. Caprover issues lets encrypt certificate for domains.
 ![enable https certificate](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/enable-https.png)
 
-Our website is live now.
+Our website is live now, this is default page for caprover.
 ![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/website.png)
 
 ### Setting up a NextJs app
@@ -283,6 +286,6 @@ APP_NAME is `server1`, the name you specified when creating the app.
 `APP_TOKEN` is the Token generated when we enabled app token on the dashboard.
 
 Conclusion:
-We’ve now learned how to deploy a NextJS app on Caprover and connect a domain to it. 
+We’ve now learned how to deploy a NextJS app with Caprover and connect a domain to it.
 
 Source code: https://github.com/smyja/nextapp
