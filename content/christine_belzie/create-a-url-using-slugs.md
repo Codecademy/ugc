@@ -25,7 +25,7 @@ CatalogContent:
 Picture this. You're scrolling through the internet, find a cookie recipe, and click on the "Share" button to send this link to your friend:
 [https://downshiftology.com/recipes/gluten-free-chocolate-chip-cookies/]
 
-You see `gluten-free-chocolate-chip-cookies` after the backslash (`/`). This is called a **slug**. Slugs are a vital part of a [URL] that helps identify a particular page on a website in a user-friendly manner. Essentially, slugs identify the content found on the page. In this article, you will learn the importance of slugs in SEO strategy, how to create them, and best practices.
+You see `gluten-free-chocolate-chip-cookies` after the backslash (`/`) that is next to `recipes`? This is called a **slug**. Slugs are a vital part of a [URL] that helps identify a particular page on a website in a user-friendly manner. Essentially, slugs identify the content found on the page. In this article, you will learn the importance of slugs in SEO strategy, how to create them, and strategies you can use to make your URL slugs effective.
 
 ## Why Are Slugs Important to SEO Strategy?
 
@@ -39,10 +39,10 @@ Now, let's create a slug!
 
 ## How To Create a Slug
 
-1. **Think of a short yet descriptive name:**  We recommend making it easy for people to remember. For example, let's say a person wanted to create a slug for a tutorial on creating issue requests on GitHub. This part of the URL slug will look like this:
-   `How to Make your Issue Requests Come True`
+1. **Think of a short yet descriptive name:**  When it comes to creating the name for your URL slug, we recommend keeping it under 2,000 characters. According to [John Mueller from Google](https://www.seroundtable.com/google-url-characters-18219.html), the website favors URLs that meet this amount.  Also, we recommend basing the name of your URL's slug on the page's content and using lowercase so that Google and other search engines rank it in the query your content belongs to.  For example, let's say a person wanted to create a slug for a tutorial on creating issue requests on GitHub. This part of the URL slug will look like this:
+   `how to make your issue requests come true`
 
-2. **Place hyphens ("-") in between the parts of your name:**  Spaces can't be used in a URL because , so you'd have to replace them with "%20", which makes things really hard to read. By using hyphens, your URL would be easier for people to read. Here's how it would look with the blog post referenced in the previous step: `how-to-make-your-issues-requests-come-true`.
+2. **Place hyphens ("-") in between the parts of your name:**  Normally, spaces appear between a title to make thing clear. In the case of URLs however, spaces are often replaced with  "%20", which makes things really hard to read. Hyphens, on the hand, don't get replaced, which makes your URL slug easier to read. For example, the URL slug, `how-to-make-your-issues-requests-come-true` is easier to understand than `how%20to%20%make%20%your%20issues%20requests%20come%true`.
 
 Your URL is now SEO-Friendly!
 
@@ -61,16 +61,6 @@ Creating a URL slug for your content can sometimes very be time-consuming, so we
 1. Click on **Copy**. Then, add it to your website's URL.
 
 ![Step 3 of URL slug]
-
-## Best Practices
-
-When it comes to creating a URL slug, keep the following practices in mind:
-
-1. **Keep them Short:** According to [John Mueller from Google](https://www.seroundtable.com/google-url-characters-18219.html), the website favors URLs under 2,000 characters. With that it mind, it's best to keep your slugs within that limit so your content can been ranked in that search engine.  
-
-2. **Match it to the page's content:** This ensures that Google and other search engines will rank it based on the query it falls into.
-
-3. **No upper-case:** When creating slugs, it's best to present them in lower-case letters. This can prevent 404 error pages and content duplication from appearing whenever someone views your content.
 
 ## Conclusion
 
