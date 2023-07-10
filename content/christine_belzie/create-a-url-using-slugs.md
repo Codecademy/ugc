@@ -65,4 +65,4 @@ Creating a URL slug for your content can be time-consuming, so we suggest using 
 
 ## Conclusion
 
-As peculiar as the name is, URL slugs are an important in identifying websites. They help people find your content, and can even make someone laugh. So next time you're creating a URL slug, make sure it is clear and easy to remember. You'll never know, it might be the very thing that helps you land the job of your dreams.
+As peculiar as the name is, URL slugs are an important part of the internet in identifying websites. They help people find your content and can even make someone laugh. So next time you're creating a URL slug, make sure it is clear and easy to remember. You'll never know, it might be the very thing that helps you land the job of your dreams.
