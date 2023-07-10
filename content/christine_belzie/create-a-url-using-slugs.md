@@ -1,7 +1,7 @@
 ---
 Title: "Create a URL Using Slugs"
 Description: "Step-by-Step guide on creating a slug with URL ."
-DatePublished: "2022-01-14"
+DatePublished: "2023-07-10"
 Categories:
   - "web-development"
 Tags:
