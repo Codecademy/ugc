@@ -16,10 +16,6 @@ CatalogContent:
 [URL]: https://www.codecademy.com/resources/docs/general/url
 [slugify.online]: https://slugify.online/
 
-[Step 1 of URL slug]: https://github.com/Codecademy/ugc/main/content/christine_belzie/step1-of-slug.png
-[Step 2 of URL slug]: https://github.com/Codecademy/ugc/main/content/christine_belzie/step2-of-slug.png
-[Step 3 of URL slug]: https://github.com/Codecademy/ugc/main/content/christine_belzie/step3-of-slug.png
-
 ## Introduction
 
 Picture this. You're scrolling through the internet, find a cookie recipe, and click on the "Share" button to send this link to your friend:
@@ -53,15 +49,15 @@ Creating a URL slug for your content can be time-consuming, so we suggest using 
 
 1. Type your content's title in the textbox titled **INPUT STRING**. Make sure that the **Separate with a dash (-)** option is highlighted.
 
-![Step 1 of URL slug]
+![Step 1](step1-of-slug.png)
 
-2. Click on **Slugify(Generate Slug)**
+1. Click on **Slugify(Generate Slug)**
 
-![Step 2 of URL slug]
+![Step 2](step2-of-slug.png)
 
-3. Click on **Copy**. Then, add it to your website's URL.
+1. Click on **Copy**. Then, add it to your website's URL.
 
-![Step 3 of URL slug]
+![Step 3](step3-of-slug.png)
 
 ## Conclusion
 
