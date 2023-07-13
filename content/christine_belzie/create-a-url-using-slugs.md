@@ -47,11 +47,11 @@ Your URL is now SEO-Friendly!
 
 Creating a URL slug for your content can be time-consuming, so we suggest using a tool like [slugify.online] to help you finish quickly:
 
-1. Type your content's title in the textbox titled **INPUT STRING**. Make sure that the **Separate with a dash (-)** option is highlighted.<br />![Step 1](https://raw.githubusercontent.com/Codecademy/ugc/main/content/christine_belize/step1-of-slug.png)
+1. Type your content's title in the textbox titled **INPUT STRING**. Make sure that the **Separate with a dash (-)** option is highlighted.<br />![Step 1](https://raw.githubusercontent.com/Codecademy/ugc/main/content/christine_belzie/step1-of-slug.png)
 
-2. Click on **Slugify(Generate Slug)**<br />![Step 2](https://raw.githubusercontent.com/Codecademy/ugc/main/content/christine_belize/step2-of-slug.png)
+2. Click on **Slugify(Generate Slug)**<br />![Step 2](https://raw.githubusercontent.com/Codecademy/ugc/main/content/christine_belzie/step2-of-slug.png)
 
-3. Click on **Copy**. Then, add it to your website's URL.<br />![Step 3](https://raw.githubusercontent.com/Codecademy/ugc/main/content/christine_belize/step3-of-slug.png)
+3. Click on **Copy**. Then, add it to your website's URL.<br />![Step 3](https://raw.githubusercontent.com/Codecademy/ugc/main/content/christine_belzie/step3-of-slug.png)
 
 ## Conclusion
 
