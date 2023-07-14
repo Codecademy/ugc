@@ -347,7 +347,7 @@ Threads are implemented in the following two ways −
 
 ## Benefits of creating threads in Operating System
 
-- `Responsiveness` – multi-threading increase the responsiveness of the process. For example, in MSWord while one thread does the spelling check the other thread allows you to keep tying the input. Therefore, you feel that Word is always responding.
+- `Responsiveness` – Multi-threading increase the responsiveness of the process. For example, in MSWord while one thread does the spelling check the other thread allows you to keep tying the input. Therefore, you feel that Word is always responding.
 - `Resource sharing` – All the threads share the code and data of the process. Therefore, this allows several threads to exist within the same address space
 - `Economy` – For the same reason as mentioned above it is convenient to create threads. Since they share resources they are less costly
 - `Scalability` – Having a multiprocessor system greatly increases the benefits of multithreading. As a result, each thread can run in a separate processor in parallel.
