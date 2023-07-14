@@ -320,7 +320,7 @@ Threads are implemented in the following two ways −
 - One to One Model
 - Many To Many Model
 
-## Many to One Model
+### Many to One Model
 
 - In the **many to one model**, many user-level threads are all mapped onto a single kernel thread.
 - Thread management is handled by the thread library in user space, which is efficient in nature.
