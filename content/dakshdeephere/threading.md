@@ -15,7 +15,7 @@ CatalogContent:
   - "paths/threading"
 ---
 
-_**Prerequisites:** Understanding of C, Operating System, Visual studio code_  
+_**Prerequisites:** Understanding of C, Operating System, Visual Studio Code_  
 _**Version:** Standard C language versions C89/C90, C99, C11, and C18_
 
 ## Introduction
