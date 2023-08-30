@@ -9,13 +9,13 @@ Tags:
   - "javascript"
 CatalogContent:
   - ""
-
 ---
 
-_**Prerequisites:** Understanding of Javascript._  
+_**Prerequisites:** Understanding of Javascript._
 _**Versions:** Node v18.12.1_
 
 ### Introduction
+
 Next.js is an open-source React framework that enables you to create server-rendered, static generated, and hybrid web applications. It provides a number of features that make it easy to build high-performance web applications, including:
 
 - Static site generation: Next.js can be used to generate static websites that are served directly from the browser. This can improve performance and SEO.
@@ -28,20 +28,24 @@ Next.js is an open-source React framework that enables you to create server-rend
 This tutorial will cover the creation of a NextJs app and Deploying it on Caprover(Opensource Platform as a service) using DigitalOcean and Github actions.
 
 ## What is Caprover?
+
 CapRover is a free and open-source platform that simplifies the deployment and management of applications. It supports a wide range of programming languages, databases, and web servers, making it a versatile solution for developers of all levels. CapRover is also a cost-effective alternative to other popular platforms, such as Heroku and Microsoft Azure.
 
 ## What is Github actions
+
 GitHub Actions is a tool that allows you to automate tasks and processes in your GitHub repository. You can define workflows as code, which means that you can use GitHub Actions to automate anything that you can do with code.
 
 Workflows are triggered by events, such as code pushes, pull requests, or scheduled intervals. When a workflow is triggered, it will run a series of steps that you have defined. These steps can be used to perform any task that you need to automate, such as building your code, running tests, or deploying your application.
 
 ## Why use Next.js, Caprover, and Github Actions together?
+
 Next.js, Caprover, and GitHub Actions are all powerful tools that can be used together to create and deploy web applications. Indiehackers often use these tools because they are:
   - Efficient: These tools can help indiehackers save time and resources by automating tasks and making it easy to deploy applications.
   - Scalable: These tools can be scaled to handle large traffic loads.
   - Cost-effective: These tools are often free or low-cost, making them a good option for indiehackers with limited budgets.
 
 ### Setting up Caprover on Digital Ocean
+
 Sign up on [Digitalocean](https://digitalocean.com) if you don't have an account yet. 
 Once you have signed up, create a droplet.
 
@@ -86,6 +90,7 @@ Our website is live now, this is default page for caprover.
 ![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/website.png)
 
 ### Setting up a NextJs app
+
 Follow the guide on [Nextjs Docs](https://nextjs.org/docs/getting-started/installation) to create a NextJs app. 
 Once that's setup, we will create a cluster for the app. 
 ![remote registry](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/remote-registry.png)
@@ -128,6 +133,7 @@ EXPOSE 3000
 # Start the Node.js server
 CMD ["npm", "run", "start"]
 ```
+
 The first stage of the build uses the node:16-alpine image as a base. This image is a lightweight version of Node.js that is optimized for production use. The `ENV NODE_ENV=production` line sets the environment variable `NODE_ENV` to production. This tells Next.js to use its production build configuration.
 
 The second stage of the build copies the application files into the image. The `COPY package*.json ./` line copies the package.json and package-lock.json files into the image. These files are used to install the application's dependencies. The COPY ./.next ./.next line copies the built application files into the image. These files are the static files that are served by the Next.js server.
@@ -225,6 +231,7 @@ jobs:
                   token: '${{ secrets.APP_TOKEN }}'
                   image: ${{ steps.meta.outputs.tags }}
 ```
+
 The code provided is a GitHub Actions workflow file for deploying a Docker image to a CapRover instance. CapRover is a multi-purpose deployment tool that simplifies the process of deploying applications to your own servers.
 
 Let's break down the workflow file:
@@ -273,7 +280,6 @@ Let's break down the workflow file:
 
         - `image`: Specifies the Docker image to be deployed (using the image tag from the previous step).
 
-
 This workflow will trigger a build, test, and deployment whenever a push event occurs on the `main` branch. The Docker image will be built and pushed to the specified container registry, and then it will be deployed to the CapRover instance.
 You will need to set up the necessary secrets in your GitHub repository to provide the CapRover server URL, application name, and application token. Make sure you have the CapRover server up and running and the required secrets configured correctly.
 
@@ -286,6 +292,7 @@ APP_NAME is `server1`, the name you specified when creating the app.
 `APP_TOKEN` is the Token generated when we enabled app token on the dashboard.
 
 Conclusion:
+
 We’ve now learned how to deploy a NextJS app with Caprover and connect a domain to it.
 
 Source code: https://github.com/smyja/nextapp
