@@ -6,12 +6,14 @@ Categories:
   - "javascript"
   - "computer-science"
 Tags:
-  - "javascript"
+  - "GitHub"
+  - "JavaScript"
 CatalogContent:
-  - ""
+  - "introduction-to-javascript"
+  - "paths/front-end-engineer-career-path"
 ---
 
-_**Prerequisites:** Understanding of Javascript._
+_**Prerequisites:** Understanding of JavaScript._
 _**Versions:** Node v18.12.1_
 
 ### Introduction
