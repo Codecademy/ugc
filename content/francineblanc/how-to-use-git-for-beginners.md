@@ -1,6 +1,7 @@
 ---
 Title: "How To Use Git for Beginners"
 Description: "Beginner friendly content for using Git."
+DatePublished: "2022-04-29"
 Categories:
   - "computer-science"
   - "developer-tools"
