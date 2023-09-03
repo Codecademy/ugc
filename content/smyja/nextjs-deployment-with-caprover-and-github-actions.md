@@ -16,7 +16,7 @@ CatalogContent:
 _**Prerequisites:** Understanding of JavaScript._
 _**Versions:** Node v18.12.1_
 
-### Introduction
+## Introduction
 
 Next.js is an open-source React framework that enables you to create server-rendered, static generated, and hybrid web applications. It provides a number of features that make it easy to build high-performance web applications, including:
 
