@@ -293,7 +293,7 @@ Your `CAPROVER_SERVER` should be similar to this` https://captain.example.scrape
 APP_NAME is `server1`, the name you specified when creating the app.
 `APP_TOKEN` is the Token generated when we enabled app token on the dashboard.
 
-Conclusion:
+## Conclusion
 
 We’ve now learned how to deploy a NextJS app with Caprover and connect a domain to it.
 
