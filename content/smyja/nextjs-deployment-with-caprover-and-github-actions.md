@@ -82,7 +82,7 @@ Next, add a domain name to your app. You should login to your domain registrar a
 Now, Add a wildcard to your domain. The wildcard domain is needed so we can change the caprover server link from an ip address to a domain name.
 ![domain wildcard](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/root-domain.png)
 
-Select force https and click the "save and update" button. This redirectes http traffic to https.
+Select force HTTPS and click the "save and update" button. This redirects HTTP traffic to HTTPS.
 ![force https](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/force-https.png)
 
 Enable HTTPS for your domain. CapRover issues lets encrypt the certificate for domains.
