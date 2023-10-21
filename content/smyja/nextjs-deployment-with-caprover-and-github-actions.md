@@ -85,7 +85,7 @@ Now, Add a wildcard to your domain. The wildcard domain is needed so we can chan
 Select force https and click the "save and update" button. This redirectes http traffic to https.
 ![force https](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/force-https.png)
 
-Enable Https for your domain. Caprover issues lets encrypt certificate for domains.
+Enable HTTPS for your domain. CapRover issues lets encrypt the certificate for domains.
 ![enable https certificate](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/enable-https.png)
 
 Our website is live now, this is default page for caprover.
