@@ -76,7 +76,7 @@ After logging in, create an app. Give it any name.
 Caprover has a marketplace of apps that can be created with one click including postgres, supabase and more.
 ![caprover app marketplace](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/app-market.png)
 
-Next, add a domain name to your app. You should login to your domain registrar and point the domain name to droplet/server's ip address. I am using a subdomain on Namecheap, here's what that looks like.
+Next, add a domain name to your app. You should log in to your domain registrar and point the domain name to the droplet/server's IP address. I am using a subdomain on Namecheap, here's what that looks like:
 ![point domain to ip](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/set-domain.png)
 
 Now, add a wildcard to your domain. The wildcard domain is needed so we can change the CapRover server link from an IP address to a domain name.
