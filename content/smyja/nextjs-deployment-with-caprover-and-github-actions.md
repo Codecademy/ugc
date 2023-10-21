@@ -138,7 +138,7 @@ EXPOSE 3000
 CMD ["npm", "run", "start"]
 ```
 
-The first stage of the build uses the node:16-alpine image as a base. This image is a lightweight version of Node.js that is optimized for production use. The `ENV NODE_ENV=production` line sets the environment variable `NODE_ENV` to production. This tells Next.js to use its production build configuration.
+The first stage of the build uses the `node:16-alpine` image as a base. This image is a lightweight version of Node.js that is optimized for production use. The `ENV NODE_ENV=production` line sets the environment variable `NODE_ENV` to production. This tells Next.js to use its production build configuration.
 
 The second stage of the build copies the application files into the image. The `COPY package*.json ./` line copies the package.json and package-lock.json files into the image. These files are used to install the application's dependencies. The COPY ./.next ./.next line copies the built application files into the image. These files are the static files that are served by the Next.js server.
 
