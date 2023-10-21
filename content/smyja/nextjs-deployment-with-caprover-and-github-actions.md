@@ -9,14 +9,13 @@ Tags:
   - "GitHub"
   - "JavaScript"
 CatalogContent:
-  - "introduction-to-javascript"
-  - "paths/front-end-engineer-career-path"
+  - ""
 ---
 
 _**Prerequisites:** Understanding of JavaScript._
 _**Versions:** Node v18.12.1_
 
-## Introduction
+### Introduction
 
 Next.js is an open-source React framework that enables you to create server-rendered, static generated, and hybrid web applications. It provides a number of features that make it easy to build high-performance web applications, including:
 
@@ -42,13 +41,14 @@ Workflows are triggered by events, such as code pushes, pull requests, or schedu
 ## Why use Next.js, Caprover, and Github Actions together?
 
 Next.js, Caprover, and GitHub Actions are all powerful tools that can be used together to create and deploy web applications. Indiehackers often use these tools because they are:
-  - Efficient: These tools can help indiehackers save time and resources by automating tasks and making it easy to deploy applications.
-  - Scalable: These tools can be scaled to handle large traffic loads.
-  - Cost-effective: These tools are often free or low-cost, making them a good option for indiehackers with limited budgets.
+
+- Efficient: These tools can help indiehackers save time and resources by automating tasks and making it easy to deploy applications.
+- Scalable: These tools can be scaled to handle large traffic loads.
+- Cost-effective: These tools are often free or low-cost, making them a good option for indiehackers with limited budgets.
 
 ### Setting up Caprover on Digital Ocean
 
-Sign up on [Digitalocean](https://digitalocean.com) if you don't have an account yet. 
+Sign up on [Digitalocean](https://digitalocean.com) if you don't have an account yet.
 Once you have signed up, create a droplet.
 
 ![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/droplets.png)
@@ -56,7 +56,6 @@ Once you have signed up, create a droplet.
 Next, select caprover from the marketplace.
 
 ![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/caprover-marketplace.png)
-
 
 Choose a region, specify the CPU as 1GB RAM, you can always upgrade it to a higher RAM.
 ![Specify CPU](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/cpu-choice.png)
@@ -93,11 +92,11 @@ Our website is live now, this is default page for caprover.
 
 ### Setting up a NextJs app
 
-Follow the guide on [Nextjs Docs](https://nextjs.org/docs/getting-started/installation) to create a Next.js app. 
-Once that's setup, we will create a cluster for the app. 
+Follow the guide on [Nextjs Docs](https://nextjs.org/docs/getting-started/installation) to create a NextJs app.
+Once that's setup, we will create a cluster for the app.
 ![remote registry](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/remote-registry.png)
 
-To add a private Docker registry to CapRover, you will need to provide your username, personal access token(begins with ghp_), domain, and image prefix. We will be using the GitHub Container Registry (ghcr.io), your username would be your GitHub username, your password would be a personal token that you create with read package access, your domain would be ghcr.io, and your image prefix would be your GitHub username.
+To add a private Docker registry to CapRover, you will need to provide your username, personal access token(begins with ghp\_), domain, and image prefix. We will be using the GitHub Container Registry (ghcr.io), your username would be your GitHub username, your password would be a personal token that you create with read package access, your domain would be ghcr.io, and your image prefix would be your GitHub username.
 
 If your Docker images are stored in the format `your-username/your-image`, then you should use your GitHub username as your image prefix. Otherwise, if your images are stored in the format `my-org/my-image`, where `my-org` is your GitHub organization, then you should use `my-org` as your image prefix.
 
@@ -113,7 +112,7 @@ Navigate to the deployments tab and enable app token, the token generated will b
 
 Caprover uses Docker to create apps, to deploy our Nextjs app we will create a Dockerfile
 
-```docker 
+```docker
 FROM node:16-alpine
 
 # Set working directory
@@ -138,7 +137,7 @@ EXPOSE 3000
 CMD ["npm", "run", "start"]
 ```
 
-The first stage of the build uses the `node:16-alpine` image as a base. This image is a lightweight version of Node.js that is optimized for production use. The `ENV NODE_ENV=production` line sets the environment variable `NODE_ENV` to production. This tells Next.js to use its production build configuration.
+The first stage of the build uses the node:16-alpine image as a base. This image is a lightweight version of Node.js that is optimized for production use. The `ENV NODE_ENV=production` line sets the environment variable `NODE_ENV` to production. This tells Next.js to use its production build configuration.
 
 The second stage of the build copies the application files into the image. The `COPY package*.json ./` line copies the package.json and package-lock.json files into the image. These files are used to install the application's dependencies. The COPY ./.next ./.next line copies the built application files into the image. These files are the static files that are served by the Next.js server.
 
@@ -151,10 +150,11 @@ Now, we need to specify the `PORT` on Caprover as 3000
 ![container port](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/container-port.png)
 
 Caprover also uses a `captain-definition` file which specifies the path tothe Dockerfile. For our Nextjs app, the `captain-definition` file and the Dockerfile are to be placed at the root of our app along with the `package.json` file.
+
 ```json
 {
-    "schemaVersion": 2,
-    "dockerfilePath": "Dockerfile"
+  "schemaVersion": 2,
+  "dockerfilePath": "Dockerfile"
 }
 ```
 
@@ -165,76 +165,74 @@ The yaml file should contain the below code.
 name: Deploy to caprover instance.
 
 env:
-    CONTEXT_DIR: './'
-    IMAGE_NAME: ${{ github.repository }}
-    DOCKERFILE: ./Dockerfile
-    # CAPROVER_APP: myapp-staging
-    DOCKER_REGISTRY: ghcr.io
+  CONTEXT_DIR: "./"
+  IMAGE_NAME: ${{ github.repository }}
+  DOCKERFILE: ./Dockerfile
+  # CAPROVER_APP: myapp-staging
+  DOCKER_REGISTRY: ghcr.io
 
 on:
-    push:
-        branches:
-            - main
-
+  push:
+    branches:
+      - main
 
 jobs:
-    build-and-publish:
-        runs-on: ubuntu-latest
-        permissions:
-          contents: read
-          packages: write
-        steps:
-            - uses: actions/checkout@v1
-            - name: Cache 
-              uses: actions/cache@v2
-              with:
-                  # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
-                  path: |
-                    ~/.npm
-                    ${{ github.workspace }}/.next/cache
-                  # Generate a new cache whenever packages or source files change.
-                  key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx') }}
-                  # If source files changed but packages didn't, rebuild from a prior cache.
-                  restore-keys: |
-                    ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
-              with:
-                node-version: ${{ matrix.node-version }}
-                cache: "npm"
-            - run: npm ci
-            - run: npm run build --if-present
-            - run: npm run test --if-present
-           
-            - name: Log in to the Container registry
-              uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
-              with:
-                  registry: ${{ env.DOCKER_REGISTRY }}
-                  username: ${{ github.actor }}
-                  password: ${{ secrets.GITHUB_TOKEN }}
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v1
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/.next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm run test --if-present
 
-            - name: Extract metadata (tags, labels) for Docker
-              id: meta
-              uses: docker/metadata-action@v4
-              with:
-                images: ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}
+      - name: Log in to the Container registry
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          registry: ${{ env.DOCKER_REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Build and push Docker image
-              uses: docker/build-push-action@v3
-              with:
-                context: .
-                push: true
-                tags: ${{ steps.meta.outputs.tags }}
-                labels: ${{ steps.meta.outputs.labels }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}
 
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
-            - name: Deploy to CapRover
-              uses: caprover/deploy-from-github@d76580d79952f6841c453bb3ed37ef452b19752c
-              with:
-                  server: ${{ secrets.CAPROVER_SERVER }}
-                  app: ${{ secrets.APP_NAME }}
-                  token: '${{ secrets.APP_TOKEN }}'
-                  image: ${{ steps.meta.outputs.tags }}
+      - name: Deploy to CapRover
+        uses: caprover/deploy-from-github@d76580d79952f6841c453bb3ed37ef452b19752c
+        with:
+          server: ${{ secrets.CAPROVER_SERVER }}
+          app: ${{ secrets.APP_NAME }}
+          token: "${{ secrets.APP_TOKEN }}"
+          image: ${{ steps.meta.outputs.tags }}
 ```
 
 The code provided is a GitHub Actions workflow file for deploying a Docker image to a CapRover instance. CapRover is a multi-purpose deployment tool that simplifies the process of deploying applications to your own servers.
