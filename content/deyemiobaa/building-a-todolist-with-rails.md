@@ -1,5 +1,5 @@
 ---
-Title: "Bulding a ToDo List with Ruby on Rails"
+Title: "Building a ToDo List with Ruby on Rails"
 Description: "Learn how to build a ToDo List with Ruby on Rails"
 DatePublished: "2023-07-07"
 Categories:
