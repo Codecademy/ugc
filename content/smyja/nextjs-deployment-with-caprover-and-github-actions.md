@@ -104,7 +104,8 @@ If your Docker images are stored in the format `your-username/your-image`, then 
 Once you have provided these credentials, CapRover will be able to pull images from your private Docker registry.
 
 Your created registry would show:
-![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/docker-registeries.png)
+
+![created CapRover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/docker-registeries.png)
 
 Navigate to the deployments tab and enable app token, the token generated will be needed for this deployment.
 
