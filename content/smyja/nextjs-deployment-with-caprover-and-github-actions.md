@@ -108,7 +108,7 @@ Your created registry would show:
 
 Navigate to the deployments tab and enable app token, the token generated will be needed for this deployment.
 
-![github actions settings](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/enable-token.png)
+![GitHub actions settings](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/enable-token.png)
 
 Caprover uses Docker to create apps, to deploy our Nextjs app we will create a Dockerfile
 
