@@ -147,6 +147,7 @@ The `EXPOSE 3000` line exposes port 3000 on the image. This is the port that the
 The `CMD ["npm", "run", "start"]` line tells Docker to run the npm start command when the container is started. This command will start the Next.js server.
 
 Now, we need to specify the `PORT` on Caprover as 3000
+
 ![container port](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/container-port.png)
 
 Caprover also uses a `captain-definition` file which specifies the path tothe Dockerfile. For our Nextjs app, the `captain-definition` file and the Dockerfile are to be placed at the root of our app along with the `package.json` file.
