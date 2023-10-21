@@ -102,7 +102,8 @@ To add a private Docker registry to CapRover, you will need to provide your user
 If your Docker images are stored in the format `your-username/your-image`, then you should use your GitHub username as your image prefix. Otherwise, if your images are stored in the format `my-org/my-image`, where `my-org` is your GitHub organization, then you should use `my-org` as your image prefix.
 
 Once you have provided these credentials, CapRover will be able to pull images from your private Docker registry.
-Your created registry would show
+
+Your created registry would show:
 ![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/docker-registeries.png)
 
 Navigate to the deployments tab and enable app token, the token generated will be needed for this deployment.
