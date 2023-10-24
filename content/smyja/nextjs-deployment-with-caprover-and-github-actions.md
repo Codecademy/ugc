@@ -99,7 +99,7 @@ Our website is live now, this is the default page for CapRover.
 ### Setting up a NextJs app
 
 Follow the guide on [Nextjs Docs](https://nextjs.org/docs/getting-started/installation) to create a Next.js app. 
-Once that's setup, we will create a cluster for the app. 
+Once that's set up, we will create a cluster for the app. 
 
 ![remote registry](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/remote-registry.png)
 
