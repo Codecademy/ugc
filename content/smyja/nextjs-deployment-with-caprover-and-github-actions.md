@@ -48,17 +48,21 @@ Next.js, Caprover, and GitHub Actions are all powerful tools that can be used to
 
 ### Setting up Caprover on Digital Ocean
 
-Sign up on [Digitalocean](https://digitalocean.com) if you don't have an account yet. 
+Sign up on [Digital Ocean](https://digitalocean.com) if you don't have an account yet. 
+
+> **Note:** In order to complete the signup process, Digital Ocean requires a payment method to be set up in order to verify the identity of new members.
+
 Once you have signed up, create a droplet.
 
-![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/droplets.png)
+![created CapRover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/droplets.png)
 
-Next, select caprover from the marketplace.
+Next, select CapRover from the marketplace.
 
-![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/caprover-marketplace.png)
+![created CapRover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/caprover-marketplace.png)
 
 
 Choose a region, specify the CPU as 1GB RAM, you can always upgrade it to a higher RAM.
+
 ![Specify CPU](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/cpu-choice.png)
 
 Once the droplet has been created, you can access the caprover dashboard by visiting http://YOUR_IP_ADDRESS:3000 or click the `Get started` link ,then the Quick access to Caprover console.
@@ -68,12 +72,12 @@ Once the droplet has been created, you can access the caprover dashboard by visi
 The quick access button can be found here.
 ![caprover quick access](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/caprover-quick-access.png)
 
-The default login for caprover apps is `captain42`, ensure you change it from your dashboard settings.
+The default login for CapRover apps is `captain42`, ensure you change it from your dashboard settings.
 
 After logging in, create an app. Give it any name.
 ![create caprover app](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/caprover-app.png)
 
-Caprover has a marketplace of apps that can be created with one click including postgres, supabase and more.
+Caprover has a marketplace of apps that can be created with one click including Postgres, Supabase, and more.
 ![caprover app marketplace](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/app-market.jpg)
 
 Next, add a domain name to your app. You should log in to your domain registrar and point the domain name to the droplet/server's IP address. I am using a subdomain on Namecheap, here's what that looks like:
@@ -83,21 +87,23 @@ Now, add a wildcard to your domain. The wildcard domain is needed so we can chan
 ![domain wildcard](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/root-domain.png)
 
 Select force HTTPS and click the "save and update" button. This redirects HTTP traffic to HTTPS.
-![force https](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/force-https.png)
+![force HTTPS](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/force-https.png)
 
 Enable HTTPS for your domain. CapRover issues lets encrypt the certificate for domains.
 ![enable https certificate](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/enable-https.png)
 
-Our website is live now, this is default page for caprover.
-![created caprover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/website.png)
+Our website is live now, this is the default page for CapRover.
+
+![created CapRover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/website.png)
 
 ### Setting up a NextJs app
 
 Follow the guide on [Nextjs Docs](https://nextjs.org/docs/getting-started/installation) to create a Next.js app. 
 Once that's setup, we will create a cluster for the app. 
+
 ![remote registry](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/remote-registry.png)
 
-To add a private Docker registry to CapRover, you will need to provide your username, personal access token(begins with ghp_), domain, and image prefix. We will be using the GitHub Container Registry (ghcr.io), your username would be your GitHub username, your password would be a personal token that you create with read package access, your domain would be ghcr.io, and your image prefix would be your GitHub username.
+To add a private Docker registry to CapRover, you must provide your username, personal access token (begins with ghp_), domain, and image prefix. We will be using the GitHub Container Registry (ghcr.io), your username will be your GitHub username, your password will be a personal token that you create with read package access, your domain will be ghcr.io, and your image prefix will be your GitHub username.
 
 If your Docker images are stored in the format `your-username/your-image`, then you should use your GitHub username as your image prefix. Otherwise, if your images are stored in the format `my-org/my-image`, where `my-org` is your GitHub organization, then you should use `my-org` as your image prefix.
 
@@ -111,7 +117,7 @@ Navigate to the deployments tab and enable app token, the token generated will b
 
 ![GitHub actions settings](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/enable-token.png)
 
-Caprover uses Docker to create apps, to deploy our Nextjs app we will create a Dockerfile
+CapRover uses Docker to create apps, to deploy our Next.js app we will create a Dockerfile
 
 ```docker 
 FROM node:16-alpine
@@ -140,17 +146,17 @@ CMD ["npm", "run", "start"]
 
 The first stage of the build uses the `node:16-alpine` image as a base. This image is a lightweight version of Node.js that is optimized for production use. The `ENV NODE_ENV=production` line sets the environment variable `NODE_ENV` to production. This tells Next.js to use its production build configuration.
 
-The second stage of the build copies the application files into the image. The `COPY package*.json ./` line copies the package.json and package-lock.json files into the image. These files are used to install the application's dependencies. The COPY ./.next ./.next line copies the built application files into the image. These files are the static files that are served by the Next.js server.
+The second stage of the build copies the application files into the image. The `COPY package*.json ./` line copies the `package.json` and `package-lock.json` files into the image. These files are used to install the application's dependencies. The `COPY ./.next ./.next` line copies the built application files into the image. These files are the static files that are served by the Next.js server.
 
 The `EXPOSE 3000` line exposes port 3000 on the image. This is the port that the Next.js server will listen on.
 
-The `CMD ["npm", "run", "start"]` line tells Docker to run the npm start command when the container is started. This command will start the Next.js server.
+The `CMD ["npm", "run", "start"]` line tells Docker to run the `npm start` command when the container is started. This command will start the Next.js server.
 
 Now, we need to specify the `PORT` on Caprover as 3000
 
 ![container port](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/container-port.png)
 
-Caprover also uses a `captain-definition` file which specifies the path tothe Dockerfile. For our Nextjs app, the `captain-definition` file and the Dockerfile are to be placed at the root of our app along with the `package.json` file.
+Caprover also uses a `captain-definition` file which specifies the path to the Dockerfile. For our Next.js app, the `captain-definition` file and the Dockerfile are to be placed at the root of our app along with the `package.json` file.
 ```json
 {
     "schemaVersion": 2,
@@ -158,7 +164,7 @@ Caprover also uses a `captain-definition` file which specifies the path tothe Do
 }
 ```
 
-To ensure every change we make to our nextjs app through commits automatically shows on the live website, we will need a workflow file with github actions. Create a` .github` folder and a subfolder `workflows` with `release.yaml` file in this subfolder.
+To ensure every change we make to our Next.js app through commits automatically shows on the live website, we will need a workflow file with GitHub actions. Create a `.github` folder and a subfolder `workflows` with `release.yaml` file in this subfolder.
 The yaml file should contain the below code.
 
 ```yaml
@@ -264,11 +270,11 @@ To configure your secrets, navigate to your Github repository's settings and cli
 ![github actions settings](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/gh-actions-settings.png)
 
 Your `CAPROVER_SERVER` should be similar to this` https://captain.example.scrapeweb.page`
-APP_NAME is `server1`, the name you specified when creating the app.
+`APP_NAME` is `server1`, the name you specified when creating the app.
 `APP_TOKEN` is the Token generated when we enabled app token on the dashboard.
 
 ## Conclusion
 
-We’ve now learned how to deploy a NextJS app with Caprover and connect a domain to it.
+We’ve now learned how to deploy a Next.js app with Caprover and connect a domain to it.
 
 Source code: https://github.com/smyja/nextapp
