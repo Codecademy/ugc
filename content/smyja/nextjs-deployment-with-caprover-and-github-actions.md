@@ -77,8 +77,13 @@ The default login for CapRover apps is `captain42`, ensure you change it from yo
 After logging in, create an app. Give it any name.
 ![create caprover app](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/caprover-app.png)
 
+<<<<<<< HEAD
 Caprover has a marketplace of apps that can be created with one click including Postgres, Supabase, and more.
 ![caprover app marketplace](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/app-market.jpg)
+=======
+Caprover has a marketplace of apps that can be created with one click including postgres, supabase and more.
+![Caprover app marketplace](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/app-market.jpg)
+>>>>>>> 73f1acf (resolved comments)
 
 Next, add a domain name to your app. You should log in to your domain registrar and point the domain name to the droplet/server's IP address. I am using a subdomain on Namecheap, here's what that looks like:
 ![point domain to ip](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/set-domain.png)
@@ -98,9 +103,14 @@ Our website is live now, this is the default page for CapRover.
 
 ### Setting up a NextJs app
 
+<<<<<<< HEAD
 Follow the guide on [Nextjs Docs](https://nextjs.org/docs/getting-started/installation) to create a Next.js app. 
 Once that's set up, we will create a cluster for the app. 
 
+=======
+Follow the guide on [Next.js Docs](https://nextjs.org/docs/getting-started/installation) to create a Next.js app. 
+Once that's setup, we will create a cluster for the app. 
+>>>>>>> 73f1acf (resolved comments)
 ![remote registry](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/remote-registry.png)
 
 To add a private Docker registry to CapRover, you must provide your username, personal access token (begins with ghp_), domain, and image prefix. We will be using the GitHub Container Registry (ghcr.io), your username will be your GitHub username, your password will be a personal token that you create with read package access, your domain will be ghcr.io, and your image prefix will be your GitHub username.
