@@ -60,7 +60,6 @@ Next, select CapRover from the marketplace.
 
 ![created CapRover droplet](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/caprover-marketplace.png)
 
-
 Choose a region, specify the CPU as 1GB RAM, you can always upgrade it to a higher RAM.
 
 ![Specify CPU](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/cpu-choice.png)
@@ -156,6 +155,7 @@ Now, we need to specify the `PORT` on Caprover as 3000
 ![container port](https://raw.githubusercontent.com/smyja/ugc/nextjs/content/smyja/container-port.png)
 
 Caprover also uses a `captain-definition` file which specifies the path to the Dockerfile. For our Next.js app, the `captain-definition` file and the Dockerfile are to be placed at the root of our app along with the `package.json` file.
+
 ```json
 {
     "schemaVersion": 2,
@@ -258,8 +258,6 @@ jobs:
 ```
 
 The code provided is a GitHub Actions workflow file for deploying a Docker image to a CapRover instance. CapRover is a multi-purpose deployment tool that simplifies the process of deploying applications to your own servers.
-
-
 
 This workflow will trigger a build, test, and deployment whenever a push event occurs on the `main` branch. The Docker image will be built and pushed to the specified container registry, and then it will be deployed to the CapRover instance.
 You will need to set up the necessary secrets in your GitHub repository to provide the CapRover server URL, application name, and application token. Make sure you have the CapRover server up and running and the required secrets configured correctly.
