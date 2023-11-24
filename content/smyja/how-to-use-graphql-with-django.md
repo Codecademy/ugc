@@ -50,7 +50,7 @@ Next, we will activate our new environment `my_env` with either of the following
 source my_env/bin/activate
 
 # Windows
-source/scripts/activate
+source my_env/scripts/activate
 ```
 
 Let's go to the next step.
